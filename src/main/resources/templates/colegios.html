@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <title>Sistema de Inscripciones</title>
-    <meta name="description" content="Sistema de Inscripciones">
-    <meta name="author" content="Grupo7">
+    <meta name="description" content="Sistema de Inscripciones" />
+    <meta name="author" content="Grupo7" />
 
 
 </head>
 
 <body ng-app="inscripciones" ng-controller="mainController">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/app.css">
-    <link rel="stylesheet" href="jquery-ui.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/app.css" />
+    <link rel="stylesheet" href="jquery-ui.min.css" />
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div id="logo"><img src="images/Buenos-Aires-Cuidad.png"></div>
+                <div id="logo"><img src="images/Buenos-Aires-Cuidad.png" /></div>
                 <a class="navbar-brand" href="#">Sistema de Inscripciones</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -46,29 +46,29 @@
                 <i class="glyphicon glyphicon-book"></i> Administrar Colegios
             </uib-tab-heading>
             <div id="top" class="row">
-		<div class="col-sm-3">
-			<h2>Establecimientos</h2>
-		</div>
-		<div class="col-sm-6">
-			
-			<div class="input-group h2">
-				<input name="data[search]" class="form-control" id="search" type="text" placeholder="Buscar colegio...">
-				<span class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
-			</div>
-			
-		</div>
-		<div class="col-sm-3">
-			<a href="add.html" class="btn btn-primary pull-right h2">Nuevo Colegio</a>
-		</div>
-	</div> <!-- /#top -->
+				<div class="col-sm-3">
+					<h2>Establecimientos</h2>
+				</div>
+				<div class="col-sm-6">
+					
+					<div class="input-group h2">
+						<input name="data[search]" class="form-control" id="search" type="text" placeholder="Buscar colegio..." />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</bsutton>
+						</span>
+					</div>
+					
+				</div>
+				<div class="col-sm-3">
+					<a href="add.html" class="btn btn-primary pull-right h2">Nuevo Colegio</a>
+				</div>
+			</div> <!-- /#top -->
  
  
- 	<hr />
- 	<div id="list" class="row">
+			<hr />
+			<div id="list" class="row">
 	
 	<div class="table-responsive col-md-12">
 		<table class="table table-striped" cellspacing="0" cellpadding="0">
@@ -118,9 +118,8 @@
 	</div>
 	
 	</div> <!-- /#list -->
-       
+       </uib-tab>
     </uib-tabset>
-    <ul uib-pager total-items="6" ng-model="dummy"></ul>
 </body>
 
 </html>
