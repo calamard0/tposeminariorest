@@ -1,23 +1,31 @@
 package ar.edu.uade.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ar.edu.uade.dto.Prueba;
+import ar.edu.uade.dao.GameRepository;
+import ar.edu.uade.model.Game;
 
 @RestController
-@RequestMapping(PruebaController.PRUEBA_BASE_URI)
 public class PruebaController {
 
-	public static final String PRUEBA_BASE_URI = "svc/v1/pruebas";
+	@Autowired
+	 GameRepository gameRepository;
 	
-	@RequestMapping(value = "{pruebaNumero}")
-	public Prueba getPrueba(@PathVariable final int pruebaNumero) {
-		Prueba prueba = new Prueba();
-		prueba.setValor("Valor1");
-		prueba.setId(pruebaNumero);
-		return prueba;
+	@RequestMapping(value = "/insertGame/{nameGame}/{descriptionGame}")
+	public void setGame(@PathVariable final String nameGame,@PathVariable final String descriptionGame) {
+		
+//		gameRepository.deleteAll();
+		
+		Game pandemic = new Game(nameGame, descriptionGame);
+		gameRepository.save(pandemic);
+	}
+	
+	@RequestMapping(value = "/games/{gameNumber}")
+	public Game getGame(@PathVariable final int gameNumber) {
+		return gameRepository.findOne(gameNumber);
 	}
 	
 }
