@@ -10,9 +10,9 @@
         
             var model = {
                 nivel: {
-                    nivel: '1',
-                    modalidad: '1',
-                    grado: '1'
+                    nivel: null,
+                    modalidad: null,
+                    grado: null
                 },
                 aspirante: {
                     fechaNac: null,
@@ -75,11 +75,12 @@
 
                 },
                 adicionales: {
-                    concurrio: {
-                        nivel: null,
-                        escuela: null
+                    jardinEstatal: {
+                        codigo: null,
+                        nombre: null,
+                        direccion: null
                     },
-                    hermano: {
+                    hermanoEnColegio: {
                         nombre: null,
                         apellido: null,
                         fechaNac: null,
@@ -91,15 +92,11 @@
                         grado: null,
                         escuela: null
                     },
-                    responsableTrabaja: {
+                    responsableEnColegio: {
                         ficha: null,
                         nivel: null,
                         escuela: null
-                    },
-                    preinscripcionesVinculadas: [{
-                        numero: null,
-                        parentesco: null
-                    }]
+                    }
                 },
                 colegios: [
                     {

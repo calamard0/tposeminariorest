@@ -6,6 +6,11 @@
             
             var vm = this;
         
+            vm.certDiscapacidadOptions = [
+                {value: false, label: 'No'},
+                {value: true, label: 'Si'},
+            ];
+        
             vm.inlineOptions = {
                 minDate: new Date(1920, 1, 1),
                 maxDate: new Date(),

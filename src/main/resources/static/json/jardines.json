@@ -1,0 +1,2144 @@
+{
+  "jardin": [
+    {
+      "codigo": "1",
+      "nombre": "Jardín de Infantes Nucleado B DE 19 (Esc. Prim. Nº 22 DE 19) Homero Manzi",
+      "direccion": "MOM 2380"
+    },
+    {
+      "codigo": "2",
+      "nombre": "Jardín de Infantes Nucleado B DE 19 (Esc. Prim. Nº 01 DE 19) Homero Manzi",
+      "direccion": "ALAGON 300"
+    },
+    {
+      "codigo": "3",
+      "nombre": "Jardín de Infantes Nucleado B DE 19 (Esc. Prim. Nº 10 DE 19) Homero Manzi",
+      "direccion": "ANIBAL PEDRO ARBELETCHE 1052"
+    },
+    {
+      "codigo": "4",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 19 Manuel Belgrano",
+      "direccion": "PTE. CAMILO TORRES Y TENORIO 2147"
+    },
+    {
+      "codigo": "5",
+      "nombre": "Jardín de Infantes Nucleado D DE 18 (Esc. Prim. Nº 08 DE 18)",
+      "direccion": "PEDRO CALDERON DE LA BARCA 157"
+    },
+    {
+      "codigo": "6",
+      "nombre": "Jardín de Infantes Nucleado D DE 18 (Esc. Prim. Nº 07 DE 18)",
+      "direccion": "AVDA. RIVADAVIA 9799"
+    },
+    {
+      "codigo": "7",
+      "nombre": "Jardín de Infantes Nucleado D DE 18 (Esc. Prim. Nº 10 DE 18)",
+      "direccion": "DR. LUIS BELAUSTEGUI 4949"
+    },
+    {
+      "codigo": "8",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 05",
+      "direccion": "LUZURIAGA 1571"
+    },
+    {
+      "codigo": "9",
+      "nombre": "Jardín de Infantes Común Nº 01 DE 18 República Argentina",
+      "direccion": "CERVANTES 1927"
+    },
+    {
+      "codigo": "10",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 18",
+      "direccion": "LASCANO 4044"
+    },
+    {
+      "codigo": "11",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 11",
+      "direccion": "AVDA. SAN PEDRITO 341"
+    },
+    {
+      "codigo": "12",
+      "nombre": "Jardín de Infantes Nucleado B DE 10 (Esc. Prim. Nº 14 DE 10)",
+      "direccion": "ROQUE PEREZ 3545"
+    },
+    {
+      "codigo": "13",
+      "nombre": "Jardín de Infantes Nucleado B DE 10 (Esc. Prim. Nº 12 DE 10)",
+      "direccion": "CRAMER 3271"
+    },
+    {
+      "codigo": "14",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 12 Provimcia de Chaco",
+      "direccion": "AVDA. AVELLANEDA 2555"
+    },
+    {
+      "codigo": "15",
+      "nombre": "Jardín de Infantes Nucleado B DE 08 (Esc. Prim. Nº 06 DE 08)",
+      "direccion": "AVDA. SAN JUAN 4396"
+    },
+    {
+      "codigo": "16",
+      "nombre": "Jardín de Infantes Nucleado B DE 08 (Esc. Prim. Nº 08 DE 08)",
+      "direccion": "AVDA. JOSE MARIA MORENO 480"
+    },
+    {
+      "codigo": "17",
+      "nombre": "Escuela Infantil Nº 04 DE 08",
+      "direccion": "VICTOR MARTINEZ 1780"
+    },
+    {
+      "codigo": "18",
+      "nombre": "Jardín de Infantes Nucleado D DE 12 (Esc. Prim. Nº 03 DE 12)",
+      "direccion": "BACACAY 3732"
+    },
+    {
+      "codigo": "19",
+      "nombre": "Jardín de Infantes Nucleado D DE 12 (Esc. Prim. Nº 09 DE 12)",
+      "direccion": "BACACAY 3542"
+    },
+    {
+      "codigo": "20",
+      "nombre": "Jardín de Infantes Nucleado D DE 12 (Esc. Prim. Nº 24 DE 12)",
+      "direccion": "MORON 3745"
+    },
+    {
+      "codigo": "21",
+      "nombre": "Jardín de Infantes Nucleado A DE 13 (Esc. Prim. Nº 14 DE 13)",
+      "direccion": "SAN PEDRO 5845"
+    },
+    {
+      "codigo": "22",
+      "nombre": "Jardín de Infantes Nucleado A DE 13 (Esc. Prim. Nº 19 DE 13)",
+      "direccion": "ALBARIÑO 2062"
+    },
+    {
+      "codigo": "23",
+      "nombre": "Jardín de Infantes Nucleado A DE 13 (Esc. Prim. Nº 12 DE 13)",
+      "direccion": "LARRAYA 2055"
+    },
+    {
+      "codigo": "24",
+      "nombre": "Jardín de Infantes Integral N° 06 DE 09",
+      "direccion": "AVDA. SANTA FE 5039"
+    },
+    {
+      "codigo": "25",
+      "nombre": "Jardín de Infantes Integral N° 05 DE 09",
+      "direccion": "AVDA. DEL LIBERTADOR 4777"
+    },
+    {
+      "codigo": "26",
+      "nombre": "Jardín de Infantes Nucleado A DE 12 (Esc. Prim. Nº 04 DE 12)",
+      "direccion": "CARACAS 1249"
+    },
+    {
+      "codigo": "27",
+      "nombre": "Jardín de Infantes Nucleado A DE 12 (Esc. Prim. Nº 19 DE 12)",
+      "direccion": "FRAY CAYETANO RODRIGUEZ 95"
+    },
+    {
+      "codigo": "28",
+      "nombre": "Jardín de Infantes Nucleado A DE 12 (Esc. Prim. Nº 01 DE 12)",
+      "direccion": "YERBAL 2370"
+    },
+    {
+      "codigo": "29",
+      "nombre": "Jardín de Infantes Nucleado A DE 12 (Esc. Prim. Nº 05 DE 12)",
+      "direccion": "ARTIGAS 878"
+    },
+    {
+      "codigo": "30",
+      "nombre": "Jardín de Infantes Nucleado B DE 09 (Esc. Prim. Nº 09 DE 09) Jardín de los Puentes",
+      "direccion": "GORRITI 5744"
+    },
+    {
+      "codigo": "31",
+      "nombre": "Jardín de Infantes Nucleado B DE 09 (Esc. Prim. Nº 15 DE 09)",
+      "direccion": "AVDA. FEDERICO LACROZE 2971"
+    },
+    {
+      "codigo": "32",
+      "nombre": "Jardín de Infantes Nucleado B DE 09 (Esc. Prim. Nº 03 DE 09)",
+      "direccion": "ZAPATA 449"
+    },
+    {
+      "codigo": "33",
+      "nombre": "Jardín de Infantes Nucleado A DE 01 (Esc. Prim. Nº 05 DE 01)",
+      "direccion": "RODRIGUEZ PEÑA 747"
+    },
+    {
+      "codigo": "34",
+      "nombre": "Jardín de Infantes Nucleado A DE 01 (Esc. Prim. Nº 07 DE 01)",
+      "direccion": "LIBERTAD 581"
+    },
+    {
+      "codigo": "35",
+      "nombre": "Jardín de Infantes Nucleado A DE 01 (Esc. Prim. Nº 08 DE 01)",
+      "direccion": "TALCAHUANO 680"
+    },
+    {
+      "codigo": "36",
+      "nombre": "Jardín de Infantes Nucleado A DE 01 (Esc. Prim. Nº 09 DE 01)",
+      "direccion": "TTE. GRAL. JUAN DOMINGO PERON 1140"
+    },
+    {
+      "codigo": "37",
+      "nombre": "Jardín de Infantes Común Nº 08 DE 19",
+      "direccion": "AVDA. LAFUENTE 2670"
+    },
+    {
+      "codigo": "38",
+      "nombre": "Jardín de Infantes Integral N°12 DE 21",
+      "direccion": "CAFAYATE 5115"
+    },
+    {
+      "codigo": "39",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 21",
+      "direccion": "BERON DE ASTRADA 5920"
+    },
+    {
+      "codigo": "40",
+      "nombre": "Jardín de Infantes Nucleado C DE 21 (Esc. Prim. Nº 14 DE 21)",
+      "direccion": "CAÑADA DE GOMEZ 4548"
+    },
+    {
+      "codigo": "41",
+      "nombre": "Jardín de Infantes Nucleado C DE 21 (Esc. Prim. Nº 13 DE 21)",
+      "direccion": "AVDA. COMANDANTE LUIS PIEDRA BUENA 4863"
+    },
+    {
+      "codigo": "42",
+      "nombre": "Jardín de Infantes Nucleado B DE 03 (Esc. Prim. Nº 23 DE 03)",
+      "direccion": "PASCO 961"
+    },
+    {
+      "codigo": "43",
+      "nombre": "Jardín de Infantes Nucleado B DE 03 (Esc. Prim. Nº 09 DE 03)",
+      "direccion": "MORENO 2104"
+    },
+    {
+      "codigo": "44",
+      "nombre": "Jardín de Infantes Nucleado B DE 03 (Esc. Prim. Nº 15 DE 03)",
+      "direccion": "MEXICO 2383"
+    },
+    {
+      "codigo": "45",
+      "nombre": "Jardín de Infantes Nucleado B DE 02 (Esc. Prim. Nº 08 DE 02) El Jardín del Abasto",
+      "direccion": "SAN LUIS 3224"
+    },
+    {
+      "codigo": "46",
+      "nombre": "Jardín de Infantes Nucleado B DE 02 (Esc. Prim. Nº 24 DE 02) El Jardín del Abasto",
+      "direccion": "JEAN JAURES 870"
+    },
+    {
+      "codigo": "47",
+      "nombre": "Jardín de Infantes Nucleado D DE 03 (Esc. Prim. Nº 04 DE 03)",
+      "direccion": "VENEZUELA 753"
+    },
+    {
+      "codigo": "48",
+      "nombre": "Jardín de Infantes Nucleado D DE 03 (Esc. Prim. Nº 03 DE 03)",
+      "direccion": "TACUARI 567"
+    },
+    {
+      "codigo": "49",
+      "nombre": "Jardín de Infantes Nucleado C DE 09 (Esc. Prim. Nº 20 DE 09)",
+      "direccion": "DARRAGUEYRA 2369"
+    },
+    {
+      "codigo": "50",
+      "nombre": "Jardín de Infantes Nucleado C DE 09 (Esc. Prim. Nº 23 DE 09)",
+      "direccion": "THAMES 1361"
+    },
+    {
+      "codigo": "51",
+      "nombre": "Jardín de Infantes Nucleado C DE 09 (Esc. Prim. Nº 01 DE 09)",
+      "direccion": "COSTA RICA 4942"
+    },
+    {
+      "codigo": "52",
+      "nombre": "Jardín de Infantes Común Nº 01 DE 17 Pablo Neruda",
+      "direccion": "TINOGASTA 5784"
+    },
+    {
+      "codigo": "53",
+      "nombre": "Jardín de Infantes Nucleado C DE 11 (Esc. Prim. Nº 10 DE 11)",
+      "direccion": "AVDA. LAFUENTE 559"
+    },
+    {
+      "codigo": "54",
+      "nombre": "Jardín de Infantes Nucleado C DE 11 (Esc. Prim. Nº 09 DE 11)",
+      "direccion": "CNEL. RAMON L. FALCON 2934"
+    },
+    {
+      "codigo": "55",
+      "nombre": "Jardín de Infantes Nucleado C DE 11 (Esc. Prim. Nº 08 DE 11)",
+      "direccion": "VARELA 358"
+    },
+    {
+      "codigo": "56",
+      "nombre": "Jardín de Infantes Nucleado C DE 11 (Esc. Prim. Nº 05 DE 11)",
+      "direccion": "PORTELA 734"
+    },
+    {
+      "codigo": "57",
+      "nombre": "Escuela Infantil Nº 02 DE 14 Hospital Tornú",
+      "direccion": "COMBATIENTES DE MALVINAS 3002"
+    },
+    {
+      "codigo": "58",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 07 La Porteña",
+      "direccion": "YERBAL 1548"
+    },
+    {
+      "codigo": "59",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 13",
+      "direccion": "DELLEPIANE SUR 4750"
+    },
+    {
+      "codigo": "60",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 08",
+      "direccion": "SARAZA 1353"
+    },
+    {
+      "codigo": "61",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 19",
+      "direccion": "CORRALES 3420"
+    },
+    {
+      "codigo": "62",
+      "nombre": "Jardín de Infantes Integral N° 02 DE 15",
+      "direccion": "TRONADOR 2861"
+    },
+    {
+      "codigo": "63",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 06 José Francisco de San Martín",
+      "direccion": "HUMBERTO Iº 2861"
+    },
+    {
+      "codigo": "64",
+      "nombre": "Jardín de Infantes Común Nº 05 DE 06",
+      "direccion": "CATULO CASTILLO 2750"
+    },
+    {
+      "codigo": "65",
+      "nombre": "Jardín de Infantes Nucleado D DE 11 (Esc. Prim. Nº 15 DE 11)",
+      "direccion": "AVDA. CARABOBO 253"
+    },
+    {
+      "codigo": "66",
+      "nombre": "Jardín de Infantes Nucleado D DE 11 (Esc. Prim. Nº 07 DE 11)",
+      "direccion": "PUMACAHUA 1247"
+    },
+    {
+      "codigo": "67",
+      "nombre": "Jardín de Infantes Nucleado D DE 11 (Esc. Prim. Nº 13 DE 11)",
+      "direccion": "LAUTARO 1440"
+    },
+    {
+      "codigo": "68",
+      "nombre": "Jardín de Infantes Nucleado A DE 10 (Esc. Prim. Nº 09 DE 10)",
+      "direccion": "O HIGGINS 3050"
+    },
+    {
+      "codigo": "69",
+      "nombre": "Jardín de Infantes Nucleado A DE 10 (Esc. Prim. Nº 10 DE 10)",
+      "direccion": "11 DE SEPTIEMBRE DE 1888 3451"
+    },
+    {
+      "codigo": "70",
+      "nombre": "Jardín de Infantes Nucleado A DE 10 (Esc. Prim. Nº 20 DE 10)",
+      "direccion": "AVDA. CONGRESO 1553"
+    },
+    {
+      "codigo": "71",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 05",
+      "direccion": "CACHI 77"
+    },
+    {
+      "codigo": "72",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 05 (anexo)",
+      "direccion": "TRAFUL 3847"
+    },
+    {
+      "codigo": "73",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 06 Fryda Schultz de Mantovani",
+      "direccion": "SAAVEDRA 695"
+    },
+    {
+      "codigo": "74",
+      "nombre": "ENS Nº 03 Bernardino Rivadavia (Nivel Inicial)",
+      "direccion": "BOLIVAR 1235"
+    },
+    {
+      "codigo": "75",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 04",
+      "direccion": "DR. EDUARDO BRAUN MENENDEZ 260"
+    },
+    {
+      "codigo": "76",
+      "nombre": "Jardín de Infantes Nucleado D DE 13 (Esc. Prim. Nº 01 DE 13)",
+      "direccion": "RAFAELA 5159"
+    },
+    {
+      "codigo": "77",
+      "nombre": "Jardín de Infantes Nucleado D DE 13 (Esc. Prim. Nº 06 DE 13)",
+      "direccion": "CNEL. RAMON L. FALCON 4801"
+    },
+    {
+      "codigo": "78",
+      "nombre": "Jardín de Infantes Nucleado D DE 13 (Esc. Prim. Nº 07 DE 13)",
+      "direccion": "AVDA. JUAN BAUTISTA ALBERDI 4755"
+    },
+    {
+      "codigo": "79",
+      "nombre": "Jardín de Infantes Nucleado D DE 13 (Esc. Prim. Nº 21 DE 13)",
+      "direccion": "JOSE ENRIQUE RODO 4431"
+    },
+    {
+      "codigo": "80",
+      "nombre": "Jardín de Infantes Nucleado D DE 13 (Esc. Prim. Nº 24 DE 13)",
+      "direccion": "AVDA. BRUIX 4620"
+    },
+    {
+      "codigo": "81",
+      "nombre": "Escuela Infantil Nº 06 DE 10 Madre Eufrasia Iaconis",
+      "direccion": "BLANCO ENCALADA 3471"
+    },
+    {
+      "codigo": "82",
+      "nombre": "Jardín de Infantes Nucleado B DE 01 (Esc. Prim. Nº 14 DE 01)",
+      "direccion": "SARMIENTO 2250"
+    },
+    {
+      "codigo": "83",
+      "nombre": "Jardín de Infantes Nucleado B DE 01 (Esc. Prim. Nº 10 DE 01)",
+      "direccion": "LAVALLE 2366"
+    },
+    {
+      "codigo": "84",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 04 Benito Quinquela Martin",
+      "direccion": "GRAL. GREGORIO ARAOZ DE LAMADRID 648"
+    },
+    {
+      "codigo": "85",
+      "nombre": "Jardín de Infantes Nucleado B DE 04 (Esc. Prim. Nº 01 DE 04)",
+      "direccion": "ARISTOBULO DEL VALLE 471"
+    },
+    {
+      "codigo": "86",
+      "nombre": "Jardín de Infantes Nucleado B DE 04 (Esc. Prim. Nº 02 DE 04)",
+      "direccion": "WENCESLAO VILLAFAÑE 452"
+    },
+    {
+      "codigo": "87",
+      "nombre": "Jardín de Infantes Nucleado B DE 04 (Esc. Prim. Nº 10 DE 04)",
+      "direccion": "GRAL. GREGORIO ARAOZ DE LAMADRID 499"
+    },
+    {
+      "codigo": "88",
+      "nombre": "Jardín de Infantes Nucleado B DE 04 (Esc. Prim. Nº 14 DE 04)",
+      "direccion": "NECOCHEA 1136"
+    },
+    {
+      "codigo": "89",
+      "nombre": "Jardín de Infantes Nucleado B DE 05 (Esc. Prim. Nº 06 DE 05)",
+      "direccion": "SAN JOSE 1985"
+    },
+    {
+      "codigo": "90",
+      "nombre": "Jardín de Infantes Nucleado B DE 05 (Esc. Prim. Nº 04 DE 05)",
+      "direccion": "SOLIS 1815"
+    },
+    {
+      "codigo": "91",
+      "nombre": "Jardín de Infantes Nucleado B DE 05 (Esc. Prim. Nº 08 DE 05)",
+      "direccion": "AVDA. AMANCIO ALCORTA 1934"
+    },
+    {
+      "codigo": "92",
+      "nombre": "Jardín de Infantes Nucleado B DE 05 (Esc. Prim. Nº 18 DE 05)",
+      "direccion": "AVDA. CASEROS 2152"
+    },
+    {
+      "codigo": "93",
+      "nombre": "Jardín de Infantes Nucleado B DE 05 (Esc. Prim. Nº 26 DE 05)",
+      "direccion": "PICHINCHA 1873"
+    },
+    {
+      "codigo": "94",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 05 Antonino Aberastain",
+      "direccion": "SAN ANTONIO 1136"
+    },
+    {
+      "codigo": "95",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 03 Juanito Laguna",
+      "direccion": "HUMBERTO Iº 1573"
+    },
+    {
+      "codigo": "96",
+      "nombre": "Jardín de Infantes Nucleado A DE 03 (Esc. Prim. Nº 25 DE 03)",
+      "direccion": "AVDA. SAN JUAN 2277"
+    },
+    {
+      "codigo": "97",
+      "nombre": "Jardín de Infantes Nucleado A DE 03 (Esc. Prim. Nº 21 DE 03)",
+      "direccion": "COCHABAMBA 1834"
+    },
+    {
+      "codigo": "98",
+      "nombre": "Jardín de Infantes Nucleado A DE 03 (Esc. Prim. Nº 22 DE 03)",
+      "direccion": "AVDA. ENTRE RIOS 1359"
+    },
+    {
+      "codigo": "99",
+      "nombre": "Escuela Infantil Nº 05 DE 21",
+      "direccion": "FONROUGE 4211"
+    },
+    {
+      "codigo": "100",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 01",
+      "direccion": "JUNCAL 3185"
+    },
+    {
+      "codigo": "101",
+      "nombre": "Jardín de Infantes Nucleado C DE 06 (Esc. Prim. Nº 08 DE 06)",
+      "direccion": "MAZA 1913"
+    },
+    {
+      "codigo": "102",
+      "nombre": "Jardín de Infantes Nucleado C DE 06 (Esc. Prim. Nº 25 DE 06)",
+      "direccion": "TARIJA 4136"
+    },
+    {
+      "codigo": "103",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 21",
+      "direccion": "JOSE IGNACIO RUCCI 3961"
+    },
+    {
+      "codigo": "104",
+      "nombre": "Jardín de Infantes Nucleado A DE 18 (Esc. Prim. Nº 03 DE 18)",
+      "direccion": "AVDA. ALVAREZ JONTE 4651"
+    },
+    {
+      "codigo": "105",
+      "nombre": "Jardín de Infantes Nucleado A DE 18 (Esc. Prim. Nº 04 DE 18)",
+      "direccion": "MARCOS PAZ 1732"
+    },
+    {
+      "codigo": "106",
+      "nombre": "Jardín de Infantes Nucleado A DE 18 (Esc. Prim. Nº 17 DE 18)",
+      "direccion": "SANTO TOME 4529"
+    },
+    {
+      "codigo": "107",
+      "nombre": "ENS Nº 01 en Lenguas Vivas Pte. Roque Sáenz Peña (Nivel Inicial)",
+      "direccion": "AVDA. CORDOBA 1951"
+    },
+    {
+      "codigo": "108",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 19",
+      "direccion": "CHARRUA 2850"
+    },
+    {
+      "codigo": "109",
+      "nombre": "Escuela Infantil Nº 04 DE 19 Dr. Ramón Carrillo",
+      "direccion": "AVDA. LACARRA 2202"
+    },
+    {
+      "codigo": "110",
+      "nombre": "Jardín de Infantes Nucleado A DE 15 (Esc. Prim. Nº 02 DE 15)",
+      "direccion": "AVDA. TRIUNVIRATO 4857"
+    },
+    {
+      "codigo": "111",
+      "nombre": "Jardín de Infantes Nucleado A DE 15 (Esc. Prim. Nº 01 DE 15)",
+      "direccion": "AVDA. TRIUNVIRATO 5101"
+    },
+    {
+      "codigo": "112",
+      "nombre": "Jardín de Infantes Nucleado A DE 15 (Esc. Prim. Nº 11 DE 15)",
+      "direccion": "CAPDEVILA 3156"
+    },
+    {
+      "codigo": "113",
+      "nombre": "Jardín de Infantes Nucleado A DE 15 (Esc. Prim. Nº 17 DE 15)",
+      "direccion": "JOSE PASCUAL TAMBORINI 5324"
+    },
+    {
+      "codigo": "114",
+      "nombre": "ENS en Lenguas Vivas Sofía Broquen de Spangenberg (Nivel Inicial)",
+      "direccion": "JUNCAL 3251"
+    },
+    {
+      "codigo": "115",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 01 América Latina",
+      "direccion": "JULIAN ALVAREZ 2849"
+    },
+    {
+      "codigo": "116",
+      "nombre": "Jardín de Infantes Nucleado C DE 01 (Esc. Prim. Nº 18 DE 01)",
+      "direccion": "AVDA. GRAL. LAS HERAS 3086"
+    },
+    {
+      "codigo": "117",
+      "nombre": "Jardín de Infantes Nucleado C DE 01 (Esc. Prim. Nº 21 DE 01)",
+      "direccion": "AYACUCHO 1849"
+    },
+    {
+      "codigo": "118",
+      "nombre": "Jardín de Infantes Nucleado C DE 01 (Esc. Prim. Nº 01 DE 01)",
+      "direccion": "AYACUCHO 1680"
+    },
+    {
+      "codigo": "119",
+      "nombre": "ENS Nº 06 Vicente López y Planes (Nivel Inicial)",
+      "direccion": "GUEMES 3859"
+    },
+    {
+      "codigo": "120",
+      "nombre": "Jardín de Infantes Nucleado C DE 13 (Esc. Prim. Nº 08 DE 13)",
+      "direccion": "PJE. SARAVIA 2358"
+    },
+    {
+      "codigo": "121",
+      "nombre": "Jardín de Infantes Nucleado C DE 13 (Esc. Prim. Nº 05 DE 13)",
+      "direccion": "ZINNY 1641"
+    },
+    {
+      "codigo": "122",
+      "nombre": "Jardín de Infantes Nucleado C DE 13 (Esc. Prim. Nº 16 DE 13)",
+      "direccion": "GRAL. EUGENIO GARZON 4346"
+    },
+    {
+      "codigo": "123",
+      "nombre": "Jardín de Infantes Nucleado C DE 13 (Esc. Prim. Nº 18 DE 13)",
+      "direccion": "SAN PEDRO 4457"
+    },
+    {
+      "codigo": "124",
+      "nombre": "Jardín de Infantes Nucleado B DE 15 (Esc. Prim. Nº 21 DE 15)",
+      "direccion": "MARIANO ACHA 2250"
+    },
+    {
+      "codigo": "125",
+      "nombre": "Jardín de Infantes Nucleado B DE 15 (Esc. Prim. Nº 22 DE 15)",
+      "direccion": "JOSE PASCUAL TAMBORINI 3948"
+    },
+    {
+      "codigo": "126",
+      "nombre": "Jardín de Infantes Nucleado B DE 15 (Esc. Prim. Nº 26 DE 15)",
+      "direccion": "CARBAJAL 4019"
+    },
+    {
+      "codigo": "127",
+      "nombre": "Jardín de Infantes Nucleado B DE 15 (Esc. Prim. Nº 04 DE 15)",
+      "direccion": "AVDA. ALVAREZ THOMAS 3391"
+    },
+    {
+      "codigo": "128",
+      "nombre": "Jardín de Infantes Nucleado B DE 15 (Esc. Prim. Nº 16 DE 15)",
+      "direccion": "AVDA. TRIUNVIRATO 4247"
+    },
+    {
+      "codigo": "129",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 01",
+      "direccion": "JUNCAL 690"
+    },
+    {
+      "codigo": "130",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 18",
+      "direccion": "GUALEGUAYCHU 550"
+    },
+    {
+      "codigo": "131",
+      "nombre": "Jardín de Infantes Nucleado A DE 09 (Esc. Prim. Nº 10 DE 09)",
+      "direccion": "OLLEROS 2315"
+    },
+    {
+      "codigo": "132",
+      "nombre": "Jardín de Infantes Nucleado A DE 09 (Esc. Prim. Nº 07 DE 09)",
+      "direccion": "VIRREY LORETO 3050"
+    },
+    {
+      "codigo": "133",
+      "nombre": "Jardín de Infantes Nucleado A DE 09 (Esc. Prim. Nº 08 DE 09)",
+      "direccion": "ARCE 611"
+    },
+    {
+      "codigo": "134",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 09",
+      "direccion": "PARAGUAY 4301"
+    },
+    {
+      "codigo": "135",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 09 Dr. Alfredo Palacios",
+      "direccion": "URIARTE 2237"
+    },
+    {
+      "codigo": "136",
+      "nombre": "Escuela Infantil Nº 06 DE 06 Hospital Ramos Mejía",
+      "direccion": "VENEZUELA 3158"
+    },
+    {
+      "codigo": "137",
+      "nombre": "Jardín de Infantes Nucleado C DE 07 (Esc. Prim. Nº 12 DE 07)",
+      "direccion": "FRANKLIN 1836"
+    },
+    {
+      "codigo": "138",
+      "nombre": "Jardín de Infantes Nucleado C DE 07 (Esc. Prim. Nº 18 DE 07)",
+      "direccion": "ALEJANDRO MAGARIÑOS CERVANTES 1556"
+    },
+    {
+      "codigo": "139",
+      "nombre": "Jardín de Infantes Nucleado C DE 07 (Esc. Prim. Nº 13 DE 07)",
+      "direccion": "GALICIA 1857"
+    },
+    {
+      "codigo": "140",
+      "nombre": "Jardín de Infantes Nucleado C DE 07 (Esc. Prim. Nº 09 DE 07)",
+      "direccion": "SANCHEZ 1858"
+    },
+    {
+      "codigo": "141",
+      "nombre": "Jardín de Infantes Nucleado C DE 07 (Esc. Prim. Nº 05 DE 07)",
+      "direccion": "MANUEL RICARDO TRELLES 948"
+    },
+    {
+      "codigo": "142",
+      "nombre": "ENS Nº 02 en Lenguas Vivas Mariano Acosta (Nivel Inicial)",
+      "direccion": "GRAL. URQUIZA 277"
+    },
+    {
+      "codigo": "143",
+      "nombre": "Jardín de Infantes Nucleado A DE 08 (Esc. Prim. Nº 11 DE 08)",
+      "direccion": "JUAN B ALBERDI 163"
+    },
+    {
+      "codigo": "144",
+      "nombre": "Jardín de Infantes Nucleado A DE 08 (Esc. Prim. Nº 09 DE 08)",
+      "direccion": "AVDA. LA PLATA 623"
+    },
+    {
+      "codigo": "145",
+      "nombre": "Jardín de Infantes Nucleado A DE 08 (Esc. Prim. Nº 16 DE 08)",
+      "direccion": "DON BOSCO 4200"
+    },
+    {
+      "codigo": "146",
+      "nombre": "Jardín de Infantes Nucleado D DE 07 (Esc. Prim. Nº 23 DE 07)",
+      "direccion": "PRINGLES 263"
+    },
+    {
+      "codigo": "147",
+      "nombre": "Jardín de Infantes Nucleado D DE 07 (Esc. Prim. Nº 21 DE 07)",
+      "direccion": "ROJAS 1554"
+    },
+    {
+      "codigo": "148",
+      "nombre": "Jardín de Infantes Nucleado D DE 07 (Esc. Prim. Nº 11 DE 07)",
+      "direccion": "NICASIO OROÑO 1431"
+    },
+    {
+      "codigo": "149",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 06 Mariano Boedo",
+      "direccion": "CASTRO BARROS 965"
+    },
+    {
+      "codigo": "150",
+      "nombre": "IES Juan B. Justo (Nivel Inicial)",
+      "direccion": "LASCANO 3810"
+    },
+    {
+      "codigo": "151",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 08 Jorge Eduardo Coll",
+      "direccion": "HIPOLITO YRIGOYEN 4238"
+    },
+    {
+      "codigo": "152",
+      "nombre": "Jardín de Infantes Común Nº 05 DE 08 Martha A. Salotti",
+      "direccion": "AVDA. ASAMBLEA 1221"
+    },
+    {
+      "codigo": "153",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 08 DE 20)",
+      "direccion": "FONROUGE 370"
+    },
+    {
+      "codigo": "154",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 04 DE 20)",
+      "direccion": "CNEL. RAMON L. FALCON 6702"
+    },
+    {
+      "codigo": "155",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 09 DE 20)",
+      "direccion": "AVDA. LARRAZABAL 420"
+    },
+    {
+      "codigo": "156",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 12 DE 20)",
+      "direccion": "GARCIA DE COSSIO 5570"
+    },
+    {
+      "codigo": "157",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 15 DE 20)",
+      "direccion": "AVDA. LISANDRO DE LA TORRE 550"
+    },
+    {
+      "codigo": "158",
+      "nombre": "Jardín de Infantes Nucleado B DE 20 (Esc. Prim. Nº 18 DE 20)",
+      "direccion": "MURGUIONDO 76"
+    },
+    {
+      "codigo": "159",
+      "nombre": "Jardín de Infantes Común Nº 07 DE 09 El Jardín de las Glicinas",
+      "direccion": "CONDE 223"
+    },
+    {
+      "codigo": "160",
+      "nombre": "Jardín de Infantes Nucleado D DE 09 (Esc. Prim. Nº 14 DE 09)",
+      "direccion": "AREVALO 1408"
+    },
+    {
+      "codigo": "161",
+      "nombre": "Jardín de Infantes Nucleado D DE 09 (Esc. Prim. Nº 19 DE 09)",
+      "direccion": "HUMBOLDT 742"
+    },
+    {
+      "codigo": "162",
+      "nombre": "Jardín de Infantes Nucleado D DE 09 (Esc. Prim. Nº 18 DE 09)",
+      "direccion": "MALABIA 964"
+    },
+    {
+      "codigo": "163",
+      "nombre": "Jardín de Infantes Nucleado D DE 02 (Esc. Prim. Nº 20 DE 02)",
+      "direccion": "PRINGLES 1165"
+    },
+    {
+      "codigo": "164",
+      "nombre": "Jardín de Infantes Nucleado D DE 02 (Esc. Prim. Nº 18 DE 02)",
+      "direccion": "MARIO BRAVO 234"
+    },
+    {
+      "codigo": "165",
+      "nombre": "Jardín de Infantes Nucleado D DE 02 (Esc. Prim. Nº 19 DE 02)",
+      "direccion": "FRANCISCO ACUÑA DE FIGUEROA 850"
+    },
+    {
+      "codigo": "166",
+      "nombre": "Jardín de Infantes Nucleado D DE 02 (Esc. Prim. Nº 22 DE 02)",
+      "direccion": "SANCHEZ DE BUSTAMANTE 260"
+    },
+    {
+      "codigo": "167",
+      "nombre": "Jardín de Infantes Común Nº 01 DE 15",
+      "direccion": "ROGELIO YRURTIA 5806"
+    },
+    {
+      "codigo": "168",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 16 Prof. Luis Sixto Clara",
+      "direccion": "CUENCA 5049"
+    },
+    {
+      "codigo": "169",
+      "nombre": "ENS Nº 07 José María Torres (Nivel Inicial)",
+      "direccion": "HUMAHUACA 4260"
+    },
+    {
+      "codigo": "170",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 09 Granaderos de San Martín",
+      "direccion": "AVDA. DEL LIBERTADOR 4903"
+    },
+    {
+      "codigo": "171",
+      "nombre": "Jardín de Infantes Integral N° 02 DE 10 Merceditas",
+      "direccion": "ESTOMBA 4307"
+    },
+    {
+      "codigo": "172",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 08 Ciudad de Buenos Aires",
+      "direccion": "AVDA. EVA PERON 1502"
+    },
+    {
+      "codigo": "173",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 09",
+      "direccion": "AGUIRRE 752"
+    },
+    {
+      "codigo": "174",
+      "nombre": "Jardín de Infantes Nucleado C DE 15 (Esc. Prim. Nº 12 DE 15)",
+      "direccion": "VALDENEGRO 3525"
+    },
+    {
+      "codigo": "175",
+      "nombre": "Jardín de Infantes Nucleado C DE 15 (Esc. Prim. Nº 03 DE 15)",
+      "direccion": "MANUELA PEDRAZA 4548"
+    },
+    {
+      "codigo": "176",
+      "nombre": "Jardín de Infantes Nucleado C DE 15 (Esc. Prim. Nº 14 DE 15)",
+      "direccion": "DEHEZA 4728"
+    },
+    {
+      "codigo": "177",
+      "nombre": "Jardín de Infantes Nucleado C DE 15 (Esc. Prim. Nº 18 DE 15)",
+      "direccion": "ARIAS 4763"
+    },
+    {
+      "codigo": "178",
+      "nombre": "Escuela Infantil Nº 05 DE 19 San Lorenzo de Almagro",
+      "direccion": "VARELA 2751"
+    },
+    {
+      "codigo": "179",
+      "nombre": "Jardín de Infantes Nucleado A DE 19 (Esc. Prim. Nº 09 DE 19) La Calesita de Pompeya",
+      "direccion": "CARLOS BERG 3460"
+    },
+    {
+      "codigo": "180",
+      "nombre": "Jardín de Infantes Nucleado A DE 19 (Esc. Prim. Nº 02 DE 19) La Calesita de Pompeya",
+      "direccion": "TILCARA 3365"
+    },
+    {
+      "codigo": "181",
+      "nombre": "Jardín de Infantes Nucleado A DE 19 (Esc. Prim. Nº 14 DE 19)",
+      "direccion": "AVDA. INTENDENTE FRANCISCO RABANAL 2751"
+    },
+    {
+      "codigo": "182",
+      "nombre": "Jardín de Infantes Nucleado A DE 19 (Esc. Prim. Nº 08 DE 19) La Calesita de Pompeya",
+      "direccion": "CARLOS RAMIREZ 2272"
+    },
+    {
+      "codigo": "183",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 21",
+      "direccion": "NICOLAS DESCALZI 5425"
+    },
+    {
+      "codigo": "184",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 21",
+      "direccion": "CAFAYATE 5388"
+    },
+    {
+      "codigo": "185",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 01 Cinco Esquinas",
+      "direccion": "AVDA. PTE. MANUEL QUINTANA 7"
+    },
+    {
+      "codigo": "186",
+      "nombre": "Escuela Infantil Nº 05 DE 01",
+      "direccion": "LETONIA Y AVDA. ANTARTIDA ARG. ALT. 1100"
+    },
+    {
+      "codigo": "187",
+      "nombre": "Jardín de Infantes Común Nº 01 DE 02",
+      "direccion": "ARENALES 2733"
+    },
+    {
+      "codigo": "188",
+      "nombre": "ENS Nº 09 Domingo Faustino Sarmiento (Nivel Inicial)",
+      "direccion": "AVDA. CALLAO 450"
+    },
+    {
+      "codigo": "189",
+      "nombre": "Escuela Infantil Nº 07 DE 05 Padre Daniel de la Sierra",
+      "direccion": "ALVARADO 3295"
+    },
+    {
+      "codigo": "190",
+      "nombre": "Escuela Infantil Nº 04 DE 11",
+      "direccion": "VARELA 1425"
+    },
+    {
+      "codigo": "191",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 11",
+      "direccion": "AVDA. SAN PEDRITO 1415"
+    },
+    {
+      "codigo": "192",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 12 Banderín",
+      "direccion": "MERCEDES 1465"
+    },
+    {
+      "codigo": "193",
+      "nombre": "Jardín de Infantes Nucleado C DE 12 (Esc. Prim. Nº 11 DE 12)",
+      "direccion": "DR. LUIS BELAUSTEGUI 3751"
+    },
+    {
+      "codigo": "194",
+      "nombre": "Jardín de Infantes Nucleado C DE 12 (Esc. Prim. Nº 16 DE 12)",
+      "direccion": "BAHIA BLANCA 1551"
+    },
+    {
+      "codigo": "195",
+      "nombre": "Jardín de Infantes Nucleado C DE 12 (Esc. Prim. Nº 17 DE 12)",
+      "direccion": "ALEJANDRO MAGARIÑOS CERVANTES 2865"
+    },
+    {
+      "codigo": "196",
+      "nombre": "Jardín de Infantes Nucleado D DE 10 (Esc. Prim. Nº 22 DE 10)",
+      "direccion": "FRANKLIN D. ROOSEVELT 1510"
+    },
+    {
+      "codigo": "197",
+      "nombre": "Jardín de Infantes Nucleado D DE 10 (Esc. Prim. Nº 11 DE 10)",
+      "direccion": "AVDA. INTENDENTE CANTILO Y LA PAMPA ALT. 99 0000"
+    },
+    {
+      "codigo": "198",
+      "nombre": "Jardín de Infantes Nucleado D DE 10 (Esc. Prim. Nº 23 DE 10)",
+      "direccion": "MARISCAL ANTONIO JOSE DE SUCRE 1367"
+    },
+    {
+      "codigo": "199",
+      "nombre": "ENS Nº 10 Juan Bautista Alberdi (Nivel Inicial)",
+      "direccion": "3 DE FEBRERO 2463"
+    },
+    {
+      "codigo": "200",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 07",
+      "direccion": "ESPINOSA 1243"
+    },
+    {
+      "codigo": "201",
+      "nombre": "Jardín de Infantes Nucleado E DE 10 (Esc. Prim. Nº 21 DE 10)",
+      "direccion": "RAMON FREIRE 4060"
+    },
+    {
+      "codigo": "202",
+      "nombre": "Jardín de Infantes Nucleado E DE 10 (Esc. Prim. Nº 13 DE 10)",
+      "direccion": "AVDA. RUIZ HUIDOBRO 2643"
+    },
+    {
+      "codigo": "203",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 15 Ariel Bufano",
+      "direccion": "BLANCO ENCALADA 4863"
+    },
+    {
+      "codigo": "204",
+      "nombre": "ENS Nº 04 Estanislao Zeballos (Nivel Inicial)",
+      "direccion": "AVDA. RIVADAVIA 4950"
+    },
+    {
+      "codigo": "205",
+      "nombre": "Jardín de Infantes Nucleado C DE 20 (Esc. Prim. Nº 16 DE 20)",
+      "direccion": "MARTINIANO LEGUIZAMON 1470"
+    },
+    {
+      "codigo": "206",
+      "nombre": "Jardín de Infantes Nucleado C DE 20 (Esc. Prim. Nº 07 DE 20)",
+      "direccion": "CARHUE 2157"
+    },
+    {
+      "codigo": "207",
+      "nombre": "Jardín de Infantes Nucleado C DE 20 (Esc. Prim. Nº 10 DE 20)",
+      "direccion": "AVDA. LISANDRO DE LA TORRE 1171"
+    },
+    {
+      "codigo": "208",
+      "nombre": "Jardín de Infantes Nucleado C DE 20 (Esc. Prim. Nº 13 DE 20)",
+      "direccion": "COSQUIN 1943"
+    },
+    {
+      "codigo": "209",
+      "nombre": "Jardín de Infantes Nucleado C DE 20 (Esc. Prim. Nº 20 DE 20)",
+      "direccion": "MURGUIONDO 1347"
+    },
+    {
+      "codigo": "210",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 06",
+      "direccion": "AVDA. INDEPENDENCIA 3354"
+    },
+    {
+      "codigo": "211",
+      "nombre": "Jardín de Infantes Común Nº 05 DE 10 Pablo Picasso",
+      "direccion": "PICO 2629"
+    },
+    {
+      "codigo": "212",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 10 El Jardín del Sauce",
+      "direccion": "HUSARES 2155"
+    },
+    {
+      "codigo": "213",
+      "nombre": "Jardín de Infantes Nucleado A DE 11 (Esc. Prim. Nº 20 DE 11)",
+      "direccion": "BALDOMERO FERNANDEZ MORENO 3652"
+    },
+    {
+      "codigo": "214",
+      "nombre": "Jardín de Infantes Nucleado A DE 11 (Esc. Prim. Nº 21 DE 11)",
+      "direccion": "MARIANO ACOSTA 1071"
+    },
+    {
+      "codigo": "215",
+      "nombre": "Jardín de Infantes Nucleado A DE 11 (Esc. Prim. Nº 16 DE 11)",
+      "direccion": "PRIMERA JUNTA 3445"
+    },
+    {
+      "codigo": "216",
+      "nombre": "Jardín de Infantes Nucleado A DE 11 (Esc. Prim. Nº 11 DE 11)",
+      "direccion": "GREGORIO DE LAFERRERE 3624"
+    },
+    {
+      "codigo": "217",
+      "nombre": "ENS Nº 05 Martín Miguel de Güemes (Nivel Inicial)",
+      "direccion": "ARCAMENDIA 743"
+    },
+    {
+      "codigo": "218",
+      "nombre": "ISPEI Sara C. de Eccleston - Jardín de Infancia Mitre (Nivel Inicial)",
+      "direccion": "DORREGO AV. 3723"
+    },
+    {
+      "codigo": "219",
+      "nombre": "Jardín de Infantes Nucleado C DE 17 (Esc. Prim. Nº 16 DE 17) Lola Mora",
+      "direccion": "CNEL. RAMON LISTA 5242"
+    },
+    {
+      "codigo": "220",
+      "nombre": "Jardín de Infantes Nucleado C DE 17 (Esc. Prim. Nº 06 DE 17) Lola Mora",
+      "direccion": "PEDRO CALDERON DE LA BARCA 3073"
+    },
+    {
+      "codigo": "221",
+      "nombre": "Jardín de Infantes Nucleado B DE 16 (Esc. Prim. Nº 02 DE 16) Juana Azurduy",
+      "direccion": "AVDA. SAN MARTIN 6387"
+    },
+    {
+      "codigo": "222",
+      "nombre": "Jardín de Infantes Nucleado B DE 16 (Esc. Prim. Nº 04 DE 16) Juana Azurduy",
+      "direccion": "ASUNCION 2787"
+    },
+    {
+      "codigo": "223",
+      "nombre": "Jardín de Infantes Nucleado B DE 16 (Esc. Prim. Nº 11 DE 16) Juana Azurduy",
+      "direccion": "PEDRO MORAN 2899"
+    },
+    {
+      "codigo": "224",
+      "nombre": "Jardín de Infantes Nucleado B DE 16 (Esc. Prim. Nº 16 DE 16) Juana Azurduy",
+      "direccion": "GABRIELA MISTRAL 3376"
+    },
+    {
+      "codigo": "225",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 07 Prof. Marina Margarita Ravioli",
+      "direccion": "CAMPICHUELO 100"
+    },
+    {
+      "codigo": "226",
+      "nombre": "Jardín de Infantes Nucleado A DE 07 (Esc. Prim. Nº 01 DE 07) El Jardín de la Paloma",
+      "direccion": "AVDA. CORRIENTES 5332"
+    },
+    {
+      "codigo": "227",
+      "nombre": "Jardín de Infantes Nucleado A DE 07 (Esc. Prim. Nº 22 DE 07)",
+      "direccion": "ARAOZ 234"
+    },
+    {
+      "codigo": "228",
+      "nombre": "Jardín de Infantes Nucleado A DE 07 (Esc. Prim. Nº 02 DE 07) El Jardín de la Paloma",
+      "direccion": "CAMARGO 725"
+    },
+    {
+      "codigo": "229",
+      "nombre": "Jardín de Infantes Nucleado A DE 07 (Esc. Prim. Nº 17 DE 07) El Jardín de la Paloma",
+      "direccion": "JULIAN ALVAREZ 240"
+    },
+    {
+      "codigo": "230",
+      "nombre": "Jardín de Infantes Integral Nº 02 DE 16 Aimé Paine",
+      "direccion": "CONDARCO 3984"
+    },
+    {
+      "codigo": "231",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 07 Andres Ferreyra",
+      "direccion": "EDUARDO ACEVEDO 609"
+    },
+    {
+      "codigo": "232",
+      "nombre": "Jardín de Infantes Nucleado D DE 14 (Esc. Prim. Nº 24 DE 14)",
+      "direccion": "BOLIVIA 2569"
+    },
+    {
+      "codigo": "233",
+      "nombre": "Jardín de Infantes Nucleado D DE 14 (Esc. Prim. Nº 16 DE 14)",
+      "direccion": "AVDA. ALVAREZ JONTE 1964"
+    },
+    {
+      "codigo": "234",
+      "nombre": "Jardín de Infantes Nucleado D DE 14 (Esc. Prim. Nº 26 DE 14)",
+      "direccion": "CARACAS 2372"
+    },
+    {
+      "codigo": "235",
+      "nombre": "Jardín de Infantes Común Nº 01 DE 13",
+      "direccion": "OLIDEN 2855"
+    },
+    {
+      "codigo": "236",
+      "nombre": "Jardín de Infantes Nucleado B DE 13 (Esc. Prim. Nº 04 DE 13)",
+      "direccion": "CAROLINA MUZILLI 5926"
+    },
+    {
+      "codigo": "237",
+      "nombre": "Jardín de Infantes Nucleado B DE 13 (Esc. Prim. Nº 13 DE 13)",
+      "direccion": "BRAGADO 5350"
+    },
+    {
+      "codigo": "238",
+      "nombre": "Jardín de Infantes Nucleado B DE 13 (Esc. Prim. Nº 03 DE 13)",
+      "direccion": "AVDA. LARRAZABAL 1556"
+    },
+    {
+      "codigo": "239",
+      "nombre": "Jardín de Infantes Nucleado B DE 13 (Esc. Prim. Nº 02 DE 13)",
+      "direccion": "CHASCOMUS 5598"
+    },
+    {
+      "codigo": "240",
+      "nombre": "Escuela Infantil Nº 02 DE 02 Pampita",
+      "direccion": "GUARDIA VIEJA 3950"
+    },
+    {
+      "codigo": "241",
+      "nombre": "Jardín de Infantes Nucleado B DE 12 (Esc. Prim. Nº 08 DE 12)",
+      "direccion": "GRAL. CESAR DIAZ 3050"
+    },
+    {
+      "codigo": "242",
+      "nombre": "Jardín de Infantes Nucleado B DE 12 (Esc. Prim. Nº 06 DE 12)",
+      "direccion": "CARACAS 2057"
+    },
+    {
+      "codigo": "243",
+      "nombre": "Jardín de Infantes Nucleado B DE 12 (Esc. Prim. Nº 07 DE 12)",
+      "direccion": "SAN BLAS 2962"
+    },
+    {
+      "codigo": "244",
+      "nombre": "Jardín de Infantes Nucleado B DE 12 (Esc. Prim. Nº 25 DE 12)",
+      "direccion": "REMEDIOS ESCALADA DE SAN MARTIN 2986"
+    },
+    {
+      "codigo": "245",
+      "nombre": "Jardín de Infantes Nucleado A DE 02 (Esc. Prim. Nº 09 DE 02)",
+      "direccion": "EL SALVADOR 4037"
+    },
+    {
+      "codigo": "246",
+      "nombre": "Jardín de Infantes Nucleado A DE 02 (Esc. Prim. Nº 04 DE 02)",
+      "direccion": "SOLER 3929"
+    },
+    {
+      "codigo": "247",
+      "nombre": "Jardín de Infantes Nucleado C DE 02 (Esc. Prim. Nº 17 DE 02)",
+      "direccion": "AVDA. ANGEL GALLARDO 250"
+    },
+    {
+      "codigo": "248",
+      "nombre": "Jardín de Infantes Nucleado C DE 02 (Esc. Prim. Nº 03 DE 02)",
+      "direccion": "LAMBARE 975"
+    },
+    {
+      "codigo": "249",
+      "nombre": "Jardín de Infantes Nucleado C DE 02 (Esc. Prim. Nº 07 DE 02)",
+      "direccion": "RIO DE JANEIRO 946"
+    },
+    {
+      "codigo": "250",
+      "nombre": "Jardín de Infantes Nucleado C DE 02 (Esc. Prim. Nº 11 DE 02)",
+      "direccion": "OBRERO ROBERTO NUÑEZ 4355"
+    },
+    {
+      "codigo": "251",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 20 Sudamérica",
+      "direccion": "ZUVIRIA 6680"
+    },
+    {
+      "codigo": "252",
+      "nombre": "Jardín de Infantes Nucleado A DE 20 (Esc. Prim. Nº 19 DE 20)",
+      "direccion": "PASAJE YRUPE 6835"
+    },
+    {
+      "codigo": "253",
+      "nombre": "Jardín de Infantes Nucleado A DE 20 (Esc. Prim. Nº 14 DE 20) La Calesita de Pompeya",
+      "direccion": "AVDA. DE LOS CORRALES 7040"
+    },
+    {
+      "codigo": "254",
+      "nombre": "Jardín de Infantes Nucleado A DE 20 (Esc. Prim. Nº 06 DE 20)",
+      "direccion": "AVDA. EVA PERON 7431"
+    },
+    {
+      "codigo": "255",
+      "nombre": "Jardín de Infantes Nucleado C DE 04 (Esc. Prim. Nº 28 DE 04)",
+      "direccion": "JOSE AARON SALMUN FEIJOO 1073"
+    },
+    {
+      "codigo": "256",
+      "nombre": "Jardín de Infantes Nucleado C DE 04 (Esc. Prim. Nº 03 DE 04)",
+      "direccion": "ROCHA 1226"
+    },
+    {
+      "codigo": "257",
+      "nombre": "Jardín de Infantes Nucleado C DE 04 (Esc. Prim. Nº 13 DE 04)",
+      "direccion": "SUAREZ 1145"
+    },
+    {
+      "codigo": "258",
+      "nombre": "Jardín de Infantes Nucleado C DE 04 (Esc. Prim. Nº 19 DE 04)",
+      "direccion": "RIO CUARTO 1249"
+    },
+    {
+      "codigo": "259",
+      "nombre": "Jardín de Infantes Nucleado C DE 04 (Esc. Prim. Nº 24 DE 04)",
+      "direccion": "CALIFORNIA 1925"
+    },
+    {
+      "codigo": "260",
+      "nombre": "Jardín de Infantes Nucleado E DE 17 (Esc. Prim. Nº 17 DE 17) Juana Manso",
+      "direccion": "HELGUERA 3341"
+    },
+    {
+      "codigo": "261",
+      "nombre": "Jardín de Infantes Nucleado E DE 17 (Esc. Prim. Nº 02 DE 17) Juana Manso",
+      "direccion": "HELGUERA 3228"
+    },
+    {
+      "codigo": "262",
+      "nombre": "Jardín de Infantes Nucleado E DE 17 (Esc. Prim. Nº 05 DE 17) Juana Manso",
+      "direccion": "NOGOYA 2557"
+    },
+    {
+      "codigo": "263",
+      "nombre": "Jardín de Infantes Nucleado E DE 17 (Esc. Prim. Nº 08 DE 17) Juana Manso",
+      "direccion": "EMILIO LAMARCA 3379"
+    },
+    {
+      "codigo": "264",
+      "nombre": "Jardín de Infantes Nucleado B DE 06 (Esc. Prim. Nº 11 DE 06) Maestro Escultor Francisco Reyes",
+      "direccion": "HUMBERTO Iº 3171"
+    },
+    {
+      "codigo": "265",
+      "nombre": "Jardín de Infantes Nucleado B DE 06 (Esc. Prim. Nº 04 DE 06) Maestro Escultor Francisco Reyes",
+      "direccion": "QUINTINO BOCAYUVA 620"
+    },
+    {
+      "codigo": "266",
+      "nombre": "Jardín de Infantes Nucleado B DE 06 (Esc. Prim. Nº 13 DE 06) Maestro Escultor Francisco Reyes",
+      "direccion": "GRAL. URQUIZA 227"
+    },
+    {
+      "codigo": "267",
+      "nombre": "Jardín de Infantes Nucleado C DE 08 (Esc. Prim. Nº 24 DE 08)",
+      "direccion": "SARAZA 470"
+    },
+    {
+      "codigo": "268",
+      "nombre": "Jardín de Infantes Nucleado C DE 08 (Esc. Prim. Nº 20 DE 08)",
+      "direccion": "MUÑIZ 2147"
+    },
+    {
+      "codigo": "269",
+      "nombre": "Jardín de Infantes Nucleado C DE 08 (Esc. Prim. Nº 21 DE 08)",
+      "direccion": "PJE. QUEROL 916"
+    },
+    {
+      "codigo": "270",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 12 Rita Latallada de Victoria",
+      "direccion": "JOAQUIN V. GONZALEZ 307"
+    },
+    {
+      "codigo": "271",
+      "nombre": "Jardín de Infantes Nucleado A DE 06 (Esc. Prim. Nº 03 DE 06)",
+      "direccion": "LA RIOJA 850"
+    },
+    {
+      "codigo": "272",
+      "nombre": "Jardín de Infantes Nucleado A DE 06 (Esc. Prim. Nº 01 DE 06)",
+      "direccion": "ALSINA 2499"
+    },
+    {
+      "codigo": "273",
+      "nombre": "Jardín de Infantes Nucleado C DE 14 (Esc. Prim. Nº 03 DE 14)",
+      "direccion": "GIRARDOT 1946"
+    },
+    {
+      "codigo": "274",
+      "nombre": "Jardín de Infantes Nucleado C DE 14 (Esc. Prim. Nº 05 DE 14)",
+      "direccion": "COMBATIENTES DE MALVINAS 3234"
+    },
+    {
+      "codigo": "275",
+      "nombre": "Jardín de Infantes Nucleado C DE 14 (Esc. Prim. Nº 20 DE 14)",
+      "direccion": "AVDA. ELCANO 4861"
+    },
+    {
+      "codigo": "276",
+      "nombre": "Jardín de Infantes Nucleado B DE 18 (Esc. Prim. Nº 14 DE 18)",
+      "direccion": "ARREGUI 6840"
+    },
+    {
+      "codigo": "277",
+      "nombre": "Jardín de Infantes Nucleado B DE 18 (Esc. Prim. Nº 20 DE 18)",
+      "direccion": "BARRAGAN 366"
+    },
+    {
+      "codigo": "278",
+      "nombre": "Jardín de Infantes Nucleado B DE 18 (Esc. Prim. Nº 22 DE 18)",
+      "direccion": "CUZCO 116"
+    },
+    {
+      "codigo": "279",
+      "nombre": "Jardín de Infantes Nucleado B DE 18 (Esc. Prim. Nº 24 DE 18)",
+      "direccion": "GALLARDO 521"
+    },
+    {
+      "codigo": "280",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 10",
+      "direccion": "MOLDES 2043"
+    },
+    {
+      "codigo": "281",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 10 (anexo)",
+      "direccion": "CUBA 2039"
+    },
+    {
+      "codigo": "282",
+      "nombre": "Jardín de Infantes Nucleado A DE 16 (Esc. Prim. Nº 15 DE 16)",
+      "direccion": "OBISPO SAN ALBERTO 3370"
+    },
+    {
+      "codigo": "283",
+      "nombre": "Jardín de Infantes Nucleado A DE 16 (Esc. Prim. Nº 23 DE 16)",
+      "direccion": "FRANCO 2390"
+    },
+    {
+      "codigo": "284",
+      "nombre": "Jardín de Infantes Nucleado A DE 16 (Esc. Prim. Nº 08 DE 16)",
+      "direccion": "MERCEDES 4966"
+    },
+    {
+      "codigo": "285",
+      "nombre": "Jardín de Infantes Nucleado A DE 16 (Esc. Prim. Nº 24 DE 16)",
+      "direccion": "AVDA. NAZCA 5168"
+    },
+    {
+      "codigo": "286",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 10 DE 17) Alicia Moreau de Justo",
+      "direccion": "HELGUERA 2435"
+    },
+    {
+      "codigo": "287",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 01 DE 17) Alicia Moreau de Justo",
+      "direccion": "BAIGORRIA 3169"
+    },
+    {
+      "codigo": "288",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 03 DE 17) Alicia Moreau de Justo",
+      "direccion": "ARGERICH 2849"
+    },
+    {
+      "codigo": "289",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 07 DE 17) Alicia Moreau de Justo",
+      "direccion": "JUAN AGUSTIN GARCIA 2755"
+    },
+    {
+      "codigo": "290",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 18 DE 17) Alicia Moreau de Justo",
+      "direccion": "PJE. JULIO S. DANTAS 3260"
+    },
+    {
+      "codigo": "291",
+      "nombre": "Jardín de Infantes Nucleado A DE 17 (Esc. Prim. Nº 21 DE 17) Alicia Moreau de Justo",
+      "direccion": "SANTO TOME 2836"
+    },
+    {
+      "codigo": "292",
+      "nombre": "Jardín de Infantes Nucleado C DE 18 (Esc. Prim. Nº 15 DE 18)",
+      "direccion": "AVDA. SEGUROLA 1104"
+    },
+    {
+      "codigo": "293",
+      "nombre": "Jardín de Infantes Nucleado C DE 18 (Esc. Prim. Nº 11 DE 18)",
+      "direccion": "AVDA. GAONA 4763"
+    },
+    {
+      "codigo": "294",
+      "nombre": "Jardín de Infantes Nucleado C DE 18 (Esc. Prim. Nº 13 DE 18)",
+      "direccion": "CAMARONES 4351"
+    },
+    {
+      "codigo": "295",
+      "nombre": "Jardín de Infantes Nucleado E DE 08 (Esc. Prim. Nº 04 DE 08) El Tranvía de Caballito",
+      "direccion": "AVDA. DEL BARCO CENTENERA 741"
+    },
+    {
+      "codigo": "296",
+      "nombre": "Jardín de Infantes Nucleado E DE 08 (Esc. Prim. Nº 14 DE 08) El Tranvía de Caballito",
+      "direccion": "AVDA. PEDRO GOYENA 984"
+    },
+    {
+      "codigo": "297",
+      "nombre": "Jardín de Infantes Nucleado A DE 05 (Esc. Prim. Nº 07 DE 05)",
+      "direccion": "AVDA. CASEROS 734"
+    },
+    {
+      "codigo": "298",
+      "nombre": "Jardín de Infantes Nucleado A DE 05 (Esc. Prim. Nº 03 DE 05)",
+      "direccion": "AVDA. MANUEL A. MONTES DE OCA 439"
+    },
+    {
+      "codigo": "299",
+      "nombre": "Jardín de Infantes Nucleado A DE 05 (Esc. Prim. Nº 15 DE 05)",
+      "direccion": "AVDA. MANUEL A. MONTES DE OCA 807"
+    },
+    {
+      "codigo": "300",
+      "nombre": "Jardín de Infantes Nucleado D DE 16 (Esc. Prim. Nº 22 DE 16)",
+      "direccion": "BAZURCO 2551"
+    },
+    {
+      "codigo": "301",
+      "nombre": "Jardín de Infantes Nucleado D DE 16 (Esc. Prim. Nº 12 DE 16)",
+      "direccion": "AVDA. CRISOLOGO LARRALDE 5934"
+    },
+    {
+      "codigo": "302",
+      "nombre": "Jardín de Infantes Nucleado D DE 16 (Esc. Prim. Nº 13 DE 16)",
+      "direccion": "GRAL. JOSE GERVASIO DE ARTIGAS 5645"
+    },
+    {
+      "codigo": "303",
+      "nombre": "Jardín de Infantes Nucleado D DE 16 (Esc. Prim. Nº 18 DE 16)",
+      "direccion": "MEDEYROS 3555"
+    },
+    {
+      "codigo": "304",
+      "nombre": "Jardín de Infantes Nucleado C DE 10 (Esc. Prim. Nº 19 DE 10)",
+      "direccion": "AVDA. MONROE 3000"
+    },
+    {
+      "codigo": "305",
+      "nombre": "Jardín de Infantes Nucleado C DE 10 (Esc. Prim. Nº 16 DE 10)",
+      "direccion": "AVDA. CONGRESO 3045"
+    },
+    {
+      "codigo": "306",
+      "nombre": "Jardín de Infantes Nucleado C DE 10 (Esc. Prim. Nº 04 DE 10)",
+      "direccion": "JUANA AZURDUY 2541"
+    },
+    {
+      "codigo": "307",
+      "nombre": "Jardín de Infantes Nucleado A DE 14 (Esc. Prim. Nº 13 DE 14)",
+      "direccion": "WARNES 1816"
+    },
+    {
+      "codigo": "308",
+      "nombre": "Jardín de Infantes Nucleado A DE 14 (Esc. Prim. Nº 11 DE 14)",
+      "direccion": "CASAFOUST 761"
+    },
+    {
+      "codigo": "309",
+      "nombre": "Jardín de Infantes Nucleado A DE 14 (Esc. Prim. Nº 15 DE 14)",
+      "direccion": "JUAN AGUSTIN GARCIA 1511"
+    },
+    {
+      "codigo": "310",
+      "nombre": "Jardín de Infantes Nucleado A DE 14 (Esc. Prim. Nº 10 DE 14)",
+      "direccion": "ESPINOSA 2547"
+    },
+    {
+      "codigo": "311",
+      "nombre": "Escuela Infantil Nº 06 DE 05 Rosario Vera Peñaloza",
+      "direccion": "AVDA. MANUEL A. MONTES DE OCA 16"
+    },
+    {
+      "codigo": "312",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 10 Athos Palma",
+      "direccion": "MARISCAL ANTONIO JOSE DE SUCRE 2284"
+    },
+    {
+      "codigo": "313",
+      "nombre": "Jardín de Infantes Nucleado B DE 11 (Esc. Prim. Nº 17 DE 11)",
+      "direccion": "GRAL. EUGENIO GARZON 3950"
+    },
+    {
+      "codigo": "314",
+      "nombre": "Jardín de Infantes Nucleado B DE 11 (Esc. Prim. Nº 19 DE 11)",
+      "direccion": "JOSE BONIFACIO 3650"
+    },
+    {
+      "codigo": "315",
+      "nombre": "Jardín de Infantes Nucleado B DE 11 (Esc. Prim. Nº 03 DE 11)",
+      "direccion": "MARIANO ACOSTA 45"
+    },
+    {
+      "codigo": "316",
+      "nombre": "Jardín de Infantes Nucleado B DE 11 (Esc. Prim. Nº 02 DE 11)",
+      "direccion": "CNEL. RAMON L. FALCON 4151"
+    },
+    {
+      "codigo": "317",
+      "nombre": "Jardín de Infantes Nucleado B DE 11 (Esc. Prim. Nº 01 DE 11)",
+      "direccion": "CNEL. RAMON L. FALCON 4126"
+    },
+    {
+      "codigo": "318",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 18 El Trencito de Versalles",
+      "direccion": "BRUSELAS 755"
+    },
+    {
+      "codigo": "319",
+      "nombre": "Jardín de Infantes Nucleado D DE 17 (Esc. Prim. Nº 04 DE 17) Victoria Ocampo",
+      "direccion": "AVDA. FRANCISCO BEIRO 4552"
+    },
+    {
+      "codigo": "320",
+      "nombre": "Jardín de Infantes Nucleado D DE 17 (Esc. Prim. Nº 09 DE 17) Victoria Ocampo",
+      "direccion": "PJE. DIAMANTE 2765"
+    },
+    {
+      "codigo": "321",
+      "nombre": "Jardín de Infantes Nucleado D DE 17 (Esc. Prim. Nº 22 DE 17) Victoria Ocampo",
+      "direccion": "TINOGASTA 5046"
+    },
+    {
+      "codigo": "322",
+      "nombre": "Jardín de Infantes Nucleado D DE 17 (Esc. Prim. Nº 24 DE 17) Victoria Ocampo",
+      "direccion": "BAHIA BLANCA 2535"
+    },
+    {
+      "codigo": "323",
+      "nombre": "Jardín de Infantes Nucleado B DE 14 (Esc. Prim. Nº 01 DE 14)",
+      "direccion": "OTERO 271"
+    },
+    {
+      "codigo": "324",
+      "nombre": "Jardín de Infantes Nucleado B DE 14 (Esc. Prim. Nº 21 DE 14)",
+      "direccion": "MARTINEZ ROSAS 1364"
+    },
+    {
+      "codigo": "325",
+      "nombre": "Jardín de Infantes Nucleado B DE 14 (Esc. Prim. Nº 08 DE 14)",
+      "direccion": "JORGE NEWBERY 4436"
+    },
+    {
+      "codigo": "326",
+      "nombre": "Jardín de Infantes Nucleado B DE 14 (Esc. Prim. Nº 23 DE 14)",
+      "direccion": "GRAL MANUEL RODRIGUEZ 2332"
+    },
+    {
+      "codigo": "327",
+      "nombre": "Jardín de Infantes Integral Nº 03 DE 11",
+      "direccion": "LAUTARO 752"
+    },
+    {
+      "codigo": "328",
+      "nombre": "Jardín de Infantes Nucleado C DE 16 (Esc. Prim. Nº 17 DE 16)",
+      "direccion": "VALLEJOS 2555"
+    },
+    {
+      "codigo": "329",
+      "nombre": "Jardín de Infantes Nucleado C DE 16 (Esc. Prim. Nº 06 DE 16)",
+      "direccion": "NAHUEL HUAPI 5740"
+    },
+    {
+      "codigo": "330",
+      "nombre": "Jardín de Infantes Nucleado C DE 16 (Esc. Prim. Nº 09 DE 16)",
+      "direccion": "IBERA 5734"
+    },
+    {
+      "codigo": "331",
+      "nombre": "ENS Nº 11 Dr. Ricardo Levene (Nivel Inicial)",
+      "direccion": "DEAN FUNES 1821"
+    },
+    {
+      "codigo": "332",
+      "nombre": "Jardín de Infantes Integral Nº 01 DE 05 Walt Disney",
+      "direccion": "AVDA. CASEROS 1555"
+    },
+    {
+      "codigo": "333",
+      "nombre": "Jardín de Infantes Nucleado B DE 07 (Esc. Prim. Nº 20 DE 07) La Veleta de Caballito",
+      "direccion": "HIDALGO 627"
+    },
+    {
+      "codigo": "334",
+      "nombre": "Jardín de Infantes Nucleado B DE 07 (Esc. Prim. Nº 10 DE 07) La Veleta de Caballito",
+      "direccion": "FELIPE VALLESE 975"
+    },
+    {
+      "codigo": "335",
+      "nombre": "Jardín de Infantes Nucleado B DE 07 (Esc. Prim. Nº 15 DE 07) La Veleta de Caballito",
+      "direccion": "DR. ELEODORO LOBOS 437"
+    },
+    {
+      "codigo": "336",
+      "nombre": "Jardín de Infantes Nucleado B DE 07 (Esc. Prim. Nº 24 DE 07) La Veleta de Caballito",
+      "direccion": "JOSE JUAN BIEDMA 459"
+    },
+    {
+      "codigo": "337",
+      "nombre": "Escuela Infantil Nº 08 DE 10 Caminito (ex EI Nº 03 DE 15)",
+      "direccion": "ARIAS 3775"
+    },
+    {
+      "codigo": "338",
+      "nombre": "Escuela Infantil Nº 05 DE 18 Hospital de Rehabilitación M. Rocca",
+      "direccion": "SAN NICOLAS 1270"
+    },
+    {
+      "codigo": "339",
+      "nombre": "Escuela Infantil Nº 05 DE 05 Maria Eva Duarte de Perón",
+      "direccion": "PROF. DR. PEDRO CHUTRO 3380"
+    },
+    {
+      "codigo": "340",
+      "nombre": "Jardín Maternal Nº 05 DE 07",
+      "direccion": "JUAN B. AMBROSETTI 699"
+    },
+    {
+      "codigo": "341",
+      "nombre": "ENS Nº 08 Presidente Julio Argentino Roca (Nivel Inicial)",
+      "direccion": "CALVO, CARLOS 3150"
+    },
+    {
+      "codigo": "342",
+      "nombre": "Jardín de Infantes Integral Nº 09 DE 04",
+      "direccion": "AVDA. SAN JUAN 353"
+    },
+    {
+      "codigo": "343",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 12 Convención Internacional sobre los Derechos del Niño",
+      "direccion": "AVDA. GAONA 3299"
+    },
+    {
+      "codigo": "344",
+      "nombre": "Jardín de Infantes Integral Nº 03 DE 13 Jardín del Parque",
+      "direccion": "AVDA. LACARRA 1135"
+    },
+    {
+      "codigo": "345",
+      "nombre": "Jardín de Infantes Integral Nº 08 DE 06 Maria A. Schiavoni de López",
+      "direccion": "AVDA. BOEDO 650"
+    },
+    {
+      "codigo": "346",
+      "nombre": "Jardín Maternal Nº 01 DE 14 Paula Albarracín",
+      "direccion": "LEIVA 4274"
+    },
+    {
+      "codigo": "347",
+      "nombre": "Jardín Maternal Nº 07 DE 06 Delfina Marull de Sardá",
+      "direccion": "CATULO CASTILLO 2852"
+    },
+    {
+      "codigo": "348",
+      "nombre": "Escuela Infantil Nº 03 DE 04 Htal. Gral. de Agudos Dr. Cosme Argerich",
+      "direccion": "AZOPARDO 1504"
+    },
+    {
+      "codigo": "349",
+      "nombre": "Jardín Maternal Nº 05 DE 12 Htal. Gral. de Agudos Dr. T. Alvarez",
+      "direccion": "DR. JUAN FELIPE ARANGUREN 2605"
+    },
+    {
+      "codigo": "350",
+      "nombre": "Escuela Infantil Nº 02 DE 03 Mane Bernardo",
+      "direccion": "CHILE 1626"
+    },
+    {
+      "codigo": "351",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 20 Pueblos Originarios",
+      "direccion": "AV. EVA PERON 6336"
+    },
+    {
+      "codigo": "352",
+      "nombre": "Jardín de Infantes Integral Nº 03 DE 20",
+      "direccion": "AVDA. PIEDRA BUENA 3100"
+    },
+    {
+      "codigo": "353",
+      "nombre": "Jardín de Infantes Integral Nº 10 DE 05",
+      "direccion": "IRIARTE 3880"
+    },
+    {
+      "codigo": "354",
+      "nombre": "Jardín de Infantes Integral Nº 06 DE 07 Luis Perlotti",
+      "direccion": "LUIS VIALE 676"
+    },
+    {
+      "codigo": "355",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 04",
+      "direccion": "HERNANDARIAS 850"
+    },
+    {
+      "codigo": "356",
+      "nombre": "Jardín de Infantes Integral Nº 08 DE 05 Genaro Giacobini",
+      "direccion": "AVDA. ALMAFUERTE 14"
+    },
+    {
+      "codigo": "357",
+      "nombre": "Jardín de Infantes Integral N° 03 DE 14",
+      "direccion": "OLLEROS 3621"
+    },
+    {
+      "codigo": "358",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 16 Mafalda",
+      "direccion": "FERNANDEZ DE ENCISO 4451"
+    },
+    {
+      "codigo": "359",
+      "nombre": "Jardín de Infantes Común Nº 04 DE 16 Dr. Florencio Escardo",
+      "direccion": "CERETTI 2035"
+    },
+    {
+      "codigo": "360",
+      "nombre": "Jardín de Infantes Integral Nº 03 DE 17 El Jardín del Boulevard",
+      "direccion": "AVDA. SALVADOR MARIA DEL CARRIL 4935"
+    },
+    {
+      "codigo": "361",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 17 Antonio Berni",
+      "direccion": "AVDA. SALVADOR MARIA DEL CARRIL 4172"
+    },
+    {
+      "codigo": "362",
+      "nombre": "Jardín de Infantes Común Nº 02 DE 20",
+      "direccion": "MONTIEL 1174"
+    },
+    {
+      "codigo": "363",
+      "nombre": "Jardín de Infantes Integral Nº 06 DE 21",
+      "direccion": "AVDA. LARRAZABAL 4520"
+    },
+    {
+      "codigo": "364",
+      "nombre": "Jardín de Infantes Común Nº 07 DE 21",
+      "direccion": "AVDA. LARRAZABAL 5001"
+    },
+    {
+      "codigo": "365",
+      "nombre": "Escuela Infantil Nº 09 DE 05",
+      "direccion": "SANTO DOMINGO 3940"
+    },
+    {
+      "codigo": "366",
+      "nombre": "Jardín de Infantes Común Nº 03 DE 03 San Telmo",
+      "direccion": "PIEDRAS 860"
+    },
+    {
+      "codigo": "367",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 03 El Jardín del Manzano",
+      "direccion": "MEXICO 1627"
+    },
+    {
+      "codigo": "368",
+      "nombre": "Jardín Maternal Nº 06 DE 04",
+      "direccion": "AVDA. PASEO COLON 255"
+    },
+    {
+      "codigo": "369",
+      "nombre": "Escuela Infantil Nº 06 DE 19",
+      "direccion": "CNEL. MARTINIANO CHILAVERT 1935"
+    },
+    {
+      "codigo": "370",
+      "nombre": "Jardín Maternal Nº 05 DE 20",
+      "direccion": "LUIS HERRERA 3034"
+    },
+    {
+      "codigo": "371",
+      "nombre": "Jardín Maternal Nº 05 DE 20 (anexo)",
+      "direccion": "CAÑADA DE GOMEZ 3850"
+    },
+    {
+      "codigo": "372",
+      "nombre": "Escuela Infantil Nº 06 DE 20 Juan Francisco Salaberry",
+      "direccion": "PILAR 1798"
+    },
+    {
+      "codigo": "373",
+      "nombre": "Jardín de Infantes Integral Nº 07 DE 19",
+      "direccion": "CORRALES 3490"
+    },
+    {
+      "codigo": "374",
+      "nombre": "Jardín Maternal Nº 08 DE 09",
+      "direccion": "BONPLAND 1324"
+    },
+    {
+      "codigo": "375",
+      "nombre": "Jardín de Infantes Común Nº 09 DE 09",
+      "direccion": "MOLDES 1220"
+    },
+    {
+      "codigo": "376",
+      "nombre": "Jardín Maternal Nº 03 DE 02",
+      "direccion": "GALLO 1340"
+    },
+    {
+      "codigo": "377",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 14 Jardín de los Árboles",
+      "direccion": "AVDA. DE LOS CONSTITUYENTES 3100"
+    },
+    {
+      "codigo": "378",
+      "nombre": "Jardín de Infantes Integral Nº 07 DE 20 Jardincito de Chicago Karina Rainone",
+      "direccion": "AVDA. LISANDRO DE LA TORRE 2288"
+    },
+    {
+      "codigo": "379",
+      "nombre": "Jardín Maternal Nº 06 DE 01 Jardín del Palacio",
+      "direccion": "PARAGUAY 1657"
+    },
+    {
+      "codigo": "380",
+      "nombre": "Escuela Infantil Nº 09 DE 19",
+      "direccion": "CNEL. MARTINIANO CHILAVERT 2680"
+    },
+    {
+      "codigo": "381",
+      "nombre": "Jardín de Infantes Nucleado A DE 21 (Esc. Prim. Nº 04 DE 21)",
+      "direccion": "AVDA. RIESTRA 5030"
+    },
+    {
+      "codigo": "382",
+      "nombre": "Jardín de Infantes Nucleado A DE 21 (Esc. Prim. Nº 03 DE 21)",
+      "direccion": "AVDA. LARRAZABAL 4051"
+    },
+    {
+      "codigo": "383",
+      "nombre": "Jardín de Infantes Nucleado A DE 21 (anexo Centro Comunitario)",
+      "direccion": "MIRALLA 3838"
+    },
+    {
+      "codigo": "384",
+      "nombre": "Escuela Infantil Nº 04 DE 13",
+      "direccion": "BASUALDO 2850"
+    },
+    {
+      "codigo": "385",
+      "nombre": "Escuela Infantil Nº 08 DE 20",
+      "direccion": "AVDA. EVA PERON 6600"
+    },
+    {
+      "codigo": "386",
+      "nombre": "Jardín de Infantes Integral Nº 10 DE 19",
+      "direccion": "JOSE BARROS PAZOS 3610"
+    },
+    {
+      "codigo": "387",
+      "nombre": "Jardín de Infantes Integral Nº 10 DE 19 (anexo)",
+      "direccion": "MARTINEZ CASTRO 3061"
+    },
+    {
+      "codigo": "388",
+      "nombre": "Jardín de Infantes Nucleado E DE 18 (Esc. Prim. Nº 01 DE 18)",
+      "direccion": "ARREGUI 5366"
+    },
+    {
+      "codigo": "389",
+      "nombre": "Jardín de Infantes Nucleado E DE 18 (Esc. Prim. Nº 18 DE 18)",
+      "direccion": "JUAN AGUSTIN GARCIA 5265"
+    },
+    {
+      "codigo": "390",
+      "nombre": "Jardín Maternal Nº 09 DE 06",
+      "direccion": "DON BOSCO 4050"
+    },
+    {
+      "codigo": "391",
+      "nombre": "Jardín de Infantes Integral Nº 10 DE 06 (I.F.F. Bernasconi)",
+      "direccion": "RONDEAU 2751"
+    },
+    {
+      "codigo": "392",
+      "nombre": "Escuela Infantil Nº 05 DE 04",
+      "direccion": "BALCARCE 677"
+    },
+    {
+      "codigo": "393",
+      "nombre": "Escuela Infantil Nº 12 DE 05",
+      "direccion": "MONTESQUIEU Y AVDA. GRAL IRIARTE ALT 3501"
+    },
+    {
+      "codigo": "394",
+      "nombre": "Jardín de Infantes Integral Nº 04 DE 02",
+      "direccion": "JOSE ANTONIO CABRERA 3430"
+    },
+    {
+      "codigo": "395",
+      "nombre": "Jardín Maternal Nº 07 DE 10",
+      "direccion": "VUELTA OBLIGADO 3554"
+    },
+    {
+      "codigo": "396",
+      "nombre": "Jardín Maternal Nº 06 DE 18",
+      "direccion": "CNEL. PEDRO CALDERON DE LA BARCA 1550"
+    },
+    {
+      "codigo": "397",
+      "nombre": "Escuela Infantil Nº 07 DE 04",
+      "direccion": "PALOS 210"
+    },
+    {
+      "codigo": "398",
+      "nombre": "Jardín Maternal Nº 10 DE 09",
+      "direccion": "MATIENZO 1880"
+    },
+    {
+      "codigo": "399",
+      "nombre": "Escuela Infantil Nº 08 DE 21",
+      "direccion": "JOSE BARROS PAZOS 5250"
+    },
+    {
+      "codigo": "400",
+      "nombre": "Escuela Infantil Nº 11 DE 05",
+      "direccion": "LOS PATOS 3004"
+    },
+    {
+      "codigo": "401",
+      "nombre": "Escuela Infantil Nº 11 DE 05 (anexo)",
+      "direccion": "LOS PATOS 3042"
+    },
+    {
+      "codigo": "402",
+      "nombre": "Escuela Infantil Nº 12 DE 19",
+      "direccion": "PERGAMINO 3045"
+    },
+    {
+      "codigo": "403",
+      "nombre": "Escuela Infantil Nº 08 DE 04",
+      "direccion": "INDEPENDENCIA 569"
+    },
+    {
+      "codigo": "404",
+      "nombre": "Escuela Infantil Nº 06 DE 15",
+      "direccion": "GALVAN 3710"
+    },
+    {
+      "codigo": "405",
+      "nombre": "Escuela Infantil Nº 13 DE 05",
+      "direccion": "DIOGENES TABORDA 1096"
+    },
+    {
+      "codigo": "406",
+      "nombre": "Escuela Infantil Nº 11 DE 21",
+      "direccion": "AVDA. CNEL. ROCA PTA 9 0000"
+    },
+    {
+      "codigo": "407",
+      "nombre": "Escuela Infantil Nº 05 DE 16",
+      "direccion": "JOSE CUBAS 2410"
+    },
+    {
+      "codigo": "408",
+      "nombre": "Escuela Infantil Nº 08 DE 01",
+      "direccion": "AVDA LAS HERAS 2670"
+    },
+    {
+      "codigo": "409",
+      "nombre": "Escuela Infantil Nº 11 DE 19",
+      "direccion": "MARTINEZ CASTRO 3061"
+    },
+    {
+      "codigo": "410",
+      "nombre": "Escuela Infantil Nº 07 DE 01 Palacio Pizzurno",
+      "direccion": "PARAGUAY 1452"
+    },
+    {
+      "codigo": "411",
+      "nombre": "Jardín Maternal Nº 06 DE 13",
+      "direccion": "ZELADA 6240"
+    },
+    {
+      "codigo": "412",
+      "nombre": "Jardín de Infantes Común Nº 12 DE 20",
+      "direccion": "SUVIRIA 6640"
+    },
+    {
+      "codigo": "413",
+      "nombre": "Jardín Maternal Nº 15 DE 19",
+      "direccion": "RIESTRA 3300"
+    },
+    {
+      "codigo": "414",
+      "nombre": "Jardín de Infantes Común Nº 14 DE 21",
+      "direccion": "ANTONIO BERMEJO ALT PIEDRA BUENA 4300 0000"
+    },
+    {
+      "codigo": "415",
+      "nombre": "Escuela Infantil Nº 05 DE 02",
+      "direccion": "SARMIENTO 2832"
+    },
+    {
+      "codigo": "416",
+      "nombre": "Jardín de Infantes Común N° 09 DE 01",
+      "direccion": "JERONIMO SALGUERO 2455"
+    },
+    {
+      "codigo": "417",
+      "nombre": "Jardín de Infantes Común Nº 10 DE 20",
+      "direccion": "GOLETA SANTA CRUZ 6999"
+    },
+    {
+      "codigo": "418",
+      "nombre": "Escuela Infantil Nº 04 DE 17",
+      "direccion": "SIMBRON 5821"
+    },
+    {
+      "codigo": "419",
+      "nombre": "Jardín Maternal Nº 06 DE 02",
+      "direccion": "ECUADOR 261"
+    },
+    {
+      "codigo": "420",
+      "nombre": "Jardín de Infantes Integral Nº 13 DE 19",
+      "direccion": "AVDA. FERNANDEZ DE LA CRUZ 2615"
+    },
+    {
+      "codigo": "421",
+      "nombre": "Jardín de Infantes Integral Nº 13 DE 19 (anexo DAOM)",
+      "direccion": "VARELA 1802"
+    },
+    {
+      "codigo": "422",
+      "nombre": "Jardín de Infantes Común Nº 13 DE 21",
+      "direccion": "AVDA. CNEL ROCA PTA 9"
+    },
+    {
+      "codigo": "423",
+      "nombre": "Jardín Maternal Nº 11 DE 09",
+      "direccion": "GODOY CRUZ 2320"
+    },
+    {
+      "codigo": "424",
+      "nombre": "Escuela Infantil Nº 11 DE 20",
+      "direccion": "ZUVIRIA 6620"
+    },
+    {
+      "codigo": "425",
+      "nombre": "Escuela Infantil Nº 11 DE 04",
+      "direccion": "ESPORA, TOMAS, CORONEL DE MARINA y BROWN, ALTE. AV."
+    },
+    {
+      "codigo": "426",
+      "nombre": "Escuela Infantil 08 DE 15",
+      "direccion": "RIVERA, PEDRO I., DR. 4221"
+    },
+    {
+      "codigo": "427",
+      "nombre": "Jardín de Infantes Integral Nº 03 DE 15",
+      "direccion": "BESARES 4333"
+    },
+    {
+      "codigo": "428",
+      "nombre": "Jardín de Infantes Integral Nº 09 DE 21",
+      "direccion": "OLASCOAGA, MANUEL JOSE, CNEL. 5001"
+    }
+  ]
+}
