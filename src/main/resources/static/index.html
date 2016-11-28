@@ -11,7 +11,7 @@
 
 </head>
 
-<body ng-app="inscripciones" ng-controller="mainController">
+<body ng-app="inscripciones" ng-controller="mainController as mainCtrl">
     
     <link rel="stylesheet" href="app.css">
     
@@ -30,8 +30,11 @@
     <script src="libs/toastr/angular-toastr.tpls.js"></script>
     
     <script src="app.module.js"></script>
+    <script src="services/inscripcion.model.service.js"></script>
     <script src="controllers/inscripcion/main.controller.js"></script>
     <script src="controllers/inscripcion/seleccion.nivel.controller.js"></script>
+    <script src="controllers/inscripcion/aspirante.controller.js"></script>
+    
     
     
     
@@ -48,19 +51,20 @@
         </div>
     </nav>
 
-    <uib-tabset active="mainController.activeTab">
+    <uib-tabset active="mainCtrl.activeTab">
         <uib-tab index="0" disable="true">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-book"></i> Seleccion de Nivel
             </uib-tab-heading>
-            <form name="nivelForm" class="form-horizontal container" ng-controller="seleccionNivelController as seleccionNivel">
+            <form name="mainCtrl.nivelForm" class="form-horizontal container" 
+                  ng-controller="seleccionNivelController as seleccionNivel">
                 <div class="page-header">
                     <h1>Nivel a Inscribirse</h1>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Nivel:</label>
                     <div class="col-sm-8">
-                        <select class="form-control" ng-model="mainController.inscripcion.nivel.nivel" id="nivel" required>
+                        <select class="form-control" ng-model="mainCtrl.inscripcion.nivel.nivel" id="nivel" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                             </select>
@@ -69,7 +73,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Modalidad:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control" ng-model="mainController.inscripcion.nivel.modalidad" required>
+                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.nivel.modalidad" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                                 <option value="2" disabled>Escuelas Normales Superiores (ENS)</option>
@@ -80,7 +84,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Grado:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control" ng-model="mainController.inscripcion.nivel.grado" required> 
+                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.nivel.grado" required> 
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primer Grado</option>
                                 <option value="2">Segundo Grado</option>
@@ -92,16 +96,14 @@
                              </select>
                     </div>
                 </div>
-                <button type="button" class="btn btn-default btn-lg next" 
-                    ng-click="seleccionNivel.siguiente(nivelForm.$invalid, active)"> Siguiente ></button>
             </form>
-            
         </uib-tab>
         <uib-tab index="1" disable="true">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-user"></i> Datos del Aspirante
             </uib-tab-heading>
-            <form name="aspiranteForm" class="form-horizontal  container">
+            <form name="mainCtrl.aspiranteForm" class="form-horizontal container"
+                  ng-controller="aspiranteController as aspiranteCtrl">
                 <div class="page-header">
                     <h1>Datos Personales</h1>
                 </div>
@@ -109,29 +111,40 @@
                     <label class="control-label col-sm-2" for="fechaNac">Fecha Nacimiento:</label>
                     <div class="col-sm-8">
                         <p class="input-group">
-                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="fechaNac" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" show-button-bar="false" />
+                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" readonly 
+                                   placeholder="Seleccione una fecha de nacimiento"
+                                   ng-model="mainCtrl.inscripcion.aspirante.fechaNac" 
+                                   is-open="aspiranteCtrl.datePicker.opened" 
+                                   uib-datepicker-popup="dd/MM/yyyy"
+                                   datepicker-options="aspiranteCtrl.dateOptions" 
+                                   required show-button-bar="false" />
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                              </span>
+                                <button type="button" class="btn btn-default" 
+                                        ng-click="aspiranteCtrl.openDatePicker()">
+                                    <i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
                         </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nombre">Nombre:</label>
                     <div class="col-sm-8">
-                        <input type="text" id="nombre" class="form-control">
+                        <input type="text" id="nombre" class="form-control" required
+                               ng-model="mainCtrl.inscripcion.aspirante.nombre">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="apellido">Apellido:</label>
                     <div class="col-sm-8">
-                        <input type="text" id="apellido" class="form-control">
+                        <input type="text" id="apellido" class="form-control" required
+                               ng-model="mainCtrl.inscripcion.aspirante.apellido">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="sexo">Sexo:</label>
                     <div class="col-sm-8">
-                        <select class="form-control" ng-model="sexo" id="sexo">
+                        <select class="form-control" id="sexo" required
+                                ng-model="mainCtrl.inscripcion.aspirante.sexo">
                                 <option value="">Seleccionar</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
@@ -141,7 +154,8 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="tipo_documento">Documento:</label>
                     <div class="col-sm-3">
-                        <select id="tipo_documento" class="form-control">
+                        <select id="tipo_documento" class="form-control" required
+                                ng-model="mainCtrl.inscripcion.aspirante.documento.tipo">
                                 <option value="">Seleccionar el tipo</option>
                                 <option value="1">Documento Nacional de Identidad</option>
                                 <option value="3">Partida de nacimiento</option>
@@ -154,65 +168,89 @@
                             </select>
                     </div>
                     <div class="col-sm-3">
-                        <input type="text" id="nro_documento" placeholder="Número" class="form-control">
+                        <input type="text" id="nro_documento" placeholder="Número" class="form-control"
+                               ng-required="mainCtrl.inscripcion.aspirante.documento.tipo != 11"
+                               ng-disabled="mainCtrl.inscripcion.aspirante.documento.tipo == 11"
+                               ng-model="mainCtrl.inscripcion.aspirante.documento.numero">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nacionalidad">Nacionalidad:</label>
                     <div class="col-sm-8">
-                        <select id="nacionalidad" class="form-control">
-                                <option value="1">Argentina</option>
-                                <option value="2">Bolivia</option>
-                                <option value="3">Brasil</option>
-                                <option value="4">Chile</option>
-                                <option value="5">Colombia</option>
-                                <option value="6">Ecuador</option>
-                                <option value="7">Paraguay</option>
-                                <option value="8">Perú</option>
-                                <option value="9">Uruguay</option>
-                                <option value="10">Venezuela</option>
-                                <option value="11">Otros países de América</option>
-                                <option value="12">Países de Europa</option>
-                                <option value="13">Corea</option>
-                                <option value="14">Rep. Popular de China</option>
-                                <option value="15">Taiwan</option>
-                                <option value="16">Otros países de Asia</option>
-                                <option value="17">Otros</option>
+                        <select id="nacionalidad" class="form-control" required
+                                ng-model="mainCtrl.inscripcion.aspirante.nacionalidad">
+                                <option value="Argentina">Argentina</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Perú">Perú</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Otros países de América">Otros países de América</option>
+                                <option value="Países de Europa">Países de Europa</option>
+                                <option value="Corea">Corea</option>
+                                <option value="Rep. Popular de China">Rep. Popular de China</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Otros países de Asia">Otros países de Asia</option>
+                                <option value="Otros">Otros</option>
                             </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="sistema_salud">Sistema de Salud:</label>
                     <div class="col-sm-8">
-                        <select id="sistema_salud" name="sistema_salud" class="form-control">
+                        <select id="sistema_salud" name="sistema_salud" class="form-control" required
+                                ng-model="mainCtrl.inscripcion.aspirante.sistSalud">
                                 <option value="">Seleccionar</option>
-                                <option value="Hospital público">Hospital público</option>
-                                <option value="Obra social">Obra social</option>
-                                <option value="Pre-paga">Pre-paga</option>
+                                <option value="HtalPublico">Hospital público</option>
+                                <option value="ObraSocial">Obra social</option>
+                                <option value="PrePaga">Pre-paga</option>
                             </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="telefono">Teléfono:</label>
                     <div class="col-sm-8">
-                        <input type="text" id="telefono" class="form-control">
+                        <input type="text" id="telefono" class="form-control"
+                               ng-model="mainCtrl.inscripcion.aspirante.telefono">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2">Problemas de salud existentes?</label>
                     <div class="col-sm-8">
-                        <label style="padding-right: 10px"><input type="checkbox"> Fìsicos</label>
-                        <label style="padding-right: 10px"><input type="checkbox"> Alergias</label>
-                        <label style="padding-right: 10px"><input type="checkbox"> Sensorial</label>
-                        <label style="padding-right: 10px"><input type="checkbox"> Epiléptico</label>
-                        <label style="padding-right: 10px"><input type="checkbox"> Otros</label>
-                        <label style="padding-right: 10px"><input type="checkbox"> Ninguno</label>
+                        <label style="padding-right: 10px">
+                            <input type="checkbox" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.fisicos"> Fìsicos</label>
+                        <label style="padding-right: 10px">
+                            <input type="checkbox" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.alergias"> Alergias</label>
+                        <label style="padding-right: 10px">
+                            <input type="checkbox" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.sensorial"> Sensorial</label>
+                        <label style="padding-right: 10px">
+                            <input type="checkbox" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.epileptico"> Epiléptico</label>
+                        <label style="padding-right: 10px">
+                            <input type="checkbox" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.otros"> Otros</label>
+                        <div style="padding-right: 10px" 
+                               ng-show="mainCtrl.inscripcion.aspirante.problemasSalud.otros">
+                                Por favor aclarar ¿cuál?
+                            <input type="text" 
+                                   class="form-control"
+                                   ng-required="mainCtrl.inscripcion.aspirante.problemasSalud.otros"
+                                   ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.otrosDescripcion"> 
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="certificado_disc">Certificado Discapacidad:</label>
                     <div class="col-sm-8">
-                        <select id="certificado_disc" class="form-control">
+                        <select id="certificado_disc" class="form-control"
+                                ng-model="mainCtrl.inscripcion.aspirante.certDiscapacidad">
                                 <option value="false" selected="">No</option>
                                 <option value="true">Si</option>
                             </select>
@@ -224,30 +262,35 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="provincia">Provincia:</label>
                     <div class="col-sm-8">
-                        <select name="provincia" id="provincia" class="form-control">
-                                <option value="1">Ciudad Autónoma de Buenos Aires</option>
-                                <option value="2">Buenos Aires</option>
+                        <select name="provincia" id="provincia" class="form-control" required
+                                ng-model="mainCtrl.inscripcion.aspirante.domicilio.provincia">
+                                <option value="">Seleccionar</option>
+                                <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+                                <option value="BSAS">Buenos Aires</option>
                             </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="calle_nro">Calle y Numero:</label>
                     <div class="col-sm-8">
-                        <input type="text" id="calle_nro" class="form-control">
+                        <input type="text" id="calle_nro" class="form-control" required
+                               ng-model="mainCtrl.inscripcion.aspirante.domicilio.calleNro">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2"></label>
                     <div class="col-sm-8">
-                        <label class="col-sm-4">Piso: <input id="piso" class="form-control" type="text"></label>
-                        <label class="col-sm-4">Depto: <input id="depto" class="form-control" type="text"></label>
-                        <label class="col-sm-4">CP: <input id="cp" class="form-control" type="text"></label>
+                        <label class="col-sm-4">Piso: <input id="piso" class="form-control" type="text"
+                                                             ng-model="mainCtrl.inscripcion.aspirante.domicilio.piso"></label>
+                        <label class="col-sm-4">Depto: <input id="depto" class="form-control" type="text"
+                                                              ng-model="mainCtrl.inscripcion.aspirante.domicilio.depto"></label>
+                        <label class="col-sm-4">CP: <input id="cp" class="form-control" type="text" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.cp"></label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="calle_nro">Villa:</label>
                     <div class="col-sm-8">
-                        <select id="barrio" name="barrio" class="form-control">
+                        <select id="barrio" name="barrio" class="form-control" ng-model="mainCtrl.inscripcion.aspirante.domicilio.villa">
                                 <option value="">No aplica</option>
                                 <option value="65">Asentamiento Barrio Obrero</option>
                                 <option value="68">Asentamiento Bermejo</option>
@@ -294,7 +337,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="tipo_vivienda">¿En qué tipo de espacio conviven?</label>
                     <div class="col-sm-8">
-                        <select id="tipo_vivienda" class="form-control">
+                        <select id="tipo_vivienda" class="form-control" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.espacioConviven">
                                 <option value="">Seleccionar</option>
                                 <option value="casa">Vivienda propia</option>
                                 <option value="viviendaalquilada">Vivienda alquilada</option>
@@ -313,7 +356,7 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-user"></i> Datos del Responsable
             </uib-tab-heading>
-            <form name="responsableForm" class="form-horizontal container">
+            <form name="mainCtrl.responsableForm" class="form-horizontal container">
                 <div class="page-header">
                     <h1>Datos Personales del Responsable</h1>
                 </div>
@@ -516,7 +559,7 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-plus"></i> Datos Adicionales
             </uib-tab-heading>
-            <form name="adicionalesForm" class="form-horizontal container">
+            <form name="mainCtrl.adicionalesForm" class="form-horizontal container">
 
                 <div class="page-header">
                     <h1>Datos Adicionales</h1>
@@ -563,7 +606,7 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-home"></i> Seleccion de Escuelas
             </uib-tab-heading>
-            <form name="escuelasForm" class="form-horizontal container">
+            <form name="mainCtrl.escuelasForm" class="form-horizontal container">
                 <div class="page-header">
                     <h1>Selección de Escuelas</h1>
                 </div>
@@ -578,6 +621,14 @@
             </uib-tab-heading>
         </uib-tab>
     </uib-tabset>
+    <div id="navigationButtonsContainer">
+        <button type="button" class="btn btn-default btn-lg" ng-disabled="mainCtrl.activeTab == 0"
+            ng-click="mainCtrl.anterior(mainCtrl.activeTab)">&lt; Anterior</button>
+        <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab != 5"
+            ng-click="mainCtrl.siguiente(mainCtrl.activeTab)"> Siguiente ></button>
+        <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab == 5"
+            ng-click="mainCtrl.finalizar()"> Finalizar </button>
+    </div>
 </body>
 
 </html>

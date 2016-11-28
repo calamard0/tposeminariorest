@@ -10,9 +10,9 @@
     margin-top: -18px;
 }
 
-.next {
-    float: right;
-    margin-right: 160px;
+#navigationButtonsContainer {
+    display: flex;
+    justify-content: space-around;
 }
 
 .ng-invalid {
