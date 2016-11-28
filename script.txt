@@ -1,0 +1,152 @@
+CREATE DATABASE IF NOT EXISTS inscripciones;
+use inscripciones;
+
+create table vacante(
+	codVacantes int AUTO_INCREMENT NOT NULL,
+	peso DOUBLE,
+	codCursos varchar(50) NOT NULL,
+	estaAprobada int NOT NULL,
+	prioridad int NOT NULL,
+	codPreinscripcion int NOT NULL,
+	constraint pk_codVacantes primary key(codVacantes)
+);
+
+create table colegio(
+	codColegio int AUTO_INCREMENT NOT NULL,
+	nombre varchar(50) NOT NULL,
+	direccion varchar(50) NOT NULL,
+	codCursosColegio int,
+	codVacantes int,
+	constraint pk_codColegio primary key(codColegio),
+	constraint fk_colegios_vacantes foreign key (codVacantes) references vacante(codVacantes)
+);
+
+create table curso(
+	codCurso int AUTO_INCREMENT NOT NULL,
+	descripcion varchar(50) NOT NULL,
+	grado int NOT NULL,
+	codSetDeVacantes int,
+	vacantesDisponibles int,
+	constraint pk_codCurso primary key(codCurso)
+);
+
+create table cursoColegio(
+	codColegio int NOT NULL,
+	codCurso int NOT NULL,
+	constraint pk_cursoColegio primary key (codColegio,codCurso),
+	constraint fk_cursoColegio_colegio foreign key (codColegio) references colegio(codColegio),
+	constraint fk_cursoColegio_curso foreign key (codCurso) references curso(codCurso)
+);
+
+create table datosExtraHermano(
+	codDatosHermano int NOT NULL,
+	nombre varchar (100) null,
+	apellido varchar (100) null,
+	numeroDocumento varchar (20) null,
+	constraint pk_codDatosHermano primary key(codDatosHermano)
+);
+
+create table datosExtraPadre(
+	codDatosPadre int NOT NULL,
+	fichaMunicipal varchar (100) null,
+	nombre varchar (100) null,
+	constraint pk_codDatosPadre primary key(codDatosPadre)
+);
+
+create table datosExtra(
+	codDatosExtra int NOT NULL,
+	codColegio int not null,
+	codDatosHermano int null,
+	codDatosPadre int null,
+	constraint pk_codDatosExtra primary key(codDatosExtra),
+	constraint fk_datosExtra_datosExtraHermano foreign key (codDatosHermano) references datosExtraHermano(codDatosHermano),
+	constraint fk_datosExtra_datosExtraPadre foreign key (codDatosPadre) references datosExtraPadre(codDatosPadre)
+);
+
+create table setProblemasSalud(
+	codSetProblemasSalud int NOT NULL,
+	descripcion varchar (100) not null,
+	constraint pk_codSetProblemasSalud primary key (codSetProblemasSalud)
+);
+
+create table domicilio(
+	codDomicilio int AUTO_INCREMENT NOT NULL,
+	provincia varchar(100) NOT NULL,
+	calle varchar(100) NULL,
+	numero int,
+	villa varchar(100) NULL,
+	piso int,
+	departamento varchar(2) NULL,
+	codigoPostal varchar(20) NULL,
+	tipo varchar(100) NULL,
+	constraint pk_codDomicilio primary key(codDomicilio)
+);
+
+create table aspirante(
+	codAspirante int AUTO_INCREMENT NOT NULL,
+	nombre varchar(100) NOT NULL,
+	apellido varchar(100) NULL,
+	fechaNacimiento date not NULL,
+	sexo varchar(8) NULL,
+	tipoDocumento varchar(6) NULL,
+	numeroDocumento varchar(20) NULL,
+	paisNacimiento varchar(100) NULL,
+	sistemaSalud varchar(100) NULL,
+	codSetProblemasSalud int,
+	certificadoDisca int,
+	codDomicilio int,
+	constraint pk_codAspirante primary key(codAspirante),
+	constraint fk_aspirante_setProblemasSalud foreign key (codSetProblemasSalud) references setProblemasSalud(codSetProblemasSalud),
+	constraint fk_aspirante_domicilio foreign key (codDomicilio) references domicilio(codDomicilio)
+);
+
+create table datosLaborales(
+	codDatosLaborales int AUTO_INCREMENT NOT NULL,
+	situacionLaboral varchar(30) NOT NULL,
+	profecion varchar(50) NULL,
+	sostenFamiliar int,
+	telefono varchar(20)null,
+	datosReferencia varchar(100)null,
+	codDomicilio int,
+	constraint pk_codDatosLaborales primary key(codDatosLaborales)
+);
+
+create table responsable(
+	codResponsable int AUTO_INCREMENT NOT NULL,
+	nombre varchar(100) NOT NULL,
+	apellido varchar(100) NULL,
+	tipoDocumento varchar(6) NULL,
+	numeroDocumento varchar(20) NULL,
+	paisNacimiento varchar(100) NULL,
+	email varchar(100) NULL,
+	vinculoAspirante varchar(100) null,
+	telefonoParticular varchar(20)null,
+	telefonoAlternativo varchar(20)null,
+	codDatosLaborales int,
+	codDomicilio int,
+	constraint pk_codResponsable primary key(codResponsable),
+	constraint fk_responsable_datosLaborales foreign key (codDatosLaborales) references datosLaborales(codDatosLaborales),
+	constraint fk_responsable_domicilio foreign key (codDomicilio) references domicilio(codDomicilio)
+);
+
+create table preinscripcion(
+	codPreinscripcion int AUTO_INCREMENT NOT NULL,
+	codAspirante int NOT NULL,
+	codResponsable int not NULL,
+	codDatosExtra int,
+	codCurso int,
+	estado varchar(30),
+	constraint pk_codPreinscripcion primary key(codPreinscripcion),
+	constraint fk_preinscripcion_aspirante foreign key (codAspirante) references aspirante(codAspirante),
+	constraint fk_preinscripcion_responsable foreign key (codResponsable) references responsable(codResponsable),
+	constraint fk_preinscripcion_datosExtra foreign key (codDatosExtra) references datosExtra(codDatosExtra),
+	constraint fk_preinscripcion_cursos foreign key (codCurso) references curso(codCurso)
+);
+
+create table usuario(
+	codUsuario int NOT NULL,
+	nombreUsuario varchar (100) not null,
+	password varchar (100) null,
+	rol varchar (20) null,
+	constraint pk_codUsuario primary key(codUsuario)
+);
