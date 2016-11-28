@@ -19,7 +19,7 @@
                 toastr.clear();
                 var isCurrentFormInvalid = vm[formsNameArray[currentTabIndex]].$invalid;
                 if (isCurrentFormInvalid) {
-                    toastr.error('Por favor, complete los campos obligatorios');
+                    toastr.error('Por favor, complete los campos obligatorios (marcados en rojo)');
                 } else {
                     vm.activeTab = currentTabIndex+1;
                 }

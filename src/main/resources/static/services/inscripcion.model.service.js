@@ -51,7 +51,6 @@
                     vinculo: null,
                     nombre: null,
                     apellido: null,
-                    sexo: null,
                     documento: {
                         tipo: null,
                         numero: null
@@ -60,8 +59,8 @@
                     email: null,
                     telefono1: null,
                     telefono2: null,
-                    domicilioLaboral: {
-                        situacion: null,
+                    trabaja: false,
+                    datosLaborales: {
                         profesion: null,
                         telefono: null,
                         provincia: null,
