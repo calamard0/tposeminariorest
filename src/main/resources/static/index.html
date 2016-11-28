@@ -622,7 +622,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" ng-model="datosAdicionalesCtrl.jardinEstatal" uib-typeahead="jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:$viewValue | limitTo:10" class="form-control" typeahead-editable="false">
+                    <input type="text" ng-model="datosAdicionalesCtrl.jardinEstatal" uib-typeahead="jardin as jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:{nombre:$viewValue} | limitTo:10" class="form-control" typeahead-editable="false">
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-9" for="hermanos">¿El aspirante tiene hermanos cursando en alguna escuela de gestion estatal de la Ciudad de Buenos Aires?</label>
