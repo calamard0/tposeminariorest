@@ -12,5 +12,9 @@
 
 .next {
     float: right;
-    margin-right: 25px;
+    margin-right: 160px;
+}
+
+.ng-invalid {
+    border-color: red! important;
 }

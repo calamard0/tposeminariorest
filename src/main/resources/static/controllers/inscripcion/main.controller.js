@@ -4,7 +4,9 @@
     angular.module('inscripciones')
         .controller('mainController', function ($scope) {
 
-            $scope.model = {
+            var vm = this;
+        
+            vm.inscripcion = {
                 nivel: {
                     nivel: null,
                     modalidad: null,
@@ -114,7 +116,7 @@
                     }
                 ]
             };
-
+        
             // ====================== DATEPICKER ======================
             $scope.today = function () {
                 $scope.fechaNac = new Date();
