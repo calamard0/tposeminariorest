@@ -12,22 +12,30 @@
 </head>
 
 <body ng-app="inscripciones" ng-controller="mainController">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/app.css">
-    <link rel="stylesheet" href="jquery-ui.min.css">
+    
+    <link rel="stylesheet" href="app.css">
+    
+    <link rel="stylesheet" href="libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="libs/jquery-ui.min.css">
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="jquery-ui.min.js"></script>
-    <script src="sortable.js"></script>
+    <script src="libs/jquery-ui.min.js"></script>
+    <script src="libs/sortable.js"></script>
     <script src="https://code.angularjs.org/1.5.8/i18n/angular-locale_es-ar.js"></script>
-    <script src="ui-bootstrap-2.1.4.js"></script>
-    <script src="ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script src="libs/ui-bootstrap-2.1.4.js"></script>
+    <script src="libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
 
-    <script src="inscripciones.module.js"></script>
+    <script src="app.module.js"></script>
+    <script src="controllers/inscripcion/main.controller.js"></script>
+    <script src="controllers/inscripcion/seleccion.nivel.controller.js"></script>
 
+    
+    
+    
+    
+    
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -45,14 +53,14 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-book"></i> Seleccion de Nivel
             </uib-tab-heading>
-            <form name="nivelForm" class="form-horizontal container">
+            <form name="nivelForm" class="form-horizontal container" ng-controller="seleccionNivelController as seleccionNivel">
                 <div class="page-header">
                     <h1>Nivel a Inscribirse</h1>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Nivel:</label>
                     <div class="col-sm-8">
-                        <select class="form-control" ng-model="nivel" id="nivel">
+                        <select class="form-control" ng-model="nivel" id="nivel" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                             </select>
@@ -61,7 +69,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Modalidad:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control">
+                        <select id="modalidad" class="form-control" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                                 <option value="2">Escuelas Normales Superiores (ENS)</option>
@@ -72,7 +80,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Grado:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control">
+                        <select id="modalidad" class="form-control" required> 
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primer Grado</option>
                                 <option value="2">Segundo Grado</option>
@@ -85,6 +93,9 @@
                     </div>
                 </div>
             </form>
+            <button type="button" class="btn btn-default btn-lg next" 
+                    ng-click="seleccionNivel.siguiente()" 
+                    ng-disabled="form.nivelForm.$valid"> Siguiente ></button>
         </uib-tab>
         <uib-tab index="1">
             <uib-tab-heading>
@@ -567,7 +578,6 @@
             </uib-tab-heading>
         </uib-tab>
     </uib-tabset>
-    <ul uib-pager total-items="6" ng-model="dummy"></ul>
 </body>
 
 </html>

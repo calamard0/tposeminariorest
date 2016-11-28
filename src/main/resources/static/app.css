@@ -1,0 +1,16 @@
+#logo {
+    float: left;
+    overflow: hidden;
+    height: 38px;
+    margin-top: 5px;
+}
+
+#logo img {
+    width: 200px;
+    margin-top: -18px;
+}
+
+.next {
+    float: right;
+    margin-right: 25px;
+}
