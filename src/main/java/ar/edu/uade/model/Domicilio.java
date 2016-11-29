@@ -1,24 +1,49 @@
 package ar.edu.uade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import ar.edu.uade.dto.DomicilioDTO;
 
+@Entity
 public class Domicilio {
 
+	private int id;
 	private String provincia;
 	private String calle;
 	private int numero;
 	private String villa;
 	private int piso;
-	private String depto;
+	private String departamento;
 	private String codigoPostal;
 	private String tipo;
 	
+	public Domicilio() {
+		
+	}
+
 	public Domicilio(DomicilioDTO dto) {
 		
 	}
-	
-	public int grabar() {
-		return 0;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
 	}
 
 	public String getProvincia() {
@@ -59,14 +84,6 @@ public class Domicilio {
 
 	public void setPiso(int piso) {
 		this.piso = piso;
-	}
-
-	public String getDepto() {
-		return depto;
-	}
-
-	public void setDepto(String depto) {
-		this.depto = depto;
 	}
 
 	public String getCodigoPostal() {

@@ -1,45 +1,82 @@
 package ar.edu.uade.model;
 
-import java.util.List;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import ar.edu.uade.dto.AspiranteDTO;
 
+@Entity
 public class Aspirante {
 
-	private String nomobre;
+	private int id;
+	private String nombre;
 	private String apellido;
-	private String fechaNacimiento;
+	private Date fechaNacimiento;
 	private String sexo;
 	private String tipoDocumento;
-	private String nroDocumento;
+	private String numeroDocumento;
 	private String paisNacimiento;
-	private String sistemaDeSalud;
-	private List<String> problemasSalud;
-	private boolean certificadoDiscapacidad;
+	private String sistemaSalud;
+	private Set<ProblemaSalud> problemasSalud;
+	private boolean certificadoDisca;
 	private Domicilio domicilio;
+	
+	public Aspirante() {
+		
+	}
 	
 	public Aspirante(AspiranteDTO dto) {
 		
 	}
-	
-	public int grabar() {
-		return 0;
-	}
-	
-	public void modificar(AspiranteDTO dto) {
-		
-	}
-	
-	private Aspirante transformar(AspiranteDTO dto) {
-		return null;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
 	}
 
-	public String getNomobre() {
-		return nomobre;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setNomobre(String nomobre) {
-		this.nomobre = nomobre;
+	public String getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	public void setNumeroDocumento(String numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+	public String getSistemaSalud() {
+		return sistemaSalud;
+	}
+
+	public void setSistemaSalud(String sistemaSalud) {
+		this.sistemaSalud = sistemaSalud;
+	}
+
+	public boolean isCertificadoDisca() {
+		return certificadoDisca;
+	}
+
+	public void setCertificadoDisca(boolean certificadoDisca) {
+		this.certificadoDisca = certificadoDisca;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getApellido() {
@@ -50,11 +87,11 @@ public class Aspirante {
 		this.apellido = apellido;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -74,14 +111,6 @@ public class Aspirante {
 		this.tipoDocumento = tipoDocumento;
 	}
 
-	public String getNroDocumento() {
-		return nroDocumento;
-	}
-
-	public void setNroDocumento(String nroDocumento) {
-		this.nroDocumento = nroDocumento;
-	}
-
 	public String getPaisNacimiento() {
 		return paisNacimiento;
 	}
@@ -90,35 +119,21 @@ public class Aspirante {
 		this.paisNacimiento = paisNacimiento;
 	}
 
-	public String getSistemaDeSalud() {
-		return sistemaDeSalud;
-	}
-
-	public void setSistemaDeSalud(String sistemaDeSalud) {
-		this.sistemaDeSalud = sistemaDeSalud;
-	}
-
-	public List<String> getProblemasSalud() {
-		return problemasSalud;
-	}
-
-	public void setProblemasSalud(List<String> problemasSalud) {
-		this.problemasSalud = problemasSalud;
-	}
-
-	public boolean isCertificadoDiscapacidad() {
-		return certificadoDiscapacidad;
-	}
-
-	public void setCertificadoDiscapacidad(boolean certificadoDiscapacidad) {
-		this.certificadoDiscapacidad = certificadoDiscapacidad;
-	}
-
+	@OneToOne(cascade=CascadeType.ALL)
 	public Domicilio getDomicilio() {
 		return domicilio;
 	}
 
 	public void setDomicilio(Domicilio domicilio) {
 		this.domicilio = domicilio;
+	}
+
+	@OneToMany(mappedBy = "aspirante", cascade = CascadeType.ALL)
+	public Set<ProblemaSalud> getProblemasSalud() {
+		return problemasSalud;
+	}
+
+	public void setProblemasSalud(Set<ProblemaSalud> problemasSalud) {
+		this.problemasSalud = problemasSalud;
 	}
 }

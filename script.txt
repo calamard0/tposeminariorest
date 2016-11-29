@@ -1,152 +1,147 @@
 CREATE DATABASE IF NOT EXISTS inscripciones;
 use inscripciones;
 
-create table vacante(
-	codVacantes int AUTO_INCREMENT NOT NULL,
-	peso DOUBLE,
-	codCursos varchar(50) NOT NULL,
-	estaAprobada int NOT NULL,
-	prioridad int NOT NULL,
-	codPreinscripcion int NOT NULL,
-	constraint pk_codVacantes primary key(codVacantes)
-);
-
 create table colegio(
-	codColegio int AUTO_INCREMENT NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	nombre varchar(50) NOT NULL,
 	direccion varchar(50) NOT NULL,
-	codCursosColegio int,
-	codVacantes int,
-	constraint pk_codColegio primary key(codColegio),
-	constraint fk_colegios_vacantes foreign key (codVacantes) references vacante(codVacantes)
+	constraint pk_Colegio primary key(id)
 );
 
 create table curso(
-	codCurso int AUTO_INCREMENT NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	descripcion varchar(50) NOT NULL,
 	grado int NOT NULL,
-	codSetDeVacantes int,
-	vacantesDisponibles int,
-	constraint pk_codCurso primary key(codCurso)
-);
-
-create table cursoColegio(
-	codColegio int NOT NULL,
-	codCurso int NOT NULL,
-	constraint pk_cursoColegio primary key (codColegio,codCurso),
-	constraint fk_cursoColegio_colegio foreign key (codColegio) references colegio(codColegio),
-	constraint fk_cursoColegio_curso foreign key (codCurso) references curso(codCurso)
-);
-
-create table datosExtraHermano(
-	codDatosHermano int NOT NULL,
-	nombre varchar (100) null,
-	apellido varchar (100) null,
-	numeroDocumento varchar (20) null,
-	constraint pk_codDatosHermano primary key(codDatosHermano)
-);
-
-create table datosExtraPadre(
-	codDatosPadre int NOT NULL,
-	fichaMunicipal varchar (100) null,
-	nombre varchar (100) null,
-	constraint pk_codDatosPadre primary key(codDatosPadre)
-);
-
-create table datosExtra(
-	codDatosExtra int NOT NULL,
-	codColegio int not null,
-	codDatosHermano int null,
-	codDatosPadre int null,
-	constraint pk_codDatosExtra primary key(codDatosExtra),
-	constraint fk_datosExtra_datosExtraHermano foreign key (codDatosHermano) references datosExtraHermano(codDatosHermano),
-	constraint fk_datosExtra_datosExtraPadre foreign key (codDatosPadre) references datosExtraPadre(codDatosPadre)
-);
-
-create table setProblemasSalud(
-	codSetProblemasSalud int NOT NULL,
-	descripcion varchar (100) not null,
-	constraint pk_codSetProblemasSalud primary key (codSetProblemasSalud)
+	vacantes_disponibles int,
+	colegio_id int not null,
+	constraint pk_curso primary key(id),
+	constraint fk_curso_colegio foreign key (colegio_id) references colegio(id)
 );
 
 create table domicilio(
-	codDomicilio int AUTO_INCREMENT NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	provincia varchar(100) NOT NULL,
 	calle varchar(100) NULL,
 	numero int,
 	villa varchar(100) NULL,
 	piso int,
 	departamento varchar(2) NULL,
-	codigoPostal varchar(20) NULL,
+	codigo_postal varchar(20) NULL,
 	tipo varchar(100) NULL,
-	constraint pk_codDomicilio primary key(codDomicilio)
+	constraint pk_domicilio primary key(id)
+);
+
+create table datos_laborales(
+	id int AUTO_INCREMENT NOT NULL,
+	situacion_laboral varchar(30) NOT NULL,
+	profesion varchar(50) NULL,
+	sosten_familiar int,
+	telefono varchar(20)null,
+	datos_referencia varchar(100)null,
+	domicilio_id int not null,
+	constraint pk_DatosLaborales primary key(id),
+	constraint fk_datos_laborales_domicilio foreign key (domicilio_id) references domicilio(id)
+);
+
+create table datos_extra_hermano(
+	id int AUTO_INCREMENT NOT NULL,
+	nombre varchar (100) null,
+	apellido varchar (100) null,
+	numero_documento varchar (20) null,
+	constraint pk_datoshermano primary key(id)
+);
+
+create table datos_extra_padre(
+	id int AUTO_INCREMENT NOT NULL,
+	ficha_municipal varchar (100) null,
+	nombre varchar (100) null,
+	constraint pk_datospadre primary key(id)
+);
+
+create table datos_extra(
+	id int AUTO_INCREMENT NOT NULL,
+	colegio_id int not null,
+	datos_hermano_id int,
+	datos_padre_id int,
+	constraint pk_datosextra primary key(id),
+	constraint fk_datosExtra_datosExtraHermano foreign key (datos_hermano_id) references datos_extra_hermano(id),
+	constraint fk_datosExtra_datosExtraPadre foreign key (datos_padre_id) references datos_extra_padre(id),
+	constraint fk_datosExtra_colegio foreign key (colegio_id) references colegio(id)
 );
 
 create table aspirante(
-	codAspirante int AUTO_INCREMENT NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	nombre varchar(100) NOT NULL,
 	apellido varchar(100) NULL,
-	fechaNacimiento date not NULL,
+	fecha_nacimiento date not NULL,
 	sexo varchar(8) NULL,
-	tipoDocumento varchar(6) NULL,
-	numeroDocumento varchar(20) NULL,
-	paisNacimiento varchar(100) NULL,
-	sistemaSalud varchar(100) NULL,
-	codSetProblemasSalud int,
-	certificadoDisca int,
-	codDomicilio int,
-	constraint pk_codAspirante primary key(codAspirante),
-	constraint fk_aspirante_setProblemasSalud foreign key (codSetProblemasSalud) references setProblemasSalud(codSetProblemasSalud),
-	constraint fk_aspirante_domicilio foreign key (codDomicilio) references domicilio(codDomicilio)
+	tipo_documento varchar(6) NULL,
+	numero_documento varchar(20) NULL,
+	pais_nacimiento varchar(100) NULL,
+	sistema_salud varchar(100) NULL,
+	certificado_disca int,
+	domicilio_id int not null,
+	constraint pk_aspirante primary key(id),
+	constraint fk_aspirante_domicilio foreign key (domicilio_id) references domicilio(id)
 );
 
-create table datosLaborales(
-	codDatosLaborales int AUTO_INCREMENT NOT NULL,
-	situacionLaboral varchar(30) NOT NULL,
-	profecion varchar(50) NULL,
-	sostenFamiliar int,
-	telefono varchar(20)null,
-	datosReferencia varchar(100)null,
-	codDomicilio int,
-	constraint pk_codDatosLaborales primary key(codDatosLaborales)
+create table problema_salud(
+	id int AUTO_INCREMENT NOT NULL,
+	aspirante_id int not null,
+	descripcion varchar (100) not null,
+	constraint pk_ProblemaSalud primary key (id),
+	constraint fk_problemasalud_aspirante foreign key (aspirante_id) references aspirante(id)
 );
 
 create table responsable(
-	codResponsable int AUTO_INCREMENT NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
 	nombre varchar(100) NOT NULL,
 	apellido varchar(100) NULL,
-	tipoDocumento varchar(6) NULL,
-	numeroDocumento varchar(20) NULL,
-	paisNacimiento varchar(100) NULL,
+	tipo_documento varchar(6) NULL,
+	numero_documento varchar(20) NULL,
+	pais_nacimiento varchar(100) NULL,
 	email varchar(100) NULL,
-	vinculoAspirante varchar(100) null,
-	telefonoParticular varchar(20)null,
-	telefonoAlternativo varchar(20)null,
-	codDatosLaborales int,
-	codDomicilio int,
-	constraint pk_codResponsable primary key(codResponsable),
-	constraint fk_responsable_datosLaborales foreign key (codDatosLaborales) references datosLaborales(codDatosLaborales),
-	constraint fk_responsable_domicilio foreign key (codDomicilio) references domicilio(codDomicilio)
+	vinculo_aspirante varchar(100) null,
+	telefono_particular varchar(20)null,
+	telefono_alternativo varchar(20)null,
+	datos_laborales_id int not null,
+	domicilio_id int not null,
+	constraint pk_responsable primary key(id),
+	constraint fk_responsable_datosLaborales foreign key (datos_laborales_id) references datos_laborales(id),
+	constraint fk_responsable_domicilio foreign key (domicilio_id) references domicilio(id)
 );
 
 create table preinscripcion(
-	codPreinscripcion int AUTO_INCREMENT NOT NULL,
-	codAspirante int NOT NULL,
-	codResponsable int not NULL,
-	codDatosExtra int,
-	codCurso int,
+	id int AUTO_INCREMENT NOT NULL,
+	aspirante_id int NOT NULL,
+	responsable_id int not NULL,
+	datos_extra_id int,
+	curso_id int,
 	estado varchar(30),
-	constraint pk_codPreinscripcion primary key(codPreinscripcion),
-	constraint fk_preinscripcion_aspirante foreign key (codAspirante) references aspirante(codAspirante),
-	constraint fk_preinscripcion_responsable foreign key (codResponsable) references responsable(codResponsable),
-	constraint fk_preinscripcion_datosExtra foreign key (codDatosExtra) references datosExtra(codDatosExtra),
-	constraint fk_preinscripcion_cursos foreign key (codCurso) references curso(codCurso)
+	constraint pk_preinscripcion primary key(id),
+	constraint fk_preinscripcion_aspirante foreign key (aspirante_id) references aspirante(id),
+	constraint fk_preinscripcion_responsable foreign key (responsable_id) references responsable(id),
+	constraint fk_preinscripcion_datosExtra foreign key (datos_extra_id) references datos_extra(id),
+	constraint fk_preinscripcion_cursos foreign key (curso_id) references curso(id)
+);
+
+create table vacante(
+	id int AUTO_INCREMENT NOT NULL,
+	peso DOUBLE,
+	esta_aprobada int NOT NULL,
+	prioridad int NOT NULL,
+	preinscripcion_id int NOT NULL,
+	curso_id int NOT NULL,
+	constraint pk_vacante primary key(id),
+	constraint fk_vacante_curso foreign key (curso_id) references curso(id),
+	constraint fk_vacante_preinscripcion foreign key (preinscripcion_id) references preinscripcion(id)
 );
 
 create table usuario(
-	codUsuario int NOT NULL,
+	id int AUTO_INCREMENT NOT NULL,
+	codigo_usuario int not null,
 	nombreUsuario varchar (100) not null,
 	password varchar (100) null,
 	rol varchar (20) null,
-	constraint pk_codUsuario primary key(codUsuario)
+	constraint pk_usuario primary key(id)
 );

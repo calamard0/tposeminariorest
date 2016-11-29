@@ -1,19 +1,46 @@
 package ar.edu.uade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import ar.edu.uade.dto.DatosHermanoDTO;
 
+//@Entity
+//@Table(name = "datos_extra_hermano")
 public class DatosHermano extends DatosExtra {
 
+	private int id;
 	private String nombre;
 	private String apellido;
-	private String dni;
+	private String numeroDocumento;
+	
+	public DatosHermano() {
+		
+	}
 	
 	public DatosHermano(DatosHermanoDTO dto) {
 		
 	}
-	
-	public int grabar() {
-		return 0;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	public void setNumeroDocumento(String numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
 	}
 
 	public String getNombre() {
@@ -31,13 +58,4 @@ public class DatosHermano extends DatosExtra {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
 }

@@ -1,14 +1,29 @@
 package ar.edu.uade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import ar.edu.uade.dto.VacanteDTO;
 
+@Entity
 public class Vacante {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int codVacantes;
+	
 	private float peso;
-	private PreInscripcion preInscripcion;
-	private Curso curso;
 	private int prioridad;
-	private boolean estadoAprobada;
+	private boolean estaAprobada;
+	
+	/*
+	 * Ver estos dos campos como hacerlos para relacionar
+	 */
+	//private PreInscripcion preInscripcion;
+	//private Curso curso;
+
 	
 	public Vacante(VacanteDTO dto) {
 		
@@ -21,35 +36,52 @@ public class Vacante {
 	public void calcularPeso() {
 		
 	}
-	
+
+	public int getCodVacantes() {
+		return codVacantes;
+	}
+
+	public void setCodVacantes(int codVacantes) {
+		this.codVacantes = codVacantes;
+	}
+
 	public float getPeso() {
 		return peso;
 	}
+
 	public void setPeso(float peso) {
 		this.peso = peso;
 	}
-	public PreInscripcion getPreInscripcion() {
-		return preInscripcion;
-	}
-	public void setPreInscripcion(PreInscripcion preInscripcion) {
-		this.preInscripcion = preInscripcion;
-	}
-	public Curso getCurso() {
-		return curso;
-	}
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
+
 	public int getPrioridad() {
 		return prioridad;
 	}
+
 	public void setPrioridad(int prioridad) {
 		this.prioridad = prioridad;
 	}
-	public boolean isEstadoAprobada() {
-		return estadoAprobada;
+
+	public boolean isEstaAprobada() {
+		return estaAprobada;
 	}
-	public void setEstadoAprobada(boolean estadoAprobada) {
-		this.estadoAprobada = estadoAprobada;
+
+	public void setEstaAprobada(boolean estaAprobada) {
+		this.estaAprobada = estaAprobada;
 	}
+
+//	public PreInscripcion getPreInscripcion() {
+//		return preInscripcion;
+//	}
+//
+//	public void setPreInscripcion(PreInscripcion preInscripcion) {
+//		this.preInscripcion = preInscripcion;
+//	}
+//
+//	public Curso getCurso() {
+//		return curso;
+//	}
+//
+//	public void setCurso(Curso curso) {
+//		this.curso = curso;
+//	}
 }

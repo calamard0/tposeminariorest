@@ -1,9 +1,18 @@
 package ar.edu.uade.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import ar.edu.uade.dto.DatosLaboralesDTO;
 
+@Entity
 public class DatosLaborales {
 
+	private int id;
 	private String situacionLaboral;
 	private String profesion;
 	private boolean sostenFamiliar;
@@ -11,12 +20,22 @@ public class DatosLaborales {
 	private String datosReferencia;
 	private Domicilio domicilio;
 	
-	public DatosLaborales(DatosLaboralesDTO dto) {
+	public DatosLaborales() {
 		
 	}
 	
-	public int grabar() {
-		return 0;
+	public DatosLaborales(DatosLaboralesDTO dto) {
+		
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getSituacionLaboral() {
@@ -59,6 +78,8 @@ public class DatosLaborales {
 		this.datosReferencia = datosReferencia;
 	}
 
+//	@ManyToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	public Domicilio getDomicilio() {
 		return domicilio;
 	}

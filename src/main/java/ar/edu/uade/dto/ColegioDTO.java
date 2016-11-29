@@ -1,16 +1,20 @@
 package ar.edu.uade.dto;
 
+import java.util.Set;
+
 public class ColegioDTO {
 	
 	public String nombre;
 	public String direccion;
+	public Set<CursoDTO> cursos;
 	
 	public ColegioDTO() {
 	}
 	
-	public ColegioDTO(String nombre, String direccion) {
+	public ColegioDTO(String nombre, String direccion, Set<CursoDTO> cursos) {
 		this.nombre = nombre;
 		this.direccion = direccion;
+		this.cursos = cursos;
 	}
 
 	public String getNombre() {
@@ -27,6 +31,14 @@ public class ColegioDTO {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	public Set<CursoDTO> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(Set<CursoDTO> cursos) {
+		this.cursos = cursos;
 	}
 	
 }
