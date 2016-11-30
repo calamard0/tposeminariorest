@@ -5,7 +5,6 @@ import java.util.List;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
-import ar.edu.uade.dto.ReporteDTO;
 import ar.edu.uade.dto.UsuarioDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
@@ -82,14 +81,6 @@ public class SistemaInscripciones {
 	
 	public void modificarVacantes(ColegioDTO colegio) {
 		
-	}
-	
-	public ReporteDTO generarReportePorColegio() {
-		return null;
-	}
-	
-	public ReporteDTO generarReporteGeneral() {
-		return null;
 	}
 	
 	private List<Curso> buscarColegiosCercanos(String direccion, int grado) {

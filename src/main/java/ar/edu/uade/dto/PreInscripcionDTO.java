@@ -2,22 +2,29 @@ package ar.edu.uade.dto;
 
 import java.util.Set;
 
-import ar.edu.uade.model.Aspirante;
-import ar.edu.uade.model.Curso;
-import ar.edu.uade.model.DatosExtra;
-import ar.edu.uade.model.Responsable;
-import ar.edu.uade.model.Vacante;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ar.edu.uade.model.PreInscripcion;
 
 public class PreInscripcionDTO {
 	
 	private int id;
-	private Set<Vacante> vacantes;
-	private Aspirante aspirante;
+	private Set<VacanteDTO> vacantes;
+	private AspiranteDTO aspirante;
 	private String estado;
-	private Responsable responsable;
+	private ResponsableDTO responsable;
 	private boolean validada;
-	private DatosExtra datosExtra;
-	private Curso curso;
+	private DatosExtraDTO datosExtra;
+	private CursoDTO curso;
+	
+	public PreInscripcionDTO() {
+		
+	}
+	
+	public PreInscripcionDTO(PreInscripcion pre) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.convertValue(pre, PreInscripcionDTO.class);
+	}
 
 	public int getId() {
 		return id;
@@ -25,16 +32,16 @@ public class PreInscripcionDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Set<Vacante> getVacantes() {
+	public Set<VacanteDTO> getVacantes() {
 		return vacantes;
 	}
-	public void setVacantes(Set<Vacante> vacantes) {
+	public void setVacantes(Set<VacanteDTO> vacantes) {
 		this.vacantes = vacantes;
 	}
-	public Aspirante getAspirante() {
+	public AspiranteDTO getAspirante() {
 		return aspirante;
 	}
-	public void setAspirante(Aspirante aspirante) {
+	public void setAspirante(AspiranteDTO aspirante) {
 		this.aspirante = aspirante;
 	}
 	public String getEstado() {
@@ -43,10 +50,10 @@ public class PreInscripcionDTO {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public Responsable getResponsable() {
+	public ResponsableDTO getResponsable() {
 		return responsable;
 	}
-	public void setResponsable(Responsable responsable) {
+	public void setResponsable(ResponsableDTO responsable) {
 		this.responsable = responsable;
 	}
 	public boolean isValidada() {
@@ -55,16 +62,16 @@ public class PreInscripcionDTO {
 	public void setValidada(boolean validada) {
 		this.validada = validada;
 	}
-	public DatosExtra getDatosExtra() {
+	public DatosExtraDTO getDatosExtra() {
 		return datosExtra;
 	}
-	public void setDatosExtra(DatosExtra datosExtra) {
+	public void setDatosExtra(DatosExtraDTO datosExtra) {
 		this.datosExtra = datosExtra;
 	}
-	public Curso getCurso() {
+	public CursoDTO getCurso() {
 		return curso;
 	}
-	public void setCurso(Curso curso) {
+	public void setCurso(CursoDTO curso) {
 		this.curso = curso;
 	}
 	

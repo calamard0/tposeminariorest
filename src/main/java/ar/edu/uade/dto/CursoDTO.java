@@ -5,7 +5,7 @@ public class CursoDTO {
 	private String descripcion;
 	private int grado;
 	private int vacantesDisponibles;
-	private ColegioDTO colegio;
+//	private ColegioDTO colegio;
 
 	public CursoDTO( String descripcion, int grado, int vacantesDisponibles ) {
 		this.descripcion = descripcion;
@@ -13,12 +13,12 @@ public class CursoDTO {
 		this.vacantesDisponibles = vacantesDisponibles;
 	}
 	
-	public CursoDTO( String descripcion, int grado, int vacantesDisponibles, ColegioDTO dtoColegio ) {
-		this.descripcion = descripcion;
-		this.grado = grado;
-		this.vacantesDisponibles = vacantesDisponibles;
-		this.colegio = dtoColegio;
-	}
+//	public CursoDTO( String descripcion, int grado, int vacantesDisponibles, ColegioDTO dtoColegio ) {
+//		this.descripcion = descripcion;
+//		this.grado = grado;
+//		this.vacantesDisponibles = vacantesDisponibles;
+//		this.colegio = dtoColegio;
+//	}
 	
 	public String getDescripcion() {
 		return descripcion;
@@ -38,10 +38,10 @@ public class CursoDTO {
 	public void setVacantesDisponibles(int vacantesDisponibles) {
 		this.vacantesDisponibles = vacantesDisponibles;
 	}
-	public ColegioDTO getColegio() {
-		return colegio;
-	}
-	public void setColegio(ColegioDTO colegio) {
-		this.colegio = colegio;
-	}
+//	public ColegioDTO getColegio() {
+//		return colegio;
+//	}
+//	public void setColegio(ColegioDTO colegio) {
+//		this.colegio = colegio;
+//	}
 }
