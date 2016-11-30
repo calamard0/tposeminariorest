@@ -1,34 +1,54 @@
 package ar.edu.uade.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import ar.edu.uade.dto.ResponsableDTO;
 
+@Entity
 public class Responsable {
 
-	private String nomobre;
+	private int id;
+	private String nombre;
 	private String apellido;
 	private String tipoDocumento;
-	private String nroDocumento;
+	private String numeroDocumento;
 	private String vinculoAspirante;
-	private String nacionalidad;
+	private String paisNacimiento;
 	private String email;
 	private String telefonoParticular;
-	private String telefonoAlternativ;
+	private String telefonoAlternativo;
 	private DatosLaborales datosLaborales;
+	private Domicilio domicilio;
+	
+	public Responsable() {
+		
+	}
 	
 	public Responsable(ResponsableDTO dto) {
 		
 	}
-	
-	public int grabar() {
-		return 0;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
 	}
 
-	public String getNomobre() {
-		return nomobre;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setNomobre(String nomobre) {
-		this.nomobre = nomobre;
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getApellido() {
@@ -47,28 +67,12 @@ public class Responsable {
 		this.tipoDocumento = tipoDocumento;
 	}
 
-	public String getNroDocumento() {
-		return nroDocumento;
-	}
-
-	public void setNroDocumento(String nroDocumento) {
-		this.nroDocumento = nroDocumento;
-	}
-
 	public String getVinculoAspirante() {
 		return vinculoAspirante;
 	}
 
 	public void setVinculoAspirante(String vinculoAspirante) {
 		this.vinculoAspirante = vinculoAspirante;
-	}
-
-	public String getNacionalidad() {
-		return nacionalidad;
-	}
-
-	public void setNacionalidad(String nacionalidad) {
-		this.nacionalidad = nacionalidad;
 	}
 
 	public String getEmail() {
@@ -87,19 +91,45 @@ public class Responsable {
 		this.telefonoParticular = telefonoParticular;
 	}
 
-	public String getTelefonoAlternativ() {
-		return telefonoAlternativ;
+	public String getTelefonoAlternativo() {
+		return telefonoAlternativo;
 	}
 
-	public void setTelefonoAlternativ(String telefonoAlternativ) {
-		this.telefonoAlternativ = telefonoAlternativ;
+	public void setTelefonoAlternativo(String telefonoAlternativo) {
+		this.telefonoAlternativo = telefonoAlternativo;
 	}
 
+	@OneToOne(cascade=CascadeType.ALL)
 	public DatosLaborales getDatosLaborales() {
 		return datosLaborales;
 	}
 
 	public void setDatosLaborales(DatosLaborales datosLaborales) {
 		this.datosLaborales = datosLaborales;
+	}
+
+	public String getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	public void setNumeroDocumento(String numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+	public String getPaisNacimiento() {
+		return paisNacimiento;
+	}
+
+	public void setPaisNacimiento(String paisNacimiento) {
+		this.paisNacimiento = paisNacimiento;
+	}
+
+	@OneToOne(cascade=CascadeType.ALL)
+	public Domicilio getDomicilio() {
+		return domicilio;
+	}
+
+	public void setDomicilio(Domicilio domicilio) {
+		this.domicilio = domicilio;
 	}
 }

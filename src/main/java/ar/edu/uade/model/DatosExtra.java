@@ -1,19 +1,23 @@
 package ar.edu.uade.model;
 
-import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-//@Entity
+@Entity
+@Table
+@Inheritance( strategy = InheritanceType.SINGLE_TABLE )
+@DiscriminatorColumn( name="tipo" )
 public class DatosExtra {
 
 	private int id;
 	private Colegio colegio;
-	private DatosHermano datosHermano;
-	private DatosPadre datosPadre;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,29 +29,12 @@ public class DatosExtra {
 		this.id = id;
 	}
 
+	@OneToOne
 	public Colegio getColegio() {
 		return colegio;
 	}
 
 	public void setColegio(Colegio colegio) {
 		this.colegio = colegio;
-	}
-
-	@OneToOne(cascade=CascadeType.ALL)
-	public DatosHermano getDatosHermano() {
-		return datosHermano;
-	}
-
-	public void setDatosHermano(DatosHermano datosHermano) {
-		this.datosHermano = datosHermano;
-	}
-
-	@OneToOne(cascade=CascadeType.ALL)
-	public DatosPadre getDatosPadre() {
-		return datosPadre;
-	}
-
-	public void setDatosPadre(DatosPadre datosPadre) {
-		this.datosPadre = datosPadre;
 	}
 }

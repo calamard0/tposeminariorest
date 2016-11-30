@@ -4,45 +4,60 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import ar.edu.uade.dto.VacanteDTO;
 
 @Entity
 public class Vacante {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int codVacantes;
-	
+	private int id;	
 	private float peso;
 	private int prioridad;
 	private boolean estaAprobada;
-	
-	/*
-	 * Ver estos dos campos como hacerlos para relacionar
-	 */
-	//private PreInscripcion preInscripcion;
-	//private Curso curso;
+	private PreInscripcion preinscripcion;
+	private Curso curso;
 
-	
-	public Vacante(VacanteDTO dto) {
+	public Vacante() {
 		
 	}
 	
-	public int grabar() {
-		return 0;
+	public Vacante(VacanteDTO dto) {
+		
 	}
 	
 	public void calcularPeso() {
 		
 	}
 
-	public int getCodVacantes() {
-		return codVacantes;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
 	}
 
-	public void setCodVacantes(int codVacantes) {
-		this.codVacantes = codVacantes;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@ManyToOne
+	public PreInscripcion getPreinscripcion() {
+		return preinscripcion;
+	}
+
+	public void setPreinscripcion(PreInscripcion preinscripcion) {
+		this.preinscripcion = preinscripcion;
+	}
+
+	@OneToOne
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 	public float getPeso() {
@@ -68,20 +83,4 @@ public class Vacante {
 	public void setEstaAprobada(boolean estaAprobada) {
 		this.estaAprobada = estaAprobada;
 	}
-
-//	public PreInscripcion getPreInscripcion() {
-//		return preInscripcion;
-//	}
-//
-//	public void setPreInscripcion(PreInscripcion preInscripcion) {
-//		this.preInscripcion = preInscripcion;
-//	}
-//
-//	public Curso getCurso() {
-//		return curso;
-//	}
-//
-//	public void setCurso(Curso curso) {
-//		this.curso = curso;
-//	}
 }

@@ -1,18 +1,14 @@
 package ar.edu.uade.model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import ar.edu.uade.dto.DatosPadreDTO;
 
-//@Entity
-//@Table(name = "datos_extra_padre")
+@Entity
+@DiscriminatorValue( value="DP" )
 public class DatosPadre extends DatosExtra {
 
-	private int id;
 	private String fichaMunicipal;
 	private String nombre;
 	
@@ -22,16 +18,6 @@ public class DatosPadre extends DatosExtra {
 	
 	public DatosPadre(DatosPadreDTO dto) {
 		
-	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getFichaMunicipal() {
