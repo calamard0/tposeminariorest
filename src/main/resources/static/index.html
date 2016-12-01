@@ -31,13 +31,12 @@
     
     <script src="app.module.js"></script>
     <script src="services/inscripcion.model.service.js"></script>
+    <script src="services/inscripcion.service.js"></script>
     <script src="controllers/inscripcion/main.controller.js"></script>
     <script src="controllers/inscripcion/seleccion.nivel.controller.js"></script>
     <script src="controllers/inscripcion/aspirante.controller.js"></script>
     <script src="controllers/inscripcion/responsable.controller.js"></script>
-    <script src="controllers/inscripcion/datos.adicionales.controller.js"></script>
-    
-    
+    <script src="controllers/inscripcion/datos.adicionales.controller.js"></script>    
     
     
     <nav class="navbar navbar-default">
@@ -116,7 +115,6 @@
                                    placeholder="Seleccione una fecha de nacimiento"
                                    ng-model="mainCtrl.inscripcion.aspirante.fechaNac" 
                                    is-open="aspiranteCtrl.datePicker.opened" 
-                                   uib-datepicker-popup="dd/MM/yyyy"
                                    datepicker-options="aspiranteCtrl.dateOptions" 
                                    required show-button-bar="false" />
                             <span class="input-group-btn">
@@ -156,30 +154,30 @@
                     <label class="control-label col-sm-2" for="tipo_documento">Documento:</label>
                     <div class="col-sm-3">
                         <select id="tipo_documento" class="form-control" required
-                                ng-model="mainCtrl.inscripcion.aspirante.documento.tipo">
+                                ng-model="mainCtrl.inscripcion.aspirante.tipoDocumento">
                                 <option value="">Seleccionar el tipo</option>
-                                <option value="1">Documento Nacional de Identidad</option>
-                                <option value="3">Partida de nacimiento</option>
-                                <option value="6">Credencial residencia precaria</option>
-                                <option value="7">Pasaporte extranjero</option>
-                                <option value="8">Cédula extranjera</option>
-                                <option value="9">Otro documento extranjero</option>
-                                <option value="10">Documento en trámite</option>
-                                <option value="11">Sin documento</option>
+                                <option value="DNI">Documento Nacional de Identidad</option>
+                                <option value="PN">Partida de nacimiento</option>
+                                <option value="CRP">Credencial residencia precaria</option>
+                                <option value="PE">Pasaporte extranjero</option>
+                                <option value="CE">Cédula extranjera</option>
+                                <option value="ODE">Otro documento extranjero</option>
+                                <option value="DT">Documento en trámite</option>
+                                <option value="SD">Sin documento</option>
                             </select>
                     </div>
                     <div class="col-sm-3">
                         <input type="text" id="nro_documento" placeholder="Número" class="form-control"
-                               ng-required="mainCtrl.inscripcion.aspirante.documento.tipo != 11"
-                               ng-disabled="mainCtrl.inscripcion.aspirante.documento.tipo == 11"
-                               ng-model="mainCtrl.inscripcion.aspirante.documento.numero">
+                               ng-required="mainCtrl.inscripcion.aspirante.tipoDocumento != SD"
+                               ng-disabled="mainCtrl.inscripcion.aspirante.tipoDocumento == SD"
+                               ng-model="mainCtrl.inscripcion.aspirante.numeroDocumento">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nacionalidad">Nacionalidad:</label>
                     <div class="col-sm-8">
                         <select id="nacionalidad" class="form-control" required
-                                ng-model="mainCtrl.inscripcion.aspirante.nacionalidad">
+                                ng-model="mainCtrl.inscripcion.aspirante.paisNacimiento">
                                 <option value="">Seleccionar</option>
                                 <option value="Argentina">Argentina</option>
                                 <option value="Bolivia">Bolivia</option>
@@ -205,7 +203,7 @@
                     <label class="control-label col-sm-2" for="sistema_salud">Sistema de Salud:</label>
                     <div class="col-sm-8">
                         <select id="sistema_salud" name="sistema_salud" class="form-control" required
-                                ng-model="mainCtrl.inscripcion.aspirante.sistSalud">
+                                ng-model="mainCtrl.inscripcion.aspirante.sistemaSalud">
                                 <option value="">Seleccionar</option>
                                 <option value="HtalPublico">Hospital público</option>
                                 <option value="ObraSocial">Obra social</option>
@@ -220,7 +218,7 @@
                                ng-model="mainCtrl.inscripcion.aspirante.telefono">
                     </div>
                 </div>
-                <div class="form-group">
+                <!--div class="form-group">
                     <label class="control-label col-sm-2">Problemas de salud existentes?</label>
                     <div class="col-sm-8">
                         <label style="padding-right: 10px">
@@ -247,13 +245,13 @@
                                    ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.otrosDescripcion"> 
                         </div>
                     </div>
-                </div>
+                </div-->
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="certificado_disc">Certificado Discapacidad:</label>
                     <div class="col-sm-8">
                         <select id="certificado_disc" class="form-control"
                                 ng-options="o.value as o.label for o in aspiranteCtrl.certDiscapacidadOptions"
-                                ng-model="mainCtrl.inscripcion.aspirante.certDiscapacidad"></select>
+                                ng-model="mainCtrl.inscripcion.aspirante.certificadoDisca"></select>
                     </div>
                 </div>
                 <div class="page-header">
@@ -271,10 +269,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="calle_nro">Calle y Numero:</label>
-                    <div class="col-sm-8">
+                    <label class="control-label col-sm-2" for="calle">Calle y Número:</label>
+                    <div class="col-sm-4">
                         <input type="text" id="calle_nro" class="form-control" required
-                               ng-model="mainCtrl.inscripcion.aspirante.domicilio.calleNro">
+                               placeholder="Calle" typeahead-editable="false"
+                               uib-typeahead="calle for calle in aspiranteCtrl.calles | filter:$viewValue | limitTo:10" 
+                               ng-model="mainCtrl.inscripcion.aspirante.domicilio.calle">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="nro" class="form-control" required placeholder="Número"
+                               ng-model="mainCtrl.inscripcion.aspirante.domicilio.numero">
                     </div>
                 </div>
                 <div class="form-group">
@@ -283,8 +287,8 @@
                         <label class="col-sm-4">Piso: <input id="piso" class="form-control" type="text"
                                                              ng-model="mainCtrl.inscripcion.aspirante.domicilio.piso"></label>
                         <label class="col-sm-4">Depto: <input id="depto" class="form-control" type="text"
-                                                              ng-model="mainCtrl.inscripcion.aspirante.domicilio.depto"></label>
-                        <label class="col-sm-4">CP: <input id="cp" class="form-control" type="text" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.cp"></label>
+                                                              ng-model="mainCtrl.inscripcion.aspirante.domicilio.departamento"></label>
+                        <label class="col-sm-4">CP: <input id="cp" class="form-control" type="text" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.codigoPostal"></label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -402,20 +406,20 @@
                         <select id="tipo_documento" class="form-control" required 
                                 ng-model="mainCtrl.inscripcion.responsable.documento.tipo">
                                 <option value="">Seleccionar el tipo</option>
-                                <option value="1">Documento Nacional de Identidad</option>
-                                <option value="3">Partida de nacimiento</option>
-                                <option value="6">Credencial residencia precaria</option>
-                                <option value="7">Pasaporte extranjero</option>
-                                <option value="8">Cédula extranjera</option>
-                                <option value="9">Otro documento extranjero</option>
-                                <option value="10">Documento en trámite</option>
-                                <option value="11">Sin documento</option>
+                                <option value="DNI">Documento Nacional de Identidad</option>
+                                <option value="PN">Partida de nacimiento</option>
+                                <option value="CRP">Credencial residencia precaria</option>
+                                <option value="PE">Pasaporte extranjero</option>
+                                <option value="CE">Cédula extranjera</option>
+                                <option value="ODE">Otro documento extranjero</option>
+                                <option value="DT">Documento en trámite</option>
+                                <option value="SD">Sin documento</option>
                             </select>
                     </div>
                     <div class="col-sm-3">
                         <input type="text" id="nro_documento" placeholder="Número" class="form-control"
-                               ng-required="mainCtrl.inscripcion.responsable.documento.tipo != 11"
-                               ng-disabled="mainCtrl.inscripcion.responsable.documento.tipo == 11"
+                               ng-required="mainCtrl.inscripcion.responsable.documento.tipo != SD"
+                               ng-disabled="mainCtrl.inscripcion.responsable.documento.tipo == SD"
                                ng-model="mainCtrl.inscripcion.responsable.documento.numero">
                     </div>
                 </div>
@@ -622,7 +626,10 @@
                 </div>
                 <div class="form-group adicionalesContainer" ng-if="datosAdicionalesCtrl.jardinEstatal">
                     <label class="control-label" for="jardinEstatal">Seleccione la institucion de Nivel Inicial:</label>
-                    <input type="text" ng-model="mainCtrl.inscripcion.adicionales.jardinEstatal" uib-typeahead="jardin as jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:{nombre:$viewValue} | limitTo:10" class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
+                    <input type="text" ng-model="mainCtrl.inscripcion.adicionales.jardinEstatal" 
+                           ng-required="datosAdicionalesCtrl.jardinEstatal"
+                           uib-typeahead="jardin as jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:{nombre:$viewValue} | limitTo:10" 
+                           class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-9" for="hermanos">¿El aspirante tiene hermanos cursando en alguna escuela de gestion estatal de la Ciudad de Buenos Aires?</label>
@@ -675,7 +682,7 @@
         <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab != 5"
             ng-click="mainCtrl.siguiente(mainCtrl.activeTab)"> Siguiente ></button>
         <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab == 5"
-            ng-click="mainCtrl.finalizar()"> Finalizar </button>
+            ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Finalizarrrrr </button>
     </div>
 </body>
 

@@ -19,28 +19,27 @@
                     nombre: null,
                     apellido: null,
                     sexo: null,
-                    documento: {
-                        tipo: null,
-                        numero: null
-                    },
-                    nacionalidad: null,
-                    sistSalud: null,
+                    tipoDocumento: null,
+                    numeroDocumento: null,
+                    paisNacimiento: null,
+                    sistemaSalud: null,
                     telefono: null,
-                    problemasSalud: {
+                    /*problemasSalud: {
                         fisicos: false,
                         alergias: false,
                         sensorial: false,
                         epileptico: false,
                         otros: false,
                         otrosDescripcion: ''
-                    },
-                    certDiscapacidad: false,
+                    },*/
+                    certificadoDisca: false,
                     domicilio: {
                         provincia: null,
-                        calleNro: null,
+                        calle: null,
+                        numero: null,
                         piso: null,
-                        depto: null,
-                        cp: null,
+                        departamento: null,
+                        codigoPostal: null,
                         villa: null,
                         espacioConviven: null
                     }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('mainController', function ($scope, toastr, toastrConfig, inscripcionModelService) {
+        .controller('mainController', function ($scope, toastr, toastrConfig, inscripcionModelService, inscripcionService) {
 
             var vm = this;
         
@@ -10,6 +10,7 @@
             vm.siguiente = siguiente;
             vm.anterior = anterior;
             vm.activeTab = 0;
+            vm.crearInscripcion = crearInscripcion;
         
             toastrConfig.maxOpened = 1;
             toastrConfig.autoDismiss = true;
@@ -30,6 +31,13 @@
                 vm.activeTab = currentTabIndex-1;
             }
         
+            function crearInscripcion(inscripcion) {
+                inscripcionService.saveInscripcion(inscripcion)
+                    .then(function(data) {
+                        console.log(data);
+                })
+            }
+        
             var formsNameArray = {
                 0: 'nivelForm',
                 1: 'aspiranteForm',
@@ -38,5 +46,6 @@
                 4: 'escuelasForm',
                 5: ''
             }
+
         });
 })();

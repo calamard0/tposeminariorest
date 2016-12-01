@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('aspiranteController', function ($scope) {
+        .controller('aspiranteController', function ($scope, $http) {
             
             var vm = this;
         
@@ -37,6 +37,10 @@
             vm.datePicker = {
                 opened: false
             };
+        
+            $http.get('json/calles.json').then(function(data){
+                vm.calles = data.data.calles;                
+            });
 
         });
 })();
