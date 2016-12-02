@@ -15,7 +15,7 @@
                     grado: null
                 },
                 aspirante: {
-                    fechaNac: null,
+                    fechaNacimiento: null,
                     nombre: null,
                     apellido: null,
                     sexo: null,
@@ -24,14 +24,14 @@
                     paisNacimiento: null,
                     sistemaSalud: null,
                     telefono: null,
-                    /*problemasSalud: {
+                    problemasSalud: {
                         fisicos: false,
                         alergias: false,
                         sensorial: false,
                         epileptico: false,
                         otros: false,
                         otrosDescripcion: ''
-                    },*/
+                    },
                     certificadoDisca: false,
                     domicilio: {
                         provincia: null,
@@ -41,7 +41,7 @@
                         departamento: null,
                         codigoPostal: null,
                         villa: null,
-                        espacioConviven: null
+                        tipo: null
                     }
 
 

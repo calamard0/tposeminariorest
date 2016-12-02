@@ -113,7 +113,7 @@
                         <p class="input-group">
                             <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" readonly 
                                    placeholder="Seleccione una fecha de nacimiento"
-                                   ng-model="mainCtrl.inscripcion.aspirante.fechaNac" 
+                                   ng-model="mainCtrl.inscripcion.aspirante.fechaNacimiento" 
                                    is-open="aspiranteCtrl.datePicker.opened" 
                                    datepicker-options="aspiranteCtrl.dateOptions" 
                                    required show-button-bar="false" />
@@ -218,7 +218,7 @@
                                ng-model="mainCtrl.inscripcion.aspirante.telefono">
                     </div>
                 </div>
-                <!--div class="form-group">
+                <div class="form-group">
                     <label class="control-label col-sm-2">Problemas de salud existentes?</label>
                     <div class="col-sm-8">
                         <label style="padding-right: 10px">
@@ -245,7 +245,7 @@
                                    ng-model="mainCtrl.inscripcion.aspirante.problemasSalud.otrosDescripcion"> 
                         </div>
                     </div>
-                </div-->
+                </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="certificado_disc">Certificado Discapacidad:</label>
                     <div class="col-sm-8">
@@ -277,7 +277,8 @@
                                ng-model="mainCtrl.inscripcion.aspirante.domicilio.calle">
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" id="nro" class="form-control" required placeholder="Número"
+                        <input type="number" id="nro" class="form-control" required placeholder="Número"
+                               min="0" max="99999"
                                ng-model="mainCtrl.inscripcion.aspirante.domicilio.numero">
                     </div>
                 </div>
@@ -341,7 +342,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="tipo_vivienda">¿En qué tipo de espacio conviven?</label>
                     <div class="col-sm-8">
-                        <select id="tipo_vivienda" class="form-control" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.espacioConviven">
+                        <select id="tipo_vivienda" class="form-control" required ng-model="mainCtrl.inscripcion.aspirante.domicilio.tipo">
                                 <option value="">Seleccionar</option>
                                 <option value="casa">Vivienda propia</option>
                                 <option value="viviendaalquilada">Vivienda alquilada</option>

@@ -8,13 +8,13 @@ public class AspiranteDTO {
 	private int id;
 	private String nombre;
 	private String apellido;
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	private String sexo;
 	private String tipoDocumento;
 	private String numeroDocumento;
 	private String paisNacimiento;
 	private String sistemaSalud;
-	private Set<ProblemaSaludDTO> problemasSalud;
+	private ProblemasSaludDTO problemasSalud;
 	private boolean certificadoDisca;
 	private DomicilioDTO domicilio;
 	
@@ -70,11 +70,11 @@ public class AspiranteDTO {
 		this.apellido = apellido;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -110,11 +110,11 @@ public class AspiranteDTO {
 		this.domicilio = domicilio;
 	}
 
-	public Set<ProblemaSaludDTO> getProblemasSalud() {
+	public ProblemasSaludDTO getProblemasSalud() {
 		return problemasSalud;
 	}
 
-	public void setProblemasSalud(Set<ProblemaSaludDTO> problemasSalud) {
+	public void setProblemasSalud(ProblemasSaludDTO problemasSalud) {
 		this.problemasSalud = problemasSalud;
 	}
 
