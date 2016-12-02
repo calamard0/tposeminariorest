@@ -14,7 +14,7 @@ public class AsignarVacantesHelper {
 	private List<Colegio> auxCantVacantes = SistemaInscripciones.getInstance().getColegios();
 	private Integer vacantesDisponibles = PreparacionAsignarVacantes.vacantesDisp(auxCantVacantes);
 	
-	private void asignarVacantes(){
+	private void asignarVacantes(){ 
 		
 		while(this.preInscripcionesSinAsignacion.size() == 0 || this.vacantesDisponibles == 0){
 			for(PreInscripcion auxPreIn : preInscripcionesSinAsignacion){
