@@ -138,6 +138,17 @@ public class SistemaInscripciones {
 	public static void setInstance(SistemaInscripciones instance) {
 		SistemaInscripciones.instance = instance;
 	}
+
+	public Colegio buscarColegioPorCodigoDeCurso(int codigo) {
+		for(Colegio colegio : colegios) {
+			for(Curso curso : colegio.getCursos()){
+				if (curso.getCodigo() == codigo){
+					return colegio;
+				}
+			}
+		}
+		return null;
+	}
 }
 
 

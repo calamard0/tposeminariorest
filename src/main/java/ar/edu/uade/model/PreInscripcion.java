@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import ar.edu.uade.dto.PreInscripcionDTO;
+import ar.edu.uade.helper.CalcularPesosHelper;
 
 @Entity
 @Table(name = "preinscripcion")
@@ -62,6 +63,9 @@ public class PreInscripcion {
 	}
 	
 	public void calcularPesoVacantes() {
+		for(Vacante vac : vacantes){
+			vac.setPeso(CalcularPesosHelper.calcularPesopeso(vac, this.datosExtra,this.aspirante, this.responsable));
+		}
 		
 	}
 
