@@ -265,7 +265,7 @@
                     <div class="col-sm-4">
                         <input type="text" id="calle_nro" class="form-control" required
                                placeholder="Calle" typeahead-editable="false"
-                               uib-typeahead="calle for calle in aspiranteCtrl.calles | filter:$viewValue | limitTo:10" 
+                               uib-typeahead="calle for calle in mainCtrl.calles | filter:$viewValue | limitTo:10" 
                                ng-model="mainCtrl.inscripcion.aspirante.domicilio.calle">
                     </div>
                     <div class="col-sm-4">
@@ -362,7 +362,7 @@
                     <label class="control-label col-sm-2" for="vinculo">Vinculo:</label>
                     <div class="col-sm-8">
                         <select id="vinculo" name="vinculo" class="form-control" required
-                                ng-model="mainCtrl.inscripcion.responsable.vinculo">
+                                ng-model="mainCtrl.inscripcion.responsable.vinculoAspirante">
                                 <option value="">Seleccionar</option>
                                 <option value="padre">Padre</option>
                                 <option value="madre">Madre</option>
@@ -397,7 +397,7 @@
                     <label class="control-label col-sm-2" for="tipo_documento">Documento:</label>
                     <div class="col-sm-3">
                         <select id="tipo_documento" class="form-control" required 
-                                ng-model="mainCtrl.inscripcion.responsable.documento.tipo">
+                                ng-model="mainCtrl.inscripcion.responsable.tipoDocumento">
                                 <option value="">Seleccionar el tipo</option>
                                 <option value="DNI">Documento Nacional de Identidad</option>
                                 <option value="PN">Partida de nacimiento</option>
@@ -411,16 +411,16 @@
                     </div>
                     <div class="col-sm-3">
                         <input type="text" id="nro_documento" placeholder="Número" class="form-control"
-                               ng-required="mainCtrl.inscripcion.responsable.documento.tipo != SD"
-                               ng-disabled="mainCtrl.inscripcion.responsable.documento.tipo == SD"
-                               ng-model="mainCtrl.inscripcion.responsable.documento.numero">
+                               ng-required="mainCtrl.inscripcion.responsable.tipoDocumento != SD"
+                               ng-disabled="mainCtrl.inscripcion.responsable.tipoDocumento == SD"
+                               ng-model="mainCtrl.inscripcion.responsable.numeroDocumento">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nacionalidad">Nacionalidad:</label>
                     <div class="col-sm-8">
                         <select id="nacionalidad" class="form-control" required
-                                ng-model="mainCtrl.inscripcion.responsable.nacionalidad">
+                                ng-model="mainCtrl.inscripcion.responsable.paisNacimiento">
                                 <option value="">Seleccionar</option>
                                 <option value="Argentina">Argentina</option>
                                 <option value="Bolivia">Bolivia</option>
@@ -454,14 +454,14 @@
                     <label class="control-label col-sm-2" for="telefono">Teléfono:</label>
                     <div class="col-sm-8">
                         <input type="text" id="telefono" class="form-control" required
-                               ng-model="mainCtrl.inscripcion.responsable.telefono1">
+                               ng-model="mainCtrl.inscripcion.responsable.telefonoParticular">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="telefono2">Teléfono alternativo:</label>
                     <div class="col-sm-8">
                         <input type="text" id="telefono2" class="form-control"
-                               ng-model="mainCtrl.inscripcion.responsable.telefono2">
+                               ng-model="mainCtrl.inscripcion.responsable.telefonoAlternativo">
                     </div>
                 </div>
                 <div class="page-header">
@@ -499,7 +499,7 @@
                         <select name="provincia" id="provincia" class="form-control"
                                ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
                                ng-required="mainCtrl.inscripcion.responsable.trabaja"
-                               ng-model="mainCtrl.inscripcion.responsable.datosLaborales.provincia">
+                               ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.provincia">
                                 <option value="">Seleccionar</option>
                                 <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
                                 <option value="BSAS">Buenos Aires</option>
@@ -507,12 +507,19 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="calle_nro">Calle y Numero:</label>
-                    <div class="col-sm-8">
-                        <input type="text" id="calle_nro" class="form-control"
+                    <label class="control-label col-sm-2" for="calle">Calle y Número:</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="calle_nro" class="form-control" required
+                               placeholder="Calle" typeahead-editable="false"
+                               uib-typeahead="calle for calle in mainCtrl.calles | filter:$viewValue | limitTo:10" 
                                ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
-                               ng-required="mainCtrl.inscripcion.responsable.trabaja"
-                               ng-model="mainCtrl.inscripcion.responsable.datosLaborales.calleNro">
+                               ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.calle">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" id="nro" class="form-control" required placeholder="Número"
+                               min="0" max="99999"
+                               ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
+                               ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.numero">
                     </div>
                 </div>
                 <div class="form-group">
@@ -521,16 +528,16 @@
                         <label class="col-sm-4">Piso: 
                             <input id="piso" class="form-control" type="text"
                                 ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
-                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.piso"></label>
+                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.piso"></label>
                         <label class="col-sm-4">Depto: 
                             <input id="depto" class="form-control" type="text"
                                 ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
-                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.depto"></label></label>
+                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.departamento"></label></label>
                         <label class="col-sm-4">CP: 
                             <input id="cp" class="form-control" type="text"
                                 ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
                                 ng-required="mainCtrl.inscripcion.responsable.trabaja"
-                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.cp"></label></label>
+                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.codigoPostal"></label></label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -538,7 +545,7 @@
                     <div class="col-sm-8">
                         <select id="barrio" name="barrio" class="form-control"
                                 ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
-                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.villa"></label>
+                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.villa"></label>
                                 <option value="">No aplica</option>
                                 <option value="65">Asentamiento Barrio Obrero</option>
                                 <option value="68">Asentamiento Bermejo</option>
@@ -587,7 +594,7 @@
                     <div class="col-sm-8">
                         <textarea type="text" id="referencia" class="form-control"
                                 ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
-                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.referencia"></label></textarea>
+                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.datosReferencia"></label></textarea>
                     </div>
                 </div>
             </form>

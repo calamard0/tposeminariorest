@@ -12,8 +12,8 @@ public class ResponsableDTO {
 	private String email;
 	private String telefonoParticular;
 	private String telefonoAlternativo;
+	private Boolean trabaja;
 	private DatosLaboralesDTO datosLaborales;
-	private DomicilioDTO domicilio;
 	
 	public ResponsableDTO() {
 		
@@ -107,12 +107,12 @@ public class ResponsableDTO {
 		this.paisNacimiento = paisNacimiento;
 	}
 
-	public DomicilioDTO getDomicilio() {
-		return domicilio;
+	public Boolean getTrabaja() {
+		return trabaja;
 	}
 
-	public void setDomicilio(DomicilioDTO domicilio) {
-		this.domicilio = domicilio;
+	public void setTrabaja(Boolean trabaja) {
+		this.trabaja = trabaja;
 	}
 
 }

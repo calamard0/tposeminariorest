@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('mainController', function ($scope, toastr, toastrConfig, inscripcionModelService, inscripcionService) {
+        .controller('mainController', function ($scope, toastr, toastrConfig, inscripcionModelService, inscripcionService, $http) {
 
             var vm = this;
         
@@ -46,6 +46,10 @@
                 4: 'escuelasForm',
                 5: ''
             }
+            
+            $http.get('json/calles.json').then(function(data){
+                vm.calles = data.data.calles;                
+            });
 
         });
 })();

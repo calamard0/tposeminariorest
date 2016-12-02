@@ -3,9 +3,7 @@ package ar.edu.uade.dto;
 public class DatosLaboralesDTO {
 	
 	private int id;
-	private String situacionLaboral;
 	private String profesion;
-	private boolean sostenFamiliar;
 	private String telefono;
 	private String datosReferencia;
 	private DomicilioDTO domicilio;
@@ -22,28 +20,12 @@ public class DatosLaboralesDTO {
 		this.id = id;
 	}
 
-	public String getSituacionLaboral() {
-		return situacionLaboral;
-	}
-
-	public void setSituacionLaboral(String situacionLaboral) {
-		this.situacionLaboral = situacionLaboral;
-	}
-
 	public String getProfesion() {
 		return profesion;
 	}
 
 	public void setProfesion(String profesion) {
 		this.profesion = profesion;
-	}
-
-	public boolean isSostenFamiliar() {
-		return sostenFamiliar;
-	}
-
-	public void setSostenFamiliar(boolean sostenFamiliar) {
-		this.sostenFamiliar = sostenFamiliar;
 	}
 
 	public String getTelefono() {

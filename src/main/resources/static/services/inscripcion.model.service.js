@@ -47,31 +47,31 @@
 
                 },
                 responsable: {
-                    vinculo: null,
+                    vinculoAspirante: null,
                     nombre: null,
                     apellido: null,
-                    documento: {
-                        tipo: null,
-                        numero: null
-                    },
-                    nacionalidad: null,
+                    tipoDocumento: null,
+                    numeroDocumento: null,
+                    paisNacimiento: null,
                     email: null,
-                    telefono1: null,
-                    telefono2: null,
+                    telefonoParticular: null,
+                    telefonoAlternativo: null,
                     trabaja: false,
                     datosLaborales: {
                         profesion: null,
                         telefono: null,
-                        provincia: null,
-                        calleNro: null,
-                        piso: null,
-                        depto: null,
-                        cp: null,
-                        villa: null,
-                        referencia: null
+                        datosReferencia: null,
+                        domicilio: {
+                            provincia: null,
+                            calle: null,
+                            numero: null,
+                            piso: null,
+                            departamento: null,
+                            codigoPostal: null,
+                            villa: null,
+                            tipo: null
+                        }
                     }
-
-
                 },
                 adicionales: {
                     jardinEstatal: {
