@@ -23,33 +23,39 @@ public class CalcularPesosHelper {
 			if (datosExtra instanceof DatosColegioAnt) {
 				DatosColegioAnt auxColAnt = (DatosColegioAnt) datosExtra;
 				if (auxColAnt.getColegio().getCodigo() == auxCol.getCodigo()) {
-					return (Reglas.reglaUno(auxCol, auxDom) / 23) * vac.getPrioridad();
+					return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
 				}
 			}
 			if (datosExtra instanceof DatosHermano) {
 				DatosHermano auxHerm = (DatosHermano) datosExtra;
 				if (auxHerm.getColegio().getCodigo() == auxCol.getCodigo()) {
-					return (Reglas.reglaDos(auxHerm) / 23) * vac.getPrioridad();
+					return (Reglas.reglaDos(auxHerm) / 20) * vac.getPrioridad();
 				}
 			}
 			if (datosExtra instanceof DatosPadre) {
 				DatosPadre auxPadr = (DatosPadre) datosExtra;
 				if (auxPadr.getColegio().getCodigo() == auxCol.getCodigo()) {
 					if (auxPadr.getFichaMunicipal() == "Personal") {
-						return (Reglas.reglaTres(auxPadr) / 23) * vac.getPrioridad();
+						return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
 					}
 					if (auxPadr.getFichaMunicipal() == "Docente") {
-						return (Reglas.reglaCuatro(auxPadr) / 23) * vac.getPrioridad();
+						return (Reglas.reglaCuatro(auxPadr) / 20) * vac.getPrioridad();
 					}
 				}
 			}
-			if(Reglas.dist(auxCol.getDireccion(),auxDom) < 10){
-				return (Reglas.reglaCinco(responsable, aspirante) / 23) * vac.getPrioridad();
+			if (Reglas.dist(auxCol.getDireccion(), auxDom) < 10) {
+				return (Reglas.reglaCinco(responsable, aspirante) / 20) * vac.getPrioridad();
 			}
-			if(aspirante.getApellido() == "fue al jardin del ministerio de educacion"){
-				return (Reglas.reglaSeisYSiete(aspirante) / 23) * vac.getPrioridad();
+			if (aspirante.getApellido() == "fue al jardin del ministerio de educacion") {
+				return (Reglas.reglaSeisYSiete(aspirante) / 20) * vac.getPrioridad();
 			}
+			if (aspirante.getApellido() == "vive dentro de la ciudad autonoma de buenos aires"){
+				return (Reglas.reglaOchoYNueve(responsable, auxCol.getDireccion()) / 20) * vac.getPrioridad();
+			}else{
+				return (Reglas.reglaDiezYOnce(responsable, auxCol.getDireccion()) / 20) * vac.getPrioridad();	
+			}
+			
 		}
-		return 0;
+		return ((1/20)*vac.getPrioridad());
 	}
 }
