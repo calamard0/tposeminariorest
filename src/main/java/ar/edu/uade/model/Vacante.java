@@ -4,6 +4,7 @@ import ar.edu.uade.dto.VacanteDTO;
 
 public class Vacante {
 
+	private int id;
 	private float peso;
 	private PreInscripcion preInscripcion;
 	private Curso curso;
@@ -51,5 +52,11 @@ public class Vacante {
 	}
 	public void setEstadoAprobada(boolean estadoAprobada) {
 		this.estadoAprobada = estadoAprobada;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }
