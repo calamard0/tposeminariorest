@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Nivel:</label>
                     <div class="col-sm-8">
-                        <select class="form-control" ng-model="mainCtrl.inscripcion.nivel.nivel" id="nivel" required>
+                        <select class="form-control" ng-model="nivel" id="nivel" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                             </select>
@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Modalidad:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.nivel.modalidad" required>
+                        <select id="modalidad" class="form-control" ng-model="modalidad" required>
                                 <option value="">Seleccionar</option>
                                 <option value="1">Primario</option>
                                 <option value="2" disabled>Escuelas Normales Superiores (ENS)</option>
@@ -84,16 +84,8 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Grado:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.nivel.grado" required> 
-                                <option value="">Seleccionar</option>
-                                <option value="1">Primer Grado</option>
-                                <option value="2">Segundo Grado</option>
-                                <option value="3">Tercer Grado</option>
-                                <option value="4">Cuarto Grado</option>
-                                <option value="5">Quinto Grado</option>
-                                <option value="6">Sexto Grado</option>
-                                <option value="7">Septimo Grado</option>
-                             </select>
+                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.curso.grado" required
+                                ng-options="o.value as o.label for o in seleccionNivel.gradoOptions"></select>
                     </div>
                 </div>
             </form>
@@ -683,7 +675,7 @@
         <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab != 5"
             ng-click="mainCtrl.siguiente(mainCtrl.activeTab)"> Siguiente ></button>
         <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab == 5"
-            ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Finalizarrrrr </button>
+            ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Finalizar </button>
     </div>
 </body>
 

@@ -33,6 +33,9 @@ public class PreinscripcionController {
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("preinscripcion");
 		 
+		 // para pasar del string a un Date se puede usar el siguiente codigo
+		 // java.util.Date date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").parse(dto.getAspirante().getFechaNacimiento().replace('T', ' ').replace('Z', ' '));
+		 
 		 PreInscripcion preInscripcion = new PreInscripcion(dto);
 		 preRepo.save(new PreInscripcion(dto));
 		 

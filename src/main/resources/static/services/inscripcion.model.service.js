@@ -9,10 +9,10 @@
             };
         
             var model = {
-                nivel: {
-                    nivel: null,
-                    modalidad: null,
-                    grado: null
+                curso: {
+                    grado: null,
+                    descripcion: '',
+                    vacantesDisponibles: 0
                 },
                 aspirante: {
                     fechaNacimiento: null,
