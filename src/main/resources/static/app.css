@@ -19,19 +19,6 @@
     border-color: red! important;
 }
 
-.adicionalesContainer {
-    display: flex;
-    justify-content: space-around;
-}
-
-.adicionalesContainer #jardinEstatal {
-    width: 45%;
-}
-
-.adicionalesContainer .control-label {
-    font-weight: normal;
-}
-
 .removeCurso {
     float: right;
     cursor: pointer;

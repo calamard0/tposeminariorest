@@ -626,12 +626,16 @@
                                 ng-change="datosAdicionalesCtrl.cambioDatoAdicional('jardinAnterior')"></select>
                     </div>
                 </div>
-                <div class="form-group adicionalesContainer" ng-if="datosAdicionalesCtrl.jardinAnterior">
-                    <label class="control-label" for="jardinAnterior">Seleccione la institucion de Nivel Inicial:</label>
-                    <input type="text" ng-model="mainCtrl.inscripcion.datosExtra.jardinAnterior" 
-                           ng-required="datosAdicionalesCtrl.jardinAnterior"
-                           uib-typeahead="jardin as jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:{nombre:$viewValue} | limitTo:10" 
-                           class="form-control" typeahead-editable="false" id="jardinAnterior" name="jardinAnterior">
+                <div class="form-group" ng-if="datosAdicionalesCtrl.jardinAnterior">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="jardinAnterior">Seleccione la institucion de Nivel Inicial:</label>
+                        <div class="col-sm-8">
+                        <input type="text" ng-model="mainCtrl.inscripcion.datosExtra.jardinAnterior" 
+                               ng-required="datosAdicionalesCtrl.jardinAnterior"
+                               uib-typeahead="jardin as jardin.nombre for jardin in datosAdicionalesCtrl.jardines | filter:{nombre:$viewValue} | limitTo:10" 
+                               class="form-control" typeahead-editable="false" id="jardinAnterior" name="jardinAnterior">
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-9" for="hermanos">¿El aspirante tiene hermanos cursando en alguna escuela de gestion estatal de la Ciudad de Buenos Aires?</label>
@@ -643,7 +647,69 @@
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.hermanoEnColegio">
-                    hermano en colegio 
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="nombre" class="form-control" required
+                                   ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.nombre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="apellido">Apellido:</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="apellido" class="form-control" required
+                                   ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.apellido">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="fechaNac">Fecha Nacimiento:</label>
+                        <div class="col-sm-8">
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" readonly 
+                                       placeholder="Seleccione una fecha de nacimiento"
+                                       ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.fechaNacimiento" 
+                                       is-open="datosAdicionalesCtrl.datePicker.opened" 
+                                       datepicker-options="datosAdicionalesCtrl.dateOptions" 
+                                       required show-button-bar="false" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" 
+                                            ng-click="datosAdicionalesCtrl.openDatePicker()">
+                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="tipo_documento">Documento:</label>
+                        <div class="col-sm-3">
+                            <select id="tipo_documento" class="form-control" required
+                                    ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.tipoDocumento">
+                                    <option value="">Seleccionar el tipo</option>
+                                    <option value="DNI">Documento Nacional de Identidad</option>
+                                    <option value="PN">Partida de nacimiento</option>
+                                    <option value="CRP">Credencial residencia precaria</option>
+                                    <option value="PE">Pasaporte extranjero</option>
+                                    <option value="CE">Cédula extranjera</option>
+                                    <option value="ODE">Otro documento extranjero</option>
+                                    <option value="DT">Documento en trámite</option>
+                                    <option value="SD">Sin documento</option>
+                                </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" id="nro_documento" placeholder="Número" class="form-control"
+                                   ng-required="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.tipoDocumento != SD"
+                                   ng-disabled="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.tipoDocumento == SD"
+                                   ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.numeroDocumento">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="colegioHermano">Colegio:</label>
+                        <div class="col-sm-8">
+                            <input type="text" ng-model="mainCtrl.inscripcion.datosExtra.hermanoEnColegio.colegio" class="col-md-8 form-control" required
+                               uib-typeahead="colegio as colegio.nombre for colegio in datosAdicionalesCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
+                               class="form-control" typeahead-editable="false" id="colegioHermano" name="colegioHermano">
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-9" for="vinculo">¿Carlos Pipino (responsable principal) trabaja en alguna escuela de gestion estatal de la Ciudad de Buenos Aires?</label>
@@ -655,7 +721,21 @@
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.responsableEnColegio">
-                  responsable en colegio
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="apellido">Ficha municipal Nro:</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="apellido" class="form-control" required
+                                   ng-model="mainCtrl.inscripcion.datosExtra.responsableEnColegio.ficha">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="colegioHermano">Colegio:</label>
+                        <div class="col-sm-8">
+                            <input type="text" ng-model="mainCtrl.inscripcion.datosExtra.responsableEnColegio.colegio" class="col-md-8 form-control" required
+                               uib-typeahead="colegio as colegio.nombre for colegio in datosAdicionalesCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
+                               class="form-control" typeahead-editable="false" id="responsableEnColegio" name="responsableEnColegio">
+                        </div>
+                    </div>
                 </div>
             </form>
         </uib-tab>
@@ -669,13 +749,13 @@
                     <h1>Selección de Escuelas</h1>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="jardinAnterior" style="margin-left: 10%">Escriba el nombre del colegio que desea agregar:</label>
+                    <label class="control-label" for="colegioAgregar" style="margin-left: 10%">Escriba el nombre del colegio que desea agregar:</label>
                 </div>
                 <div class="form-group">
                     <div class="flexCenter">
                         <input type="text" ng-model="seleccionColegiosCtrl.colegioAAgregar" class="col-md-8 form-control buscarColegioInput"
                            uib-typeahead="colegio as colegio.nombre for colegio in seleccionColegiosCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
-                           class="form-control" typeahead-editable="false" id="jardinAnterior" name="jardinAnterior">
+                           class="form-control" typeahead-editable="false" id="colegioAgregar" name="colegioAgregar">
                         <button ng-disabled="mainCtrl.inscripcion.cursos.length > 7" class="btn btn-primary agregarColegioButton"
                                 ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.grado)">Agregar Colegio</button>
                     </div>

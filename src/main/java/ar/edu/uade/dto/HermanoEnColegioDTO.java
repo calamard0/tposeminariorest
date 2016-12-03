@@ -3,10 +3,9 @@ package ar.edu.uade.dto;
 public class HermanoEnColegioDTO {
 	private String nombre;
 	private String apellido;
-	private String fechaNac;
+	private String fechaNacimiento;
 	private String tipoDocumento;
 	private String numeroDocumento;
-	private String grado;
 	private ColegioDTO colegio;
 
 	public HermanoEnColegioDTO() {
@@ -29,12 +28,12 @@ public class HermanoEnColegioDTO {
 		this.apellido = apellido;
 	}
 
-	public String getFechaNac() {
-		return fechaNac;
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void setFechaNac(String fechaNac) {
-		this.fechaNac = fechaNac;
+	public void setFechaNacimiento(String fechaNac) {
+		this.fechaNacimiento = fechaNac;
 	}
 
 	public String getTipoDocumento() {
@@ -51,14 +50,6 @@ public class HermanoEnColegioDTO {
 
 	public void setNumeroDocumento(String numeroDocumento) {
 		this.numeroDocumento = numeroDocumento;
-	}
-
-	public String getGrado() {
-		return grado;
-	}
-
-	public void setGrado(String grado) {
-		this.grado = grado;
 	}
 
 	public ColegioDTO getColegio() {
