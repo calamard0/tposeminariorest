@@ -676,7 +676,7 @@
                         <input type="text" ng-model="seleccionColegiosCtrl.colegioAAgregar" class="col-md-8 form-control buscarColegioInput"
                            uib-typeahead="colegio as colegio.nombre for colegio in seleccionColegiosCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
                            class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
-                        <button ng-disabled="!mainCtrl.inscripcion.cursos.length < 8" class="btn btn-primary agregarColegioButton"
+                        <button ng-disabled="mainCtrl.inscripcion.cursos.length > 7" class="btn btn-primary agregarColegioButton"
                                 ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.grado)">Agregar Colegio</button>
                     </div>
                 </div>
