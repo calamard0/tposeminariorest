@@ -50,7 +50,9 @@ public class Curso {
 	}
 	
 	public CursoDTO toDTO() {
-		return new CursoDTO(this.getDescripcion(), this.getGrado(), this.getVacantesDisponibles());
+		CursoDTO dto = new CursoDTO(this.getDescripcion(), this.getGrado(), this.getVacantesDisponibles());
+		dto.setId(this.id);
+		return dto;
 	}
 
 	@Id
