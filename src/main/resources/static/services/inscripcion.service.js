@@ -28,10 +28,10 @@
 
                 $http.get('/cursos/getCursoPorColegio/'+idColegio+'/'+grado)
                     .success(function (data) {
-                        deferred.resolve(data.body);
+                        deferred.resolve(data);
                     })
                     .error(function (data) {
-                        deferred.reject(data.body);
+                        deferred.reject(data);
                     });
 
                 return deferred.promise;
