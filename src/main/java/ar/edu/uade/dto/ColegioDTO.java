@@ -17,6 +17,13 @@ public class ColegioDTO {
 		this.direccion = direccion;
 		this.cursos = cursos;
 	}
+	
+	public ColegioDTO(int id, String nombre, String direccion, Set<CursoDTO> cursos) {
+		this.id = id;
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.cursos = cursos;
+	}
 
 	public int getId() {
 		return id;

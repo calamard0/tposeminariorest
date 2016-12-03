@@ -1,5 +1,8 @@
 package ar.edu.uade.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,6 +58,18 @@ public class CursosController {
 			}		
 		}
 		return cursoEncontrado.toDTO();
+	 }
+	 
+	 @RequestMapping(value= "/getCursos/{colegioId}")
+	 public List<CursoDTO> getCursoPorColegio(@PathVariable Integer colegioId) {
+		Colegio cole = colRepo.findOne(colegioId);
+		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
+		
+		for (Curso curso : cole.getCursos()) {
+			cursos.add(curso.toDTO());
+		}
+		
+		return cursos;
 	 }
 	 
 	 

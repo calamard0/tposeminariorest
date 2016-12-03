@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 
 @Entity
@@ -52,6 +53,7 @@ public class Curso {
 	public CursoDTO toDTO() {
 		CursoDTO dto = new CursoDTO(this.getDescripcion(), this.getGrado(), this.getVacantesDisponibles());
 		dto.setId(this.id);
+		dto.setColegio(new ColegioDTO(this.colegio.getId(), this.colegio.getNombre(), this.colegio.getDireccion(), null));
 		return dto;
 	}
 
