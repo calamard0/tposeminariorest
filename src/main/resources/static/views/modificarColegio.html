@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Sistema de Inscripciones</title>
+    <meta name="description" content="Sistema de Inscripciones">
+    <meta name="author" content="Grupo7">
+
+
+</head>
+
+<body ng-app="inscripciones" ng-controller="mainController as mainCtrl">
+    
+    <link rel="stylesheet" href="../app.css">
+    
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../libs/jquery-ui.min.css">
+    <link rel="stylesheet" href="../libs/toastr/angular-toastr.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="libs/jquery-ui.min.js"></script>
+    <script src="libs/sortable.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/i18n/angular-locale_es-ar.js"></script>
+    <script src="libs/ui-bootstrap-2.1.4.js"></script>
+    <script src="libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script src="libs/toastr/angular-toastr.tpls.js"></script>
+    
+    <script src="app.module.js"></script>
+    <script src="services/inscripcion.model.service.js"></script>
+    <script src="services/inscripcion.service.js"></script>
+    <script src="controllers/inscripcion/main.controller.js"></script>
+    <script src="controllers/inscripcion/seleccion.nivel.controller.js"></script>
+    <script src="controllers/inscripcion/aspirante.controller.js"></script>
+    <script src="controllers/inscripcion/responsable.controller.js"></script>
+    <script src="controllers/inscripcion/datos.adicionales.controller.js"></script>    
+    <script src="controllers/inscripcion/seleccion.colegios.controller.js"></script>
+    
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="logo"><img src="../images/Buenos-Aires-Cuidad.png"></div>
+                <a class="navbar-brand" href="#">Sistema de Inscripciones</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Manual del usuario</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+    	<h1>Edición de Colegio</h1>
+    </div>
+    
+    <div class="container">
+    	<div class="form-group">
+    		<label for="curso1">Curso 1 (Vacantes):</label>
+    		<input id="curso1" type="text" class="form-control-static" ></input>
+    	</div>
+    	<div class="form-group">
+    	    <label for="curso2">Curso 2 (Vacantes):</label>
+    		<input id="curso2" type="text" class="form-control-static" ></input>
+    	</div>    	
+    	<div class="form-group">
+    	    <label for="curso3">Curso 3 (Vacantes):</label>
+    		<input id="curso3" type="text" class="form-control-static" ></input>
+    	</div>    	
+    	<div class="form-group">
+    	    <label for="curso4">Curso 4 (Vacantes):</label>
+    		<input id="curso4" type="text" class="form-control-static" ></input>
+    	</div>    	
+    	<div class="form-group">
+    		<label for="curso5">Curso 5 (Vacantes):</label>
+    		<input id="curso5" type="text" class="form-control-static" ></input>
+    	</div>    	
+    	<div class="form-group">
+    		<label for="curso6">Curso 6 (Vacantes):</label>
+    		<input id="curso6" type="text" class="form-control-static" ></input>
+    	</div>
+    	<div class="form-group">
+    		<label for="curso7">Curso 7 (Vacantes):</label>
+    		<input id="curso7" type="text" class="form-control-static" ></input>
+    	</div>
+    </div>
+    
+    <div id="navigationButtonsContainer">
+        <button type="button" class="btn btn-primary"
+            ng-click="mainCtrl.guardar"> Guardar</button>
+    </div>
+
+</body>
+
+</html>
