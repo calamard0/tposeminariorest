@@ -52,14 +52,7 @@ public class PreInscripcion {
 		this.responsable = new Responsable(dto.getResponsable());
 		this.validada = dto.isValidada();
 		
-		if (dto.getDatosExtra() instanceof DatosHermanoDTO )
-			this.datosExtra = new DatosHermano((DatosHermanoDTO) dto.getDatosExtra());
 		
-		if (dto.getDatosExtra() instanceof DatosPadreDTO )
-			this.datosExtra = new DatosPadre((DatosPadreDTO) dto.getDatosExtra());
-		
-		if (dto.getDatosExtra() instanceof DatosColegioAntDTO )
-			this.datosExtra = new DatosColegioAnt((DatosColegioAntDTO) dto.getDatosExtra());
 		
 		this.vacantes = new HashSet<Vacante>();
 		int i = 1;
@@ -87,15 +80,6 @@ public class PreInscripcion {
 			Curso cur = cursoRepo.findOne(vac.getCurso().getId());
 			dto.getCursos().add(cur.toDTO());
 		}
-		
-		if (this.datosExtra instanceof DatosHermano )
-			dto.setDatosExtra(((DatosHermano)this.datosExtra).toDTO());
-		
-		if (this.datosExtra instanceof DatosPadre )
-			dto.setDatosExtra(((DatosPadre)this.datosExtra).toDTO());
-		
-		if (this.datosExtra instanceof DatosColegioAnt )
-			dto.setDatosExtra(((DatosColegioAnt)this.datosExtra).toDTO());
 		
 		return dto;
 	}

@@ -1,0 +1,37 @@
+package ar.edu.uade.dto;
+
+public class JardinDTO {
+
+	private int id;
+	public String nombre;
+	public String direccion;
+
+	public JardinDTO() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+}

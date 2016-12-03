@@ -35,12 +35,12 @@ public class CalcularPesosHelper {
 			if (datosExtra instanceof DatosPadre) {
 				DatosPadre auxPadr = (DatosPadre) datosExtra;
 				if (auxPadr.getColegio().getId() == auxCol.getId()) {
-					if (auxPadr.getFichaMunicipal() == "Personal") {
-						return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
-					}
-					if (auxPadr.getFichaMunicipal() == "Docente") {
-						return (Reglas.reglaCuatro(auxPadr) / 20) * vac.getPrioridad();
-					}
+//					if (auxPadr.getFichaMunicipal() == "Personal") {
+//						return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
+//					}
+//					if (auxPadr.getFichaMunicipal() == "Docente") {
+//						return (Reglas.reglaCuatro(auxPadr) / 20) * vac.getPrioridad();
+//					}
 				}
 			}
 			if (Reglas.dist(auxCol.getDireccion(), auxDom) < 10) {

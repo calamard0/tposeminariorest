@@ -1,28 +1,37 @@
 package ar.edu.uade.dto;
 
 public class DatosExtraDTO {
-	
-	private int id;
-	private ColegioDTO colegio;
-	
+
+	private JardinDTO jardinAnterior;
+	private HermanoEnColegioDTO hermanoEnColegio;
+	private ResponsableEnColegioDTO responsableEnColegio;
+
 	public DatosExtraDTO() {
-		
+
 	}
 
-	public int getId() {
-		return id;
+	public JardinDTO getJardinAnterior() {
+		return jardinAnterior;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setJardinAnterior(JardinDTO jardinAnterior) {
+		this.jardinAnterior = jardinAnterior;
 	}
 
-	public ColegioDTO getColegio() {
-		return colegio;
+	public HermanoEnColegioDTO getHermanoEnColegio() {
+		return hermanoEnColegio;
 	}
 
-	public void setColegio(ColegioDTO colegio) {
-		this.colegio = colegio;
+	public void setHermanoEnColegio(HermanoEnColegioDTO hermanoEnColegio) {
+		this.hermanoEnColegio = hermanoEnColegio;
+	}
+
+	public ResponsableEnColegioDTO getResponsableEnColegio() {
+		return responsableEnColegio;
+	}
+
+	public void setResponsableEnColegio(ResponsableEnColegioDTO responsableEnColegio) {
+		this.responsableEnColegio = responsableEnColegio;
 	}
 
 }

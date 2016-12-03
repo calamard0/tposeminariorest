@@ -178,16 +178,16 @@ public class TestController {
 		DatosPadre dp = new DatosPadre();
 		List<Colegio> colegios = colegioRepository.findByNombre("Colegio2");
 		dp.setColegio(colegios.get(0));
-		dp.setFichaMunicipal("Ficha Munic");
-		dp.setNombre("Nombre");
+//		dp.setFichaMunicipal("Ficha Munic");
+//		dp.setNombre("Nombre");
 		
 		daExRepo.save(dp);
 		
 		DatosHermano dh = new DatosHermano();
 		dh.setColegio(colegios.get(0));
-		dh.setApellido("Apellido");
-		dh.setNombre("Nombre");
-		dh.setNumeroDocumento("323232");
+//		dh.setApellido("Apellido");
+//		dh.setNombre("Nombre");
+//		dh.setNumeroDocumento("323232");
 		
 		daExRepo.save(dh);
 		
@@ -277,9 +277,9 @@ public class TestController {
 		
 		DatosHermano dh = new DatosHermano();
 		dh.setColegio(colegios.get(0));
-		dh.setApellido("Apellido");
-		dh.setNombre("Nombre");
-		dh.setNumeroDocumento("323232");
+//		dh.setApellido("Apellido");
+//		dh.setNombre("Nombre");
+//		dh.setNumeroDocumento("323232");
 		
 		Responsable resp = new Responsable();
 		resp.setApellido("Apellido");

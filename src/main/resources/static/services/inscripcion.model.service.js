@@ -68,29 +68,10 @@
                         }
                     }
                 },
-                adicionales: {
-                    jardinEstatal: {
-                        codigo: null,
-                        nombre: null,
-                        direccion: null
-                    },
-                    hermanoEnColegio: {
-                        nombre: null,
-                        apellido: null,
-                        fechaNac: null,
-                        documento: {
-                            tipo: null,
-                            numero: null
-                        },
-                        nivel: null,
-                        grado: null,
-                        escuela: null
-                    },
-                    responsableEnColegio: {
-                        ficha: null,
-                        nivel: null,
-                        escuela: null
-                    }
+                datosExtra: {
+                    jardinAnterior: null,
+                    hermanoEnColegio: null,
+                    responsableEnColegio: null
                 },
                 cursos: []
             };

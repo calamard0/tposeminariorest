@@ -7,8 +7,9 @@
         .controller('datosAdicionalesController', function ($scope, $http) {
             
             var vm = this;
+            var inscripcionModel = $scope.$parent.mainCtrl.inscripcion;
         
-            vm.jardinEstatal = false;
+            vm.jardinAnterior = false;
             vm.hermanoEnColegio = false;
             vm.responsableEnColegio = false;
         
@@ -24,10 +25,27 @@
             });
         
             function cambioDatoAdicional(datoAdicionalName) {
-                vm.jardinEstatal = false;
-                vm.hermanoEnColegio = false;
-                vm.responsableEnColegio = false;
-                vm[datoAdicionalName] = true;
+                switch(datoAdicionalName) {
+                    case 'jardinAnterior':
+                        vm.hermanoEnColegio = false;
+                        inscripcionModel.datosExtra.hermanoEnColegio = null;
+                        vm.responsableEnColegio = false;
+                        inscripcionModel.datosExtra.responsableEnColegio = null;
+                        break;
+                    case 'hermanoEnColegio':
+                        vm.jardinAnterior = false;
+                        inscripcionModel.datosExtra.jardinAnterior = null;
+                        vm.responsableEnColegio = false;
+                        inscripcionModel.datosExtra.responsableEnColegio = null;
+                        break;
+                    case 'responsableEnColegio':
+                        vm.hermanoEnColegio = false;
+                        inscripcionModel.datosExtra.hermanoEnColegio = null;
+                        vm.jardinAnterior = false;
+                        inscripcionModel.datosExtra.jardinAnterior = null;
+                        break;
+                }
+                inscripcionModel.datosExtra[datoAdicionalName] = null;
             }
 
         });
