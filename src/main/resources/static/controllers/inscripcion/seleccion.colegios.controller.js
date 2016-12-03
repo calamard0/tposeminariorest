@@ -5,15 +5,21 @@
         .controller('seleccionColegiosController', function ($scope, $http, inscripcionService) {
             
             var vm = this;
-            $scope.coco = 'coco'
+            var inscripcionModel = $scope.$parent.mainCtrl.inscripcion;
         
             vm.obtenerCurso = obtenerCurso;
+            vm.eliminarColegioElegido = eliminarColegioElegido;
         
             function obtenerCurso(grado) {
                 inscripcionService.getCurso(vm.colegioAAgregar.codigo, grado)
                     .then(function(data) {
-                        $scope.$parent.mainCtrl.inscripcion.cursos.push(data);
+                        inscripcionModel.cursos.push(data);
                 })
+            }
+        
+            function eliminarColegioElegido(curso) {
+                var index = inscripcionModel.cursos.indexOf(curso);
+                inscripcionModel.cursos.splice(index, 1); 
             }
         
             $http.get('json/colegios.json').then(function(data){

@@ -31,3 +31,16 @@
 .adicionalesContainer .control-label {
     font-weight: normal;
 }
+
+.removeCurso {
+    float: right;
+    cursor: pointer;
+}
+
+.buscarColegioInput {
+    width: 60%! important;
+}
+
+.agregarColegioButton {
+    margin-left: 5px;
+}
