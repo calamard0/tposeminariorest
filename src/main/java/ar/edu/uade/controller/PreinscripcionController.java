@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,12 +83,12 @@ public class PreinscripcionController {
 	 }
 	 
 	 @RequestMapping(value= "/sugerirColegios", method = RequestMethod.GET)
-	 public void sugerirColegios(String colegio){
-		 getColegiosPorDistancia(colegio);
+	 public void sugerirColegios(String direccion){
+		 getColegiosPorDistancia(direccion);
 	 }
 	 
 	 public List<Integer> getColegiosPorDistancia(String direccion){
-		 direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina";
+		 //direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina";
 		 direccion = direccion.replaceAll(" ", "+");
 		 List<Integer> colegiosIds = new ArrayList<Integer>();
 		 List<Colegio> colegios = colRepo.findAll();
@@ -113,8 +114,8 @@ public class PreinscripcionController {
 		 //destinations+= colegios.get(1).getDireccion();
 		 //destinations = destinations.replaceAll(" ", "+");
 		
-		 int i=0;
-		 for(Colegio col: colegios){
+		 for(int i=0; i<10; i++){
+			 Colegio col = colegios.get(i);
 			 URL apiCall;
 			 String response = "";
 			 String destination = col.getDireccion().replaceAll(" ", "+");
@@ -134,18 +135,39 @@ public class PreinscripcionController {
 		    	 JSONObject distance = (JSONObject) ((JSONObject) o).get("distance");
 		    	 value = ((JSONObject) distance).get("value").toString();
 		    	 } catch (Exception e){
-		    		 value = "99999";
+		    		 value = "999999";
 		    	 }
 		     } 
 		     colegiosConDistancias.put(col.getId(), Integer.valueOf(value));
-			 i++;
 		 }
 		 
-		 return null;
+		 List<Integer> idsColegiosConDistanciaMinima = getIdsColegiosConDistanciasMinimas(colegiosConDistancias);
+		 return idsColegiosConDistanciaMinima;
 		 
 	 }
 	
-     public String apiGet(URL url){
+     private List<Integer> getIdsColegiosConDistanciasMinimas(Hashtable<Integer,Integer> colegiosConDistancias) {
+    	List<Integer> colegiosConDistanciasMinimas = new ArrayList<Integer>();
+    	for(int i=0; i<7; i++){
+    		Random generator = new Random();
+    		Object[] values = colegiosConDistancias.keySet().toArray();
+    		Integer randomValue = (Integer) values[generator.nextInt(values.length)];
+    		int min = colegiosConDistancias.get(randomValue);
+    		int key = randomValue;
+    		for(Integer curKey : colegiosConDistancias.keySet()){
+    			int curValue = colegiosConDistancias.get(curKey);
+    			if(curValue < min){
+    				min = colegiosConDistancias.get(curKey);
+    				key = curKey;
+    			}
+    		}
+    		colegiosConDistanciasMinimas.add(key);
+    		colegiosConDistancias.remove(key);
+    	}
+		return colegiosConDistanciasMinimas;
+	}
+
+	public String apiGet(URL url){
 			HttpURLConnection con;
 			try {
 				con = (HttpURLConnection) url.openConnection();
