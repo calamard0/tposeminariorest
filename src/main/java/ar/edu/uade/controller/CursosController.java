@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.uade.model.Colegio;
-import ar.edu.uade.service.ColegioService;
 
 @Controller
 @RequestMapping("cursos")
@@ -17,9 +16,9 @@ public class CursosController {
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("cursos");
 		 
-		 ColegioService colegioService = new ColegioService();
-		 Colegio colegio = colegioService.getColegio();
-		 mav.addObject("colegio", colegio);  
+//		 ColegioService colegioService = new ColegioService();
+//		 Colegio colegio = colegioService.getColegio();
+//		 mav.addObject("colegio", colegio);  
 		 
 		 return mav;
 	 }
@@ -29,9 +28,9 @@ public class CursosController {
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("cursos");
 		 
-		 ColegioService colegioService = new ColegioService();
-		 Colegio colegio = colegioService.getColegio();
-		 mav.addObject("colegio", colegio);  
+//		 ColegioService colegioService = new ColegioService();
+//		 Colegio colegio = colegioService.getColegio();
+//		 mav.addObject("colegio", colegio);  
 		 
 		 return mav;
 	 }

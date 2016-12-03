@@ -2,6 +2,7 @@ package ar.edu.uade.dto;
 
 public class CursoDTO {
 
+	private int id;
 	private String descripcion;
 	private int grado;
 	private int vacantesDisponibles;
@@ -17,13 +18,13 @@ public class CursoDTO {
 		this.vacantesDisponibles = vacantesDisponibles;
 	}
 
-	// public CursoDTO( String descripcion, int grado, int vacantesDisponibles,
-	// ColegioDTO dtoColegio ) {
-	// this.descripcion = descripcion;
-	// this.grado = grado;
-	// this.vacantesDisponibles = vacantesDisponibles;
-	// this.colegio = dtoColegio;
-	// }
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getDescripcion() {
 		return descripcion;

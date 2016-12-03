@@ -19,13 +19,15 @@ public class Curso {
 	private int vacantesDisponibles;
 	private Colegio colegio;
 	
-	//private SortedSet<Vacante> vacantes;
-	
 	public Curso() {
 		
 	}
 	
-	public Curso(CursoDTO dtro) {
+	public Curso(CursoDTO dto) {
+		this.id = dto.getId();
+		this.descripcion = dto.getDescripcion();
+		this.grado = dto.getGrado();
+		this.vacantesDisponibles = dto.getVacantesDisponibles();
 	}
 	
 	public Curso(String descripcion, int grado, int vacanteDisponibles, Colegio colegio) {

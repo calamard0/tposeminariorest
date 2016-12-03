@@ -1,9 +1,13 @@
 package ar.edu.uade.dto;
 
+import ar.edu.uade.model.Domicilio;
+
 public class DatosLaboralesDTO {
 	
 	private int id;
+	private String situacionLaboral;
 	private String profesion;
+	private boolean sostenFamiliar;
 	private String telefono;
 	private String datosReferencia;
 	private DomicilioDTO domicilio;
@@ -50,6 +54,22 @@ public class DatosLaboralesDTO {
 
 	public void setDomicilio(DomicilioDTO domicilio) {
 		this.domicilio = domicilio;
+	}
+
+	public String getSituacionLaboral() {
+		return situacionLaboral;
+	}
+
+	public void setSituacionLaboral(String situacionLaboral) {
+		this.situacionLaboral = situacionLaboral;
+	}
+
+	public boolean isSostenFamiliar() {
+		return sostenFamiliar;
+	}
+
+	public void setSostenFamiliar(boolean sostenFamiliar) {
+		this.sostenFamiliar = sostenFamiliar;
 	}
 
 }

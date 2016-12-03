@@ -16,25 +16,25 @@ public class CalcularPesosHelper {
 
 	public static float calcularPesopeso(Vacante vac, DatosExtra datosExtra, Aspirante aspirante, Responsable responsable) {
 		Curso auxCurso = vac.getCurso();
-		Colegio auxCol = SistemaInscripciones.getInstance().buscarColegioPorCodigoDeCurso(auxCurso.getCodigo());
+		Colegio auxCol = SistemaInscripciones.getInstance().buscarColegioPorCodigoDeCurso(auxCurso.getId());
 		Domicilio auxDom = aspirante.getDomicilio();
 
 		if (auxCol != null) {
 			if (datosExtra instanceof DatosColegioAnt) {
 				DatosColegioAnt auxColAnt = (DatosColegioAnt) datosExtra;
-				if (auxColAnt.getColegio().getCodigo() == auxCol.getCodigo()) {
+				if (auxColAnt.getColegio().getId() == auxCol.getId()) {
 					return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
 				}
 			}
 			if (datosExtra instanceof DatosHermano) {
 				DatosHermano auxHerm = (DatosHermano) datosExtra;
-				if (auxHerm.getColegio().getCodigo() == auxCol.getCodigo()) {
+				if (auxHerm.getColegio().getId() == auxCol.getId()) {
 					return (Reglas.reglaDos(auxHerm) / 20) * vac.getPrioridad();
 				}
 			}
 			if (datosExtra instanceof DatosPadre) {
 				DatosPadre auxPadr = (DatosPadre) datosExtra;
-				if (auxPadr.getColegio().getCodigo() == auxCol.getCodigo()) {
+				if (auxPadr.getColegio().getId() == auxCol.getId()) {
 					if (auxPadr.getFichaMunicipal() == "Personal") {
 						return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
 					}

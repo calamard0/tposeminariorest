@@ -139,10 +139,10 @@ public class SistemaInscripciones {
 		SistemaInscripciones.instance = instance;
 	}
 
-	public Colegio buscarColegioPorCodigoDeCurso(int codigo) {
+	public Colegio buscarColegioPorCodigoDeCurso(int id) {
 		for(Colegio colegio : colegios) {
 			for(Curso curso : colegio.getCursos()){
-				if (curso.getCodigo() == codigo){
+				if (curso.getId() == id){
 					return colegio;
 				}
 			}

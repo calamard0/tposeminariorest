@@ -18,7 +18,21 @@ public class DatosHermano extends DatosExtra {
 	}
 	
 	public DatosHermano(DatosHermanoDTO dto) {
-		
+		this.setId(dto.getId());
+		this.setColegio(new Colegio(dto.getColegio()));
+		this.nombre = dto.getNombre();
+		this.apellido = dto.getApellido();
+		this.numeroDocumento = dto.getNumeroDocumento();
+	}
+	
+	public DatosHermanoDTO toDTO() {
+		DatosHermanoDTO dto = new DatosHermanoDTO();
+		dto.setColegio(this.getColegio().toDTO());
+		dto.setId(this.getId());
+		dto.setNombre(this.nombre);
+		dto.setApellido(this.apellido);
+		dto.setNumeroDocumento(this.numeroDocumento);
+		return dto;
 	}
 
 	public String getNumeroDocumento() {

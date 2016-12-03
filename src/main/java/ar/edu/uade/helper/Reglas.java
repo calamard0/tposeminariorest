@@ -60,7 +60,7 @@ public class Reglas {
 	}
 
 	public static int reglaSeisYSiete(Aspirante aspirante) {
-		if (aspirante.getNomobre() == "Distrito") {
+		if (aspirante.getNombre() == "Distrito") {
 			return 7;
 		}
 		return 6;

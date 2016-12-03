@@ -66,11 +66,13 @@ public class TestController {
 	@RequestMapping(value = "/insertColegio")
 	public void crearColegio() {
 		
-		Colegio col = new Colegio("Colegio2", "CalleFalsa 123", null);
+		Colegio col = new Colegio("Colegio2", "Calle Nueva", null);
 		
 		Curso cu = new Curso("CursoA", 1, 30, col);
 		Curso cu2 = new Curso("CursoB", 2, 40, col);
 		Curso cu3 = new Curso("CursoC", 3, 50, col);
+		
+		col.setId(2);
 		
 		Set<Curso> cursos = new HashSet<Curso>();
 		cursos.add(cu);
@@ -80,7 +82,6 @@ public class TestController {
 		col.setCursos(cursos);
 		
 		colegioRepository.save(col);
-			
 	}
 	
 	@RequestMapping(value = "/insertDatosLaborales")

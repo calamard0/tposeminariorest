@@ -21,11 +21,32 @@ public class Domicilio {
 	private String tipo;
 	
 	public Domicilio() {
-		
 	}
 
 	public Domicilio(DomicilioDTO dto) {
-		
+		this.id = dto.getId();
+		this.provincia = dto.getProvincia();
+		this.calle = dto.getCalle();
+		this.numero = dto.getNumero();
+		this.villa = dto.getVilla();
+		this.piso = dto.getPiso();
+		this.departamento = dto.getDepartamento();
+		this.codigoPostal = dto.getCodigoPostal();
+		this.tipo = dto.getTipo();
+	}
+	
+	public DomicilioDTO toDTO() {
+		DomicilioDTO dto = new DomicilioDTO();
+		dto.setCalle(this.calle);
+		dto.setId(this.id);
+		dto.setCodigoPostal(this.codigoPostal);
+		dto.setDepartamento(this.departamento);
+		dto.setNumero(this.numero);
+		dto.setPiso(this.piso);
+		dto.setProvincia(this.provincia);
+		dto.setTipo(this.tipo);
+		dto.setVilla(this.villa);
+		return dto;
 	}
 
 	@Id

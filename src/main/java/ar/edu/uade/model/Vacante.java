@@ -24,7 +24,22 @@ public class Vacante {
 	}
 	
 	public Vacante(VacanteDTO dto) {
-		
+		this.id = dto.getId();
+		this.peso = dto.getPeso();
+		this.prioridad = dto.getPrioridad();
+		this.estaAprobada = dto.isEstaAprobada();
+		/***
+		 * Ver que hacer con el curso
+		 */
+	}
+	
+	public VacanteDTO toDTO() {
+		VacanteDTO dto = new VacanteDTO();
+		dto.setId(this.id);
+		dto.setPrioridad(this.prioridad);
+		dto.setPeso(this.peso);
+		dto.setEstaAprobada(this.estaAprobada);
+		return dto;
 	}
 	
 	public void calcularPeso() {

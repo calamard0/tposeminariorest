@@ -14,6 +14,14 @@ public class DatosColegioAnt extends DatosExtra {
 	}
 	
 	public DatosColegioAnt(DatosColegioAntDTO dto) {
-		
+		this.setId(dto.getId());
+		this.setColegio(new Colegio(dto.getColegio()));
+	}
+	
+	public DatosColegioAntDTO toDTO() {
+		DatosColegioAntDTO dto = new DatosColegioAntDTO();
+		dto.setColegio(this.getColegio().toDTO());
+		dto.setId(this.getId());
+		return dto;
 	}
 }

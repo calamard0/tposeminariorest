@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.model.Colegio;
-import ar.edu.uade.service.ColegioService;
 
 @RestController
 @RequestMapping("colegios")
@@ -28,29 +27,29 @@ public class ColegiosController {
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("colegios");
 		 
-		 ColegioService colegioService = new ColegioService();
-		 List<Colegio> colegios = colegioService.getAllColegios();
-		 mav.addObject("colegios", colegios);  
+		 // colegioService = new ColegioService();
+		 //List<Colegio> colegios = colegioService.getAllColegios();
+		 //mav.addObject("colegios", colegios);  
 		 
 		 return mav;
 	 }
 	 
 	 @RequestMapping(value= "/create", method = RequestMethod.POST)
-	 public void createColegio() {
-		 ColegioService colegioService = new ColegioService();
-		 colegioService.crear();
+	 public void createColegio(ColegioDTO dto) {
+		 Colegio col = new Colegio(dto);
+		 colRepo.save(col);
 	 }
 	 
 	 @RequestMapping(value= "/update", method = RequestMethod.POST)
-	 public void updateColegio() {
-		 ColegioService colegioService = new ColegioService();
-		 colegioService.update();
+	 public void updateColegio(ColegioDTO dto) {
+		 Colegio col = new Colegio(dto);
+		 //colRepo.
 	 }
 	 
 	 @RequestMapping(value= "/delete", method = RequestMethod.GET)
 	 public void deleteColegio() {
-		 ColegioService colegioService = new ColegioService();
-		 colegioService.update();
+		 //ColegioService colegioService = new ColegioService();
+		 //colegioService.update();
 	 }
 	 
 	 @RequestMapping(value= "/cursos/view", method = RequestMethod.GET)
@@ -58,10 +57,10 @@ public class ColegiosController {
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("vacantes");
 		 
-		 ColegioService colegioService = new ColegioService();
-		 Colegio colegio = colegioService.getColegio();
-		 
-		 mav.addObject("colegio", colegio);
+//		 ColegioService colegioService = new ColegioService();
+//		 Colegio colegio = colegioService.getColegio();
+//		 
+//		 mav.addObject("colegio", colegio);
 		 
 		 return mav;
 	 }

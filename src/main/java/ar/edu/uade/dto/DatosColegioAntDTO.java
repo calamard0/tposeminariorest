@@ -1,5 +1,5 @@
 package ar.edu.uade.dto;
 
-public class DatosColegioAntDTO {
+public class DatosColegioAntDTO extends DatosExtraDTO {
 
 }

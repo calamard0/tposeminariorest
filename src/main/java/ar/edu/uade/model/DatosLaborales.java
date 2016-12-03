@@ -25,7 +25,25 @@ public class DatosLaborales {
 	}
 	
 	public DatosLaborales(DatosLaboralesDTO dto) {
-		
+		this.id = dto.getId();
+		this.situacionLaboral = dto.getSituacionLaboral();
+		this.profesion = dto.getProfesion();
+		this.sostenFamiliar = dto.isSostenFamiliar();
+		this.telefono = dto.getTelefono();
+		this.datosReferencia = dto.getDatosReferencia();
+		this.domicilio = new Domicilio(dto.getDomicilio());
+	}
+	
+	public DatosLaboralesDTO toDTO() {
+		DatosLaboralesDTO dto = new DatosLaboralesDTO();
+		dto.setId(this.id);
+		dto.setSituacionLaboral(this.situacionLaboral);
+		dto.setProfesion(this.profesion);
+		dto.setSostenFamiliar(this.sostenFamiliar);
+		dto.setTelefono(this.telefono);
+		dto.setDatosReferencia(this.datosReferencia);
+		dto.setDomicilio(this.domicilio.toDTO());
+		return dto;
 	}
 
 	@Id

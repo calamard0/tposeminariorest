@@ -34,7 +34,38 @@ public class Aspirante {
 	}
 	
 	public Aspirante(AspiranteDTO dto) {
-		
+		this.id = dto.getId();
+		this.nombre = dto.getNombre();
+		this.apellido = dto.getApellido();
+		this.fechaNacimiento = dto.getFechaNacimiento();
+		this.sexo = dto.getSexo();
+		this.tipoDocumento = dto.getTipoDocumento();
+		this.numeroDocumento = dto.getNumeroDocumento();
+		this.paisNacimiento = dto.getPaisNacimiento();
+		this.sistemaSalud = dto.getSistemaSalud();
+		//this.problemasSalud ver esto
+		this.certificadoDisca = dto.isCertificadoDisca();
+		this.domicilio = new Domicilio(dto.getDomicilio());
+	}
+	
+	public AspiranteDTO toDTO() {
+		AspiranteDTO dto = new AspiranteDTO();
+		dto.setId(this.id);
+		dto.setNombre(this.nombre);
+		dto.setApellido(this.apellido);
+		dto.setFechaNacimiento(this.fechaNacimiento);
+		dto.setSexo(this.sexo);
+		dto.setTipoDocumento(this.tipoDocumento);
+		dto.setNumeroDocumento(this.numeroDocumento);
+		dto.setPaisNacimiento(this.paisNacimiento);
+		dto.setSistemaSalud(this.sistemaSalud);
+		dto.setCertificadoDisca(this.certificadoDisca);
+		dto.setDomicilio(this.domicilio.toDTO());
+		//this.problemasSalud ver esto
+		/***
+		 * Ver los problemas de salud
+		 */
+		return dto;
 	}
 
 	@Id

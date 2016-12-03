@@ -4,6 +4,7 @@ import java.util.Set;
 
 public class ColegioDTO {
 	
+	private int id;
 	public String nombre;
 	public String direccion;
 	public Set<CursoDTO> cursos;
@@ -15,6 +16,14 @@ public class ColegioDTO {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.cursos = cursos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

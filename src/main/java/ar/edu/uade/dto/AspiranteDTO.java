@@ -8,7 +8,7 @@ public class AspiranteDTO {
 	private int id;
 	private String nombre;
 	private String apellido;
-	private String fechaNacimiento;
+	private Date fechaNacimiento;
 	private String sexo;
 	private String tipoDocumento;
 	private String numeroDocumento;
@@ -70,11 +70,11 @@ public class AspiranteDTO {
 		this.apellido = apellido;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

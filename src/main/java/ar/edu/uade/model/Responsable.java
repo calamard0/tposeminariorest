@@ -30,7 +30,34 @@ public class Responsable {
 	}
 	
 	public Responsable(ResponsableDTO dto) {
-		
+		this.id = dto.getId();
+		this.nombre = dto.getNombre();
+		this.apellido = dto.getApellido();
+		this.tipoDocumento = dto.getTipoDocumento();
+		this.numeroDocumento = dto.getNumeroDocumento();
+		this.vinculoAspirante = dto.getVinculoAspirante();
+		this.paisNacimiento = dto.getPaisNacimiento();
+		this.email = dto.getEmail();
+		this.telefonoAlternativo = dto.getTelefonoAlternativo();
+		this.telefonoParticular = dto.getTelefonoParticular();
+		this.datosLaborales = new DatosLaborales(dto.getDatosLaborales());
+		//this.domicilio = new Domicilio(dto.getDomic)
+	}
+	
+	public ResponsableDTO toDTO() {
+		ResponsableDTO dto = new ResponsableDTO();
+		dto.setId(this.id);
+		dto.setNombre(this.nombre);
+		dto.setApellido(this.apellido);
+		dto.setTipoDocumento(this.tipoDocumento);
+		dto.setNumeroDocumento(this.numeroDocumento);
+		dto.setVinculoAspirante(this.vinculoAspirante);
+		dto.setPaisNacimiento(this.paisNacimiento);
+		dto.setEmail(this.email);
+		dto.setTelefonoAlternativo(this.telefonoAlternativo);
+		dto.setTelefonoParticular(this.telefonoParticular);
+		dto.setDatosLaborales(this.datosLaborales.toDTO());
+		return dto;
 	}
 
 	@Id
