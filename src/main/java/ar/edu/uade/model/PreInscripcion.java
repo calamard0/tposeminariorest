@@ -1,5 +1,6 @@
 package ar.edu.uade.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ar.edu.uade.dao.CursoRepository;
+import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.DatosColegioAntDTO;
 import ar.edu.uade.dto.DatosHermanoDTO;
 import ar.edu.uade.dto.DatosPadreDTO;
@@ -24,6 +29,8 @@ import ar.edu.uade.dto.VacanteDTO;
 @Table(name = "preinscripcion")
 public class PreInscripcion {
 
+	@Autowired
+	CursoRepository cursoRepo;
 	
 	private int id;
 	private Set<Vacante> vacantes;
@@ -44,12 +51,6 @@ public class PreInscripcion {
 		this.estado = dto.getEstado();
 		this.responsable = new Responsable(dto.getResponsable());
 		this.validada = dto.isValidada();
-		//this.datosExtra =
-		this.curso = new Curso(dto.getCurso());
-		this.vacantes = new HashSet<Vacante>();
-		for (VacanteDTO vacDto : dto.getVacantes()) {
-			this.vacantes.add(new Vacante(vacDto));
-		}
 		
 		if (dto.getDatosExtra() instanceof DatosHermanoDTO )
 			this.datosExtra = new DatosHermano((DatosHermanoDTO) dto.getDatosExtra());
@@ -59,6 +60,19 @@ public class PreInscripcion {
 		
 		if (dto.getDatosExtra() instanceof DatosColegioAntDTO )
 			this.datosExtra = new DatosColegioAnt((DatosColegioAntDTO) dto.getDatosExtra());
+		
+		this.vacantes = new HashSet<Vacante>();
+		int i = 1;
+		for (CursoDTO curDto : dto.getCursos()) {
+			Vacante vac = new Vacante();
+			vac.setCurso(new Curso(curDto));
+			vac.setEstaAprobada(false);
+			vac.setPeso(0);
+			vac.setPrioridad(i);
+			vac.setPreinscripcion(this);
+			this.vacantes.add(vac);
+			i += 1;
+		}
 	}
 	
 	public PreInscripcionDTO toDTO() {
@@ -68,10 +82,10 @@ public class PreInscripcion {
 		dto.setEstado(this.estado);
 		dto.setResponsable(this.responsable.toDTO());
 		dto.setValidada(this.validada);
-		dto.setCurso(this.curso.toDTO());
-		dto.setVacantes(new HashSet<VacanteDTO>());
+		dto.setCursos(new ArrayList<CursoDTO>());
 		for (Vacante vac : this.vacantes) {
-			dto.getVacantes().add(vac.toDTO());
+			Curso cur = cursoRepo.findOne(vac.getCurso().getId());
+			dto.getCursos().add(cur.toDTO());
 		}
 		
 		if (this.datosExtra instanceof DatosHermano )

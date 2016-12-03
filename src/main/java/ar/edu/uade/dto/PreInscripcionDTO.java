@@ -1,5 +1,6 @@
 package ar.edu.uade.dto;
 
+import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,13 +10,12 @@ import ar.edu.uade.model.PreInscripcion;
 public class PreInscripcionDTO {
 	
 	private int id;
-	private Set<VacanteDTO> vacantes;
 	private AspiranteDTO aspirante;
 	private String estado;
 	private ResponsableDTO responsable;
 	private boolean validada;
 	private DatosExtraDTO datosExtra;
-	private CursoDTO curso;
+	private List<CursoDTO> cursos;
 	
 	public PreInscripcionDTO() {
 		
@@ -32,12 +32,7 @@ public class PreInscripcionDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Set<VacanteDTO> getVacantes() {
-		return vacantes;
-	}
-	public void setVacantes(Set<VacanteDTO> vacantes) {
-		this.vacantes = vacantes;
-	}
+	
 	public AspiranteDTO getAspirante() {
 		return aspirante;
 	}
@@ -68,11 +63,13 @@ public class PreInscripcionDTO {
 	public void setDatosExtra(DatosExtraDTO datosExtra) {
 		this.datosExtra = datosExtra;
 	}
-	public CursoDTO getCurso() {
-		return curso;
+
+	public List<CursoDTO> getCursos() {
+		return cursos;
 	}
-	public void setCurso(CursoDTO curso) {
-		this.curso = curso;
+
+	public void setCursos(List<CursoDTO> cursos) {
+		this.cursos = cursos;
 	}
 	
 }
