@@ -37,7 +37,7 @@
     <script src="controllers/inscripcion/aspirante.controller.js"></script>
     <script src="controllers/inscripcion/responsable.controller.js"></script>
     <script src="controllers/inscripcion/datos.adicionales.controller.js"></script>    
-    
+    <script src="controllers/inscripcion/seleccion.colegios.controller.js"></script>
     
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -509,15 +509,17 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="calle">Calle y Número:</label>
                     <div class="col-sm-4">
-                        <input type="text" id="calle_nro" class="form-control" required
+                        <input type="text" id="calle_nro" class="form-control"
                                placeholder="Calle" typeahead-editable="false"
+                               ng-required="mainCtrl.inscripcion.responsable.trabaja"
                                uib-typeahead="calle for calle in mainCtrl.calles | filter:$viewValue | limitTo:10" 
                                ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.calle">
                     </div>
                     <div class="col-sm-4">
-                        <input type="number" id="nro" class="form-control" required placeholder="Número"
+                        <input type="number" id="nro" class="form-control" placeholder="Número"
                                min="0" max="99999"
+                               ng-required="mainCtrl.inscripcion.responsable.trabaja"
                                ng-disabled="!mainCtrl.inscripcion.responsable.trabaja"
                                ng-model="mainCtrl.inscripcion.responsable.datosLaborales.domicilio.numero">
                     </div>
@@ -661,13 +663,19 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-home"></i> Seleccion de Escuelas
             </uib-tab-heading>
-            <form name="mainCtrl.escuelasForm" class="form-horizontal container">
+            <form name="mainCtrl.escuelasForm" class="form-horizontal container" 
+                  ng-controller="seleccionColegiosController as seleccionColegiosCtrl">
                 <div class="page-header">
                     <h1>Selección de Escuelas</h1>
                 </div>
                 <ul ui-sortable="sortableOptions" ng-model="model.colegios" class="form-group col-md-8">
                     <li ng-repeat="colegio in model.colegios" class="bg-info form-control" style="cursor:move; margin-bottom: 10px" name="colegio.id">{{colegio.value}}</li>
                 </ul>
+                <label class="control-label" for="jardinEstatal">Seleccione la institucion de Nivel Inicial:</label>
+                <input type="text" ng-model="seleccionColegiosCtrl.colegioAAgregar" 
+                       uib-typeahead="colegio as colegio.nombre for colegio in seleccionColegiosCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
+                       class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
+                <button ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.inscripcion.curso.grado)">Agregar Colegio</button>
             </form>
         </uib-tab>
         <uib-tab index="5" disable="false">
