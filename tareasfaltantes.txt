@@ -1,0 +1,14 @@
+Caso de uso del guardar y validar preinscripcion
+.UI (reveer metodos)
+.Uno en el controller que sea validar (calcular peso) y otro modificar
+
+-Login del personal que valida y genera colegios
+
+-Transformacion del modelo de la preinscipciones (ajustes)
+
+-Asignacion de vacantes??
+
+-Sugerir colegios
+-Asignar colegios
+
+-
