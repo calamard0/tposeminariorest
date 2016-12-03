@@ -5,13 +5,14 @@
         .controller('seleccionColegiosController', function ($scope, $http, inscripcionService) {
             
             var vm = this;
+            $scope.coco = 'coco'
         
             vm.obtenerCurso = obtenerCurso;
         
             function obtenerCurso(grado) {
                 inscripcionService.getCurso(vm.colegioAAgregar.codigo, grado)
                     .then(function(data) {
-                        console.log(data);
+                        $scope.$parent.mainCtrl.inscripcion.cursos.push(data);
                 })
             }
         

@@ -9,11 +9,6 @@
             };
         
             var model = {
-                curso: {
-                    grado: null,
-                    descripcion: '',
-                    vacantesDisponibles: 0
-                },
                 aspirante: {
                     fechaNacimiento: null,
                     nombre: null,
@@ -97,28 +92,7 @@
                         escuela: null
                     }
                 },
-                colegios: [
-                    {
-                        id: 1,
-                        value: 'Esc. Primaria Nº 04 DE 18 Casimiro Aureliano Maciel ( MARCOS PAZ 1732 )'
-                    },
-                    {
-                        id: 2,
-                        value: 'Esc. Primaria Nº 13 DE 19 Presbítero Alberti ( ITAQUI 2050 )'
-                    },
-                    {
-                        id: 3,
-                        value: 'Esc. Primaria Nº 19 DE 19 Jose Martí ( PJE. L ENTRE LACARRA Y LAGUNA 0000 )'
-                    },
-                    {
-                        id: 4,
-                        value: 'Esc. Primaria Nº 09 DE 13 Homero Manzi ( MIRALLA 2666 )'
-                    },
-                    {
-                        id: 5,
-                        value: 'Esc. Primaria Nº 03 DE 20 República Francesa - Plurilingüe ( MONTIEL 153 )'
-                    }
-                ]
+                cursos: []
             };
         
             return service;

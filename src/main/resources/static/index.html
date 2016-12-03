@@ -84,7 +84,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nivel">Grado:</label>
                     <div class="col-sm-8">
-                        <select id="modalidad" class="form-control" ng-model="mainCtrl.inscripcion.curso.grado" required
+                        <select id="modalidad" class="form-control" ng-model="mainCtrl.grado" required
                                 ng-options="o.value as o.label for o in seleccionNivel.gradoOptions"></select>
                     </div>
                 </div>
@@ -669,13 +669,13 @@
                     <h1>Selección de Escuelas</h1>
                 </div>
                 <ul ui-sortable="sortableOptions" ng-model="model.colegios" class="form-group col-md-8">
-                    <li ng-repeat="colegio in model.colegios" class="bg-info form-control" style="cursor:move; margin-bottom: 10px" name="colegio.id">{{colegio.value}}</li>
+                    <li ng-repeat="curso.colegio.nombre in mainCtrl.inscripcion.cursos" class="bg-info form-control" style="cursor:move; margin-bottom: 10px" name="colegio.id">{{colegio.value}}</li>
                 </ul>
                 <label class="control-label" for="jardinEstatal">Seleccione la institucion de Nivel Inicial:</label>
                 <input type="text" ng-model="seleccionColegiosCtrl.colegioAAgregar" 
                        uib-typeahead="colegio as colegio.nombre for colegio in seleccionColegiosCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
                        class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
-                <button ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.inscripcion.curso.grado)">Agregar Colegio</button>
+                <button ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.grado)">Agregar Colegio</button>
             </form>
         </uib-tab>
         <uib-tab index="5" disable="false">
