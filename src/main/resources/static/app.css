@@ -44,3 +44,21 @@
 .agregarColegioButton {
     margin-left: 5px;
 }
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    float: left;
+}
+
+.colegioListItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+}

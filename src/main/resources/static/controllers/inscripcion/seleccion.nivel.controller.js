@@ -7,7 +7,7 @@
             var vm = this;
         
             vm.gradoOptions = [
-                {value: null, label: 'Seleccionar'},
+                {value: '', label: 'Seleccionar'},
                 {value: 1, label: 'Primer Grado'},
                 {value: 2, label: 'Segundo Grado'},
                 {value: 3, label: 'Tercer Grado'},

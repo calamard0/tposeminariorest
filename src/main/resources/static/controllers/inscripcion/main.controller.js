@@ -6,6 +6,7 @@
 
             var vm = this;
         
+            vm.grado = '';
             vm.inscripcion = inscripcionModelService.getModel();
             vm.siguiente = siguiente;
             vm.anterior = anterior;

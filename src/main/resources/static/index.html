@@ -669,22 +669,24 @@
                     <h1>Selección de Escuelas</h1>
                 </div>
                 <div class="form-group">
-                    <ul ui-sortable="sortableOptions" ng-model="mainCtrl.inscripcion.cursos" class="form-group col-md-8">
-                        <li ng-repeat="curso in mainCtrl.inscripcion.cursos" class="bg-info form-control" style="cursor:move; margin-bottom: 10px" name="curso.colegio.id">
-                            {{curso.colegio.nombre}} ( {{curso.colegio.direccion}} )
-                            <span class="removeCurso" ng-click="seleccionColegiosCtrl.eliminarColegioElegido(curso)"><i class="glyphicon glyphicon-remove"></i></span>
-                        </li>
-                    </ul>
+                    <label class="control-label" for="jardinEstatal" style="margin-left: 10%">Escriba el nombre del colegio que desea agregar:</label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="jardinEstatal">Escriba el nombre del colegio que desea agregar:</label>
-                    <div>
+                    <div class="flexCenter">
                         <input type="text" ng-model="seleccionColegiosCtrl.colegioAAgregar" class="col-md-8 form-control buscarColegioInput"
                            uib-typeahead="colegio as colegio.nombre for colegio in seleccionColegiosCtrl.colegios | filter:{nombre:$viewValue} | limitTo:10" 
                            class="form-control" typeahead-editable="false" id="jardinEstatal" name="jardinEstatal">
-                        <button ng-if="mainCtrl.inscripcion.cursos.length < 8" class="btn btn-primary agregarColegioButton"
+                        <button ng-disabled="!mainCtrl.inscripcion.cursos.length < 8" class="btn btn-primary agregarColegioButton"
                                 ng-click="seleccionColegiosCtrl.obtenerCurso(mainCtrl.grado)">Agregar Colegio</button>
                     </div>
+                </div>
+                <div class="form-group flexCenter">
+                    <ul ui-sortable="sortableOptions" ng-model="mainCtrl.inscripcion.cursos" class="form-group col-md-8">
+                        <li ng-repeat="curso in mainCtrl.inscripcion.cursos" class="bg-info form-control colegioListItem" style="cursor:move; margin-bottom: 10px" name="curso.colegio.id">
+                            <div class="truncate">{{curso.colegio.nombre}} ( {{curso.colegio.direccion}} )</div>
+                            <span class="removeCurso" ng-click="seleccionColegiosCtrl.eliminarColegioElegido(curso)"><i class="glyphicon glyphicon-remove"></i></span>
+                        </li>
+                    </ul>
                 </div>
             </form>
         </uib-tab>
