@@ -16,12 +16,12 @@
         
             function init() {
                 colegioService.getCursos(idColegio).then(function(data) {
-                    vm.cursos = data;
+                    vm.colegio = data;
                 });             
             }
         
             function guardar() {
-                colegioService.guardarCursos(vm.cursos).then(
+                colegioService.guardarCursos(vm.colegio).then(
                     function(data) {
                         toastr.success("Cambios guardados");
                     },

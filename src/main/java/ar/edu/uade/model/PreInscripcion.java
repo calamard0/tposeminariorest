@@ -47,7 +47,17 @@ public class PreInscripcion {
 		this.responsable = new Responsable(dto.getResponsable());
 		this.validada = dto.isValidada();
 		
+		if (dto.getDatosExtra().getJardinAnterior() != null) {
+			this.datosExtra = new DatosColegioAnt(dto.getDatosExtra().getJardinAnterior());
+		}
 		
+		if (dto.getDatosExtra().getHermanoEnColegio() != null) {
+			this.datosExtra = new DatosHermano(dto.getDatosExtra().getHermanoEnColegio());
+		}
+
+		if (dto.getDatosExtra().getResponsableEnColegio() != null) {
+			this.datosExtra = new DatosPadre(dto.getDatosExtra().getResponsableEnColegio());
+		}
 		
 		this.vacantes = new HashSet<Vacante>();
 		int i = 1;

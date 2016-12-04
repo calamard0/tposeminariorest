@@ -23,7 +23,6 @@ public class Responsable {
 	private String telefonoParticular;
 	private String telefonoAlternativo;
 	private DatosLaborales datosLaborales;
-	private Domicilio domicilio;
 	
 	public Responsable() {
 		
@@ -149,14 +148,5 @@ public class Responsable {
 
 	public void setPaisNacimiento(String paisNacimiento) {
 		this.paisNacimiento = paisNacimiento;
-	}
-
-	@OneToOne(cascade=CascadeType.ALL)
-	public Domicilio getDomicilio() {
-		return domicilio;
-	}
-
-	public void setDomicilio(Domicilio domicilio) {
-		this.domicilio = domicilio;
 	}
 }
