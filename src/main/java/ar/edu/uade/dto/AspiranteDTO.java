@@ -1,7 +1,6 @@
 package ar.edu.uade.dto;
 
 import java.util.Date;
-import java.util.Set;
 
 public class AspiranteDTO {
 	

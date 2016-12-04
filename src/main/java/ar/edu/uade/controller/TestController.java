@@ -176,23 +176,27 @@ public class TestController {
 	public void crearDatosExtra() {
 		
 		DatosPadre dp = new DatosPadre();
-		List<Colegio> colegios = colegioRepository.findByNombre("Colegio2");
-		dp.setColegio(colegios.get(0));
-//		dp.setFichaMunicipal("Ficha Munic");
-//		dp.setNombre("Nombre");
+		Colegio col = colegioRepository.findOne(1);
+		dp.setColegio(col);
+		dp.setFichaMunicipal("Ficha Munic");
+		dp.setTipoResponsable("Doc");
 		
 		daExRepo.save(dp);
 		
 		DatosHermano dh = new DatosHermano();
-		dh.setColegio(colegios.get(0));
-//		dh.setApellido("Apellido");
-//		dh.setNombre("Nombre");
-//		dh.setNumeroDocumento("323232");
+		dh.setColegio(col);
+		dh.setApellido("Apellido");
+		dh.setNombre("Nombre");
+		dh.setNumeroDocumento("323232");
+		dh.setFechaNacimiento(new Date(0));
+		dh.setTipoDocumento("Dni");
 		
 		daExRepo.save(dh);
 		
 		DatosColegioAnt dca = new DatosColegioAnt();
-		dca.setColegio(colegios.get(0));
+		//dca.setColegio(colegios.get(0));
+		dca.setDireccionJardin("Dire Jardin");
+		dca.setNombreJardin("Nombre Jar");
 		
 		daExRepo.save(dca);
 	}
@@ -221,7 +225,7 @@ public class TestController {
 		Responsable resp = new Responsable();
 		resp.setApellido("Apellido");
 		resp.setDatosLaborales(datLab);
-		resp.setDomicilio(domic);
+		//resp.setDomicilio(domic);
 		resp.setEmail("Email");
 		resp.setNombre("Nombre");
 		resp.setNumeroDocumento("23232");
@@ -284,7 +288,7 @@ public class TestController {
 		Responsable resp = new Responsable();
 		resp.setApellido("Apellido");
 		resp.setDatosLaborales(datLab);
-		resp.setDomicilio(domic);
+		//resp.setDomicilio(domic);
 		resp.setEmail("Email");
 		resp.setNombre("Nombre");
 		resp.setNumeroDocumento("23232");

@@ -31,11 +31,14 @@ public class Colegio {
 		this.id = dto.getId();
 		this.nombre = dto.getNombre();
 		this.direccion = dto.getDireccion();
-		Set<Curso> cursos = new HashSet<Curso>();
-		for (CursoDTO curso : dto.getCursos()) {
-			cursos.add(new Curso(curso));
+		
+		if ( dto.getCursos() != null && dto.getCursos().size() > 0 ) {
+			Set<Curso> cursos = new HashSet<Curso>();
+			for (CursoDTO curso : dto.getCursos()) {
+				cursos.add(new Curso(curso));
+			}
+			this.cursos = cursos;
 		}
-		this.cursos = cursos;
 	}
 	
 	public Colegio(String nombre, String direccion, Set<Curso> cursos) {
@@ -69,7 +72,7 @@ public class Colegio {
 		for (Curso curso : cursos) {
 			dtoCursos.add(curso.toDTO());
 		}
-		ColegioDTO dto = new ColegioDTO(this.getNombre(), this.getDireccion(), dtoCursos);
+		ColegioDTO dto = new ColegioDTO(this.getId(), this.getNombre(), this.getDireccion(), dtoCursos);
 		return dto;
 	}
 	
