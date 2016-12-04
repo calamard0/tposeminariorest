@@ -22,6 +22,8 @@
             vm.getVinculo = getVinculo;
         
             vm.sugerirColegios = sugerirColegios;
+            vm.loadginColegiosSugeridos = true;
+            vm.direccionAspiranteSugeridos = '';
         
             toastrConfig.maxOpened = 1;
             toastrConfig.autoDismiss = true;
@@ -225,11 +227,28 @@
                 return vinculo;
             }
         
+            var cursosNuevos = [];
             function sugerirColegios() {
-                var direccion = vm.inscripcion.aspirante.domicilio.calle + ' ' + vm.inscripcion.aspirante.domicilio.numero;
-                inscripcionService.getColegiosSugeridos(direccion, vm.grado).then(function(data) {
-                    console.log(data);
-                });
+                var direccionAspiranteActual = vm.inscripcion.aspirante.domicilio.calle + ' ' + vm.inscripcion.aspirante.domicilio.numero;
+                if(vm.direccionAspiranteSugeridos != direccionAspiranteActual) {
+                    vm.loadginColegiosSugeridos = true;
+                    vm.direccionAspiranteSugeridos = direccionAspiranteActual
+                    
+                    cursosNuevos = [];
+                    for(var index in vm.inscripcion.cursos) {
+                        if(!vm.inscripcion.cursos[index].sugerido)
+                            cursosNuevos.push(vm.inscripcion.cursos[index]);
+                    }
+                    inscripcionService.getColegiosSugeridos(vm.direccionAspiranteSugeridos, vm.grado).then(function(data) {
+                        for(var index in data) {
+                            var curso = data[index];
+                            curso.sugerido = true;
+                            cursosNuevos.unshift(curso);
+                        }
+                        vm.inscripcion.cursos = cursosNuevos;
+                        vm.loadginColegiosSugeridos = false;
+                    });
+                }
             }
 
         });
