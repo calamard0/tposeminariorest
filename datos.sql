@@ -865,29 +865,29 @@ VALUES (443,"Esc. Primaria Nº 13 DE 02 República Islámica de Irán - Intensif
 INSERT INTO colegio
 VALUES (444,"Esc. Primaria Nº 27 DE 04 Deán Funes","DEFENSA 1431");
 INSERT INTO colegio
-VALUES (446,"Esc. Primaria Nº 10 DE 04 Gral. Araoz de Lamadrid","GRAL. GREGORIO ARAOZ DE LAMADRID 499");
+VALUES (141,"Esc. Primaria Nº 10 DE 04 Gral. Araoz de Lamadrid","GRAL. GREGORIO ARAOZ DE LAMADRID 499");
 INSERT INTO colegio
-VALUES (447,"Esc. Primaria Nº 10 DE 05 Deán Diego Estanislao de Zavaleta","IGUAZU 1110");
+VALUES (187,"Esc. Primaria Nº 10 DE 05 Deán Diego Estanislao de Zavaleta","IGUAZU 1110");
 INSERT INTO colegio
-VALUES (448,"Esc. Primaria Nº 11 DE 04 Antonio J. Bucich - Intensificada en Artes","BRANDSEN 1057");
+VALUES (191,"Esc. Primaria Nº 11 DE 04 Antonio J. Bucich - Intensificada en Artes","BRANDSEN 1057");
 INSERT INTO colegio
-VALUES (449,"Esc. Primaria Nº 02 DE 21 Maestro Eduardo Luis Vicente","AVDA. LARRAZABAL 5430");
+VALUES (195,"Esc. Primaria Nº 02 DE 21 Maestro Eduardo Luis Vicente","AVDA. LARRAZABAL 5430");
 INSERT INTO colegio
-VALUES (450,"Esc. Primaria Nº 20 DE 19 Maestro Carlos Alberto Carranza","MARTINEZ CASTRO 3061");
+VALUES (234,"Esc. Primaria Nº 20 DE 19 Maestro Carlos Alberto Carranza","MARTINEZ CASTRO 3061");
 INSERT INTO colegio
-VALUES (451,"Esc. Primaria Nº 21 DE 19 Guillermo José Barros","MARIANO ACOSTA 2976");
+VALUES (276,"Esc. Primaria Nº 21 DE 19 Guillermo José Barros","MARIANO ACOSTA 2976");
 INSERT INTO colegio
-VALUES (452,"Esc. Primaria Nº 22 DE 19 Juana Azurduy","MOM 2358");
+VALUES (317,"Esc. Primaria Nº 22 DE 19 Juana Azurduy","MOM 2358");
 INSERT INTO colegio
-VALUES (453,"Esc. Primaria Nº 12 DE 05 Horacio Quiroga","MONTESQUIEU Y AVDA. GRAL IRIARTE ALT 3501 0000");
+VALUES (327,"Esc. Primaria Nº 12 DE 05 Horacio Quiroga","MONTESQUIEU Y AVDA. GRAL IRIARTE ALT 3501 0000");
 INSERT INTO colegio
-VALUES (454,"Esc. Primaria Nº 23 DE 19 - Intensificada en Educación Física","CHILAVERT 2690");
+VALUES (344,"Esc. Primaria Nº 23 DE 19 - Intensificada en Educación Física","CHILAVERT 2690");
 INSERT INTO colegio
-VALUES (455,"Esc. Primaria Nº 19 DE 21 Hermanos Latinoamericanos","BARROS PAZOS 5250");
+VALUES (353,"Esc. Primaria Nº 19 DE 21 Hermanos Latinoamericanos","BARROS PAZOS 5250");
 INSERT INTO colegio
-VALUES (456,"Esc. Primaria Nº 28 DE 05","LOS PATOS 3042");
+VALUES (439,"Esc. Primaria Nº 28 DE 05","LOS PATOS 3042");
 INSERT INTO colegio
-VALUES (457,"Esc. Primaria Nº 24 DE 19","BARROS PAZOS 3610");
+VALUES (445,"Esc. Primaria Nº 24 DE 19","BARROS PAZOS 3610");
 
 
 INSERT INTO curso(descripcion,grado,vacantes_disponibles,colegio_id)

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import ar.edu.uade.dto.UsuarioDTO;
 
@@ -13,7 +15,7 @@ public class Usuario {
 	private int id;
 	private String nombreUsuario;
 	private String password;
-	//private Colegio colegio;
+	private Colegio colegio;
 	private String rol;
 	
 	public Usuario() {
@@ -56,5 +58,15 @@ public class Usuario {
 
 	public void setRol(String rol) {
 		this.rol = rol;
+	}
+
+	@ManyToOne
+    @JoinColumn(name = "colegio_id")
+	public Colegio getColegio() {
+		return colegio;
+	}
+
+	public void setColegio(Colegio colegio) {
+		this.colegio = colegio;
 	}
 }

@@ -19,6 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+<<<<<<< HEAD
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,6 +45,34 @@
 	</dependencies>
 
 	<build>
+=======
+  <dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+	<dependency>
+	  <groupId>org.springframework.boot</groupId> 
+	  <artifactId>spring-boot-starter-data-jpa</artifactId> 
+	</dependency>
+	<dependency>
+	  <groupId>mysql</groupId> 
+	  <artifactId>mysql-connector-java</artifactId> 
+	</dependency>
+	<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+	</dependency>
+	<dependency>				
+	  <groupId>org.json</groupId>
+	  <artifactId>json</artifactId>
+	  <version>20160810</version>					  			
+    </dependency>
+  </dependencies>
+  
+  <build>
+>>>>>>> origin/master
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
