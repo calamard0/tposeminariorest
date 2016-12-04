@@ -49,10 +49,12 @@ public class CursoDTO {
 	public void setVacantesDisponibles(int vacantesDisponibles) {
 		this.vacantesDisponibles = vacantesDisponibles;
 	}
-	 public ColegioDTO getColegio() {
-	 return colegio;
-	 }
-	 public void setColegio(ColegioDTO colegio) {
-	 this.colegio = colegio;
-	 }
+	
+	public ColegioDTO getColegio() {
+		return colegio;
+	}
+	 
+	public void setColegio(ColegioDTO colegio) {
+		this.colegio = colegio;
+	}
 }

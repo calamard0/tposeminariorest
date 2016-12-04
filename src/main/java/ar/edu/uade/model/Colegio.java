@@ -69,7 +69,7 @@ public class Colegio {
 		for (Curso curso : cursos) {
 			dtoCursos.add(curso.toDTO());
 		}
-		ColegioDTO dto = new ColegioDTO(this.getNombre(), this.getDireccion(), dtoCursos);
+		ColegioDTO dto = new ColegioDTO(this.getId(), this.getNombre(), this.getDireccion(), dtoCursos);
 		return dto;
 	}
 	
