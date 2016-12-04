@@ -66,6 +66,7 @@ public class ProcesosCargaController {
 	public void usuarios() {
 		
 		System.out.println("Empezado proceso generacion de usuarios");
+		List<Colegio> colegios = colRepo.findAll();
 		
 		Usuario emaranga = new Usuario();
 		emaranga.setNombreUsuario("emaranga");
@@ -77,6 +78,7 @@ public class ProcesosCargaController {
 		iaddolorato.setNombreUsuario("iaddolorato");
 		iaddolorato.setPassword("iaddolorato");
 		iaddolorato.setRol("COLEGIO");
+		iaddolorato.setColegio(colegios.get(0));
 		userRepo.save(iaddolorato);
 		
 		Usuario greobasco = new Usuario();
@@ -89,6 +91,7 @@ public class ProcesosCargaController {
 		arey.setNombreUsuario("arey");
 		arey.setPassword("arey");
 		arey.setRol("COLEGIO");
+		arey.setColegio(colegios.get(1));
 		userRepo.save(arey);
 		
 		System.out.println("Fin proceso generacion de usuarios");

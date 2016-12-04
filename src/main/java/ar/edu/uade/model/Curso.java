@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
@@ -105,6 +107,8 @@ public class Curso {
 		this.colegio = colegio;
 	}
 
+	@OneToMany(mappedBy = "curso")
+	@OrderBy
 	public SortedSet<Vacante> getVacantes() {
 		return vacantes;
 	}
