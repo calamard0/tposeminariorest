@@ -19,6 +19,7 @@
             vm.getSistSalud = getSistSalud;
             vm.getVilla = getVilla;
             vm.getTipoVivienda = getTipoVivienda;
+            vm.getVinculo = getVinculo;
         
             toastrConfig.maxOpened = 1;
             toastrConfig.autoDismiss = true;
@@ -201,6 +202,25 @@
                     case 'ninguno': vivienda = 'Ninguno de los anteriores'; break;
                 }
                 return vivienda;
+            }
+        
+            function getVinculo(v) {
+                var vinculo = '';
+                switch(v) {
+                    case 'padre': vinculo = 'Padre'; break;
+                    case 'madre': vinculo = 'Madre'; break;
+                    case 'hermano': vinculo = 'Hermano/a'; break;
+                    case 'tutor': vinculo = 'Tutor/a'; break;
+                    case 'responsable': vinculo = 'Responsable a cargo'; break;
+                    case 'tio': vinculo = 'Tío/a'; break;
+                    case 'primo': vinculo = 'Primo/a'; break;
+                    case 'padrastro': vinculo = 'Padrastro'; break;
+                    case 'madrastra': vinculo = 'Madrastra'; break;
+                    case 'abuelo': vinculo = 'Abuelo/a'; break;
+                    case 'autorizado': vinculo = 'Autorizado/a'; break;
+                    case 'NA': vinculo = 'No Aplica'; break;
+                }
+                return vinculo;
             }
 
         });
