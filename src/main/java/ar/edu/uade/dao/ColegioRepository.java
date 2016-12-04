@@ -13,4 +13,6 @@ public interface ColegioRepository extends CrudRepository<Colegio, Integer> {
 	
 	public List<Colegio> findAll();
 	
+	public Colegio findById(int id);
+	
 }

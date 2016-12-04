@@ -1,15 +1,18 @@
 package ar.edu.uade.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.dto.UsuarioDTO;
+import ar.edu.uade.helper.AsignarVacantesHelper;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.PreInscripcion;
 import ar.edu.uade.model.Usuario;
+import ar.edu.uade.model.Vacante;
 
 public class SistemaInscripciones {
 
@@ -19,78 +22,98 @@ public class SistemaInscripciones {
 	private List<PreInscripcion> preInscripciones;
 	private PreInscripcion preInscripcionActual;
 	private Usuario usuarioActual;
-	
+
 	public static SistemaInscripciones getInstance() {
-		if (instance == null) 
+		if (instance == null)
 			instance = new SistemaInscripciones();
 		return instance;
 	}
-	
+
 	public int guardarPreInscripcion(PreInscripcionDTO dto) {
 		return 0;
-		
+
 	}
-	
+
 	public List<PreInscripcionDTO> asignarVacantes() {
-		return null;
+
+		List<PreInscripcionDTO> preDto = new ArrayList<PreInscripcionDTO>();
+
+		for (int i = 1; i < 8; i++) {
+
+			List<Curso> cursos = new ArrayList<Curso>();
+			List<Vacante> vacantes = new ArrayList<Vacante>();
+			
+			for (Colegio colegios : this.colegios) {
+				for (Curso curso : colegios.getCursos()) {
+					if (curso.getGrado() == i) {
+						cursos.add(curso);
+						vacantes.addAll(curso.getVacantes());
+					}
+				}
+
+			}
+			AsignarVacantesHelper.asignarVacantes(cursos, i, vacantes);
+		}
+
+		return preDto;
 	}
-	
+
 	public List<PreInscripcionDTO> getPreInscripcionesSinAsignacion() {
 		return null;
 	}
-	
+
 	public void validarPreInscripcion(int codigoPreInscripcion) {
-		
+
 	}
-	
+
 	public List<CursoDTO> sugerirCursos(String direccion, int grado) {
 		return null;
 	}
-	
+
 	public void modificarPreInscripcion(PreInscripcionDTO preInsc) {
-		
+
 	}
-	
+
 	public PreInscripcionDTO cargarPreInscripcionPorCodigo(String codigo) {
 		return null;
 	}
-	
+
 	public ColegioDTO cargarColegioPorUsuario() {
 		return null;
 	}
-	
+
 	public void guardarUsuario(UsuarioDTO usuario) {
-		
+
 	}
-	
+
 	public void bajausuario(String nombreUsuario) {
-		
+
 	}
-	
+
 	public int guardarColegio(ColegioDTO colegio) {
 		return 0;
 	}
-	
+
 	public void modificarColegio(ColegioDTO colegio) {
-		
+
 	}
-	
+
 	public void bajaColegio(int codigoColegio) {
-		
+
 	}
-	
+
 	public void modificarVacantes(ColegioDTO colegio) {
-		
+
 	}
-	
+
 	private List<Curso> buscarColegiosCercanos(String direccion, int grado) {
 		return null;
 	}
-	
-	private PreInscripcion buscarPreInscripcionPorCodigo(int codigo)  {
+
+	private PreInscripcion buscarPreInscripcionPorCodigo(int codigo) {
 		return null;
 	}
-	
+
 	private Colegio buscarColegioPorCodigo(int codigo) {
 		return null;
 	}
@@ -140,9 +163,9 @@ public class SistemaInscripciones {
 	}
 
 	public Colegio buscarColegioPorCodigoDeCurso(int id) {
-		for(Colegio colegio : colegios) {
-			for(Curso curso : colegio.getCursos()){
-				if (curso.getId() == id){
+		for (Colegio colegio : colegios) {
+			for (Curso curso : colegio.getCursos()) {
+				if (curso.getId() == id) {
 					return colegio;
 				}
 			}
@@ -150,5 +173,3 @@ public class SistemaInscripciones {
 		return null;
 	}
 }
-
-

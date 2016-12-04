@@ -1,6 +1,5 @@
 package ar.edu.uade.controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +23,6 @@ import ar.edu.uade.model.Aspirante;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.DatosColegioAnt;
-import ar.edu.uade.model.DatosExtra;
 import ar.edu.uade.model.DatosHermano;
 import ar.edu.uade.model.DatosLaborales;
 import ar.edu.uade.model.DatosPadre;

@@ -17,13 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.uade.dao.CursoRepository;
 import ar.edu.uade.dto.CursoDTO;
-import ar.edu.uade.dto.DatosColegioAntDTO;
-import ar.edu.uade.dto.DatosHermanoDTO;
-import ar.edu.uade.dto.DatosPadreDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.helper.CalcularPesosHelper;
-
-import ar.edu.uade.dto.VacanteDTO;
 
 @Entity
 @Table(name = "preinscripcion")

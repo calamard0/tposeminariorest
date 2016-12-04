@@ -2,7 +2,7 @@ package ar.edu.uade.dto;
 
 public class JardinDTO {
 
-	private int id;
+	private int codigo;
 	public String nombre;
 	public String direccion;
 
@@ -10,12 +10,12 @@ public class JardinDTO {
 		super();
 	}
 
-	public int getId() {
-		return id;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNombre() {

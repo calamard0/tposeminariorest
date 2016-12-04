@@ -11,7 +11,7 @@
 
 </head>
 
-<body ng-app="inscripciones" ng-controller="mainController as mainCtrl">
+<body ng-app="inscripciones" ng-controller="administracionColegioController as adminColegio">
     
     <link rel="stylesheet" href="../app.css">
     
@@ -22,22 +22,17 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="libs/jquery-ui.min.js"></script>
-    <script src="libs/sortable.js"></script>
+    <script src="../libs/jquery-ui.min.js"></script>
+    <script src="../libs/sortable.js"></script>
     <script src="https://code.angularjs.org/1.5.8/i18n/angular-locale_es-ar.js"></script>
-    <script src="libs/ui-bootstrap-2.1.4.js"></script>
-    <script src="libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
-    <script src="libs/toastr/angular-toastr.tpls.js"></script>
+    <script src="../libs/ui-bootstrap-2.1.4.js"></script>
+    <script src="../libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script src="../libs/toastr/angular-toastr.tpls.js"></script>
     
-    <script src="app.module.js"></script>
-    <script src="services/inscripcion.model.service.js"></script>
-    <script src="services/inscripcion.service.js"></script>
-    <script src="controllers/inscripcion/main.controller.js"></script>
-    <script src="controllers/inscripcion/seleccion.nivel.controller.js"></script>
-    <script src="controllers/inscripcion/aspirante.controller.js"></script>
-    <script src="controllers/inscripcion/responsable.controller.js"></script>
-    <script src="controllers/inscripcion/datos.adicionales.controller.js"></script>    
-    <script src="controllers/inscripcion/seleccion.colegios.controller.js"></script>
+    <script src="../app.module.js"></script>
+    <script src="../controllers/adminColegios/administracion.colegios.controller.js"></script>
+    <script src="../services/colegio.service.js"></script>
+    
     
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -53,44 +48,24 @@
     
     <div class="container">
     	<h1>Edición de Colegio</h1>
-    </div>
-    
-    <div class="container">
-    	<div class="form-group">
-    		<label for="curso1">Curso 1 (Vacantes):</label>
-    		<input id="curso1" type="text" class="form-control-static" ></input>
-    	</div>
-    	<div class="form-group">
-    	    <label for="curso2">Curso 2 (Vacantes):</label>
-    		<input id="curso2" type="text" class="form-control-static" ></input>
-    	</div>    	
-    	<div class="form-group">
-    	    <label for="curso3">Curso 3 (Vacantes):</label>
-    		<input id="curso3" type="text" class="form-control-static" ></input>
-    	</div>    	
-    	<div class="form-group">
-    	    <label for="curso4">Curso 4 (Vacantes):</label>
-    		<input id="curso4" type="text" class="form-control-static" ></input>
-    	</div>    	
-    	<div class="form-group">
-    		<label for="curso5">Curso 5 (Vacantes):</label>
-    		<input id="curso5" type="text" class="form-control-static" ></input>
-    	</div>    	
-    	<div class="form-group">
-    		<label for="curso6">Curso 6 (Vacantes):</label>
-    		<input id="curso6" type="text" class="form-control-static" ></input>
-    	</div>
-    	<div class="form-group">
-    		<label for="curso7">Curso 7 (Vacantes):</label>
-    		<input id="curso7" type="text" class="form-control-static" ></input>
-    	</div>
-    </div>
-    
-    <div id="navigationButtonsContainer">
-        <button type="button" class="btn btn-primary"
-            ng-click="mainCtrl.guardar"> Guardar</button>
-    </div>
+        <h3>{{adminColegio.cursos[0].colegio.nombre}}</h3>
+        
+        <div class="alert alert-info" role="alert">
+            <p>Modifique las vacantes disponibles en cada curso.</p>
+        </div>
 
+        <form name="adminColegio.edicionForm" class="form-horizontal container">
+            <div class="form-group" ng-repeat="curso in adminColegio.cursos | orderBy: 'grado'">
+                <label for="curso1" class="col-md-2 control-label">{{curso.descripcion}}:</label>
+                <div class="col-md-1"><input id="curso1" type="number" min="0" class="form-control" ng-model="curso.vacantesDisponibles"></input></div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" class="btn btn-primary"
+                    ng-click="adminColegio.guardar()">Guardar</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
