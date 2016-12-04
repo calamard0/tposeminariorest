@@ -49,3 +49,11 @@
     display: flex;
     justify-content: center;
 }
+
+.tableContainer {
+    width: 60%;
+}
+
+.margin-top {
+    margin-top: 25px;
+}
