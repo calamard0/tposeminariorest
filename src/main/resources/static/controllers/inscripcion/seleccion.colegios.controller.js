@@ -17,7 +17,7 @@
         
             function obtenerCurso(grado) {
                 toastr.clear();
-                inscripcionService.getCurso(vm.colegioAAgregar.codigo, grado)
+                inscripcionService.getCurso(vm.colegioAAgregar.id, grado)
                     .then(function(data) {
                         if(!colegioYaEstaAgregado(data.colegio.id)) {
                             inscripcionModel.cursos.push(data);
