@@ -160,21 +160,24 @@ public class PreinscripcionController {
 		 
 		 int cantidad = colegiosPromedio.size();
 		 for(int i=0; i<cantidadASugerir; i++){
-			 Random randomGenerator = new Random();
-		     int index = randomGenerator.nextInt(cantidad);
+			 int min = colegiosPromedio.get(0).promedio;
+			 int curKey = colegiosPromedio.get(0).id;
+			 //Random randomGenerator = new Random();
+		     //int index = randomGenerator.nextInt(cantidad);
 		     cantidad--;
-			 
-			 int min = colegiosPromedio.get(index).promedio;
-			 int curKey = colegiosPromedio.get(index).id;
+		     int index = 0;
+		     int curIndex = 0;
 			 for(ColegioPromedio colPro : colegiosPromedio){
 				 if(colPro.promedio < min){
 					 min = colPro.promedio;
 				 	 curKey = colPro.id;
+				 	 curIndex = index; 
 				 }
+				 index++;
 			 }
 			 colegiosMasAptos.add(colRepo.findById(curKey));
 			 try{
-				 colegiosPromedio.remove(index);
+				 colegiosPromedio.remove(curIndex);
 			 } catch (Exception e){
 				 System.out.println(e.toString());
 			 }
