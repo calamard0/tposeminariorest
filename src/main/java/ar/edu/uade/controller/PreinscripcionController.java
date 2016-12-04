@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dao.PreInscripcionRepository;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.model.Colegio;
+import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.PreInscripcion;
 
 @Controller
@@ -83,42 +85,87 @@ public class PreinscripcionController {
 	 }
 	 
 	 @RequestMapping(value= "/sugerirColegios", method = RequestMethod.GET)
-	 public void sugerirColegios(String direccion){
-		 getColegiosPorDistancia(direccion);
+	 public void sugerirColegios(){
+		 //String direccion, int curso
+		 int curso = 1;
+		 List<Colegio> colegios = colRepo.findAll();
+		 List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios,curso);
+		 String direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina"; //Dato de prueba
+		 Hashtable<Integer,Integer> idsColegios = getColegiosPorDistancia(direccion,colegiosMasAptos);
 	 }
 	 
-	 public List<Integer> getColegiosPorDistancia(String direccion){
-		 //direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina";
+	 public List<Colegio> getColegiosMasAptosPorPromedioTotalLibre(List<Colegio> colegios, int curso){
+		 //Colegios con mejor promedio de vacantes totales/vacantes libres
+		 List<Colegio> colegiosMasAptos = new ArrayList<Colegio>();
+		 Hashtable<Integer,Integer> colegiosAux = new Hashtable<Integer,Integer>();
+		 int cantidadASugerir = colegios.size()/2;
+		 
+		 for(Colegio col: colegios){
+			 Set<Curso> cursos = col.getCursos();
+			 Curso currentCurso = null;
+			 for(Curso cur: cursos){
+				 if(cur.getId()==curso)
+					 currentCurso = cur;
+			 }
+			 int vacantesDisponibles;
+			 int vacantes;
+			 try {
+				 vacantesDisponibles = currentCurso.getVacantesDisponibles();
+			 } catch (Exception e){
+				 vacantesDisponibles = 10;
+			 }
+			 try {
+				 vacantes = currentCurso.getVacantes().size();
+			 } catch (Exception e){
+				 vacantes = 10;
+			 }
+			 colegiosAux.put(col.getId(),(vacantesDisponibles/vacantes));
+		 }
+		 
+		 for(int i=0; i<cantidadASugerir; i++){
+	    		Random generator = new Random();
+	    		Object[] values = colegiosAux.keySet().toArray();
+	    		Integer randomValue = (Integer) values[generator.nextInt(values.length)];
+	    		int min = colegiosAux.get(randomValue);
+	    		int key = randomValue;
+	    		for(Integer curKey : colegiosAux.keySet()){
+	    			int curValue = colegiosAux.get(curKey);
+	    			if(curValue < min){
+	    				min = colegiosAux.get(curKey);
+	    				key = curKey;
+	    			}
+	    		}
+	    		colegiosMasAptos.add(colRepo.findById(key));
+	    		colegiosAux.remove(key);
+	    	}
+		 
+		 return colegiosMasAptos;
+	 }
+	 
+	 public Hashtable<Integer,Integer> getColegiosPorDistancia(String direccion, List<Colegio> colegiosMasAptos){
 		 direccion = direccion.replaceAll(" ", "+");
-		 List<Integer> colegiosIds = new ArrayList<Integer>();
-		 List<Colegio> colegios = colRepo.findAll();
-		 colegiosIds = apiCall(colegios,direccion);
+		 Hashtable<Integer,Integer> colegiosIds = apiCall(colegiosMasAptos,direccion);
 		 return colegiosIds;
 	 }
 	 
-	 public List<Integer> apiCall(List<Colegio> colegios,String direccion){
+	 public Hashtable<Integer,Integer> apiCall(List<Colegio> colegios,String direccion){
+		 int maxCall = 25; //Cantidad de colegios en el envio a API
+		 int maximoColegiosAUsar = colegios.size();
 		 Hashtable<Integer,Integer> colegiosConDistancias = new Hashtable<Integer,Integer>();
-		 String apiKey = "AIzaSyBXuoucteWIPZ5I68RhZe-x-We2xktuGWs";
-		 //String destinations = "";
-		 /*
-		 for (Colegio col : colegios) {
-			 origins+= col.getNombre();
-			 origins+=",";
-		 }
-		 origins.substring(0,origins.length()-1);
-		 
-		 String [] y = origins.split(",");
-		 */
-		 //destinations = colegios.get(0).getDireccion();
-		 //destinations+= "|";
-		 //destinations+= colegios.get(1).getDireccion();
-		 //destinations = destinations.replaceAll(" ", "+");
-		
-		 for(int i=0; i<10; i++){
-			 Colegio col = colegios.get(i);
+		 //String apiKey = "AIzaSyBXuoucteWIPZ5I68RhZe-x-We2xktuGWs";
+		 String apiKey = "AIzaSyDDCuxOg63WU4nGq9Vdxi59WNv3pwui62g";
+		 for(int i=0; i<=(maximoColegiosAUsar/maxCall); i++){
+			 String destination = "";
+			 for(int j=(0+(maxCall*i));j<maximoColegiosAUsar;j++){
+			 	destination+= colegios.get(j).getDireccion();
+			 	destination+= "|";
+			 }
+			 destination = destination.replaceAll(" ", "+");
+			 destination.substring(0,destination.length()-1);
+			 
 			 URL apiCall;
 			 String response = "";
-			 String destination = col.getDireccion().replaceAll(" ", "+");
+
 			 try {
 				apiCall = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + direccion + "&destinations=" + destination + "&language=es&key=" + apiKey);
 				response = apiGet(apiCall);
@@ -130,25 +177,29 @@ public class PreinscripcionController {
 		     JSONArray array = jsonObj.getJSONArray("rows");
 		     JSONObject jsonObj2 = array.getJSONObject(0);
 		     JSONArray array2 = jsonObj2.getJSONArray("elements");
+		     int k = 0+(maxCall*i);
 		     for (Object o : array2) {
 		    	 try{
-		    	 JSONObject distance = (JSONObject) ((JSONObject) o).get("distance");
-		    	 value = ((JSONObject) distance).get("value").toString();
+			    	 JSONObject distance = (JSONObject) ((JSONObject) o).get("distance");
+			    	 value = ((JSONObject) distance).get("value").toString();
 		    	 } catch (Exception e){
 		    		 value = "999999";
 		    	 }
+		    	 colegiosConDistancias.put(colRepo.findById(k).getId(), Integer.valueOf(value));
+		    	 k++;
 		     } 
-		     colegiosConDistancias.put(col.getId(), Integer.valueOf(value));
+		     
 		 }
 		 
-		 List<Integer> idsColegiosConDistanciaMinima = getIdsColegiosConDistanciasMinimas(colegiosConDistancias);
+		 Hashtable<Integer,Integer> idsColegiosConDistanciaMinima = getIdsColegiosConDistanciasMinimas(colegiosConDistancias);
 		 return idsColegiosConDistanciaMinima;
 		 
 	 }
 	
-     private List<Integer> getIdsColegiosConDistanciasMinimas(Hashtable<Integer,Integer> colegiosConDistancias) {
-    	List<Integer> colegiosConDistanciasMinimas = new ArrayList<Integer>();
-    	for(int i=0; i<7; i++){
+     private Hashtable<Integer,Integer> getIdsColegiosConDistanciasMinimas(Hashtable<Integer,Integer> colegiosConDistancias) {
+    	int maxColegiosASugerir = 5;
+    	Hashtable<Integer,Integer> colegiosConDistanciasMinimas = new Hashtable<Integer,Integer>();
+    	for(int i=0; i<maxColegiosASugerir; i++){
     		Random generator = new Random();
     		Object[] values = colegiosConDistancias.keySet().toArray();
     		Integer randomValue = (Integer) values[generator.nextInt(values.length)];
@@ -161,7 +212,7 @@ public class PreinscripcionController {
     				key = curKey;
     			}
     		}
-    		colegiosConDistanciasMinimas.add(key);
+    		colegiosConDistanciasMinimas.put(key,min);
     		colegiosConDistancias.remove(key);
     	}
 		return colegiosConDistanciasMinimas;
