@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.uade.dao.ColegioRepository;
+import ar.edu.uade.dao.UsuarioRepository;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
+import ar.edu.uade.model.Usuario;
 
 @RestController
-@RequestMapping("process")
-public class GeneradorCursosMain {
+@RequestMapping("procesos")
+public class ProcesosCargaController {
 	
 	@Autowired
 	ColegioRepository colRepo;
+	
+	@Autowired
+	UsuarioRepository userRepo;
 	
 	@RequestMapping(value = "/cursos")
 	public void cursos() {
@@ -54,6 +59,39 @@ public class GeneradorCursosMain {
 		}
 		
 		System.out.println("Fin proceso generacion de cursos");
+		
+	}
+	
+	@RequestMapping(value = "/usuarios")
+	public void usuarios() {
+		
+		System.out.println("Empezado proceso generacion de usuarios");
+		
+		Usuario emaranga = new Usuario();
+		emaranga.setNombreUsuario("emaranga");
+		emaranga.setPassword("emaranga");
+		emaranga.setRol("ADMIN");
+		userRepo.save(emaranga);
+		
+		Usuario iaddolorato = new Usuario();
+		iaddolorato.setNombreUsuario("iaddolorato");
+		iaddolorato.setPassword("iaddolorato");
+		iaddolorato.setRol("COLEGIO");
+		userRepo.save(iaddolorato);
+		
+		Usuario greobasco = new Usuario();
+		greobasco.setNombreUsuario("greobasco");
+		greobasco.setPassword("greobasco");
+		greobasco.setRol("ADMIN");
+		userRepo.save(greobasco);
+		
+		Usuario arey = new Usuario();
+		arey.setNombreUsuario("arey");
+		arey.setPassword("arey");
+		arey.setRol("COLEGIO");
+		userRepo.save(arey);
+		
+		System.out.println("Fin proceso generacion de usuarios");
 		
 	}
 
