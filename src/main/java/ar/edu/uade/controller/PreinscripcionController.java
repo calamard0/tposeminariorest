@@ -17,21 +17,26 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dao.PreInscripcionRepository;
+import ar.edu.uade.dto.ColegioDTO;
+import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.PreInscripcion;
 
-@Controller
+@RestController
+//@Controller
 @RequestMapping("preinscripcion")
 public class PreinscripcionController {
 	
@@ -105,13 +110,12 @@ public class PreinscripcionController {
 		 return mav;
 	 }
 	 
-	 @RequestMapping(value= "/sugerirColegios", method = RequestMethod.GET)
-	 public void sugerirColegios(){
-		 //String direccion, int curso
-		 int curso = 1;
+	 @RequestMapping(value= "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
+	 public List<CursoDTO> sugerirColegios(@PathVariable String direccion, @PathVariable int grado){
 		 List<Colegio> colegios = colRepo.findAll();
-		 List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios,curso,colegios.size()/10);
-		 String direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina"; //Dato de prueba
+		 //int grado = 1;
+		 List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios,grado,colegios.size()/10);
+		 //direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina"; //Dato de prueba
 		 
 		 ArrayList<ColegioDistancia> colegiosConDistancias = getColegiosPorDistancia(direccion,colegiosMasAptos);
 		 
@@ -120,9 +124,18 @@ public class PreinscripcionController {
 		 	 colegiosMasAptos2.add(colRepo.findById(colDis.id));
 		 }
 
-		 colegiosMasAptos2 = getColegiosMasAptosPorPromedioTotalLibre(colegiosMasAptos2,curso,5);
-
-		 System.out.println("OK");
+		 colegiosMasAptos2 = getColegiosMasAptosPorPromedioTotalLibre(colegiosMasAptos2,grado,5);
+		 
+		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
+		for(Colegio col : colegiosMasAptos2){
+			Set<Curso> setCursos = col.getCursos();
+			for(Curso cur : setCursos)
+				if(cur.getGrado()==grado){
+					cursos.add(cur.toDTO());
+				}
+		} 
+		System.out.println("OK");
+		return cursos;
 	 }
 	 
 	 public List<Colegio> getColegiosMasAptosPorPromedioTotalLibre(List<Colegio> colegios, int curso, int cantidadASugerir){
