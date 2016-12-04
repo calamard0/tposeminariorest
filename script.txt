@@ -129,5 +129,7 @@ create table usuario(
 	nombre_usuario varchar (100) not null,
 	password varchar (100) null,
 	rol varchar (20) null,
-	constraint pk_usuario primary key(id)
+	constraint pk_usuario primary key(id),
+	colegio_id int,
+	constraint fk_usuario_colegio foreign key (colegio_id) references colegio(id)
 );
