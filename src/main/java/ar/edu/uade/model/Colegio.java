@@ -27,6 +27,10 @@ public class Colegio {
 		
 	}
 	
+	public Colegio(int id) {
+		this.id = id;
+	}
+	
 	public Colegio(ColegioDTO dto) {
 		this.id = dto.getId();
 		this.nombre = dto.getNombre();
@@ -35,7 +39,9 @@ public class Colegio {
 		if ( dto.getCursos() != null && dto.getCursos().size() > 0 ) {
 			Set<Curso> cursos = new HashSet<Curso>();
 			for (CursoDTO curso : dto.getCursos()) {
-				cursos.add(new Curso(curso));
+				Curso c = new Curso(curso);
+				c.setColegio(new Colegio(dto.getId()));
+				cursos.add(c);
 			}
 			this.cursos = cursos;
 		}

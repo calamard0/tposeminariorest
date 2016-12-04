@@ -37,6 +37,14 @@ public class Curso {
 		this.vacantesDisponibles = dto.getVacantesDisponibles();
 	}
 	
+	public Curso(CursoDTO dto, ColegioDTO colegioDTO) {
+		this.id = dto.getId();
+		this.descripcion = dto.getDescripcion();
+		this.grado = dto.getGrado();
+		this.vacantesDisponibles = dto.getVacantesDisponibles();
+		this.colegio = new Colegio(colegioDTO);
+	}
+	
 	public Curso(String descripcion, int grado, int vacanteDisponibles, Colegio colegio) {
 		this.descripcion = descripcion;
 		this.grado = grado;
