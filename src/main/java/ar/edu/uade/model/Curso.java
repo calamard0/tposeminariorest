@@ -1,5 +1,7 @@
 package ar.edu.uade.model;
 
+import java.util.SortedSet;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +21,8 @@ public class Curso {
 	private int grado;
 	private int vacantesDisponibles;
 	private Colegio colegio;
+	private SortedSet<Vacante> vacantes;
+
 	
 	public Curso() {
 		
@@ -101,11 +105,11 @@ public class Curso {
 		this.colegio = colegio;
 	}
 
-//	public SortedSet<Vacante> getVacantes() {
-//		return vacantes;
-//	}
-//
-//	public void setVacantes(SortedSet<Vacante> vacantes) {
-//		this.vacantes = vacantes;
-//	}
+	public SortedSet<Vacante> getVacantes() {
+		return vacantes;
+	}
+
+	public void setVacantes(SortedSet<Vacante> vacantes) {
+		this.vacantes = vacantes;
+	}
 }
