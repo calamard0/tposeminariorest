@@ -3,57 +3,71 @@ package ar.edu.uade.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.uade.controller.SistemaInscripciones;
-import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.Vacante;
 
 public class AsignarVacantesHelper {
 
-	private List<Vacante> vacantesAsignadas = new ArrayList<Vacante>();
-	private List<Vacante> vacantesAsignadasExtra = new ArrayList<Vacante>();
-	private List<Colegio> auxCantVacantes = SistemaInscripciones.getInstance().getColegios();
-	private List<Curso> preInscripcionesSinAsignacion = PreparacionAsignarVacantes.getCursosYVacantes(auxCantVacantes);
-	private Integer vacantesDisponibles = PreparacionAsignarVacantes.vacantesDisp(auxCantVacantes);
+	public static void asignarVacantes(List<Curso> cursos, int grado, List<Vacante> vacantes) {
 
-	private void asignarVacantes() {
+		List<Vacante> vacantesAsignadasExtra = new ArrayList<Vacante>();
+		List<Vacante> vacantesAsignadas = new ArrayList<Vacante>();
+		Integer vacantesDisponibles = PreparacionAsignarVacantes.vacantesDisp(cursos);
+		List<Curso> cursosCompletos = new ArrayList<Curso>();
+		List<Curso> cursosIncompletos = new ArrayList<Curso>();
+		Integer iteracion = 0;
 
-		while (this.preInscripcionesSinAsignacion.size() == 0 || this.vacantesDisponibles == 0) {
-			for (Curso disVsVac : preInscripcionesSinAsignacion) {
-				int auxCant = disVsVac.getVacantesDisponibles();
-				while (auxCant == 0 || disVsVac.getVacantes().size() == 0) {
-					Vacante auxVac = disVsVac.getVacantes().first();
-					System.out.println("Se le asigna la vacante " + auxVac.getId() + "del aspirante con numero de documento " + auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
-					this.vacantesAsignadas.add(auxVac);
-					this.vacantesDisponibles = this.vacantesDisponibles - 1;
-					disVsVac.getVacantes().remove(auxVac);
-					borrasLasOtrasVacantes(auxVac);
+		System.out.println("Se procesa el grado " + grado);
+
+		if (vacantes.size() > vacantesDisponibles) {
+			while (vacantesDisponibles != 0) {
+				for (Curso disVsVac : cursos) {
+
+					int auxCant = disVsVac.getVacantesDisponibles();
+
+					if (disVsVac.getVacantes().size() > auxCant) {
+						for (Vacante auxVac : disVsVac.getVacantes()) {
+							System.out.println("Se le pre asigna la vacante " + auxVac.getId()
+									+ "del aspirante con numero de documento "
+									+ auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
+							vacantesAsignadas.add(auxVac);
+							vacantesDisponibles = vacantesDisponibles - 1;
+							disVsVac.getVacantes().remove(auxVac);
+							borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra);
+						}
+						cursosCompletos.add(disVsVac);
+					} else {
+						System.out.println("Fin de la iteracion numero de iteracion " + iteracion);
+						iteracion = iteracion + 1;
+						
+					}
+
 				}
 			}
-			if(this.preInscripcionesSinAsignacion.size() != 0 && this.vacantesDisponibles != 0){
-//				for(Curso cur : buscarCursosConDisponibiliad()){
-					
-//				}
+
+		}
+	}
+
+	private static void borrasLasOtrasVacantes(Vacante first, List<Curso> cursos,
+			List<Vacante> vacantesAsignadasExtra) {
+		buscarCursoById(first.getCurso().getId(), cursos).getVacantes().remove(first);
+		for (Vacante vac : first.getPreinscripcion().getVacantes()) {
+			Curso cur = buscarCursoById(vac.getCurso().getId(), cursos);
+			for (Vacante vacASacar : cur.getVacantes()) {
+				if (vacASacar.getId() == first.getId()) {
+					System.out
+							.println("Descartos la vacante " + first.getId() + "del aspirante con numero de documento "
+									+ first.getPreinscripcion().getAspirante().getNumeroDocumento());
+					vacantesAsignadasExtra.add(vacASacar);
+					cur.getVacantes().remove(vacASacar);
+				}
 			}
 		}
 	}
 
-	private void borrasLasOtrasVacantes(Vacante first) {
-		for(Vacante vac: first.getPreinscripcion().getVacantes()){
-			Curso cur = buscarCursoById(vac.getCurso().getId());
-			for(Vacante vacASacar : cur.getVacantes()){
-				if(vacASacar.getId() == first.getId()){
-					System.out.println("Descartos la vacante " + first.getId() + "del aspirante con numero de documento " + first.getPreinscripcion().getAspirante().getNumeroDocumento());
-					this.vacantesAsignadasExtra.add(vacASacar);
-				    cur.getVacantes().remove(vacASacar);
-				}
-			}
-		}
-	}
-
-	private Curso buscarCursoById(int codigo) {
-		for(Curso cur : preInscripcionesSinAsignacion){
-			if(cur.getId() == codigo){
+	private static Curso buscarCursoById(int codigo, List<Curso> preInscripcionesSinAsignacion) {
+		for (Curso cur : preInscripcionesSinAsignacion) {
+			if (cur.getId() == codigo) {
 				return cur;
 			}
 		}
