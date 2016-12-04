@@ -38,9 +38,18 @@ public class PreinscripcionController {
 	class ColegioDistancia{
 		int id;
 		int distancia;
-		public ColegioDistancia(int id, Integer distancia) {
+		public ColegioDistancia(int id, int distancia) {
 			this.id = id;
 			this.distancia = distancia; 
+		}
+	}
+	
+	class ColegioPromedio{
+		int id;
+		int promedio;
+		public ColegioPromedio(int id, int promedio) {
+			this.id = id;
+			this.promedio = promedio; 
 		}
 	}
 	
@@ -119,7 +128,8 @@ public class PreinscripcionController {
 	 public List<Colegio> getColegiosMasAptosPorPromedioTotalLibre(List<Colegio> colegios, int curso, int cantidadASugerir){
 		 //Colegios con mejor promedio de vacantes totales/vacantes libres
 		 List<Colegio> colegiosMasAptos = new ArrayList<Colegio>();
-		 Hashtable<Integer,Integer> colegiosAux = new Hashtable<Integer,Integer>();
+		 ArrayList<ColegioPromedio> colegiosPromedio = new ArrayList<ColegioPromedio>();
+		 ArrayList<Colegio> colegiosAux = new ArrayList<Colegio>();
 		 
 		 for(Colegio col: colegios){
 			 Set<Curso> cursos = col.getCursos();
@@ -140,26 +150,38 @@ public class PreinscripcionController {
 			 } catch (Exception e){
 				 vacantes = 10;
 			 }
-			 colegiosAux.put(col.getId(),(vacantesDisponibles/vacantes));
+			 colegiosPromedio.add(new ColegioPromedio(col.getId(),(vacantesDisponibles/vacantes)));
 		 }
 		 
-		 for(int i=0; i<cantidadASugerir; i++){
-	    		Random generator = new Random();
-	    		Object[] values = colegiosAux.keySet().toArray();
-	    		Integer randomValue = (Integer) values[generator.nextInt(values.length)];
-	    		int min = colegiosAux.get(randomValue);
-	    		int key = randomValue;
-	    		for(Integer curKey : colegiosAux.keySet()){
-	    			int curValue = colegiosAux.get(curKey);
-	    			if(curValue < min){
-	    				min = colegiosAux.get(curKey);
-	    				key = curKey;
-	    			}
-	    		}
-	    		colegiosMasAptos.add(colRepo.findById(key));
-	    		colegiosAux.remove(key);
-	    	}
+		 //Crear lista de colegios
+		 for(ColegioPromedio colPro : colegiosPromedio){
+			 colegiosAux.add(colRepo.findById(colPro.id));
+		 }
 		 
+		 int cantidad = colegiosPromedio.size();
+		 for(int i=0; i<cantidadASugerir; i++){
+			 int min = colegiosPromedio.get(0).promedio;
+			 int curKey = colegiosPromedio.get(0).id;
+			 //Random randomGenerator = new Random();
+		     //int index = randomGenerator.nextInt(cantidad);
+		     cantidad--;
+		     int index = 0;
+		     int curIndex = 0;
+			 for(ColegioPromedio colPro : colegiosPromedio){
+				 if(colPro.promedio < min){
+					 min = colPro.promedio;
+				 	 curKey = colPro.id;
+				 	 curIndex = index; 
+				 }
+				 index++;
+			 }
+			 colegiosMasAptos.add(colRepo.findById(curKey));
+			 try{
+				 colegiosPromedio.remove(curIndex);
+			 } catch (Exception e){
+				 System.out.println(e.toString());
+			 }
+		 }
 		 return colegiosMasAptos;
 	 }
 	 
