@@ -22,9 +22,7 @@ public class AsignarVacantesHelper {
 		if (vacantes.size() > vacantesDisponibles) {
 			while (vacantesDisponibles != 0) {
 				for (Curso disVsVac : cursos) {
-
 					int auxCant = disVsVac.getVacantesDisponibles();
-
 					if (disVsVac.getVacantes().size() > auxCant) {
 						for (Vacante auxVac : disVsVac.getVacantes()) {
 							System.out.println("Se le pre asigna la vacante " + auxVac.getId()
@@ -32,19 +30,33 @@ public class AsignarVacantesHelper {
 									+ auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
 							vacantesAsignadas.add(auxVac);
 							vacantesDisponibles = vacantesDisponibles - 1;
-							disVsVac.getVacantes().remove(auxVac);
 							borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra);
 						}
 						cursosCompletos.add(disVsVac);
 					} else {
 						System.out.println("Fin de la iteracion numero de iteracion " + iteracion);
 						iteracion = iteracion + 1;
-						
+						for(Vacante vacante : vacantesAsignadas){
+							buscarVacantesParaEsteCurso(disVsVac.getId(),cursosCompletos, auxCant - disVsVac.getVacantes().size());
+						}
 					}
 
 				}
 			}
 
+		}
+	}
+
+	private static void buscarVacantesParaEsteCurso(int id, List<Curso> cursosCompletos, int faltanVacantes) {
+		List<Vacante> aux = new ArrayList<Vacante>();
+		for(Curso curso : cursosCompletos){
+			if(curso.getVacantes().size() > 0){
+				for(Vacante vacante : curso.getVacantes()){
+					if(vacante.getCurso().getId() == id){
+						aux.add(vacante);
+					}
+				}
+			}
 		}
 	}
 
