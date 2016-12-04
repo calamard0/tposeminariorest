@@ -48,14 +48,14 @@
     
     <div class="container">
     	<h1>Edición de Vacantes Disponibles</h1>
-        <h3>{{adminColegio.cursos[0].colegio.nombre}}</h3>
+        <h3>{{adminColegio.colegio.nombre}}</h3>
         
         <div class="alert alert-info" role="alert">
             <p>Modifique las vacantes disponibles en cada curso.</p>
         </div>
 
         <form name="adminColegio.edicionForm" class="form-horizontal container">
-            <div class="form-group" ng-repeat="curso in adminColegio.cursos | orderBy: 'grado'">
+            <div class="form-group" ng-repeat="curso in adminColegio.colegio.cursos | orderBy: 'grado'">
                 <label for="curso1" class="col-md-2 control-label">{{curso.descripcion}}:</label>
                 <div class="col-md-1"><input id="curso1" type="number" min="0" class="form-control" ng-model="curso.vacantesDisponibles"></input></div>
             </div>

@@ -12,7 +12,7 @@
             function getCursos(idColegio) {
                 var deferred = $q.defer();
 
-                $http.post('/colegios/getById/'+idColegio)
+                $http.get('/colegios/getById/'+idColegio)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
