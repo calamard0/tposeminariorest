@@ -723,9 +723,18 @@
                 <div class="form-group" ng-if="datosAdicionalesCtrl.responsableEnColegio">
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="apellido">Ficha municipal Nro:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-3">
                             <input type="text" id="apellido" class="form-control" required
                                    ng-model="mainCtrl.inscripcion.datosExtra.responsableEnColegio.ficha">
+                        </div>
+                        <label class="control-label col-sm-2" for="apellido">Tipo de Empleado:</label>
+                        <div class="col-sm-3">
+                            <select type="text" id="tipo" class="form-control" required
+                                    ng-model="mainCtrl.inscripcion.datosExtra.responsableEnColegio.tipo">
+                                <option value="">Seleccionar</option>
+                                <option value="docente">Docente</option>
+                                <option value="personal">Personal</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -741,7 +750,7 @@
         </uib-tab>
         <uib-tab index="4" disable="false">
             <uib-tab-heading>
-                <i class="glyphicon glyphicon-home"></i> Seleccion de Escuelas
+                <i class="glyphicon glyphicon-home"></i> Seleccion de Colegios
             </uib-tab-heading>
             <form name="mainCtrl.escuelasForm" class="form-horizontal container" 
                   ng-controller="seleccionColegiosController as seleccionColegiosCtrl">
@@ -774,6 +783,119 @@
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-ok"></i> Resumen
             </uib-tab-heading>
+            <div class="container">  
+                <div class="page-header">
+                    <h3>Nivel</h3>
+                </div>
+                <div class="flexCenter tableContainer">
+                    <table class="table" style="margin-left: 30%;">
+                        <tr>
+                            <td>Nivel:</td>
+                            <td><div>Primario</div></td> 
+                        </tr>
+                        <tr>
+                            <td>Modalidad:</td>
+                            <td><div>Primario</div></td> 
+                        </tr>
+                        <tr>
+                            <td>Grado:{{mainCtrl.grado}}</td>
+                            <td><div ng-bind="mainCtrl.getGrado(mainCtrl.grado)"></div></td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="page-header">
+                    <h3>Datos del Aspirante</h3>
+                </div>
+                <div class="flexCenter tableContainer">
+                    <table class="table" style="margin-left: 30%;">
+                        <tr>
+                            <td>Fecha Nacimiento:</td>
+                            <td><input ng-model="mainCtrl.inscripcion.aspirante.fechaNacimiento" readonly style="border: 0" uib-datepicker-popup="dd/MM/yyyy"></input></td> 
+                        </tr>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td><div ng-bind="mainCtrl.inscripcion.aspirante.nombre"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Apellido:</td>
+                            <td><div ng-bind="mainCtrl.inscripcion.aspirante.apellido"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Sexo:</td>
+                            <td><div ng-bind="mainCtrl.getSexo(mainCtrl.inscripcion.aspirante.sexo)"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Documento:</td>
+                            <td><div ng-bind="mainCtrl.getSexo(mainCtrl.inscripcion.aspirante.sexo)"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Nacionalidad:</td>
+                            <td><div ng-bind="mainCtrl.inscripcion.aspirante.paisNacimiento"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Sistema de Salud:</td>
+                            <td><div ng-bind="mainCtrl.getSistSalud(mainCtrl.inscripcion.aspirante.sistemaSalud)"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Telefono:</td>
+                            <td><div ng-bind="mainCtrl.inscripcion.aspirante.telefono"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Problemas de salud existentes?:</td>
+                            <td>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.fisicos">Físicos</div>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.alergias">Alergias</div>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.sensorial">Sensorial</div>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.epileptico">Epiléptico</div>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.otros">Otros: {{mainCtrl.inscripcion.aspirante.problemasSalud.otrosDescripcion}}</div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>Certificado Discapacidad:</td>
+                            <td>
+                                <div ng-if="mainCtrl.inscripcion.aspirante.problemasSalud.certificadoDisca">Sí</div>
+                                <div ng-if="!mainCtrl.inscripcion.aspirante.problemasSalud.certificadoDisca">No</div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>Domicilio</td>
+                            <td></td> 
+                        </tr>
+                        <tr>
+                            <td>Provincia:</td>
+                            <td><div ng-bind="mainCtrl.inscripcion.aspirante.domicilio.provincia"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>Direccion:</td>
+                            <td>
+                                <div>
+                                    <span>{{mainCtrl.inscripcion.aspirante.domicilio.calle + ' ' + mainCtrl.inscripcion.aspirante.domicilio.numero}}</span> 
+                                    <span ng-if="mainCtrl.inscripcion.aspirante.domicilio.piso">{{ ' - Piso ' + mainCtrl.inscripcion.aspirante.domicilio.piso }}</span>
+                                    <span ng-if="mainCtrl.inscripcion.aspirante.domicilio.departamento">{{ ' - Depto. ' + mainCtrl.inscripcion.aspirante.domicilio.departamento }}</span>
+                                    <div>{{ 'Codigo Postal ' + mainCtrl.inscripcion.aspirante.domicilio.codigoPostal}}</div>
+                                </div>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>Villa:</td>
+                            <td><div ng-bind="mainCtrl.getVilla(mainCtrl.inscripcion.aspirante.domicilio.villa)"></div></td> 
+                        </tr>
+                        <tr>
+                            <td>¿En qué tipo de espacio conviven?:</td>
+                            <td><div ng-bind="mainCtrl.getTipoVivienda(mainCtrl.inscripcion.aspirante.domicilio.tipo)"></div></td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="page-header">
+                    <h3>Datos del Responsable</h3>
+                </div>
+                <div class="page-header">
+                    <h3>Datos Adicionales</h3>
+                </div>
+                <div class="page-header">
+                    <h3>Colegios Seleccionados</h3>
+                </div>
+            </div>
         </uib-tab>
     </uib-tabset>
     <div id="navigationButtonsContainer">

@@ -49,3 +49,7 @@
     display: flex;
     justify-content: center;
 }
+
+.tableContainer {
+    width: 60%;
+}
