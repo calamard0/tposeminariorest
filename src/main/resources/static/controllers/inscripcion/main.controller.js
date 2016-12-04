@@ -21,6 +21,8 @@
             vm.getTipoVivienda = getTipoVivienda;
             vm.getVinculo = getVinculo;
         
+            vm.sugerirColegios = sugerirColegios;
+        
             toastrConfig.maxOpened = 1;
             toastrConfig.autoDismiss = true;
             toastrConfig.timeOut = 3000;
@@ -221,6 +223,13 @@
                     case 'NA': vinculo = 'No Aplica'; break;
                 }
                 return vinculo;
+            }
+        
+            function sugerirColegios() {
+                var direccion = vm.inscripcion.aspirante.domicilio.calle + ' ' + vm.inscripcion.aspirante.domicilio.numero;
+                inscripcionService.getColegiosSugeridos(direccion, vm.grado).then(function(data) {
+                    console.log(data);
+                });
             }
 
         });
