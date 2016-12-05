@@ -112,8 +112,9 @@ public class PreinscripcionController {
 	 
 	@RequestMapping(value = "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
 	public List<CursoDTO> sugerirColegios(@PathVariable String direccion, @PathVariable int grado) {
+		direccion += ", Buenos Aires, Ciudad Autónoma de Buenos Aires";
 		List<Colegio> colegios = colRepo.findAll();
-		List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios, grado, colegios.size() / 2);
+		List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios, grado, colegios.size() / 15);
 		ArrayList<ColegioDistancia> colegiosConDistancias = getColegiosPorDistancia(direccion, colegiosMasAptos);
 
 		List<Colegio> colegiosMasAptos2 = new ArrayList<Colegio>();
@@ -234,6 +235,7 @@ public class PreinscripcionController {
 			 String destination = "";
 			 for(int j=(0+(maxCall*i));j<maxCall+(maxCall*i);j++){
 			 	destination+= colRepo.findById(j+1).getDireccion();
+			 	destination+= ", Buenos Aires, Ciudad Autónoma de Buenos Aires";
 			 	destination+= "|";
 			 }
 			 destination = destination.replaceAll(" ", "+");
@@ -249,7 +251,6 @@ public class PreinscripcionController {
 				e.printStackTrace();
 			 }
 			 String value = "";
-			 System.out.println(response.toString());
 		     JSONObject jsonObj = new JSONObject(response.toString());
 		     JSONArray array = jsonObj.getJSONArray("rows");
 		     JSONObject jsonObj2 = array.getJSONObject(0);
