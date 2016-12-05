@@ -110,33 +110,30 @@ public class PreinscripcionController {
 		 return mav;
 	 }
 	 
-	 @RequestMapping(value= "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
-	 public List<CursoDTO> sugerirColegios(@PathVariable String direccion, @PathVariable int grado){
-		 List<Colegio> colegios = colRepo.findAll();
-		 //int grado = 1;
-		 List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios,grado,colegios.size()/10);
-		 //direccion = "Andres Lamas 2581" + ",Buenos+Aires,+Argentina"; //Dato de prueba
-		 
-		 ArrayList<ColegioDistancia> colegiosConDistancias = getColegiosPorDistancia(direccion,colegiosMasAptos);
-		 
-		 List<Colegio> colegiosMasAptos2 = new ArrayList<Colegio>();
-		 for(ColegioDistancia colDis: colegiosConDistancias){
-		 	 colegiosMasAptos2.add(colRepo.findById(colDis.id));
-		 }
+	@RequestMapping(value = "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
+	public List<CursoDTO> sugerirColegios(@PathVariable String direccion, @PathVariable int grado) {
+		List<Colegio> colegios = colRepo.findAll();
+		List<Colegio> colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegios, grado, colegios.size() / 2);
+		ArrayList<ColegioDistancia> colegiosConDistancias = getColegiosPorDistancia(direccion, colegiosMasAptos);
 
-		 colegiosMasAptos2 = getColegiosMasAptosPorPromedioTotalLibre(colegiosMasAptos2,grado,5);
-		 
+		List<Colegio> colegiosMasAptos2 = new ArrayList<Colegio>();
+		for (ColegioDistancia colDis : colegiosConDistancias) {
+			colegiosMasAptos2.add(colRepo.findById(colDis.id));
+		}
+
+		colegiosMasAptos2 = getColegiosMasAptosPorPromedioTotalLibre(colegiosMasAptos2, grado, 5);
+		Collections.reverse(colegiosMasAptos2);
 		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
-		for(Colegio col : colegiosMasAptos2){
+		for (Colegio col : colegiosMasAptos2) {
 			Set<Curso> setCursos = col.getCursos();
-			for(Curso cur : setCursos)
-				if(cur.getGrado()==grado){
+			for (Curso cur : setCursos)
+				if (cur.getGrado() == grado) {
 					cursos.add(cur.toDTO());
 				}
-		} 
+		}
 		System.out.println("OK");
 		return cursos;
-	 }
+	}
 	 
 	 public List<Colegio> getColegiosMasAptosPorPromedioTotalLibre(List<Colegio> colegios, int curso, int cantidadASugerir){
 		 //Colegios con mejor promedio de vacantes totales/vacantes libres
