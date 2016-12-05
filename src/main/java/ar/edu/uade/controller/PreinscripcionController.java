@@ -145,7 +145,7 @@ public class PreinscripcionController {
 			 Set<Curso> cursos = col.getCursos();
 			 Curso currentCurso = null;
 			 for(Curso cur: cursos){
-				 if(cur.getId()==curso)
+				 if(cur.getGrado()==curso)
 					 currentCurso = cur;
 			 }
 			 int vacantesDisponibles;
@@ -160,7 +160,7 @@ public class PreinscripcionController {
 			 } catch (Exception e){
 				 vacantes = 10;
 			 }
-			 colegiosPromedio.add(new ColegioPromedio(col.getId(),(vacantesDisponibles/vacantes)));
+			 colegiosPromedio.add(new ColegioPromedio(col.getId(),(vacantes/vacantesDisponibles)));
 		 }
 		 
 		 //Crear lista de colegios
