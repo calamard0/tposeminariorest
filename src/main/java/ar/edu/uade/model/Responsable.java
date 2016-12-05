@@ -40,8 +40,10 @@ public class Responsable {
 		this.email = dto.getEmail();
 		this.telefonoAlternativo = dto.getTelefonoAlternativo();
 		this.telefonoParticular = dto.getTelefonoParticular();
-		this.datosLaborales = new DatosLaborales(dto.getDatosLaborales());
 		this.trabaja = dto.getTrabaja();
+		if ( dto.getTrabaja() )
+			this.datosLaborales = new DatosLaborales(dto.getDatosLaborales());
+		
 		//this.domicilio = new Domicilio(dto.getDomic)
 	}
 	

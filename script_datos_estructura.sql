@@ -162,16 +162,6 @@ CREATE TABLE `datos_laborales` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `datos_laborales`
---
-
-LOCK TABLES `datos_laborales` WRITE;
-/*!40000 ALTER TABLE `datos_laborales` DISABLE KEYS */;
-INSERT INTO `datos_laborales` VALUES (1,'Profesion1',1,'2323232','Referencia1',1);
-/*!40000 ALTER TABLE `datos_laborales` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `domicilio`
 --
 
@@ -191,16 +181,6 @@ CREATE TABLE `domicilio` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `domicilio`
---
-
-LOCK TABLES `domicilio` WRITE;
-/*!40000 ALTER TABLE `domicilio` DISABLE KEYS */;
-INSERT INTO `domicilio` VALUES (1,'Provincia1','Calle1',1234,'Villa1',1,'De','1111','TIpo1');
-/*!40000 ALTER TABLE `domicilio` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `preinscripcion`
@@ -283,22 +263,12 @@ CREATE TABLE `responsable` (
   `telefono_particular` varchar(20) DEFAULT NULL,
   `telefono_alternativo` varchar(20) DEFAULT NULL,
   `trabaja` int(11) NOT NULL,
-  `datos_laborales_id` int(11) NOT NULL,
+  `datos_laborales_id` int(11) NULL,
   PRIMARY KEY (`id`),
   KEY `fk_responsable_datosLaborales` (`datos_laborales_id`),
   CONSTRAINT `fk_responsable_datosLaborales` FOREIGN KEY (`datos_laborales_id`) REFERENCES `datos_laborales` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `responsable`
---
-
-LOCK TABLES `responsable` WRITE;
-/*!40000 ALTER TABLE `responsable` DISABLE KEYS */;
-INSERT INTO `responsable` VALUES (1,'Nombre','Apellido','tipoDo','23232','PaisNac','Email','vinculoAspirante','telefonoParticular','telefonoAlternativ',1,1);
-/*!40000 ALTER TABLE `responsable` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
