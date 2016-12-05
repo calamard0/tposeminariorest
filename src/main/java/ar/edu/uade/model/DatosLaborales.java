@@ -13,7 +13,6 @@ import ar.edu.uade.dto.DatosLaboralesDTO;
 public class DatosLaborales {
 
 	private int id;
-	private String situacionLaboral;
 	private String profesion;
 	private boolean sostenFamiliar;
 	private String telefono;
@@ -26,7 +25,6 @@ public class DatosLaborales {
 	
 	public DatosLaborales(DatosLaboralesDTO dto) {
 		this.id = dto.getId();
-		this.situacionLaboral = dto.getSituacionLaboral();
 		this.profesion = dto.getProfesion();
 		this.sostenFamiliar = dto.isSostenFamiliar();
 		this.telefono = dto.getTelefono();
@@ -37,7 +35,6 @@ public class DatosLaborales {
 	public DatosLaboralesDTO toDTO() {
 		DatosLaboralesDTO dto = new DatosLaboralesDTO();
 		dto.setId(this.id);
-		dto.setSituacionLaboral(this.situacionLaboral);
 		dto.setProfesion(this.profesion);
 		dto.setSostenFamiliar(this.sostenFamiliar);
 		dto.setTelefono(this.telefono);
@@ -54,14 +51,6 @@ public class DatosLaborales {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getSituacionLaboral() {
-		return situacionLaboral;
-	}
-
-	public void setSituacionLaboral(String situacionLaboral) {
-		this.situacionLaboral = situacionLaboral;
 	}
 
 	public String getProfesion() {

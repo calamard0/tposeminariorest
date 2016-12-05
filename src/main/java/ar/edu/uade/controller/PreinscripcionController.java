@@ -249,6 +249,7 @@ public class PreinscripcionController {
 				e.printStackTrace();
 			 }
 			 String value = "";
+			 System.out.println(response.toString());
 		     JSONObject jsonObj = new JSONObject(response.toString());
 		     JSONArray array = jsonObj.getJSONArray("rows");
 		     JSONObject jsonObj2 = array.getJSONObject(0);

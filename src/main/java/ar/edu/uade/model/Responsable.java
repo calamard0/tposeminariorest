@@ -22,6 +22,7 @@ public class Responsable {
 	private String email;
 	private String telefonoParticular;
 	private String telefonoAlternativo;
+	private boolean trabaja;
 	private DatosLaborales datosLaborales;
 	
 	public Responsable() {
@@ -40,6 +41,7 @@ public class Responsable {
 		this.telefonoAlternativo = dto.getTelefonoAlternativo();
 		this.telefonoParticular = dto.getTelefonoParticular();
 		this.datosLaborales = new DatosLaborales(dto.getDatosLaborales());
+		this.trabaja = dto.getTrabaja();
 		//this.domicilio = new Domicilio(dto.getDomic)
 	}
 	
@@ -56,6 +58,7 @@ public class Responsable {
 		dto.setTelefonoAlternativo(this.telefonoAlternativo);
 		dto.setTelefonoParticular(this.telefonoParticular);
 		dto.setDatosLaborales(this.datosLaborales.toDTO());
+		dto.setTrabaja(this.trabaja);
 		return dto;
 	}
 
@@ -67,6 +70,14 @@ public class Responsable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean isTrabaja() {
+		return trabaja;
+	}
+
+	public void setTrabaja(boolean trabaja) {
+		this.trabaja = trabaja;
 	}
 
 	public String getNombre() {

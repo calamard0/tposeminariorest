@@ -33,7 +33,6 @@ create table domicilio(
 
 create table datos_laborales(
 	id int AUTO_INCREMENT NOT NULL,
-	situacion_laboral varchar(30) NOT NULL,
 	profesion varchar(50) NULL,
 	sosten_familiar int,
 	telefono varchar(20)null,
@@ -93,8 +92,9 @@ create table responsable(
 	pais_nacimiento varchar(100) NULL,
 	email varchar(100) NULL,
 	vinculo_aspirante varchar(100) null,
-	telefono_particular varchar(20)null,
-	telefono_alternativo varchar(20)null,
+	telefono_particular varchar(20) null,
+	telefono_alternativo varchar(20) null,
+	trabaja int not null,
 	datos_laborales_id int not null,
 	constraint pk_responsable primary key(id),
 	constraint fk_responsable_datosLaborales foreign key (datos_laborales_id) references datos_laborales(id)

@@ -60,7 +60,7 @@ public class PreInscripcion {
 		}
 		
 		this.vacantes = new HashSet<Vacante>();
-		int i = 1;
+		int i = 8;
 		for (CursoDTO curDto : dto.getCursos()) {
 			Vacante vac = new Vacante();
 			vac.setCurso(new Curso(curDto));
@@ -69,7 +69,7 @@ public class PreInscripcion {
 			vac.setPrioridad(i);
 			vac.setPreinscripcion(this);
 			this.vacantes.add(vac);
-			i += 1;
+			i -= 1;
 		}
 	}
 	

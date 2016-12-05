@@ -100,7 +100,7 @@ public class TestController {
 		datLab.setDatosReferencia("Referencia1");
 		datLab.setDomicilio(domic);
 		datLab.setProfesion("Profesion1");
-		datLab.setSituacionLaboral("Situacion Laboral");
+		//datLab.setSituacionLaboral("Situacion Laboral");
 		datLab.setSostenFamiliar(true);
 		datLab.setTelefono("2323232");
 		
@@ -217,7 +217,7 @@ public class TestController {
 		datLab.setDatosReferencia("Referencia1");
 		datLab.setDomicilio(domic);
 		datLab.setProfesion("Profesion1");
-		datLab.setSituacionLaboral("Situacion Laboral");
+		//datLab.setSituacionLaboral("Situacion Laboral");
 		datLab.setSostenFamiliar(true);
 		datLab.setTelefono("2323232");
 		
@@ -233,6 +233,7 @@ public class TestController {
 		resp.setTelefonoParticular("telefonoParticular");
 		resp.setTipoDocumento("tipoDo");
 		resp.setVinculoAspirante("vinculoAspirante");
+		resp.setTrabaja(true);
 		
 		respRepo.save(resp);
 			
@@ -262,7 +263,7 @@ public class TestController {
 		datLab.setDatosReferencia("Referencia1");
 		datLab.setDomicilio(domic);
 		datLab.setProfesion("Profesion1");
-		datLab.setSituacionLaboral("Situacion Laboral");
+		//datLab.setSituacionLaboral("Situacion Laboral");
 		datLab.setSostenFamiliar(true);
 		datLab.setTelefono("2323232");
 		
@@ -295,6 +296,7 @@ public class TestController {
 		resp.setTelefonoAlternativo("telefonoAlternativ");
 		resp.setTelefonoParticular("telefonoParticular");
 		resp.setTipoDocumento("tipoDo");
+		resp.setTrabaja(true);
 		resp.setVinculoAspirante("vinculoAspirante");
 		
 		Iterable<Curso> cursos = cursoRepo.findAll();

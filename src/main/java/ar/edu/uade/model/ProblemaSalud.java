@@ -9,6 +9,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class ProblemaSalud {
 
+	public static final String _alergia = "Alergia";
+	public static final String _fisico = "Fisico";
+	public static final String _sensorial = "Sensorial";
+	public static final String _epileptico = "Epilepsia";
+	
 	private int id;
 	private String descripcion;
 	private Aspirante aspirante;

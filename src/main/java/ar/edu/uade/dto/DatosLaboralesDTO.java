@@ -1,7 +1,5 @@
 package ar.edu.uade.dto;
 
-import ar.edu.uade.model.Domicilio;
-
 public class DatosLaboralesDTO {
 	
 	private int id;

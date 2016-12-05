@@ -1,6 +1,7 @@
 package ar.edu.uade.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import ar.edu.uade.dto.AspiranteDTO;
+import ar.edu.uade.dto.ProblemasSaludDTO;
 
 @Entity
 public class Aspirante {
@@ -43,11 +45,11 @@ public class Aspirante {
 		this.numeroDocumento = dto.getNumeroDocumento();
 		this.paisNacimiento = dto.getPaisNacimiento();
 		this.sistemaSalud = dto.getSistemaSalud();
-		//this.problemasSalud ver esto
+		this.problemasSalud = this.armarListaProblemasSalud(dto.getProblemasSalud());
 		this.certificadoDisca = dto.isCertificadoDisca();
 		this.domicilio = new Domicilio(dto.getDomicilio());
 	}
-	
+
 	public AspiranteDTO toDTO() {
 		AspiranteDTO dto = new AspiranteDTO();
 		dto.setId(this.id);
@@ -61,10 +63,33 @@ public class Aspirante {
 		dto.setSistemaSalud(this.sistemaSalud);
 		dto.setCertificadoDisca(this.certificadoDisca);
 		dto.setDomicilio(this.domicilio.toDTO());
-		//this.problemasSalud ver esto
-		/***
-		 * Ver los problemas de salud
-		 */
+		dto.setProblemasSalud(this.armarProblemasSalud());
+		return dto;
+	}
+
+	private ProblemasSaludDTO armarProblemasSalud() {
+		
+		ProblemasSaludDTO dto = new ProblemasSaludDTO();
+		if ( this.problemasSalud != null && this.problemasSalud.size() > 0 ) {
+			
+			for (ProblemaSalud ps : problemasSalud) {
+				if ( ps.getDescripcion().equals(ProblemaSalud._alergia) ) 
+					dto.setAlergias(true);
+				if ( ps.getDescripcion().equals(ProblemaSalud._epileptico) ) 
+					dto.setEpileptico(true);
+				if ( ps.getDescripcion().equals(ProblemaSalud._fisico) ) 
+					dto.setFisicos(true);
+				if ( ps.getDescripcion().equals(ProblemaSalud._sensorial) ) 
+					dto.setSensorial(true);
+				if ( (! ps.getDescripcion().equals(ProblemaSalud._alergia)) && 
+						(! ps.getDescripcion().equals(ProblemaSalud._epileptico)) && 
+						(! ps.getDescripcion().equals(ProblemaSalud._fisico)) && 
+						(! ps.getDescripcion().equals(ProblemaSalud._sensorial)) )   {
+					dto.setOtros(true);
+					dto.setOtrosDescripcion(ps.getDescripcion());
+				}
+			}
+		}
 		return dto;
 	}
 
@@ -166,5 +191,49 @@ public class Aspirante {
 
 	public void setProblemasSalud(Set<ProblemaSalud> problemasSalud) {
 		this.problemasSalud = problemasSalud;
+	}
+	
+	private Set<ProblemaSalud> armarListaProblemasSalud(ProblemasSaludDTO problemasSalud) {
+		
+		Set<ProblemaSalud> problemas = new HashSet<ProblemaSalud>();
+		if (problemasSalud.getAlergias()) {
+			ProblemaSalud ps = new ProblemaSalud();
+			ps.setAspirante(this);
+			ps.setDescripcion(ProblemaSalud._alergia);
+			problemas.add(ps);
+		}
+			
+		if (problemasSalud.getEpileptico()) {
+			ProblemaSalud ps = new ProblemaSalud();
+			ps.setAspirante(this);
+			ps.setDescripcion(ProblemaSalud._epileptico);
+			problemas.add(ps);
+		}
+		
+		if (problemasSalud.getFisicos()) {
+			ProblemaSalud ps = new ProblemaSalud();
+			ps.setAspirante(this);
+			ps.setDescripcion(ProblemaSalud._fisico);
+			problemas.add(ps);
+		}
+		
+		if (problemasSalud.getSensorial()) {
+			ProblemaSalud ps = new ProblemaSalud();
+			ps.setAspirante(this);
+			ps.setDescripcion(ProblemaSalud._sensorial);
+			problemas.add(ps);
+		}
+		
+		if (problemasSalud.getOtros()) {
+			ProblemaSalud ps = new ProblemaSalud();
+			ps.setAspirante(this);
+			ps.setDescripcion(problemasSalud.getOtrosDescripcion());
+			problemas.add(ps);
+		}
+		
+		if ( problemas.size() == 0 )
+			return null;
+		
+		return problemas;
 	}
 }
