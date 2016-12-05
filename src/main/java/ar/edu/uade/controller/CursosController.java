@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dto.ColegioDTO;
@@ -16,7 +17,7 @@ import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 
-@RestController
+@Controller
 @RequestMapping("cursos")
 public class CursosController {
 	
@@ -25,11 +26,12 @@ public class CursosController {
 	
 	@RequestMapping("/view")
     public String view() {
-        return "cursos";
+        return "/views/cursos.html";
     }
-	 
-	 @RequestMapping(value= "/update", method = RequestMethod.POST)
-	 public boolean updateCursos(@RequestBody ColegioDTO colegioDTO) {	
+		
+	@RequestMapping(value= "/update", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean updateCursos(@RequestBody ColegioDTO colegioDTO) {	
 		 boolean updatedOk = false;
 		 
 		 try {
@@ -44,6 +46,7 @@ public class CursosController {
 	 }
 	 
 	 @RequestMapping(value= "/getCursoPorColegio/{colegioId}/{grado}")
+	 @ResponseBody
 	 public CursoDTO getCursoPorColegio(@PathVariable Integer colegioId, @PathVariable Integer grado) {
 		 Colegio cole = colRepo.findOne(colegioId);
 		 Curso cursoEncontrado = null;
@@ -57,6 +60,7 @@ public class CursosController {
 	 }
 	 
 	 @RequestMapping(value= "/getCursos/{colegioId}")
+	 @ResponseBody
 	 public List<CursoDTO> getCursoPorColegio(@PathVariable Integer colegioId) {
 		Colegio cole = colRepo.findOne(colegioId);
 		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
@@ -67,7 +71,5 @@ public class CursosController {
 		
 		return cursos;
 	 }
-	 
-	 
 	 
 }
