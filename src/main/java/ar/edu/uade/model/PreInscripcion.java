@@ -134,7 +134,6 @@ public class PreInscripcion {
 		for(Vacante vac : vacantes){
 			vac.setPeso(CalcularPesosHelper.calcularPesopeso(vac, this.datosExtra,this.aspirante, this.responsable));
 		}
-		
 	}
 
 	@OneToOne(cascade=CascadeType.ALL)

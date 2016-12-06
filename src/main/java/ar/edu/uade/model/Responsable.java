@@ -43,8 +43,6 @@ public class Responsable {
 		this.trabaja = dto.getTrabaja();
 		if ( dto.getTrabaja() )
 			this.datosLaborales = new DatosLaborales(dto.getDatosLaborales());
-		
-		//this.domicilio = new Domicilio(dto.getDomic)
 	}
 	
 	public ResponsableDTO toDTO() {

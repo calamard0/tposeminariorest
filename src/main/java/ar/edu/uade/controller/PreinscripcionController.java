@@ -27,12 +27,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.uade.dao.ColegioRepository;
+import ar.edu.uade.dao.DatosExtraRepository;
+import ar.edu.uade.dao.DatosLaboralesRepository;
 import ar.edu.uade.dao.PreInscripcionRepository;
+import ar.edu.uade.dao.ProblemaSaludRepository;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.PreInscripcion;
+import ar.edu.uade.model.ProblemaSalud;
+import ar.edu.uade.model.Vacante;
 
 @Controller
 @RequestMapping("preinscripcion")
@@ -62,6 +67,15 @@ public class PreinscripcionController {
 	 @Autowired
 	 ColegioRepository colRepo;
 	 
+	 @Autowired
+	 DatosLaboralesRepository datLabRepo;
+	 
+	 @Autowired
+	 ProblemaSaludRepository probSaludRepo;
+	 
+	 @Autowired
+	 DatosExtraRepository datExtRepo;
+	 
 	 @RequestMapping(value= "/crear", method = RequestMethod.POST)
 	 @ResponseBody
 	 public int crearPreinscripcion(@RequestBody PreInscripcionDTO dto) {	
@@ -74,25 +88,63 @@ public class PreinscripcionController {
 	 }
 	 
 	 @RequestMapping(value= "/modificar", method = RequestMethod.POST)
-	 public ModelAndView modificarPreinscripcion() {	
+	 @ResponseBody
+	 public int modificarPreinscripcion(@RequestBody PreInscripcionDTO dto) {	
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("preinscripcion");
 		 
-		 mav.addObject("colegio", null);  
+		 PreInscripcion preInsActual = preRepo.findOne(dto.getId());
+		 PreInscripcion preInsModificada = new PreInscripcion(dto);
+		 realizarModificaciones(preInsActual, preInsModificada, false);
 		 
-		 return mav;
+		 return dto.getId();
 	 }
 	 
-	 
-	 @RequestMapping(value= "/validar", method = RequestMethod.GET)
-	 public ModelAndView validarPreinscripcion() {	
+	 @RequestMapping(value= "/validar", method = RequestMethod.POST)
+	 @ResponseBody
+	 public int validarPreinscripcion(@RequestBody PreInscripcionDTO dto) {	
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("preinscripcion");
 		 
-		 mav.addObject("colegio", null);  
+		 PreInscripcion preInsActual = preRepo.findOne(dto.getId());
+		 PreInscripcion preInsModificada = new PreInscripcion(dto);
+		 realizarModificaciones(preInsActual, preInsModificada, true);
 		 
-		 return mav;
+		 return dto.getId();
 	 }
+	 
+	 private void realizarModificaciones(PreInscripcion preInsActual, PreInscripcion preInsModificada, boolean calcularPesos) {
+		 
+		 // se eliminan los problemas de salud actuales, para insertar los nuevos.
+		 if ( preInsActual.getAspirante().getProblemasSalud() != null && preInsActual.getAspirante().getProblemasSalud().size() > 0 ) {
+			 for (ProblemaSalud ps : preInsActual.getAspirante().getProblemasSalud()) {
+				 probSaludRepo.delete(ps.getId());
+			}
+		 }
+		 
+		 if ( preInsActual.getDatosExtra() != null && preInsModificada.getDatosExtra() == null )
+			datExtRepo.delete(preInsActual.getDatosExtra().getId());
+		 
+		 // verificar las vacantes contra las actuales.
+		 for (Vacante vac : preInsModificada.getVacantes()) {
+			 for (Vacante vacActual : preInsActual.getVacantes()) {
+				if ( vacActual.getPrioridad() == vac.getPrioridad() ) {
+					vac.setId(vacActual.getId());
+					break;
+				}
+			 }
+		 }
+		 
+		 // si trabajaba, y ahora no lo hace, hay que eliminar datos laborales.
+		 if ( preInsActual.getResponsable().isTrabaja() && ! preInsModificada.getResponsable().isTrabaja() )
+			 datLabRepo.delete(preInsActual.getResponsable().getDatosLaborales().getId());
+		 
+		 if ( calcularPesos )
+			 preInsModificada.calcularPesoVacantes();
+		 
+		 preRepo.save(preInsModificada);
+	 }
+
 	 
 	@RequestMapping("/control")
     public String view(Model model) {
