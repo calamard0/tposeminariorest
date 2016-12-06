@@ -102,7 +102,7 @@ public class Vacante implements Comparable<Vacante> {
 	public int compareTo(Vacante v) {
 		if (this.peso == v.getPeso()) {
 			return 0;
-		} else if (this.peso >= v.getPeso()) {
+		} else if (this.peso <= v.getPeso()) {
             return 1;
 		} else {
             return 0;
