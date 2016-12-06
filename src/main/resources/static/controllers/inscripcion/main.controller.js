@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('mainController', function ($scope, toastr, toastrConfig, inscripcionModelService, inscripcionService, $http) {
+        .controller('mainController', function ($scope, $rootScope, toastr, toastrConfig, inscripcionModelService, inscripcionService, $http) {
 
             var vm = this;
         
@@ -63,10 +63,20 @@
             function obtenerPreinscripcion() {
                 vm.cargandoPreinscripcion = true;
                 vm.modeValidate = true;
+                $scope.nivel = "1";
+                $scope.modalidad = "1";
                 inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
                     .then(function(data) {
                         vm.showForm = true;
                         vm.cargandoPreinscripcion = false;
+                        vm.grado = data.cursos[0].grado;
+                        if (data.datosExtra.jardinAnterior) {
+                        	$rootScope.$broadcast('existeJardinAnterior');
+                        } else if (data.datosExtra.hermanoEnColegio) {
+                        	$rootScope.$broadcast('existeHermanoEnColegio');
+                        } else if (data.datosExtra.responsableEnColegio) {
+                        	$rootScope.$broadcast('existeResponsableEnColegio');
+                        }
                         vm.inscripcion = data;
                 });
             }
