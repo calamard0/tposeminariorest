@@ -14,6 +14,9 @@
             vm.crearInscripcion = crearInscripcion;
             vm.cargaExitosa = false;
             vm.preinscripcionCargadaNro = '';
+            vm.modeValidate = false;
+            vm.showForm = false;
+            vm.obtenerPreinscripcion = obtenerPreinscripcion;
         
             vm.getGrado = getGrado;
             vm.getTipoDoc = getTipoDoc;
@@ -45,13 +48,20 @@
             function anterior(currentTabIndex) {
                 vm.activeTab = currentTabIndex-1;
             }
-        
+         
             function crearInscripcion(inscripcion) {
                 inscripcionService.saveInscripcion(inscripcion)
                     .then(function(data) {
                         toastr.success("Preinscripcion cargada existosamente!");
                         vm.cargaExitosa = true;
                         vm.preinscripcionCargadaNro = data;
+                })
+            }
+        
+            function obtenerPreinscripcion() {
+                inscripcionService.getPreinscripcion(id)
+                    .then(function(data) {
+                       console.log(data);
                 })
             }
         
@@ -64,7 +74,7 @@
                 5: ''
             }
             
-            $http.get('json/calles.json').then(function(data){
+            $http.get('/json/calles.json').then(function(data){
                 vm.calles = data.data.calles;                
             });
         

@@ -42,7 +42,7 @@
                 inscripcionModel.cursos.splice(index, 1); 
             }
         
-            $http.get('json/colegios.json').then(function(data){
+            $http.get('/json/colegios.json').then(function(data){
                 vm.colegios = data.data.colegios;                
             });
 

@@ -6,7 +6,8 @@
             
             var service = {
                 getCursos: getCursos,
-                guardarCursos: guardarCursos
+                guardarCursos: guardarCursos,
+                getCurrentUser: getCurrentUser
             };
         
             function getCursos(idColegio) {
@@ -27,6 +28,20 @@
                 var deferred = $q.defer();
 
                 $http.post('/cursos/update/', colegio)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (data) {
+                        deferred.reject(data);
+                    });
+
+                return deferred.promise;
+            }
+        
+            function getCurrentUser() {
+                var deferred = $q.defer();
+
+                $http.post('/cursos/currentuser/')
                     .success(function (data) {
                         deferred.resolve(data);
                     })
