@@ -8,7 +8,9 @@
                 saveInscripcion: saveInscripcion,
                 getCurso: getCurso,
                 getColegiosSugeridos: getColegiosSugeridos,
-                getPreinscripcion: getPreinscripcion
+                getPreinscripcion: getPreinscripcion,
+                modificarPreinscripcion: modificarPreinscripcion,
+                validarPreinscripcion: validarPreinscripcion                
             };
         
             function saveInscripcion(inscripcion) {
@@ -56,7 +58,35 @@
             function getPreinscripcion(id) {
                 var deferred = $q.defer();
 
-                $http.get('/preinscripcion/sugerirColegios/'+direccion+'/'+grado)
+                $http.get('/preinscripcion/validar/', id)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (data) {
+                        deferred.reject(data);
+                    });
+
+                return deferred.promise;
+            }
+        
+            function validarPreinscripcion(inscripcion) {
+                var deferred = $q.defer();
+
+                $http.get('/preinscripcion/validar/', inscripcion)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (data) {
+                        deferred.reject(data);
+                    });
+
+                return deferred.promise;
+            }
+        
+            function modificarPreinscripcion(inscripcion) {
+                var deferred = $q.defer();
+
+                $http.get('/preinscripcion/modificar/', inscripcion)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
