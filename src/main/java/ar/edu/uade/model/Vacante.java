@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import ar.edu.uade.dto.VacanteDTO;
 
 @Entity
-public class Vacante {
+public class Vacante implements Comparable<Vacante> {
 
 	private int id;	
 	private float peso;
@@ -97,4 +97,16 @@ public class Vacante {
 	public void setEstaAprobada(boolean estaAprobada) {
 		this.estaAprobada = estaAprobada;
 	}
+
+	@Override
+	public int compareTo(Vacante v) {
+		if (this.prioridad == v.getPrioridad()) {
+			return 0;
+		} else if (this.prioridad >= v.getPrioridad()) {
+            return 1;
+		} else {
+            return 0;
+		}    
+	}
+	
 }
