@@ -98,6 +98,13 @@ public class PreinscripcionController {
     public String view(Model model) {
         return "/views/validarPreinscripcion.html";
     }
+	
+	@RequestMapping(value= "/getPreInscripcion/{preinscripcionId}", method = RequestMethod.GET)
+	 @ResponseBody
+	 public PreInscripcionDTO getPreInscripcion(@PathVariable Integer preinscripcionId) {	
+		 PreInscripcion preIns = preRepo.findOne(preinscripcionId);
+		 return preIns.toDTO();
+	 }
 	 
 	@RequestMapping(value = "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
 	@ResponseBody

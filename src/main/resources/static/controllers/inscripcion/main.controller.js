@@ -17,6 +17,9 @@
             vm.modeValidate = false;
             vm.showForm = false;
             vm.obtenerPreinscripcion = obtenerPreinscripcion;
+            vm.modificarPreinscripcion = modificarPreinscripcion;
+            vm.validarPreinscripcion = validarPreinscripcion;
+            vm.cargandoPreinscripcion = false;
         
             vm.getGrado = getGrado;
             vm.getTipoDoc = getTipoDoc;
@@ -59,10 +62,29 @@
             }
         
             function obtenerPreinscripcion() {
-                inscripcionService.getPreinscripcion(id)
+                vm.cargandoPreinscripcion = true;
+                inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
                     .then(function(data) {
-                       console.log(data);
-                })
+                        vm.showForm = true;
+                        vm.cargandoPreinscripcion = false;
+                        console.log(data);
+                });
+            }
+        
+            function modificarPreinscripcion() {
+                inscripcionService.modificarPreinscripcion(vm.inscripcion)
+                    .then(function(data) {
+                        toastr.success("Preinscripción modificada exitosament!")
+                        console.log(data);
+                });
+            }
+        
+            function validarPreinscripcion() {
+                inscripcionService.validarPreinscripcion(vm.inscripcion)
+                    .then(function(data) {
+                        toastr.success("Preinscripción validada exitosament!")
+                        console.log(data);
+                });
             }
         
             var formsNameArray = {

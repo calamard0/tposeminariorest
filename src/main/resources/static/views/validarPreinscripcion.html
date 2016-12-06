@@ -54,10 +54,12 @@
     <div class="container">
         <h1>Control y Validacion de PreInscripciones</h1> 
         <h3>
-            <div class="col-md-5">Ingrese el numero de PreInscripcion</div> 
+            <div class="col-md-5">Ingrese el número de PreInscripcion</div> 
             <div class="col-md-5"><input type="text" class="form-control" ng-model="mainCtrl.nroPreInscATraer"></div>
             <div class="col-md-2"><button type="button" class="btn btn-primary btn-md"
-                ng-click="mainCtrl.obtenerPreinscripcion()">Cargar</button></div>
+                ng-click="mainCtrl.obtenerPreinscripcion()">Cargar</button>
+                <span ng-if="mainCtrl.cargandoPreinscripcion" class="glyphicon glyphicon-refresh glyphicon-refresh-animate loadingColegios"></span>
+            </div>
         </h3>
     </div>
     <div ng-include="'../views/formulario.preinscripcion.html'" ng-init="mainCtrl.modeValidate = true;" ng-if="mainCtrl.modeValidate && mainCtrl.showForm"/>
