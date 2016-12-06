@@ -20,7 +20,7 @@
                 {value: true, label: 'Si'},
             ];
         
-            $http.get('json/jardines.json').then(function(data){
+            $http.get('/json/jardines.json').then(function(data){
                 vm.jardines = data.data.jardin;                
             });
         
@@ -75,7 +75,7 @@
                 opened: false
             };
         
-            $http.get('json/colegios.json').then(function(data){
+            $http.get('/json/colegios.json').then(function(data){
                 vm.colegios = data.data.colegios;                
             });
 

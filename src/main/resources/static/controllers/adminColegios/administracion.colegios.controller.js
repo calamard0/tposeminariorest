@@ -15,9 +15,11 @@
             toastrConfig.positionClass = 'toast-top-center';
         
             function init() {
-                colegioService.getCursos(idColegio).then(function(data) {
-                    vm.colegio = data;
-                });             
+                colegioService.getCurrentUser().then(function(data) {
+                    colegioService.getCursos(data.colegio.id).then(function(data) {
+                        vm.colegio = data;
+                    });
+                }); 
             }
         
             function guardar() {

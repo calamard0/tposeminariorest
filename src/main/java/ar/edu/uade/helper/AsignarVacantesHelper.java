@@ -14,50 +14,96 @@ public class AsignarVacantesHelper {
 		List<Vacante> vacantesAsignadas = new ArrayList<Vacante>();
 		Integer vacantesDisponibles = PreparacionAsignarVacantes.vacantesDisp(cursos);
 		List<Curso> cursosCompletos = new ArrayList<Curso>();
-		List<Curso> cursosIncompletos = new ArrayList<Curso>();
-		Integer iteracion = 0;
 
 		System.out.println("Se procesa el grado " + grado);
 
-		if (vacantes.size() > vacantesDisponibles) {
+		if (vacantes.size() >= vacantesDisponibles) {
 			while (vacantesDisponibles != 0) {
 				for (Curso disVsVac : cursos) {
 					int auxCant = disVsVac.getVacantesDisponibles();
 					if (disVsVac.getVacantes().size() > auxCant) {
-						for (Vacante auxVac : disVsVac.getVacantes()) {
-							System.out.println("Se le pre asigna la vacante " + auxVac.getId()
-									+ "del aspirante con numero de documento "
-									+ auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
-							vacantesAsignadas.add(auxVac);
-							vacantesDisponibles = vacantesDisponibles - 1;
-							borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra);
-						}
-						cursosCompletos.add(disVsVac);
+						asignarVacantesAEsteCurso(disVsVac, cursos, vacantesAsignadasExtra, vacantesDisponibles,
+								vacantesAsignadas, cursosCompletos);
 					} else {
-						System.out.println("Fin de la iteracion numero de iteracion " + iteracion);
-						iteracion = iteracion + 1;
-						for(Vacante vacante : vacantesAsignadas){
-							buscarVacantesParaEsteCurso(disVsVac.getId(),cursosCompletos, auxCant - disVsVac.getVacantes().size());
+						for (int i = 0; i < cursosCompletos.size()
+								&& (auxCant - disVsVac.getVacantes().size()) < 0; i++) {
+							Curso curso = cursosCompletos.get(i);
+							if (cursosConVacantesDeSobra(curso) > 0) {
+								for (int j = 0; j < curso.getVacantes().size()
+										&& (auxCant - disVsVac.getVacantes().size()) < 0; j++) {
+									// verificar si funca esto
+									Vacante vacante = ((List<Vacante>) curso.getVacantes()).get(j);
+									if (vacante.isEstaAprobada()) {
+										buscarVacanteParaEsteCurso(vacante, vacantesAsignadasExtra, disVsVac.getId(),
+												cursos, auxCant - disVsVac.getVacantes().size());
+									}
+								}
+							}
+
 						}
+						asignarVacantesAEsteCurso(disVsVac, cursos, vacantesAsignadasExtra, vacantesDisponibles,
+								vacantesAsignadas, cursosCompletos);
 					}
 
 				}
 			}
 
+		} else {
+			for (Curso disVsVac : cursos) {
+				int auxCant = disVsVac.getVacantesDisponibles();
+				if (disVsVac.getVacantes().size() > auxCant) {
+					asignarVacantesAEsteCurso(disVsVac, cursos, vacantesAsignadasExtra, vacantesDisponibles,
+							vacantesAsignadas, cursosCompletos);
+				}
+			}
 		}
 	}
 
-	private static void buscarVacantesParaEsteCurso(int id, List<Curso> cursosCompletos, int faltanVacantes) {
-		List<Vacante> aux = new ArrayList<Vacante>();
-		for(Curso curso : cursosCompletos){
-			if(curso.getVacantes().size() > 0){
-				for(Vacante vacante : curso.getVacantes()){
-					if(vacante.getCurso().getId() == id){
-						aux.add(vacante);
-					}
-				}
+	private static void asignarVacantesAEsteCurso(Curso disVsVac, List<Curso> cursos,
+			List<Vacante> vacantesAsignadasExtra, Integer vacantesDisponibles, List<Vacante> vacantesAsignadas,
+			List<Curso> cursosCompletos) {
+		for (Vacante auxVac : disVsVac.getVacantes()) {
+			// PODRIA VALIDAR SI ES LA DE MAYOR PRIORIDAD PARA EL ASPIRANTE
+			auxVac.setEstaAprobada(true);
+			System.out
+					.println("Se le pre asigna la vacante " + auxVac.getId() + "del aspirante con numero de documento "
+							+ auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
+			vacantesAsignadas.add(auxVac);
+			vacantesDisponibles = vacantesDisponibles - 1;
+			borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra);
+		}
+		cursosCompletos.add(disVsVac);
+	}
+
+	private static void buscarVacanteParaEsteCurso(Vacante vacante, List<Vacante> vacantesAsignadasExtra, int id,
+			List<Curso> cursos, int cantFaltantes) {
+		List<Vacante> vacantesCambiantes = new ArrayList<Vacante>();
+		for (int i = 0; i < vacantesAsignadasExtra.size() && cantFaltantes < 0; i++) {
+			Vacante aux = vacantesAsignadasExtra.get(i);
+			if (vacante.getPreinscripcion().getId() == aux.getPreinscripcion().getId()
+					&& aux.getCurso().getId() == id) {
+				vacante.setEstaAprobada(false);
+				System.out.println("Se le remueve la asignacion de la vacante al curso " + vacante.getCurso().getId()
+						+ "al aspirante con numero de documento "
+						+ vacante.getPreinscripcion().getAspirante().getNumeroDocumento()
+						+ ", para preasignarle una vacante al curso " + id);
+				Curso cur = buscarCursoById(id, cursos);
+				cur.getVacantes().add(aux);
+				vacantesCambiantes.add(aux);
+				cantFaltantes = cantFaltantes - 1;
 			}
 		}
+		vacantesAsignadasExtra.removeAll(vacantesCambiantes);
+	}
+
+	private static int cursosConVacantesDeSobra(Curso curso) {
+		int cant = 0;
+		for (Vacante vac : curso.getVacantes()) {
+			if (!vac.isEstaAprobada()) {
+				cant = cant + 1;
+			}
+		}
+		return cant;
 	}
 
 	private static void borrasLasOtrasVacantes(Vacante first, List<Curso> cursos,
