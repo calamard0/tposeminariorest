@@ -62,18 +62,14 @@ public class PreinscripcionController {
 	 ColegioRepository colRepo;
 	 
 	 @RequestMapping(value= "/crear", method = RequestMethod.POST)
-	 public ModelAndView crearPreinscripcion(@RequestBody PreInscripcionDTO dto) {	
+	 @ResponseBody
+	 public int crearPreinscripcion(@RequestBody PreInscripcionDTO dto) {	
 		 ModelAndView mav = new ModelAndView();
 		 mav.setViewName("preinscripcion");
 		 
-		 // para pasar del string a un Date se puede usar el siguiente codigo
-		 // java.util.Date date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").parse(dto.getAspirante().getFechaNacimiento().replace('T', ' ').replace('Z', ' '));
+		 PreInscripcion preInscripcion = preRepo.save(new PreInscripcion(dto));
 		 
-		 PreInscripcion preInscripcion = new PreInscripcion(dto);
-		 preRepo.save(new PreInscripcion(dto));
-		 
-		 mav.addObject("preInscripcion", preInscripcion);  
-		 return mav;
+		 return preInscripcion.getId();
 	 }
 	 
 	 @RequestMapping(value= "/modificar", method = RequestMethod.POST)

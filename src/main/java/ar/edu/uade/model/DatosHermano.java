@@ -29,13 +29,7 @@ public class DatosHermano extends DatosExtra {
 		this.nombre = dto.getNombre();
 		this.apellido = dto.getApellido();
 		this.numeroDocumento = dto.getNumeroDocumento();
-		
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			this.fechaNacimiento = df.parse(dto.getFechaNacimiento());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		this.fechaNacimiento = dto.getFechaNacimiento();
 		this.tipoDocumento = dto.getTipoDocumento();
 	}
 	
@@ -45,7 +39,7 @@ public class DatosHermano extends DatosExtra {
 		dto.setNombre(this.nombre);
 		dto.setApellido(this.apellido);
 		dto.setNumeroDocumento(this.numeroDocumento);
-		dto.setFechaNacimiento(this.fechaNacimiento.toString());
+		dto.setFechaNacimiento(this.fechaNacimiento);
 		dto.setTipoDocumento(this.tipoDocumento);
 		return dto;
 	}

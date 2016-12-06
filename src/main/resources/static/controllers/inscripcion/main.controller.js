@@ -12,6 +12,8 @@
             vm.anterior = anterior;
             vm.activeTab = 0;
             vm.crearInscripcion = crearInscripcion;
+            vm.cargaExitosa = false;
+            vm.preinscripcionCargadaNro = '';
         
             vm.getGrado = getGrado;
             vm.getTipoDoc = getTipoDoc;
@@ -47,7 +49,9 @@
             function crearInscripcion(inscripcion) {
                 inscripcionService.saveInscripcion(inscripcion)
                     .then(function(data) {
-                        console.log(data);
+                        toastr.success("Preinscripcion cargada existosamente!");
+                        vm.cargaExitosa = true;
+                        vm.preinscripcionCargadaNro = data;
                 })
             }
         

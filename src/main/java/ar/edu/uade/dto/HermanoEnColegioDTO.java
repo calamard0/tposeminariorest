@@ -1,9 +1,11 @@
 package ar.edu.uade.dto;
 
+import java.util.Date;
+
 public class HermanoEnColegioDTO {
 	private String nombre;
 	private String apellido;
-	private String fechaNacimiento;
+	private Date fechaNacimiento;
 	private String tipoDocumento;
 	private String numeroDocumento;
 	private ColegioDTO colegio;
@@ -28,11 +30,11 @@ public class HermanoEnColegioDTO {
 		this.apellido = apellido;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNac) {
+	public void setFechaNacimiento(Date fechaNac) {
 		this.fechaNacimiento = fechaNac;
 	}
 
