@@ -1,6 +1,7 @@
 package ar.edu.uade.model;
 
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.SortedSet;
 
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Curso {
 	private int grado;
 	private int vacantesDisponibles;
 	private Colegio colegio;
-	private SortedSet<Vacante> vacantes;
+	private Set<Vacante> vacantes;
 	
 	public Curso() {
 		
@@ -127,12 +128,12 @@ public class Curso {
 	}
 
 	@OneToMany(mappedBy = "curso")
-	@OrderBy
-	public SortedSet<Vacante> getVacantes() {
+	@OrderBy("peso DESC")
+	public Set<Vacante> getVacantes() {
 		return vacantes;
 	}
 
-	public void setVacantes(SortedSet<Vacante> vacantes) {
+	public void setVacantes(Set<Vacante> vacantes) {
 		this.vacantes = vacantes;
 	}
 }

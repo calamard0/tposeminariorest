@@ -10,7 +10,8 @@ import javax.persistence.OneToOne;
 import ar.edu.uade.dto.VacanteDTO;
 
 @Entity
-public class Vacante implements Comparable<Vacante> {
+//public class Vacante implements Comparable<Vacante> {
+public class Vacante {
 
 	private int id;	
 	private float peso;
@@ -96,17 +97,6 @@ public class Vacante implements Comparable<Vacante> {
 
 	public void setEstaAprobada(boolean estaAprobada) {
 		this.estaAprobada = estaAprobada;
-	}
-
-	@Override
-	public int compareTo(Vacante v) {
-		if (this.peso == v.getPeso()) {
-			return 0;
-		} else if (this.peso <= v.getPeso()) {
-            return 1;
-		} else {
-            return 0;
-		}    
 	}
 	
 }
