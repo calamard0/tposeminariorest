@@ -83,8 +83,7 @@ public class PreInscripcion {
 		dto.setValidada(this.validada);
 		dto.setCursos(new ArrayList<CursoDTO>());
 		for (Vacante vac : this.vacantes) {
-			Curso cur = cursoRepo.findOne(vac.getCurso().getId());
-			dto.getCursos().add(cur.toDTO());
+			dto.getCursos().add(vac.getCurso().toDTO());
 		}
 		
 		return dto;
