@@ -64,6 +64,7 @@
             function obtenerPreinscripcion() {
                 vm.cargandoPreinscripcion = true;
                 vm.modeValidate = true;
+                vm.showForm = false;
                 $scope.nivel = "1";
                 $scope.modalidad = "1";
                 inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
@@ -81,6 +82,9 @@
                                 $rootScope.$broadcast('existeResponsableEnColegio');
                             }
                         }, 500);  
+                }, function() {
+                    vm.cargandoPreinscripcion = false;
+                    toastr.error('No existe una presinscripcion con ese número, intente nuevamente');
                 });
             }
         
