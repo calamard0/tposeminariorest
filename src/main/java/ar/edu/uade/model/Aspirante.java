@@ -199,39 +199,41 @@ public class Aspirante {
 	private Set<ProblemaSalud> armarListaProblemasSalud(ProblemasSaludDTO problemasSalud) {
 		
 		Set<ProblemaSalud> problemas = new HashSet<ProblemaSalud>();
-		if (problemasSalud.getAlergias()) {
-			ProblemaSalud ps = new ProblemaSalud();
-			ps.setAspirante(this);
-			ps.setDescripcion(ProblemaSalud._alergia);
-			problemas.add(ps);
-		}
+		if ( problemasSalud != null ) {
+			if (problemasSalud.getAlergias()) {
+				ProblemaSalud ps = new ProblemaSalud();
+				ps.setAspirante(this);
+				ps.setDescripcion(ProblemaSalud._alergia);
+				problemas.add(ps);
+			}
+				
+			if (problemasSalud.getEpileptico()) {
+				ProblemaSalud ps = new ProblemaSalud();
+				ps.setAspirante(this);
+				ps.setDescripcion(ProblemaSalud._epileptico);
+				problemas.add(ps);
+			}
 			
-		if (problemasSalud.getEpileptico()) {
-			ProblemaSalud ps = new ProblemaSalud();
-			ps.setAspirante(this);
-			ps.setDescripcion(ProblemaSalud._epileptico);
-			problemas.add(ps);
-		}
-		
-		if (problemasSalud.getFisicos()) {
-			ProblemaSalud ps = new ProblemaSalud();
-			ps.setAspirante(this);
-			ps.setDescripcion(ProblemaSalud._fisico);
-			problemas.add(ps);
-		}
-		
-		if (problemasSalud.getSensorial()) {
-			ProblemaSalud ps = new ProblemaSalud();
-			ps.setAspirante(this);
-			ps.setDescripcion(ProblemaSalud._sensorial);
-			problemas.add(ps);
-		}
-		
-		if (problemasSalud.getOtros()) {
-			ProblemaSalud ps = new ProblemaSalud();
-			ps.setAspirante(this);
-			ps.setDescripcion(problemasSalud.getOtrosDescripcion());
-			problemas.add(ps);
+			if (problemasSalud.getFisicos()) {
+				ProblemaSalud ps = new ProblemaSalud();
+				ps.setAspirante(this);
+				ps.setDescripcion(ProblemaSalud._fisico);
+				problemas.add(ps);
+			}
+			
+			if (problemasSalud.getSensorial()) {
+				ProblemaSalud ps = new ProblemaSalud();
+				ps.setAspirante(this);
+				ps.setDescripcion(ProblemaSalud._sensorial);
+				problemas.add(ps);
+			}
+			
+			if (problemasSalud.getOtros()) {
+				ProblemaSalud ps = new ProblemaSalud();
+				ps.setAspirante(this);
+				ps.setDescripcion(problemasSalud.getOtrosDescripcion());
+				problemas.add(ps);
+			}
 		}
 		
 		if ( problemas.size() == 0 )

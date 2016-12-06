@@ -72,7 +72,7 @@
             function validarPreinscripcion(inscripcion) {
                 var deferred = $q.defer();
 
-                $http.get('/preinscripcion/validar/', inscripcion)
+                $http.post('/preinscripcion/validar/', inscripcion)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
@@ -86,7 +86,7 @@
             function modificarPreinscripcion(inscripcion) {
                 var deferred = $q.defer();
 
-                $http.get('/preinscripcion/modificar/', inscripcion)
+                $http.post('/preinscripcion/modificar/', inscripcion)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
