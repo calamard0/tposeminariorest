@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.uade.dao.ColegioRepository;
+import ar.edu.uade.dao.CursoRepository;
 import ar.edu.uade.dao.UsuarioRepository;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
@@ -20,6 +21,9 @@ public class ProcesosCargaController {
 	
 	@Autowired
 	ColegioRepository colRepo;
+	
+	@Autowired
+	CursoRepository cursoRepo;
 	
 	@Autowired
 	UsuarioRepository userRepo;
@@ -36,25 +40,26 @@ public class ProcesosCargaController {
 			System.out.println("Proceso colegio n " + i + " de " + colegios.size());
 			
 			Curso c1 = new Curso("Primer Grado", 1, 10, colegio);
-			Curso c2 = new Curso("Segundo Grado", 2, 10, colegio);
-			Curso c3 = new Curso("Tercero Grado", 3, 10, colegio);
-			Curso c4 = new Curso("Cuarto Grado", 4, 10, colegio);
-			Curso c5 = new Curso("Quinto Grado", 5, 10, colegio);
-			Curso c6 = new Curso("Sexto Grado", 6, 10, colegio);
-			Curso c7 = new Curso("Septimo Grado", 7, 10, colegio);
+//			Curso c2 = new Curso("Segundo Grado", 2, 10, colegio);
+//			Curso c3 = new Curso("Tercero Grado", 3, 10, colegio);
+//			Curso c4 = new Curso("Cuarto Grado", 4, 10, colegio);
+//			Curso c5 = new Curso("Quinto Grado", 5, 10, colegio);
+//			Curso c6 = new Curso("Sexto Grado", 6, 10, colegio);
+//			Curso c7 = new Curso("Septimo Grado", 7, 10, colegio);
 			
-			Set<Curso> cursos = new HashSet<Curso>();
-			cursos.add(c1);
-			cursos.add(c2);
-			cursos.add(c3);
-			cursos.add(c4);
-			cursos.add(c5);
-			cursos.add(c6);
-			cursos.add(c7);
+//			Set<Curso> cursos = new HashSet<Curso>();
+//			cursos.add(c1);
+//			cursos.add(c2);
+//			cursos.add(c3);
+//			cursos.add(c4);
+//			cursos.add(c5);
+//			cursos.add(c6);
+//			cursos.add(c7);
 			
-			colegio.setCursos(cursos);
+			//colegio.setCursos(cursos);
+			cursoRepo.save(c1);
 			
-			colRepo.save(colegio);	
+			//colRepo.save(colegio);	
 			i++;
 		}
 		

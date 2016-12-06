@@ -153,7 +153,7 @@ public class TestController {
 		int grado = 1;
 		
 		// aca comienza a ciclar
-		while ( i < 500 ) {
+		while ( i < 25 ) {
 			// empieza vacantes
 			List<Curso> cursos = cursoRepo.findByGrado(grado);
 			int numero = rnd.nextInt(4500 - 1 + 1) + 1;
@@ -203,10 +203,10 @@ public class TestController {
 			fichaMunicipal += 567;
 			i += 1;
 			
-			if ( grado == 7)
-				grado = 1;
-			else
-				grado += 1;
+//			if ( grado == 7)
+//				grado = 1;
+//			else
+//				grado += 1;
 			
 			fechaNac = sumarRestarDiasFecha(fechaNac, grado);
 			fechaNacHermano = sumarRestarDiasFecha(fechaNacHermano, grado);
@@ -239,18 +239,30 @@ public class TestController {
 	private Set<Vacante> crearVacantes(Curso cur, List<Curso> cursos, Random rnd, PreInscripcion pre) {
 		Set<Vacante> vacantes = new HashSet<Vacante>();
 		int peso = 8;
+		List<Integer> cursosAgregados = new ArrayList<Integer>();
 		while ( peso > 0 ) {
+			boolean agregado = false;
 			Vacante vac = new Vacante();
-			if ( peso == 8 )
+			Curso curRnd = cursos.get(rnd.nextInt(cursos.size()));
+			if ( peso == 8 ) {
+				cursosAgregados.add(cur.getId());
 				vac.setCurso(cur);
-			else
-				vac.setCurso(cursos.get(rnd.nextInt(cursos.size())));
-			vac.setEstaAprobada(false);
-			vac.setPeso(peso);
-			vac.setPreinscripcion(pre);
-			vac.setPrioridad(peso);
-			vacantes.add(vac);
-			peso -= 1;
+				agregado = true;
+			} else {
+				if ( ! cursosAgregados.contains(curRnd.getId()) ) {
+					agregado = true;
+					vac.setCurso(curRnd);
+					cursosAgregados.add(curRnd.getId());
+				}
+			}
+			if (agregado) {
+				vac.setEstaAprobada(false);
+				vac.setPeso(peso);
+				vac.setPreinscripcion(pre);
+				vac.setPrioridad(peso);
+				vacantes.add(vac);
+				peso -= 1;
+			}
 		}
 		return vacantes;
 	}
@@ -386,10 +398,10 @@ public class TestController {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fecha);
 		calendar.add(Calendar.DAY_OF_YEAR, 1);
-		if (grado != 1)
-			calendar.add(calendar.YEAR, -1);
-		else
-			calendar.add(calendar.YEAR, 6);
+//		if (grado != 1)
+//			calendar.add(calendar.YEAR, -1);
+//		else
+//			calendar.add(calendar.YEAR, 6);
 		return calendar.getTime();
 	 }
 	
