@@ -329,6 +329,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'emaranga','emaranga','ADMIN',NULL),(2,'iaddolorato','iaddolorato','COLEGIO',1),(3,'greobasco','greobasco','ADMIN',NULL),(4,'arey','arey','COLEGIO',2),(5,'jfruchart','jfruchart','ADMIN',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
