@@ -11,32 +11,29 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dao.PreInscripcionRepository;
-import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
 import ar.edu.uade.model.PreInscripcion;
 
-@RestController
-//@Controller
+@Controller
 @RequestMapping("preinscripcion")
 public class PreinscripcionController {
 	
@@ -111,6 +108,7 @@ public class PreinscripcionController {
 	 }
 	 
 	@RequestMapping(value = "/sugerirColegios/{direccion}/{grado}", method = RequestMethod.GET)
+	@ResponseBody
 	public List<CursoDTO> sugerirColegios(@PathVariable String direccion, @PathVariable int grado) {
 		direccion += ", Buenos Aires, Ciudad Autónoma de Buenos Aires";
 		List<Colegio> colegios = colRepo.findAll();
