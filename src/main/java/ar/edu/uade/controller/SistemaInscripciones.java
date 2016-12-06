@@ -3,6 +3,9 @@ package ar.edu.uade.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
@@ -22,6 +25,9 @@ public class SistemaInscripciones {
 	private List<PreInscripcion> preInscripciones;
 	private PreInscripcion preInscripcionActual;
 	private Usuario usuarioActual;
+	
+	@Autowired
+	ColegioRepository colegioRepository;
 
 	public static SistemaInscripciones getInstance() {
 		if (instance == null)
@@ -35,7 +41,13 @@ public class SistemaInscripciones {
 	}
 
 	public List<PreInscripcionDTO> asignarVacantes() {
-
+		if(colegios!= null){
+			colegios.clear();
+		}else{
+			colegios = new ArrayList<Colegio>();
+		}
+//		colegios.addAll();
+		
 		List<PreInscripcionDTO> preDto = new ArrayList<PreInscripcionDTO>();
 
 		for (int i = 1; i < 8; i++) {

@@ -17,7 +17,7 @@ public class AsignarVacantesHelper {
 
 		System.out.println("Se procesa el grado " + grado);
 
-		if (vacantes.size() >= vacantesDisponibles) {
+		if ((vacantes.size() / 8) >= vacantesDisponibles) {
 			while (vacantesDisponibles != 0) {
 				for (Curso disVsVac : cursos) {
 					int auxCant = disVsVac.getVacantesDisponibles();
@@ -70,7 +70,7 @@ public class AsignarVacantesHelper {
 							+ auxVac.getPreinscripcion().getAspirante().getNumeroDocumento());
 			vacantesAsignadas.add(auxVac);
 			vacantesDisponibles = vacantesDisponibles - 1;
-			borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra);
+			borrasLasOtrasVacantes(auxVac, cursos, vacantesAsignadasExtra, cursosCompletos);
 		}
 		cursosCompletos.add(disVsVac);
 	}
@@ -106,18 +106,20 @@ public class AsignarVacantesHelper {
 		return cant;
 	}
 
-	private static void borrasLasOtrasVacantes(Vacante first, List<Curso> cursos,
-			List<Vacante> vacantesAsignadasExtra) {
+	private static void borrasLasOtrasVacantes(Vacante first, List<Curso> cursos, List<Vacante> vacantesAsignadasExtra,
+			List<Curso> cursosCompletos) {
+		List<Curso> aux = new ArrayList<Curso>();
+		aux.addAll(cursos);
+		aux.removeAll(cursosCompletos);
 		buscarCursoById(first.getCurso().getId(), cursos).getVacantes().remove(first);
-		for (Vacante vac : first.getPreinscripcion().getVacantes()) {
-			Curso cur = buscarCursoById(vac.getCurso().getId(), cursos);
-			for (Vacante vacASacar : cur.getVacantes()) {
-				if (vacASacar.getId() == first.getId()) {
+		for (Curso curso : aux) {
+			for (Vacante vac : curso.getVacantes()) {
+				if (vac.getPreinscripcion().getId() == first.getPreinscripcion().getId()) {
 					System.out
 							.println("Descartos la vacante " + first.getId() + "del aspirante con numero de documento "
 									+ first.getPreinscripcion().getAspirante().getNumeroDocumento());
-					vacantesAsignadasExtra.add(vacASacar);
-					cur.getVacantes().remove(vacASacar);
+					vacantesAsignadasExtra.add(vac);
+					curso.getVacantes().remove(vac);
 				}
 			}
 		}
