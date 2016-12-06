@@ -22,6 +22,7 @@ import ar.edu.uade.dao.DatosLaboralesRepository;
 import ar.edu.uade.dao.PreInscripcionRepository;
 import ar.edu.uade.dao.ResponsableRepository;
 import ar.edu.uade.dao.UsuarioRepository;
+import ar.edu.uade.dao.VacanteRepository;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.helper.CsvReader;
 import ar.edu.uade.model.Aspirante;
@@ -65,6 +66,9 @@ public class TestController {
 	
 	@Autowired
 	PreInscripcionRepository preRepo;
+	
+	@Autowired
+	VacanteRepository vacRepo;
 	
 	@RequestMapping(value = "/insertColegio")
 	public void crearColegio() {
@@ -382,4 +386,12 @@ public class TestController {
 			calendar.add(calendar.YEAR, 6);
 		return calendar.getTime();
 	 }
+	
+	@RequestMapping(value = "/getPreInscripciones/{preinscripcionId}")
+	public List<Vacante> getPreInscripciones(@PathVariable Integer preinscripcionId) {
+		PreInscripcion preIns = preRepo.findOne(preinscripcionId);
+		List<Vacante> vacantes = vacRepo.findByPreinscripcionOrderByPrioridadDesc(preIns);
+
+		return vacantes;
+	}
 }
