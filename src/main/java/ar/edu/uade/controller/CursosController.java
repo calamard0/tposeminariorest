@@ -26,7 +26,7 @@ public class CursosController {
 	
 	@RequestMapping("/view")
     public String view() {
-        return "/views/cursos.html";
+        return "/views/modificarColegio.html";
     }
 		
 	@RequestMapping(value= "/update", method = RequestMethod.POST)
