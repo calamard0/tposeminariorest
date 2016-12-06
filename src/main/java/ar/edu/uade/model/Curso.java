@@ -1,5 +1,7 @@
 package ar.edu.uade.model;
 
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.SortedSet;
 
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+import ar.edu.uade.dto.AlumnoDTO;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 
@@ -23,8 +26,7 @@ public class Curso {
 	private int grado;
 	private int vacantesDisponibles;
 	private Colegio colegio;
-	private SortedSet<Vacante> vacantes;
-
+	private Set<Vacante> vacantes;
 	
 	public Curso() {
 		
@@ -68,6 +70,16 @@ public class Curso {
 		CursoDTO dto = new CursoDTO(this.getDescripcion(), this.getGrado(), this.getVacantesDisponibles());
 		dto.setId(this.id);
 		dto.setColegio(new ColegioDTO(this.colegio.getId(), this.colegio.getNombre(), this.colegio.getDireccion(), null));
+		
+		if ( this.vacantes != null && this.vacantes.size() > 0 ) {
+			dto.setAlumnos(new ArrayList<AlumnoDTO>());
+			for (Vacante vacante : vacantes) {
+				if ( vacante.isEstaAprobada() ) {
+					dto.getAlumnos().add(vacante.getPreinscripcion().toAlumnoDTO());
+				}
+			}
+		}
+		
 		return dto;
 	}
 
@@ -117,11 +129,11 @@ public class Curso {
 
 	@OneToMany(mappedBy = "curso")
 	@OrderBy
-	public SortedSet<Vacante> getVacantes() {
+	public Set<Vacante> getVacantes() {
 		return vacantes;
 	}
 
-	public void setVacantes(SortedSet<Vacante> vacantes) {
+	public void setVacantes(Set<Vacante> vacantes) {
 		this.vacantes = vacantes;
 	}
 }

@@ -1,5 +1,7 @@
 package ar.edu.uade.dto;
 
+import java.util.List;
+
 public class CursoDTO {
 
 	private int id;
@@ -7,6 +9,7 @@ public class CursoDTO {
 	private int grado;
 	private int vacantesDisponibles;
 	private ColegioDTO colegio;
+	private List<AlumnoDTO> alumnos;
 
 	public CursoDTO() {
 
@@ -56,5 +59,13 @@ public class CursoDTO {
 	 
 	public void setColegio(ColegioDTO colegio) {
 		this.colegio = colegio;
+	}
+
+	public List<AlumnoDTO> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(List<AlumnoDTO> alumnos) {
+		this.alumnos = alumnos;
 	}
 }

@@ -98,4 +98,17 @@ public class CursosController {
 		return cursos;
 	 }
 	 
+	 @RequestMapping(value= "/getAlumnos/{colegioId}")
+	 @ResponseBody
+	 public List<CursoDTO> getAlumnos(@PathVariable Integer colegioId) {
+		Colegio cole = colRepo.findOne(colegioId);
+		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
+		
+		for (Curso curso : cole.getCursos()) {
+			cursos.add(curso.toDTO());
+		}
+		
+		return cursos;
+	 }
+	 
 }

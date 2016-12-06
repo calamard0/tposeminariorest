@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.uade.dao.CursoRepository;
+import ar.edu.uade.dto.AlumnoDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.helper.CalcularPesosHelper;
@@ -86,6 +87,21 @@ public class PreInscripcion {
 			dto.getCursos().add(cur.toDTO());
 		}
 		
+		return dto;
+	}
+	
+	public AlumnoDTO toAlumnoDTO() {
+		AlumnoDTO dto = new AlumnoDTO();
+		dto.setApellido(this.aspirante.getApellido());
+		dto.setFechaNacimiento(this.aspirante.getFechaNacimiento());
+		dto.setNombre(this.aspirante.getNombre());
+		
+		if ( this.datosExtra instanceof DatosPadre )
+			dto.setPadreEmpleado(true);
+		if ( this.datosExtra instanceof DatosHermano )
+			dto.setTieneHermano(true);
+		if ( this.datosExtra instanceof DatosColegioAnt )
+			dto.setVieneJardin(true);
 		return dto;
 	}
 	
