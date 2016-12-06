@@ -2,50 +2,50 @@ package ar.edu.uade.dto;
 
 public class ProblemasSaludDTO {
 
-	private Boolean fisicos;
-	private Boolean alergias;
-	private Boolean sensorial;
-	private Boolean epileptico;
-	private Boolean otros;
+	private boolean fisicos;
+	private boolean alergias;
+	private boolean sensorial;
+	private boolean epileptico;
+	private boolean otros;
 	private String otrosDescripcion;
 
-	public Boolean getFisicos() {
+	public boolean getFisicos() {
 		return fisicos;
 	}
 
-	public void setFisicos(Boolean fisicos) {
+	public void setFisicos(boolean fisicos) {
 		this.fisicos = fisicos;
 	}
 
-	public Boolean getAlergias() {
+	public boolean getAlergias() {
 		return alergias;
 	}
 
-	public void setAlergias(Boolean alergias) {
+	public void setAlergias(boolean alergias) {
 		this.alergias = alergias;
 	}
 
-	public Boolean getSensorial() {
+	public boolean getSensorial() {
 		return sensorial;
 	}
 
-	public void setSensorial(Boolean sensorial) {
+	public void setSensorial(boolean sensorial) {
 		this.sensorial = sensorial;
 	}
 
-	public Boolean getEpileptico() {
+	public boolean getEpileptico() {
 		return epileptico;
 	}
 
-	public void setEpileptico(Boolean epileptico) {
+	public void setEpileptico(boolean epileptico) {
 		this.epileptico = epileptico;
 	}
 
-	public Boolean getOtros() {
+	public boolean getOtros() {
 		return otros;
 	}
 
-	public void setOtros(Boolean otros) {
+	public void setOtros(boolean otros) {
 		this.otros = otros;
 	}
 

@@ -1001,9 +1001,9 @@
         <button type="button" class="btn btn-primary btn-lg" ng-if="mainCtrl.activeTab == 5 && !mainCtrl.modeValidate"
                 ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Finalizar </button>
         <button type="button" class="btn btn-default btn-lg" ng-if="mainCtrl.activeTab == 5 && mainCtrl.modeValidate"
-                ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Guardar </button>
+                ng-click="mainCtrl.modificarPreinscripcion()"> Guardar </button>
         <button type="button" class="btn btn-primary btn-lg" ng-if="mainCtrl.activeTab == 5 && mainCtrl.modeValidate"
-                ng-click="mainCtrl.crearInscripcion(mainCtrl.inscripcion)"> Validar </button>
+                ng-click="mainCtrl.validarPreinscripcion()"> Validar </button>
     </div>
 </div>
 <div ng-if="mainCtrl.cargaExitosa" class="container">
