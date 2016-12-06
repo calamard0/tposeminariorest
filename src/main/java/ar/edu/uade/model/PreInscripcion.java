@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ar.edu.uade.dao.CursoRepository;
 import ar.edu.uade.dto.AlumnoDTO;
 import ar.edu.uade.dto.CursoDTO;
+import ar.edu.uade.dto.DatosExtraDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
 import ar.edu.uade.helper.CalcularPesosHelper;
 
@@ -91,6 +92,7 @@ public class PreInscripcion {
 		}
 		
 		if ( this.datosExtra != null ) {
+			dto.setDatosExtra(new DatosExtraDTO());
 			if (this.datosExtra instanceof DatosColegioAnt) {
 				dto.getDatosExtra().setJardinAnterior((( DatosColegioAnt ) this.datosExtra).toDTO());
 			}
