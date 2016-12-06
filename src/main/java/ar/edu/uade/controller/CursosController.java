@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ar.edu.uade.dao.ColegioRepository;
+import ar.edu.uade.dao.UsuarioRepository;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.model.Colegio;
 import ar.edu.uade.model.Curso;
+import ar.edu.uade.model.Usuario;
 
 @Controller
 @RequestMapping("cursos")
@@ -24,10 +29,31 @@ public class CursosController {
 	@Autowired
 	ColegioRepository colRepo;
 	
+	@Autowired
+	UsuarioRepository usuarioRepo;
+	
 	@RequestMapping("/view")
-    public String view() {
+    public String view(Model model) {
+		model.addAttribute("colegioId", "123");
         return "/views/modificarColegio.html";
     }
+	
+	@RequestMapping("/currentuser")
+	@ResponseBody
+	public Usuario getColegioUsuarioLogueado() {
+		Usuario usuario = null;
+		try {
+			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			String username = user.getUsername();
+			usuario = usuarioRepo.findByNombreUsuario(username);
+			usuario.getColegio().setCursos(null);			
+		} catch (Exception e) {
+			System.out.println("Usuario no logueado");
+		}
+		return usuario;
+	}
+	
+	
 		
 	@RequestMapping(value= "/update", method = RequestMethod.POST)
 	@ResponseBody
