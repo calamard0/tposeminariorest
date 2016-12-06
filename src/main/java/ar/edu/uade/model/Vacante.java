@@ -100,9 +100,9 @@ public class Vacante implements Comparable<Vacante> {
 
 	@Override
 	public int compareTo(Vacante v) {
-		if (this.prioridad == v.getPrioridad()) {
+		if (this.peso == v.getPeso()) {
 			return 0;
-		} else if (this.prioridad >= v.getPrioridad()) {
+		} else if (this.peso >= v.getPeso()) {
             return 1;
 		} else {
             return 0;
