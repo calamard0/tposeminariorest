@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ar.edu.uade.dao.ColegioRepository;
 import ar.edu.uade.dto.ColegioDTO;
@@ -17,6 +21,8 @@ import ar.edu.uade.model.PreInscripcion;
 import ar.edu.uade.model.Usuario;
 import ar.edu.uade.model.Vacante;
 
+@Controller
+@RequestMapping("inscripciones")
 public class SistemaInscripciones {
 
 	private static SistemaInscripciones instance = null;
@@ -40,6 +46,8 @@ public class SistemaInscripciones {
 
 	}
 
+	@RequestMapping(value= "/asignar", method = RequestMethod.GET)
+	@ResponseBody
 	public List<PreInscripcionDTO> asignarVacantes() {
 		if(colegios!= null){
 			colegios.clear();
@@ -50,6 +58,7 @@ public class SistemaInscripciones {
 		
 		List<PreInscripcionDTO> preDto = new ArrayList<PreInscripcionDTO>();
 
+		//List<Colegio> colegios = colegioRepository.findAll();
 		for (int i = 1; i < 8; i++) {
 
 			List<Curso> cursos = new ArrayList<Curso>();
