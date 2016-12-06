@@ -327,7 +327,7 @@ public class PreinscripcionController {
 	 }
 	
      private Hashtable<Integer,Integer> getIdsColegiosConDistanciasMinimas(Hashtable<Integer,Integer> colegiosConDistancias) {
-    	int maxColegiosASugerir = 45;
+    	int maxColegiosASugerir = 25;
     	Hashtable<Integer,Integer> colegiosConDistanciasMinimas = new Hashtable<Integer,Integer>();
     	for(int i=0; i<maxColegiosASugerir; i++){
     		Random generator = new Random();
