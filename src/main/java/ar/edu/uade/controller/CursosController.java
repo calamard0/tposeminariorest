@@ -52,8 +52,6 @@ public class CursosController {
 		}
 		return usuario;
 	}
-	
-	
 		
 	@RequestMapping(value= "/update", method = RequestMethod.POST)
 	@ResponseBody

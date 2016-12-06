@@ -35,6 +35,7 @@ CREATE TABLE `aspirante` (
   `numero_documento` varchar(20) DEFAULT NULL,
   `pais_nacimiento` varchar(100) DEFAULT NULL,
   `sistema_salud` varchar(100) DEFAULT NULL,
+  `telefono` varchar(30) DEFAULT NULL,
   `certificado_disca` int(11) DEFAULT NULL,
   `domicilio_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),

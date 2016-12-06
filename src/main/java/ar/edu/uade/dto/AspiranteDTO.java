@@ -15,6 +15,7 @@ public class AspiranteDTO {
 	private String sistemaSalud;
 	private ProblemasSaludDTO problemasSalud;
 	private boolean certificadoDisca;
+	private String telefono;
 	private DomicilioDTO domicilio;
 	
 	public AspiranteDTO() {
@@ -115,6 +116,14 @@ public class AspiranteDTO {
 
 	public void setProblemasSalud(ProblemasSaludDTO problemasSalud) {
 		this.problemasSalud = problemasSalud;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 }

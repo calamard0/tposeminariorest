@@ -30,6 +30,7 @@ public class Aspirante {
 	private Set<ProblemaSalud> problemasSalud;
 	private boolean certificadoDisca;
 	private Domicilio domicilio;
+	private String telefono;
 	
 	public Aspirante() {
 		
@@ -48,6 +49,7 @@ public class Aspirante {
 		this.problemasSalud = this.armarListaProblemasSalud(dto.getProblemasSalud());
 		this.certificadoDisca = dto.isCertificadoDisca();
 		this.domicilio = new Domicilio(dto.getDomicilio());
+		this.telefono = dto.getTelefono();
 	}
 
 	public AspiranteDTO toDTO() {
@@ -64,6 +66,7 @@ public class Aspirante {
 		dto.setCertificadoDisca(this.certificadoDisca);
 		dto.setDomicilio(this.domicilio.toDTO());
 		dto.setProblemasSalud(this.armarProblemasSalud());
+		dto.setTelefono(this.telefono);
 		return dto;
 	}
 
@@ -235,5 +238,13 @@ public class Aspirante {
 			return null;
 		
 		return problemas;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 }
