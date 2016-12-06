@@ -73,20 +73,21 @@ public class TestController {
 	@RequestMapping(value = "/insertColegio")
 	public void crearColegio() {
 		
-		Colegio col = new Colegio("Colegio2", "Calle NuevaAAA", null);
-		
-		Curso cu = new Curso("CursoA", 1, 30, col);
-		//Curso cu2 = new Curso("CursoB", 2, 40, col);
-		//Curso cu3 = new Curso("CursoC", 3, 50, col);
-		
-		col.setId(446);
-		
-		Set<Curso> cursos = new HashSet<Curso>();
-		cursos.add(cu);
-		
-		col.setCursos(cursos);
-		
-		colegioRepository.save(col);
+//		Colegio col = new Colegio("Colegio2", "Calle NuevaAAA", null);
+//		
+//		Curso cu = new Curso("CursoA", 1, 30, col);
+//		//Curso cu2 = new Curso("CursoB", 2, 40, col);
+//		//Curso cu3 = new Curso("CursoC", 3, 50, col);
+//		
+//		col.setId(446);
+//		
+//		Set<Curso> cursos = new HashSet<Curso>();
+//		cursos.add(cu);
+//		
+//		col.setCursos(cursos);
+//		
+//		colegioRepository.save(col);
+		colegioRepository.delete(446);
 	}
 	
 	@RequestMapping(value = "/getColegios")
@@ -109,8 +110,17 @@ public class TestController {
 	public Iterable<DatosLaborales> getDatosLaborales() {
 		return datosLaboralesRepository.findAll();
 	}
-
 	
+	@RequestMapping(value = "/deleteDatosLaborales/{id}/{respId}")
+	public void deleteDatosLaborales(@PathVariable Integer id, @PathVariable Integer respId) {
+		
+		Responsable resp = respRepo.findOne(respId);
+		resp.setDatosLaborales(null);
+		respRepo.save(resp);
+		
+		datosLaboralesRepository.delete(id);
+	}
+
 	@RequestMapping(value = "/getResponsables")
 	public Iterable<Responsable> getResponsables() {
 		return respRepo.findAll();

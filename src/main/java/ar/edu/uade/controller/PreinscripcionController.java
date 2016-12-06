@@ -122,9 +122,6 @@ public class PreinscripcionController {
 			}
 		 }
 		 
-		 if ( preInsActual.getDatosExtra() != null && preInsModificada.getDatosExtra() == null )
-			datExtRepo.delete(preInsActual.getDatosExtra().getId());
-		 
 		 // verificar las vacantes contra las actuales.
 		 for (Vacante vac : preInsModificada.getVacantes()) {
 			 for (Vacante vacActual : preInsActual.getVacantes()) {
@@ -135,14 +132,20 @@ public class PreinscripcionController {
 			 }
 		 }
 		 
-		 // si trabajaba, y ahora no lo hace, hay que eliminar datos laborales.
-		 if ( preInsActual.getResponsable().isTrabaja() && ! preInsModificada.getResponsable().isTrabaja() )
-			 datLabRepo.delete(preInsActual.getResponsable().getDatosLaborales().getId());
+		 if ( preInsActual.getDatosExtra() != null && preInsModificada.getDatosExtra() != null )
+			 preInsModificada.getDatosExtra().setId(preInsActual.getDatosExtra().getId());
 		 
 		 if ( calcularPesos )
 			 preInsModificada.calcularPesoVacantes();
 		 
 		 preRepo.save(preInsModificada);
+		 
+		 if ( preInsActual.getDatosExtra() != null && preInsModificada.getDatosExtra() == null )
+			datExtRepo.delete(preInsActual.getDatosExtra().getId());
+		 
+		 // si trabajaba, y ahora no lo hace, hay que eliminar datos laborales.
+		 if ( preInsActual.getResponsable().isTrabaja() && ! preInsModificada.getResponsable().isTrabaja() )
+			 datLabRepo.delete(preInsActual.getResponsable().getDatosLaborales().getId());
 	 }
 
 	 

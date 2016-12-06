@@ -2,12 +2,21 @@ package ar.edu.uade.dto;
 
 public class DatosExtraDTO {
 
+	private int id;
 	private JardinDTO jardinAnterior;
 	private HermanoEnColegioDTO hermanoEnColegio;
 	private ResponsableEnColegioDTO responsableEnColegio;
 
 	public DatosExtraDTO() {
 
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public JardinDTO getJardinAnterior() {

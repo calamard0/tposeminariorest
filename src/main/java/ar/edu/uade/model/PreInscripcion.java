@@ -48,16 +48,20 @@ public class PreInscripcion {
 		this.responsable = new Responsable(dto.getResponsable());
 		this.validada = dto.isValidada();
 		
-		if (dto.getDatosExtra().getJardinAnterior() != null) {
-			this.datosExtra = new DatosColegioAnt(dto.getDatosExtra().getJardinAnterior());
-		}
-		
-		if (dto.getDatosExtra().getHermanoEnColegio() != null) {
-			this.datosExtra = new DatosHermano(dto.getDatosExtra().getHermanoEnColegio());
-		}
+		if ( dto.getDatosExtra() != null ) {
+			if (dto.getDatosExtra().getJardinAnterior() != null) {
+				this.datosExtra = new DatosColegioAnt(dto.getDatosExtra().getJardinAnterior());
+			}
+			
+			if (dto.getDatosExtra().getHermanoEnColegio() != null) {
+				this.datosExtra = new DatosHermano(dto.getDatosExtra().getHermanoEnColegio());
+			}
 
-		if (dto.getDatosExtra().getResponsableEnColegio() != null) {
-			this.datosExtra = new DatosPadre(dto.getDatosExtra().getResponsableEnColegio());
+			if (dto.getDatosExtra().getResponsableEnColegio() != null) {
+				this.datosExtra = new DatosPadre(dto.getDatosExtra().getResponsableEnColegio());
+			}
+			if ( this.datosExtra != null )
+				this.datosExtra.setId(dto.getDatosExtra().getId());
 		}
 		
 		this.vacantes = new HashSet<Vacante>();
@@ -84,6 +88,21 @@ public class PreInscripcion {
 		dto.setCursos(new ArrayList<CursoDTO>());
 		for (Vacante vac : this.vacantes) {
 			dto.getCursos().add(vac.getCurso().toDTO());
+		}
+		
+		if ( this.datosExtra != null ) {
+			if (this.datosExtra instanceof DatosColegioAnt) {
+				dto.getDatosExtra().setJardinAnterior((( DatosColegioAnt ) this.datosExtra).toDTO());
+			}
+			
+			if (this.datosExtra instanceof DatosHermano) {
+				dto.getDatosExtra().setHermanoEnColegio((( DatosHermano ) this.datosExtra).toDTO());
+			}
+
+			if (this.datosExtra instanceof DatosPadre) {
+				dto.getDatosExtra().setResponsableEnColegio((( DatosPadre ) this.datosExtra).toDTO());
+			}
+			dto.getDatosExtra().setId(this.datosExtra.getId());
 		}
 		
 		return dto;
