@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('mainController', function ($scope, $rootScope, toastr, toastrConfig, inscripcionModelService, inscripcionService, $http) {
+        .controller('mainController', function ($scope, $rootScope, toastr, toastrConfig, inscripcionModelService, inscripcionService, $http, $window, $timeout) {
 
             var vm = this;
         
@@ -43,6 +43,7 @@
                     toastr.error('Por favor, complete los campos obligatorios (marcados en rojo)');
                 } else {
                     vm.activeTab = currentTabIndex+1;
+                    $window.scrollTo(0, 0);
                 }
                 console.log(vm.inscripcion);
             }
@@ -70,14 +71,16 @@
                         vm.showForm = true;
                         vm.cargandoPreinscripcion = false;
                         vm.grado = data.cursos[0].grado;
-                        if (data.datosExtra.jardinAnterior) {
-                        	$rootScope.$broadcast('existeJardinAnterior');
-                        } else if (data.datosExtra.hermanoEnColegio) {
-                        	$rootScope.$broadcast('existeHermanoEnColegio');
-                        } else if (data.datosExtra.responsableEnColegio) {
-                        	$rootScope.$broadcast('existeResponsableEnColegio');
-                        }
                         vm.inscripcion = data;
+                        $timeout(function() {
+                            if (data.datosExtra.jardinAnterior) {
+                                $rootScope.$broadcast('existeJardinAnterior');
+                            } else if (data.datosExtra.hermanoEnColegio) {
+                                $rootScope.$broadcast('existeHermanoEnColegio');
+                            } else if (data.datosExtra.responsableEnColegio) {
+                                $rootScope.$broadcast('existeResponsableEnColegio');
+                            }
+                        }, 500);  
                 });
             }
         

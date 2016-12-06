@@ -68,11 +68,7 @@
                         }
                     }
                 },
-                datosExtra: {
-                    jardinAnterior: null,
-                    hermanoEnColegio: null,
-                    responsableEnColegio: null
-                },
+                datosExtra: null,
                 cursos: []
             };
         

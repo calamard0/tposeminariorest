@@ -24,28 +24,8 @@
                 vm.jardines = data.data.jardin;                
             });
         
-            function cambioDatoAdicional(datoAdicionalName) {
-                switch(datoAdicionalName) {
-                    case 'jardinAnterior':
-                        vm.hermanoEnColegio = false;
-                        inscripcionModel.datosExtra.hermanoEnColegio = null;
-                        vm.responsableEnColegio = false;
-                        inscripcionModel.datosExtra.responsableEnColegio = null;
-                        break;
-                    case 'hermanoEnColegio':
-                        vm.jardinAnterior = false;
-                        inscripcionModel.datosExtra.jardinAnterior = null;
-                        vm.responsableEnColegio = false;
-                        inscripcionModel.datosExtra.responsableEnColegio = null;
-                        break;
-                    case 'responsableEnColegio':
-                        vm.hermanoEnColegio = false;
-                        inscripcionModel.datosExtra.hermanoEnColegio = null;
-                        vm.jardinAnterior = false;
-                        inscripcionModel.datosExtra.jardinAnterior = null;
-                        break;
-                }
-                inscripcionModel.datosExtra[datoAdicionalName] = null;
+            function cambioDatoAdicional() {
+                inscripcionModel.datosExtra = null;
             }
             
             $scope.$on('existeJardinAnterior', function() {

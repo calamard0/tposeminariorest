@@ -33,7 +33,7 @@
                     <label class="control-label col-sm-2" for="nivel">Grado:</label>
                     <div class="col-sm-8">
                         <select id="modalidad" class="form-control" ng-model="mainCtrl.grado" required
-                                ng-options="o.value as o.label for o in seleccionNivel.gradoOptions"></select>
+                                ng-options="o.value as o.label disable when o.disabled for o in seleccionNivel.gradoOptions"></select>
                     </div>
                 </div>
             </form>
@@ -571,7 +571,7 @@
                         <select id="jardinAnteriorSelect" name="jardinAnteriorSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.jardinAnterior" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('jardinAnterior')"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.jardinAnterior">
@@ -591,7 +591,7 @@
                         <select id="hermanoEnColegioSelect" name="hermanoEnColegioSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.hermanoEnColegio" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('hermanoEnColegio')"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.hermanoEnColegio">
@@ -665,7 +665,7 @@
                         <select id="responsableEnColegioSelect" name="responsableEnColegioSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.responsableEnColegio" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('responsableEnColegio')"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.responsableEnColegio">
