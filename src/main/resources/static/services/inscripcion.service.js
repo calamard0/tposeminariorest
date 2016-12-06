@@ -58,7 +58,7 @@
             function getPreinscripcion(id) {
                 var deferred = $q.defer();
 
-                $http.get('/preinscripcion/validar/', id)
+                $http.get('/preinscripcion/getPreInscripcion/'+id)
                     .success(function (data) {
                         deferred.resolve(data);
                     })

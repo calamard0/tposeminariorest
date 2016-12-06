@@ -59,7 +59,7 @@ public class Responsable {
 		dto.setEmail(this.email);
 		dto.setTelefonoAlternativo(this.telefonoAlternativo);
 		dto.setTelefonoParticular(this.telefonoParticular);
-		dto.setDatosLaborales(this.datosLaborales.toDTO());
+		if(this.trabaja) dto.setDatosLaborales(this.datosLaborales.toDTO());
 		dto.setTrabaja(this.trabaja);
 		return dto;
 	}

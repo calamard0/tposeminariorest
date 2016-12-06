@@ -14,7 +14,6 @@
             vm.crearInscripcion = crearInscripcion;
             vm.cargaExitosa = false;
             vm.preinscripcionCargadaNro = '';
-            vm.modeValidate = false;
             vm.showForm = false;
             vm.obtenerPreinscripcion = obtenerPreinscripcion;
             vm.modificarPreinscripcion = modificarPreinscripcion;
@@ -63,11 +62,12 @@
         
             function obtenerPreinscripcion() {
                 vm.cargandoPreinscripcion = true;
+                vm.modeValidate = true;
                 inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
                     .then(function(data) {
                         vm.showForm = true;
                         vm.cargandoPreinscripcion = false;
-                        console.log(data);
+                        vm.inscripcion = data;
                 });
             }
         
