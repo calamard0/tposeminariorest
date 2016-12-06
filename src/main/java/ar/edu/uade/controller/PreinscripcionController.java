@@ -60,16 +60,6 @@ public class PreinscripcionController {
 	 
 	 @Autowired
 	 ColegioRepository colRepo;
-	
-	 @RequestMapping(value= "/nueva", method = RequestMethod.GET)
-	 public ModelAndView initPreinscripcion() {	
-		 ModelAndView mav = new ModelAndView();
-		 mav.setViewName("preinscripcion");
-		 
-		 mav.addObject("colegio", null);  
-		 
-		 return mav;
-	 }
 	 
 	 @RequestMapping(value= "/crear", method = RequestMethod.POST)
 	 public ModelAndView crearPreinscripcion(@RequestBody PreInscripcionDTO dto) {	

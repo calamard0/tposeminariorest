@@ -18,17 +18,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.csrf().disable()
         .authorizeRequests()
-//        	.antMatchers("/controllers/**", "/images/**", "/json/**", "/libs/**", "/services/**").permitAll()
-//            .antMatchers("/views/**", "/app.css", "/app.module.js", "/index.html").permitAll()
             .antMatchers("/resources/**").permitAll()
             .antMatchers("/procesos/**").permitAll()
             .antMatchers("/cursos/view", "/cursos/update").hasAuthority("COLEGIO")
+            .antMatchers("/preinscripcion/modificar", "/preinscripcion/validar").hasAuthority("ADMIN")
             .and()
         .formLogin()
             .loginPage("/login").permitAll()
             .and()
         .logout()
-            .permitAll();			
+            .permitAll()
+            .and()
+    	.exceptionHandling().accessDeniedPage("/403");		
 	}
 
 	@Autowired
