@@ -10,7 +10,7 @@ import ar.edu.uade.model.Responsable;
 
 public class Reglas {
 
-	public static int reglaUno(Colegio col, Domicilio auxDom) {
+	public static float reglaUno(Colegio col, Domicilio auxDom) {
 		if (dist(col.getDireccion(), auxDom) < 10) {
 			return 20;
 		} else {
@@ -18,7 +18,7 @@ public class Reglas {
 		}
 	}
 
-	public static int reglaDos(DatosHermano auxHerm) {
+	public static float reglaDos(DatosHermano auxHerm) {
 		for (Curso cur : auxHerm.getColegio().getCursos()) {
 			if (cur.getGrado() > 0) {
 				return 18;
@@ -27,7 +27,7 @@ public class Reglas {
 		return 17;
 	}
 
-	public static int reglaTres(DatosPadre auxPadr) {
+	public static float reglaTres(DatosPadre auxPadr) {
 		for (Curso cur : auxPadr.getColegio().getCursos()) {
 			if (cur.getGrado() > 0) {
 				return 16;
@@ -36,7 +36,7 @@ public class Reglas {
 		return 15;
 	}
 
-	public static int reglaCuatro(DatosPadre auxPadr) {
+	public static float reglaCuatro(DatosPadre auxPadr) {
 //		if (auxPadr.getFichaMunicipal() == "Carga horaria mayor a 16 horas, antiguedad de 2 años") {
 //			return 14;
 //		}
@@ -49,7 +49,7 @@ public class Reglas {
 		return 11;
 	}
 
-	public static int reglaCinco(Responsable responsable, Aspirante aspirante) {
+	public static float reglaCinco(Responsable responsable, Aspirante aspirante) {
 		if (aspirante.getDomicilio().getVilla() != null) {
 			return 10;
 		}
@@ -59,28 +59,28 @@ public class Reglas {
 		return 8;
 	}
 
-	public static int reglaSeisYSiete(Aspirante aspirante) {
+	public static float reglaSeisYSiete(Aspirante aspirante) {
 		if (aspirante.getNombre() == "Distrito") {
 			return 7;
 		}
 		return 6;
 	}
 
-	public static int reglaOchoYNueve(Responsable responsable, String direccionCol) {
+	public static float reglaOchoYNueve(Responsable responsable, String direccionCol) {
 		if (dist(direccionCol,responsable.getDatosLaborales().getDomicilio()) < 10) {
 			return 5;
 		}
 		return 4;
 	}
 
-	public static int reglaDiezYOnce(Responsable responsable, String direccion) {
+	public static float reglaDiezYOnce(Responsable responsable, String direccion) {
 		if (dist(direccion,responsable.getDatosLaborales().getDomicilio()) < 10) {
 			return 3;
 		}
 		return 2;
 	}
 	
-	public static int dist(String direccion, Domicilio auxDom) {
+	public static float dist(String direccion, Domicilio auxDom) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

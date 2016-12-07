@@ -234,11 +234,7 @@ public class Aspirante {
 				ps.setDescripcion(problemasSalud.getOtrosDescripcion());
 				problemas.add(ps);
 			}
-		}
-		
-		if ( problemas.size() == 0 )
-			return null;
-		
+		}		
 		return problemas;
 	}
 

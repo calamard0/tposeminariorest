@@ -322,7 +322,7 @@
                             for(var index in data) {
                                 var curso = data[index];
                                 curso.sugerido = true;
-                                cursosNuevos.unshift(curso);
+                                cursosNuevos.push(curso);
                             }
                             vm.inscripcion.cursos = cursosNuevos;
                             vm.loadginColegiosSugeridos = false;
