@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ar.edu.uade.dao.ColegioRepository;
+import ar.edu.uade.dao.VacanteRepository;
 import ar.edu.uade.dto.ColegioDTO;
 import ar.edu.uade.dto.CursoDTO;
 import ar.edu.uade.dto.PreInscripcionDTO;
@@ -34,6 +35,9 @@ public class SistemaInscripciones {
 	
 	@Autowired
 	ColegioRepository colegioRepository;
+	
+	@Autowired
+	VacanteRepository vacanteRepository;
 
 	public static SistemaInscripciones getInstance() {
 		if (instance == null)
@@ -48,24 +52,21 @@ public class SistemaInscripciones {
 
 	@RequestMapping(value= "/asignar", method = RequestMethod.GET)
 	@ResponseBody
-	public List<PreInscripcionDTO> asignarVacantes() {
+	public void asignarVacantes() {
 		if(colegios!= null){
 			colegios.clear();
 		}else{
 			colegios = new ArrayList<Colegio>();
 		}
-//		colegios.addAll();
+		colegios.addAll(colegioRepository.findAll());
 		
-		List<PreInscripcionDTO> preDto = new ArrayList<PreInscripcionDTO>();
-
-		//List<Colegio> colegios = colegioRepository.findAll();
 		for (int i = 1; i < 8; i++) {
 
 			List<Curso> cursos = new ArrayList<Curso>();
 			List<Vacante> vacantes = new ArrayList<Vacante>();
 			
-			for (Colegio colegios : this.colegios) {
-				for (Curso curso : colegios.getCursos()) {
+			for (Colegio colegio : this.colegios) {
+				for (Curso curso : colegio.getCursos()) {
 					if (curso.getGrado() == i) {
 						cursos.add(curso);
 						vacantes.addAll(curso.getVacantes());
@@ -73,10 +74,14 @@ public class SistemaInscripciones {
 				}
 
 			}
-			AsignarVacantesHelper.asignarVacantes(cursos, i, vacantes);
+			List<Integer> vacantesAAprobar = AsignarVacantesHelper.getInstance().asignarVacantes(cursos, i, vacantes);
+			for(int vac : vacantesAAprobar){
+				Vacante aux = vacanteRepository.findOne(vac);
+				aux.setEstaAprobada(true);
+				vacanteRepository.save(aux);
+			}
 		}
 
-		return preDto;
 	}
 
 	public List<PreInscripcionDTO> getPreInscripcionesSinAsignacion() {

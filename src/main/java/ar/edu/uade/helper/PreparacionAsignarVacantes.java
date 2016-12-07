@@ -7,7 +7,7 @@ import ar.edu.uade.model.Curso;
 
 public class PreparacionAsignarVacantes {
 
-	private static Integer disp;
+	private static Integer disp = 0;
 	private static List<Curso> cursos = new ArrayList<Curso>();
 
 	public static Integer vacantesDisp(List<Curso> auxCantVacantes) {
