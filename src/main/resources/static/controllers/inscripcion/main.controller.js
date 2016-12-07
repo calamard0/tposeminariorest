@@ -20,6 +20,8 @@
             vm.validarPreinscripcion = validarPreinscripcion;
             vm.cargandoPreinscripcion = false;
         
+            vm.resultadoValidacion = false;
+        
             vm.getGrado = getGrado;
             vm.getTipoDoc = getTipoDoc;
             vm.getSexo = getSexo;
@@ -72,6 +74,7 @@
             }
         
             function obtenerPreinscripcion() {
+                vm.resultadoValidacion = false;
                 vm.cargandoPreinscripcion = true;
                 var direccionAspiranteActual = '';
                 vm.modeValidate = true;
@@ -80,21 +83,26 @@
                 $scope.modalidad = "1";
                 inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
                     .then(function(data) {
-                        vm.showForm = true;
                         vm.cargandoPreinscripcion = false;
-                        vm.grado = data.cursos[0].grado;
-                        vm.inscripcion = data;
-                        $timeout(function() {
-                            if(data.datosExtra) {
-                                if (data.datosExtra.jardinAnterior) {
-                                    $rootScope.$broadcast('existeJardinAnterior');
-                                } else if (data.datosExtra.hermanoEnColegio) {
-                                    $rootScope.$broadcast('existeHermanoEnColegio');
-                                } else if (data.datosExtra.responsableEnColegio) {
-                                    $rootScope.$broadcast('existeResponsableEnColegio');
+                        if(data.validada) {
+                            toastr.info('La inscripcion ya esta validada');
+                        } else {
+                            vm.showForm = true;
+                            vm.grado = data.cursos[0].grado;
+                            vm.inscripcion = data;
+                            $timeout(function() {
+                                if(data.datosExtra) {
+                                    if (data.datosExtra.jardinAnterior) {
+                                        $rootScope.$broadcast('existeJardinAnterior');
+                                    } else if (data.datosExtra.hermanoEnColegio) {
+                                        $rootScope.$broadcast('existeHermanoEnColegio');
+                                    } else if (data.datosExtra.responsableEnColegio) {
+                                        $rootScope.$broadcast('existeResponsableEnColegio');
+                                    }
                                 }
-                            }
-                        }, 500);  
+                            }, 500);  
+                        }
+                        
                 }, function() {
                     vm.cargandoPreinscripcion = false;
                     toastr.error('No existe una presinscripcion con ese número, intente nuevamente');
@@ -112,7 +120,8 @@
             function validarPreinscripcion() {
                 inscripcionService.validarPreinscripcion(vm.inscripcion)
                     .then(function(data) {
-                        toastr.success("Preinscripción validada exitosament!")
+                        toastr.success("Preinscripción validada exitosament!");
+                        vm.resultadoValidacion = true;
                         console.log(data);
                 });
             }
@@ -330,15 +339,6 @@
                     }
 
                 }
-            }
-        
-            function marcarSugeridos(sugeridos, existente) {
-                 for(var index in sugeridos) {
-                     if(sugeridos[index].id == existente.id) {
-                         existente.sugerido = true;
-                         break;
-                     }
-                 }
             }
 
         });
