@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/resources/**").permitAll()
             .antMatchers("/procesos/**").permitAll()
             .antMatchers("/cursos/view", "/cursos/update").hasAuthority("COLEGIO")
-            .antMatchers("/preinscripcion/modificar", "/preinscripcion/validar").hasAuthority("ADMIN")
+            .antMatchers("/preinscripcion/modificar", "/preinscripcion/control", "/preinscripcion/validar").hasAuthority("ADMIN")
             .and()
         .formLogin()
             .loginPage("/login").permitAll()

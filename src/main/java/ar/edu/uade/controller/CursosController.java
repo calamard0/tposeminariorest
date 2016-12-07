@@ -48,7 +48,8 @@ public class CursosController {
 			usuario = usuarioRepo.findByNombreUsuario(username);
 			usuario.getColegio().setCursos(null);			
 		} catch (Exception e) {
-			System.out.println("Usuario no logueado");
+			usuario = new Usuario();
+			usuario.setId(-1);
 		}
 		return usuario;
 	}

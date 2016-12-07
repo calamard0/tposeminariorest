@@ -24,10 +24,12 @@
 	    <script src="../libs/toastr/angular-toastr.tpls.js"></script>
 	    
 	    <script src="../app.module.js"></script>
+	    <script src="/controllers/login.controller.js"></script>
 	    <script src="../services/colegio.service.js"></script>
+	    <base href="/" />
 	    
 	</head>
-	<body ng-app="inscripciones">
+	<body ng-app="inscripciones" ng-controller="loginController">
 	
 		<nav class="navbar navbar-default">
 	        <div class="container-fluid">
@@ -41,17 +43,21 @@
 	        </div>
     	</nav>
     	
-    	<form role="form" action="/login" method="post">
-    		<div class="form-group">
-				<label for="username">Usuario:</label>
-				<input type="text" class="form-control" id="username" name="username"/>
-			</div>
-			<div class="form-group">
-				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" name="password"/>
-			</div>
-            <div><input type="submit" value="Login" class="btn btn-primary"/></div>            
-       </form>
-   	
+    	<div class="container flexCenter">
+    		<form role="form" action="/login" method="post" style="width:30%">
+	    		<div class="form-group">
+					<label for="username">Usuario:</label>
+					<input type="text" class="form-control" id="username" name="username"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" id="password" name="password"/>
+				</div>
+				<label ng-if="error">Usuario o contraseña inválida.</label>
+	            <label ng-if="logout">Ha sido deslogueado satisfactoriamente.</label>        
+	            <div><input type="submit" value="Login" class="btn btn-primary" style="width:100%"/></div>    
+       		</form>
+    	</div>
+    	
 	</body>
 </html>
