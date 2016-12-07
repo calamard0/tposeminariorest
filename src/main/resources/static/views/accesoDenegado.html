@@ -24,11 +24,12 @@
 	    <script src="/libs/toastr/angular-toastr.tpls.js"></script>
 	    
 	    <script src="/app.module.js"></script>
+	    <script src="/controllers/login.controller.js"></script>
 	    <script src="/services/colegio.service.js"></script>
 	    
 	    <base href="/" />
 	</head>
-	<body ng-app="inscripciones">
+	<body ng-app="inscripciones" ng-controller="loginController">
 	
 		<nav class="navbar navbar-default">
 	        <div class="container-fluid">
@@ -37,6 +38,10 @@
 	                <a class="navbar-brand" href="#">Sistema de Inscripciones</a>
 	            </div>
 	            <ul class="nav navbar-nav navbar-right">
+	                <li ng-if="username" style="display:flex">
+	                	<a href="/logout" target="_self"><span class="glyphicon glyphicon-off"></span></a>
+	                	<span style="padding-top: 15px; padding-bottom:15px"> {{username}}</span>
+	                </li>
 	                <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Manual del usuario</a></li>
 	            </ul>
 	        </div>

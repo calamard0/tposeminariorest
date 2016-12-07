@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('inscripciones')
-        .controller('administracionColegioController', function ($scope, colegioService, toastr, toastrConfig) {
+        .controller('administracionColegioController', function ($scope, colegioService, toastr, toastrConfig, $http) {
             
             var vm = this;
             vm.guardar = guardar;
@@ -20,6 +20,16 @@
                         vm.colegio = data;
                     });
                 }); 
+                
+                 $http.post('/currentuser')
+                    .success(function (data) {
+                        if(data.id > 0) {
+                        	$scope.username = data.nombreUsuario;
+                        }
+                    })
+                    .error(function (data) {
+                        console.log(data);
+                    });
             }
         
             function guardar() {

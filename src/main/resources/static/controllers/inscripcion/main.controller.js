@@ -31,6 +31,16 @@
             vm.sugerirColegios = sugerirColegios;
             vm.loadginColegiosSugeridos = true;
             vm.direccionAspiranteSugeridos = '';
+            
+            $http.post('/currentuser')
+                .success(function (data) {
+                    if(data.id > 0) {
+                    	$scope.username = data.nombreUsuario;
+                    }
+                })
+                .error(function (data) {
+                    console.log(data);
+                });
         
             toastrConfig.maxOpened = 1;
             toastrConfig.autoDismiss = true;
