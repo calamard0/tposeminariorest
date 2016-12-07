@@ -110,4 +110,17 @@ public class CursosController {
 		return cursos;
 	 }
 	 
+	 @RequestMapping(value= "/getAllAlumnos")
+	 @ResponseBody
+	 public List<ColegioDTO> getAllAlumnos() {
+		List<Colegio> coles = colRepo.findAll();
+		List<ColegioDTO> colegiosDTO = new ArrayList<ColegioDTO>();
+		
+		for (Colegio cole : coles) {
+			colegiosDTO.add(cole.toDTO());
+		}
+		
+		return colegiosDTO;
+	 }
+	 
 }

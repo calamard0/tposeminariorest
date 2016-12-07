@@ -8,7 +8,8 @@
                 getCursos: getCursos,
                 guardarCursos: guardarCursos,
                 getCurrentUser: getCurrentUser,
-                getAlumnosInscriptos: getAlumnosInscriptos
+                getAlumnosInscriptos: getAlumnosInscriptos,
+                getAsignaciones: getAsignaciones
             };
         
             function getCursos(idColegio) {
@@ -67,6 +68,19 @@
                 return deferred.promise;
             }
         
+            function getAsignaciones() {
+                var deferred = $q.defer();
+
+                $http.post('/cursos/getAllAlumnos')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (data) {
+                        deferred.reject(data);
+                    });
+
+                return deferred.promise;
+            }
             return service;
         });
 })();
