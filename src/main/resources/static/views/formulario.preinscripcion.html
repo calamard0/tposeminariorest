@@ -706,7 +706,7 @@
                     <h1>Selección de Escuelas</h1>
                 </div>
                 <div class="alert alert-info">
-                    Ordene los colegios de forma que el mas prioritario quede arriba
+                    Ordene los colegios de forma que el más prioritario quede arriba.
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="colegioAgregar" style="margin-left: 10%">Escriba el nombre del colegio que desea agregar:</label>
@@ -725,7 +725,7 @@
                     <ul ui-sortable="sortableOptions" ng-model="mainCtrl.inscripcion.cursos" class="form-group col-md-8">
                         <li ng-repeat="curso in mainCtrl.inscripcion.cursos" class="bg-info form-control colegioListItem" style="cursor:move; margin-bottom: 10px" name="curso.colegio.id">
                             <div class="truncate">{{curso.colegio.nombre}} ( {{curso.colegio.direccion}} )</div>
-                            <span class="removeCurso" ng-if="!curso.sugerido || !mainCtrl.modeValidate"
+                            <span class="removeCurso" ng-if="!curso.sugerido && !mainCtrl.modeValidate"
                                   ng-click="seleccionColegiosCtrl.eliminarColegioElegido(curso)"><i class="glyphicon glyphicon-remove"></i></span>
                         </li>
                     </ul>
