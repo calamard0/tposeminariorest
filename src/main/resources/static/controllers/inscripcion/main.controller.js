@@ -104,7 +104,7 @@
             function modificarPreinscripcion() {
                 inscripcionService.modificarPreinscripcion(vm.inscripcion)
                     .then(function(data) {
-                        toastr.success("Preinscripción modificada exitosament!")
+                        toastr.success("Preinscripción modificada exitosamente!")
                         console.log(data);
                 });
             }
