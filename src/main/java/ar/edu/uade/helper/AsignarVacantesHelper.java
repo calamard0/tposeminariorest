@@ -41,15 +41,19 @@ public class AsignarVacantesHelper {
 					for (int i = 0; i < cursosCompletos.size() && (auxCant - disVsVac.getVacantes().size()) < 0; i++) {
 						Curso curso = cursosCompletos.get(i);
 						if (cursosConVacantesDeSobra(curso) > 0) {
-							for (int j = 0; j < curso.getVacantes().size()
-									&& (auxCant - disVsVac.getVacantes().size()) < 0; j++) {
+							for (Vacante vacante : curso.getVacantes()) {
 								// verificar si funca esto
-								Vacante vacante = ((List<Vacante>) curso.getVacantes()).get(j);
 								if (vacante.isEstaAprobada()) {
 									buscarVacanteParaEsteCurso(vacante, disVsVac.getId(), cursos,
 											auxCant - disVsVac.getVacantes().size());
 								}
+								if((auxCant - disVsVac.getVacantes().size()) < 0){
+									break;
+								}
 							}
+						}
+						if((auxCant - disVsVac.getVacantes().size()) < 0){
+							break;
 						}
 
 					}
