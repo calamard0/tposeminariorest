@@ -51,47 +51,60 @@
     </nav>
     
     <div class="container">
-    	<h1>Edición de Vacantes Disponibles</h1>
-        <h3>{{adminColegio.colegio.nombre}}</h3>
-        
-        <div class="alert alert-info" role="alert">
-            <p>Modifique las vacantes disponibles en cada curso.</p>
-        </div>
+        <uib-tabset>
+            <uib-tab index="1" disable="false">
+                <uib-tab-heading>Edición de Vacantes</uib-tab-heading>
+                <h1>Edición de Vacantes Disponibles</h1>
+                <h3>{{adminColegio.colegio.nombre}}</h3>
 
-        <form name="adminColegio.edicionForm" class="form-horizontal container">
-            <div class="form-group" ng-repeat="curso in adminColegio.colegio.cursos | orderBy: 'grado'">
-                <label for="curso1" class="col-md-2 control-label">{{curso.descripcion}}:</label>
-                <div class="col-md-1"><input id="curso1" type="number" min="0" class="form-control" ng-model="curso.vacantesDisponibles"></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Segundo Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Tercer Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Cuarto Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Quinto Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Sexto Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="form-group">
-                <label for="curso2" class="col-md-2 control-label">Septimo Grado:</label>
-                <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
-            </div>
-            <div class="col-md-2 col-md-offset-2">
-                <button type="button" class="btn btn-primary"
-                    ng-click="adminColegio.guardar()">Guardar</button>
-            </div>
-        </form>
+                <div class="alert alert-info" role="alert">
+                    <p>Modifique las vacantes disponibles en cada curso.</p>
+                </div>
+
+                <form name="adminColegio.edicionForm" class="form-horizontal container">
+                    <div class="form-group" ng-repeat="curso in adminColegio.colegio.cursos | orderBy: 'grado'">
+                        <label for="curso1" class="col-md-2 control-label">{{curso.descripcion}}:</label>
+                        <div class="col-md-1"><input id="curso1" type="number" min="0" class="form-control" ng-model="curso.vacantesDisponibles"></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Segundo Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Tercer Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Cuarto Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Quinto Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Sexto Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="curso2" class="col-md-2 control-label">Septimo Grado:</label>
+                        <div class="col-md-1"><input id="curso2" type="number" min="0" class="form-control" disabled></input></div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-2">
+                        <button type="button" class="btn btn-primary"
+                            ng-click="adminColegio.guardar()">Guardar</button>
+                    </div>
+                </form>
+            </uib-tab>
+            <uib-tab index="2" disable="false">
+                <uib-tab-heading>Asignaciones</uib-tab-heading>
+                <h3>{{adminColegio.curso.colegio.nombre}}</h3>
+                <h4>Alumnos en <strong>{{adminColegio.curso.descripcion}}</strong>:</h4>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="alumno in adminColegio.alumnosInscriptos">{{alumno.nombre + ' ' + alumno.apellido}}</li>
+                </ul>
+            </uib-tab>
+        <uib-tabset>
     </div>
 </body>
 

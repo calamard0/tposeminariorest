@@ -16,20 +16,19 @@
         
             function init() {
                 colegioService.getCurrentUser().then(function(data) {
+                    if(data.id > 0) {
+                        $scope.username = data.nombreUsuario;
+                    }
+                    colegioService.getAlumnosInscriptos(data.colegio.id).then(function(data) {
+                        vm.alumnosInscriptos = data[0].alumnos;
+                        vm.curso = data[0];
+                        
+                    });
                     colegioService.getCursos(data.colegio.id).then(function(data) {
                         vm.colegio = data;
                     });
                 }); 
                 
-                 $http.post('/currentuser')
-                    .success(function (data) {
-                        if(data.id > 0) {
-                        	$scope.username = data.nombreUsuario;
-                        }
-                    })
-                    .error(function (data) {
-                        console.log(data);
-                    });
             }
         
             function guardar() {
