@@ -139,7 +139,7 @@ public class TestController {
 		List<Integer> pisos = new ArrayList<Integer>() {{ add(0); add(1); add(2); add(3); add(4); add(5); add(6);add(7);add(8);add(9);}};
 		List<String> sexos = new ArrayList<String>() {{ add("M"); add("F"); }};
 		List<String> datoExtra = new ArrayList<String>() {{ add("DP"); add("DH"); add("CA");  }};
-		List<String> tipoResponsable = new ArrayList<String>() {{ add("Docente"); add("Persona"); }};
+		List<String> tipoResponsable = new ArrayList<String>() {{ add("docente"); add("personal"); }};
 		int numeroDocumento = 44000000;
 		int numeroDocumentoResp = 32000000;
 		Date fechaNac = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();

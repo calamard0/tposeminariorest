@@ -15,41 +15,43 @@ import ar.edu.uade.model.Vacante;
 public class CalcularPesosHelper {
 
 	public static float calcularPesopeso(Colegio auxCol, Vacante vac, DatosExtra datosExtra, Aspirante aspirante, Responsable responsable) {
-		Curso auxCurso = vac.getCurso();
-		//Colegio auxCol = SistemaInscripciones.getInstance().buscarColegioPorCodigoDeCurso(auxCurso.getId());
 		Domicilio auxDom = aspirante.getDomicilio();
-
+		boolean tieneJardin = false;
 		if (auxCol != null) {
-			if (datosExtra instanceof DatosColegioAnt) {
-				DatosColegioAnt auxColAnt = (DatosColegioAnt) datosExtra;
-				if (auxColAnt.getColegio().getId() == auxCol.getId()) {
-					return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
+			if ( datosExtra != null ) {
+				if (datosExtra instanceof DatosColegioAnt) {
+					tieneJardin = true;
+					DatosColegioAnt auxColAnt = (DatosColegioAnt) datosExtra;
+					if (auxColAnt.getColegio().getId() == auxCol.getId()) {
+						return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
+					}
+				}
+				if (datosExtra instanceof DatosHermano) {
+					DatosHermano auxHerm = (DatosHermano) datosExtra;
+					if (auxHerm.getColegio().getId() == auxCol.getId()) {
+						return (Reglas.reglaDos(auxHerm) / 20) * vac.getPrioridad();
+					}
+				}
+				if (datosExtra instanceof DatosPadre) {
+					DatosPadre auxPadr = (DatosPadre) datosExtra;
+					if (auxPadr.getColegio().getId() == auxCol.getId()) {
+						if (auxPadr.getTipoResponsable() == "personal") {
+							return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
+						}
+						if (auxPadr.getTipoResponsable() == "docente") {
+							return (Reglas.reglaCuatro(auxPadr) / 20) * vac.getPrioridad();
+						}
+					}
 				}
 			}
-			if (datosExtra instanceof DatosHermano) {
-				DatosHermano auxHerm = (DatosHermano) datosExtra;
-				if (auxHerm.getColegio().getId() == auxCol.getId()) {
-					return (Reglas.reglaDos(auxHerm) / 20) * vac.getPrioridad();
-				}
-			}
-			if (datosExtra instanceof DatosPadre) {
-				DatosPadre auxPadr = (DatosPadre) datosExtra;
-				if (auxPadr.getColegio().getId() == auxCol.getId()) {
-//					if (auxPadr.getFichaMunicipal() == "Personal") {
-//						return (Reglas.reglaTres(auxPadr) / 20) * vac.getPrioridad();
-//					}
-//					if (auxPadr.getFichaMunicipal() == "Docente") {
-//						return (Reglas.reglaCuatro(auxPadr) / 20) * vac.getPrioridad();
-//					}
-				}
-			}
+			
 			if (Reglas.dist(auxCol.getDireccion(), auxDom) < 10) {
 				return (Reglas.reglaCinco(responsable, aspirante) / 20) * vac.getPrioridad();
 			}
-			if (aspirante.getApellido() == "fue al jardin del ministerio de educacion") {
+			if (tieneJardin) {
 				return (Reglas.reglaSeisYSiete(aspirante) / 20) * vac.getPrioridad();
 			}
-			if (aspirante.getApellido() == "vive dentro de la ciudad autonoma de buenos aires"){
+			if (aspirante.getDomicilio().getProvincia() == "CABA"){
 				return (Reglas.reglaOchoYNueve(responsable, auxCol.getDireccion()) / 20) * vac.getPrioridad();
 			}else{
 				return (Reglas.reglaDiezYOnce(responsable, auxCol.getDireccion()) / 20) * vac.getPrioridad();	

@@ -37,15 +37,6 @@ public class Reglas {
 	}
 
 	public static float reglaCuatro(DatosPadre auxPadr) {
-//		if (auxPadr.getFichaMunicipal() == "Carga horaria mayor a 16 horas, antiguedad de 2 años") {
-//			return 14;
-//		}
-//		if (auxPadr.getFichaMunicipal() == "Carga horaria mayor a 16 horas, antiguedad de 2 años, otro colegio") {
-//			return 13;
-//		}
-//		if (auxPadr.getFichaMunicipal() == "Carga horaria mayor a 16 horas siendo suplente, antiguedad de 3 años") {
-//			return 12;
-//		}
 		return 11;
 	}
 
