@@ -141,6 +141,7 @@ public class PreinscripcionController {
 			 preInsModificada.getDatosExtra().setId(preInsActual.getDatosExtra().getId());
 		 
 		 if ( calcularPesos ) {
+			 preInsModificada.setValidada(true);
 			 for(Vacante vac : preInsModificada.getVacantes()){
 				Curso cur = cursoRepo.findOne(vac.getCurso().getId()) ;
 				float peso = CalcularPesosHelper.calcularPesopeso(cur.getColegio(), vac, preInsModificada.getDatosExtra(),preInsModificada.getAspirante(), preInsModificada.getResponsable());
