@@ -734,6 +734,7 @@
                 <i class="glyphicon glyphicon-ok"></i> Resumen
             </uib-tab-heading>
             <div class="container margin-top">  
+                <h4 class="alert alert-warning">Verifique que los datos ingresados sean correctos y haga click en 'Finalizar' para enviar la preinscripción</h4>
                 <uib-accordion close-others="true">
                     <div uib-accordion-group class="panel-default" heading="Nivel" is-open="true">
                         <div class="flexCenter tableContainer">
@@ -1008,8 +1009,19 @@
 </div>
 <div ng-if="mainCtrl.cargaExitosa" class="container">
     <div class="page-header">
-        <h1>Preinscripcion cargada con exito!</h1>
-        <h2>Conserve el número de la misma: {{mainCtrl.preinscripcionCargadaNro}}</h2>
+        <h1 class="alert alert-success">Preinscripcion cargada con exito!</h1>
+        <h2>Conserve el número de la misma: <strong>{{mainCtrl.preinscripcionCargadaNro}}</strong></h2>
+    </div>
+    <div>
+        <h4 class="alert alert-info">Recuerde que para validar su inscripción debe concurrir a una dependencia del GCBA con la siguiente documentación:</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Fotocopia del certificado de vacunas del aspirante</li>
+            <li class="list-group-item">Libreta oficial de salud escolar del aspirante</li>
+            <li class="list-group-item">Original y fotocopia del DNI o partida de nacimiento del aspirante</li>
+            <li class="list-group-item">Constancia de finalizació del Nivel Inicial del aspirante</li>
+            <li class="list-group-item">Constancia de domicilio del aspirante</li>
+            <li class="list-group-item">DNI y fotocopia del responsable</li>
+        </ul>
     </div>
     <button type="button" class="btn btn-primary btn-lg"
             onClick="window.location.reload()">Cargar otra preinscripcion</button>

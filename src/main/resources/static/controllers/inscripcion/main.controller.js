@@ -73,7 +73,9 @@
         
             function obtenerPreinscripcion() {
                 vm.cargandoPreinscripcion = true;
+                var direccionAspiranteActual = '';
                 vm.modeValidate = true;
+                vm.showForm = false;
                 $scope.nivel = "1";
                 $scope.modalidad = "1";
                 inscripcionService.getPreinscripcion(vm.nroPreInscATraer)
@@ -83,14 +85,19 @@
                         vm.grado = data.cursos[0].grado;
                         vm.inscripcion = data;
                         $timeout(function() {
-                            if (data.datosExtra.jardinAnterior) {
-                                $rootScope.$broadcast('existeJardinAnterior');
-                            } else if (data.datosExtra.hermanoEnColegio) {
-                                $rootScope.$broadcast('existeHermanoEnColegio');
-                            } else if (data.datosExtra.responsableEnColegio) {
-                                $rootScope.$broadcast('existeResponsableEnColegio');
+                            if(data.datosExtra) {
+                                if (data.datosExtra.jardinAnterior) {
+                                    $rootScope.$broadcast('existeJardinAnterior');
+                                } else if (data.datosExtra.hermanoEnColegio) {
+                                    $rootScope.$broadcast('existeHermanoEnColegio');
+                                } else if (data.datosExtra.responsableEnColegio) {
+                                    $rootScope.$broadcast('existeResponsableEnColegio');
+                                }
                             }
                         }, 500);  
+                }, function() {
+                    vm.cargandoPreinscripcion = false;
+                    toastr.error('No existe una presinscripcion con ese número, intente nuevamente');
                 });
             }
         
@@ -293,21 +300,45 @@
                     vm.loadginColegiosSugeridos = true;
                     vm.direccionAspiranteSugeridos = direccionAspiranteActual
                     
-                    cursosNuevos = [];
-                    for(var index in vm.inscripcion.cursos) {
-                        if(!vm.inscripcion.cursos[index].sugerido)
-                            cursosNuevos.push(vm.inscripcion.cursos[index]);
-                    }
-                    inscripcionService.getColegiosSugeridos(vm.direccionAspiranteSugeridos, vm.grado).then(function(data) {
-                        for(var index in data) {
-                            var curso = data[index];
-                            curso.sugerido = true;
-                            cursosNuevos.unshift(curso);
+                    if(vm.modeValidate) {
+                        
+                        // al validar/modificar la inscripcion
+
+                        for(var index in vm.inscripcion.cursos) {
+                            vm.inscripcion.cursos[index].sugerido = true;
                         }
-                        vm.inscripcion.cursos = cursosNuevos;
                         vm.loadginColegiosSugeridos = false;
-                    });
+                        
+                    } else {
+                        
+                        // al crear la inscripcion
+                        
+                        cursosNuevos = [];
+                        for(var index in vm.inscripcion.cursos) {
+                            if(!vm.inscripcion.cursos[index].sugerido)
+                                cursosNuevos.push(vm.inscripcion.cursos[index]);
+                        }
+                        inscripcionService.getColegiosSugeridos(vm.direccionAspiranteSugeridos, vm.grado).then(function(data) {
+                            for(var index in data) {
+                                var curso = data[index];
+                                curso.sugerido = true;
+                                cursosNuevos.unshift(curso);
+                            }
+                            vm.inscripcion.cursos = cursosNuevos;
+                            vm.loadginColegiosSugeridos = false;
+                        }); 
+                    }
+
                 }
+            }
+        
+            function marcarSugeridos(sugeridos, existente) {
+                 for(var index in sugeridos) {
+                     if(sugeridos[index].id == existente.id) {
+                         existente.sugerido = true;
+                         break;
+                     }
+                 }
             }
 
         });
