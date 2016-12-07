@@ -21,10 +21,7 @@ public class CalcularPesosHelper {
 			if ( datosExtra != null ) {
 				if (datosExtra instanceof DatosColegioAnt) {
 					tieneJardin = true;
-					DatosColegioAnt auxColAnt = (DatosColegioAnt) datosExtra;
-					if (auxColAnt.getColegio().getId() == auxCol.getId()) {
-						return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
-					}
+					return (Reglas.reglaUno(auxCol, auxDom) / 20) * vac.getPrioridad();
 				}
 				if (datosExtra instanceof DatosHermano) {
 					DatosHermano auxHerm = (DatosHermano) datosExtra;
