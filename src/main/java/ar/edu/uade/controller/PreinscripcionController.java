@@ -174,7 +174,7 @@ public class PreinscripcionController {
 		}
 
 		colegiosMasAptos = getColegiosMasAptosPorPromedioTotalLibre(colegiosMasAptos, grado, 5);
-		Collections.reverse(colegiosMasAptos);
+
 		List<CursoDTO> cursos = new ArrayList<CursoDTO>();
 		for (Colegio col : colegiosMasAptos) {
 			Set<Curso> setCursos = col.getCursos();
