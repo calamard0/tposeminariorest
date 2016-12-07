@@ -1,6 +1,6 @@
 <div ng-if="!mainCtrl.cargaExitosa">
     <uib-tabset active="mainCtrl.activeTab">
-        <uib-tab index="0" disable="false">
+        <uib-tab index="0" disable="{{tabsDisabled}}">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-book"></i> Seleccion de Nivel
             </uib-tab-heading>
@@ -38,7 +38,7 @@
                 </div>
             </form>
         </uib-tab>
-        <uib-tab index="1" disable="false">
+        <uib-tab index="1" disable="{{tabsDisabled}}">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-user"></i> Datos del Aspirante
             </uib-tab-heading>
@@ -297,7 +297,7 @@
                 </div>
             </form>
         </uib-tab>
-        <uib-tab index="2" disable="false">
+        <uib-tab index="2" disable="{{tabsDisabled}}">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-user"></i> Datos del Responsable
             </uib-tab-heading>
@@ -549,7 +549,7 @@
                 </div>
             </form>
         </uib-tab>
-        <uib-tab index="3" disable="false">
+        <uib-tab index="3" disable="{{tabsDisabled}}">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-plus"></i> Datos Adicionales
             </uib-tab-heading>
@@ -571,7 +571,7 @@
                         <select id="jardinAnteriorSelect" name="jardinAnteriorSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.jardinAnterior" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('jardinAnterior')"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.jardinAnterior">
@@ -591,7 +591,7 @@
                         <select id="hermanoEnColegioSelect" name="hermanoEnColegioSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.hermanoEnColegio" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('hermanoEnColegio')"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.hermanoEnColegio">
@@ -665,7 +665,7 @@
                         <select id="responsableEnColegioSelect" name="responsableEnColegioSelect" class="form-control" 
                                 ng-options="o.value as o.label for o in datosAdicionalesCtrl.datosAdicionalesOptions"
                                 ng-model="datosAdicionalesCtrl.responsableEnColegio" 
-                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional()"></select>
+                                ng-change="datosAdicionalesCtrl.cambioDatoAdicional('responsableEnColegio')"></select>
                     </div>
                 </div>
                 <div class="form-group" ng-if="datosAdicionalesCtrl.responsableEnColegio">
@@ -696,7 +696,7 @@
                 </div>
             </form>
         </uib-tab>
-        <uib-tab index="4" disable="false" select="mainCtrl.sugerirColegios()">
+        <uib-tab index="4" disable="{{tabsDisabled}}" select="mainCtrl.sugerirColegios()">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-home"></i> Seleccion de Colegios
             </uib-tab-heading>
@@ -704,6 +704,9 @@
                   ng-controller="seleccionColegiosController as seleccionColegiosCtrl">
                 <div class="page-header">
                     <h1>Selección de Escuelas</h1>
+                </div>
+                <div class="alert alert-info">
+                    Ordene los colegios de forma que el mas prioritario quede arriba
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="colegioAgregar" style="margin-left: 10%">Escriba el nombre del colegio que desea agregar:</label>
@@ -722,19 +725,19 @@
                     <ul ui-sortable="sortableOptions" ng-model="mainCtrl.inscripcion.cursos" class="form-group col-md-8">
                         <li ng-repeat="curso in mainCtrl.inscripcion.cursos" class="bg-info form-control colegioListItem" style="cursor:move; margin-bottom: 10px" name="curso.colegio.id">
                             <div class="truncate">{{curso.colegio.nombre}} ( {{curso.colegio.direccion}} )</div>
-                            <span class="removeCurso" ng-if="!curso.sugerido"
+                            <span class="removeCurso" ng-if="!curso.sugerido || !mainCtrl.modeValidate"
                                   ng-click="seleccionColegiosCtrl.eliminarColegioElegido(curso)"><i class="glyphicon glyphicon-remove"></i></span>
                         </li>
                     </ul>
                 </div>
             </form>
         </uib-tab>
-        <uib-tab index="5" disable="false">
+        <uib-tab index="5" disable="{{tabsDisabled}}">
             <uib-tab-heading>
                 <i class="glyphicon glyphicon-ok"></i> Resumen
             </uib-tab-heading>
             <div class="container margin-top">  
-                <h4 class="alert alert-warning">Verifique que los datos ingresados sean correctos y haga click en 'Finalizar' para enviar la preinscripción</h4>
+                <h4 class="alert alert-warning" ng-if="!mainCtrl.modeValidate">Verifique que los datos ingresados sean correctos y haga click en 'Finalizar' para enviar la preinscripción</h4>
                 <uib-accordion close-others="true">
                     <div uib-accordion-group class="panel-default" heading="Nivel" is-open="true">
                         <div class="flexCenter tableContainer">

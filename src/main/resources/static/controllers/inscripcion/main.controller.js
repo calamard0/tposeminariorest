@@ -6,6 +6,8 @@
 
             var vm = this;
         
+            $scope.tabsDisabled = true;
+        
             vm.grado = '';
             vm.inscripcion = inscripcionModelService.getModel();
             vm.siguiente = siguiente;

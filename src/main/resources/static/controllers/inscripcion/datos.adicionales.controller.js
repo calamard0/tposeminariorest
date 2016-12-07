@@ -24,7 +24,21 @@
                 vm.jardines = data.data.jardin;                
             });
         
-            function cambioDatoAdicional() {
+            function cambioDatoAdicional(datoAdicionalName) {
+                switch(datoAdicionalName) {
+                    case 'jardinAnterior':
+                        vm.hermanoEnColegio = false;
+                        vm.responsableEnColegio = false;
+                        break;
+                    case 'hermanoEnColegio':
+                        vm.jardinAnterior = false;
+                        vm.responsableEnColegio = false;
+                        break;
+                    case 'responsableEnColegio':
+                        vm.hermanoEnColegio = false;
+                        vm.jardinAnterior = false;
+                        break;
+                }
                 inscripcionModel.datosExtra = null;
             }
             
