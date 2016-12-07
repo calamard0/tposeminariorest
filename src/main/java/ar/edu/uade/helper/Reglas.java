@@ -44,7 +44,7 @@ public class Reglas {
 		if (aspirante.getDomicilio().getVilla() != null) {
 			return 10;
 		}
-		if (responsable.getDatosLaborales().isSostenFamiliar()) {
+		if (responsable.getDatosLaborales() != null && responsable.getDatosLaborales().isSostenFamiliar()) {
 			return 9;
 		}
 		return 8;
