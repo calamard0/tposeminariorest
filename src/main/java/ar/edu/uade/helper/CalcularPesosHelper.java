@@ -14,9 +14,9 @@ import ar.edu.uade.model.Vacante;
 
 public class CalcularPesosHelper {
 
-	public static float calcularPesopeso(Vacante vac, DatosExtra datosExtra, Aspirante aspirante, Responsable responsable) {
+	public static float calcularPesopeso(Colegio auxCol, Vacante vac, DatosExtra datosExtra, Aspirante aspirante, Responsable responsable) {
 		Curso auxCurso = vac.getCurso();
-		Colegio auxCol = SistemaInscripciones.getInstance().buscarColegioPorCodigoDeCurso(auxCurso.getId());
+		//Colegio auxCol = SistemaInscripciones.getInstance().buscarColegioPorCodigoDeCurso(auxCurso.getId());
 		Domicilio auxDom = aspirante.getDomicilio();
 
 		if (auxCol != null) {
