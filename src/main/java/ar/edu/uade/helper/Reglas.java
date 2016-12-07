@@ -58,15 +58,19 @@ public class Reglas {
 	}
 
 	public static float reglaOchoYNueve(Responsable responsable, String direccionCol) {
-		if (dist(direccionCol,responsable.getDatosLaborales().getDomicilio()) < 10) {
-			return 5;
+		if (responsable.getDatosLaborales() != null) {
+			if (dist(direccionCol,responsable.getDatosLaborales().getDomicilio()) < 10) {
+				return 5;
+			}
 		}
 		return 4;
 	}
 
 	public static float reglaDiezYOnce(Responsable responsable, String direccion) {
-		if (dist(direccion,responsable.getDatosLaborales().getDomicilio()) < 10) {
-			return 3;
+		if (responsable.getDatosLaborales() != null) {
+			if (dist(direccion,responsable.getDatosLaborales().getDomicilio()) < 10) {
+				return 3;
+			}
 		}
 		return 2;
 	}
